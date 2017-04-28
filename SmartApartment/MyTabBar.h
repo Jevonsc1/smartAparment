@@ -21,4 +21,5 @@
 
 @property (nonatomic,weak) id<MyTabBarDelegate> myTabBarDelegate;
 
+@property (nonatomic,strong) UIButton *middleButton;
 @end

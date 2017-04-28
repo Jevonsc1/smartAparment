@@ -30,7 +30,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.user = [AppTool find_UserData];
+    self.user = [ModelTool find_UserData];
 
     if ([self.user.memberType isEqualToString:@"master"] ) {
         self.renter.hidden = YES;

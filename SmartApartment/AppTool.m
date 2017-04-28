@@ -39,17 +39,7 @@
 }
 
 
-+(UserData *)find_UserData{
-    NSArray *dataArr = [UserData MR_findAll];
-    
-    for (UserData *data in dataArr) {
-        
-        if ([data.memberPhone isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"phone"]]) {
-            return data;
-        }
-    }
-    return [UserData MR_createEntity];
-}
+
 
 +(BOOL)checkPhoneNumInput:(NSString*)phoneNum{
     

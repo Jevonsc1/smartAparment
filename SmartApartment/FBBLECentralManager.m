@@ -29,6 +29,8 @@
 @property (strong, nonatomic) CBCentralManager   *myCentralManager;
 @property (strong, nonatomic)CBCharacteristic   *myWritableCharacteristic;
 @property (strong, nonatomic)CBCharacteristic   *myLocalIDCharacteristic;
+
+@property(nonatomic,weak)UIButton *scanButton;
 @end
 
 @implementation FBBLECentralManager
@@ -61,6 +63,11 @@
 
 # pragma mark - Private Menthos
 - (void)startScanWithButton:(UIButton *)scanButton {
+    if (!scanButton.selected) {
+        NSLog(@"并不是点击按钮进来的");
+        return;
+    }
+    
     if ([_scanTimeoutTimer isValid]) {
         return;
     }
@@ -115,20 +122,6 @@
     }
 }
 
-- (void)stopScanBLE {
-    
-    [_scanTimeoutTimer pause];
-    [_scanTimeoutTimer stop];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUD];
-    });
-    if (self.myCentralManager) {
-        
-        [self.myCentralManager stopScan];
-    }
-}
-
 - (void)disconnectForAll {
     if (_peripherals) {
         for (CBPeripheral *peripheral in _peripherals)
@@ -145,13 +138,31 @@
     [self startUpdateAccelerometer];
 }
 
+- (void)stopScanBLE {
+    
+    [_scanTimeoutTimer pause];
+    [_scanTimeoutTimer stop];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUD];
+    });
+    if (self.myCentralManager) {
+        
+        [self.myCentralManager stopScan];
+    }
+    
+    self.scanButton.selected = NO;
+}
+
+
+
 #pragma mark - centralManager Delegate
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
     if (self.myCentralManager.state == CBCentralManagerStatePoweredOn){
         if (![_scanTimeoutTimer isValid]|| !_scanTimeoutTimer) {
-            [self scan];
+            [self startScanWithButton:self.scanButton];
         }
         // 开启加速计
         [self startUpdateAccelerometer];

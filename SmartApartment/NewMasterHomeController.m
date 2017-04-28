@@ -115,7 +115,7 @@
 }
 
 -(void)initUIShow{
-    master = [AppTool find_UserData];
+    master = [ModelTool find_UserData];
     //根据 MemberType隐藏或显示租客屋主界面
     if ([master.memberType isEqualToString:@"master"]) {
         self.masterView.hidden= NO;

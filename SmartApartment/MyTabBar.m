@@ -14,7 +14,7 @@
 
 @interface MyTabBar()
 
-@property (nonatomic,strong) UIButton *middleButton;
+
 @property(nonatomic, strong) UIImageView* bgView;
 
 

@@ -17,6 +17,8 @@
 #import "ForgetPwdController.h"
 #import "UMMobClick/MobClick.h"
 #import "ResetKeyController.h"
+
+#import "AgencyTabbarController.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *userPwd;
@@ -111,7 +113,7 @@
     //修改输入框的默认文字的颜色
   
     
-   self.userData = [AppTool find_UserData];
+   self.userData = [ModelTool find_UserData];
     if (self.userData != nil) {
         self.userName.textColor = [UIColor whiteColor];
         self.userPwd.textColor = [UIColor whiteColor];
@@ -315,11 +317,6 @@
                 
                 [self dealData:_userDic];
                 
-                
-               
-                //登录：开启蓝牙服务
-//                [self initBLEManager];
-                
              
             }else{
                 if(err){
@@ -393,17 +390,17 @@
     [self saveUserMsg];
     if (agent_dic.count >0) {
         [self saveAgencyMsg];
-        //                    AgencyTabbarController *vc = [[UIStoryboard storyboardWithName:@"Agency" bundle:nil] instantiateViewControllerWithIdentifier:@"AgencyTabbar"];
-        //                    NSDictionary *agentDic = [agent_dic objectForKey:@"agent"];
-        //                    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-        //                    NSString *filePath = [path stringByAppendingPathComponent:@"agent.data"];
-        //
-        //                    // 归档
-        //                    [NSKeyedArchiver archiveRootObject:agentDic toFile:filePath];
-        //                      [MBProgressHUD hideHUDForView:self.view animated:YES];
-        //                   [self presentViewController:vc animated:YES completion:nil];
-        //
-        //                    return ;
+            AgencyTabbarController *vc = [[UIStoryboard storyboardWithName:@"Agency" bundle:nil] instantiateViewControllerWithIdentifier:@"AgencyTabbar"];
+            NSDictionary *agentDic = [agent_dic objectForKey:@"agent"];
+            NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+            NSString *filePath = [path stringByAppendingPathComponent:@"agent.data"];
+        
+                            // 归档
+            [NSKeyedArchiver archiveRootObject:agentDic toFile:filePath];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self presentViewController:vc animated:YES completion:nil];
+        
+            return ;
     }
     
     //没有选择屋主或者选择租客---第一次登录

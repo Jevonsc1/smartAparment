@@ -80,7 +80,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = NO;
-    userData = [AppTool find_UserData];
+    userData = [ModelTool find_UserData];
     self.phoneLab.text = userData.memberPhone;
 
     

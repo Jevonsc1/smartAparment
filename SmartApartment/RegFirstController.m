@@ -259,7 +259,7 @@
                     NSString  *status =[response objectForKey:@"rcode"];
                     if (!err && status.integerValue == 10000) {
                         [[NSUserDefaults standardUserDefaults] setObject:self.phoneTextField.text forKey:@"phone"];
-                         userData = [AppTool find_UserData];
+                         userData = [ModelTool find_UserData];
                         
                         userDic = [response objectForKey:@"data"];
                         

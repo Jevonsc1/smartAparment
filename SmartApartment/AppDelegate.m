@@ -93,7 +93,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-
+    [MagicalRecord cleanUp];
 }
 
 

@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     comIndex = 0;
-    user = [AppTool find_UserData];
+    user = [ModelTool find_UserData];
     renterRoomList = [NSMutableArray arrayWithCapacity:0];
     //添加一个黑色view在状态栏中
     UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, self.view.frame.size.width, 20)];

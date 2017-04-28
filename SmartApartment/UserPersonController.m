@@ -68,7 +68,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 //        [self refreshData];
-      userdata = [AppTool find_UserData];
+      userdata = [ModelTool find_UserData];
     self.phone.text = userdata.memberPhone;
     if ([userdata.memberType isEqualToString:@"notype"]) {
         self.nickName.text = userdata.memberNickName;

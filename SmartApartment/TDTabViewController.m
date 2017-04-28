@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "NewMasterHomeController.h"
 #import "FBBLECentralManager.h"
+#import "TDBLENodeTool.h"
 #define MyColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 @interface TDTabViewController () <MyTabBarDelegate,FBBLECentralManagerDelegate>
@@ -39,7 +40,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.userdata = [AppTool find_UserData];
+    self.userdata = [ModelTool find_UserData];
     if ([self.userdata.key isEqualToString:@""] || !self.userdata.key) {
         UINavigationController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginNav"];
         [self presentViewController:vc animated:YES completion:nil];
@@ -62,7 +63,7 @@
 -(void)tabbarWithMiddleButtonClick:(MyTabBar *)tabBar{
     NSLog(@"Click--Middle");
     [FBBLECentralManager shareInsatance].delegate = self;
-    [[FBBLECentralManager shareInsatance] startScanWithButton:nil];
+    [[FBBLECentralManager shareInsatance] startScanWithButton:tabBar.middleButton];
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
@@ -96,7 +97,7 @@
 
 
 -(void)fbBleCentralManagerDelegateUploadDoorRecord:(NSString *)localID{
-    
+    [[TDBLENodeTool manager]uploadDoorData:localID];
 }
 
 -(void)fbBleCentralManagerDelegateActivateRedbag{

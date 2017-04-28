@@ -20,7 +20,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    user = [AppTool find_UserData];
+    user = [ModelTool find_UserData];
     //安全承诺shu
  
 }

@@ -13,7 +13,7 @@
 @property(nonatomic,assign)BOOL barHidden;
 +(void)chooseController;
 
-+(UserData *)find_UserData;
+
 
 +(BOOL)checkPhoneNumInput:(NSString*)phoneNum;
 

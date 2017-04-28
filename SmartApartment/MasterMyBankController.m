@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     
-    userData = [AppTool find_UserData];
+    userData = [ModelTool find_UserData];
     [self.masterName setText:userData.trueName];
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key", nil];
     canSelect  =YES;

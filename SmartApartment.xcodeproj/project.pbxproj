@@ -11,6 +11,19 @@
 		2E0216E21EB0A04300C91F87 /* NSString+TDChangeTimestamp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0216E11EB0A04300C91F87 /* NSString+TDChangeTimestamp.m */; };
 		2E0216E71EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0216E41EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m */; };
 		2E0216E81EB0AA8E00C91F87 /* UnlockData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0216E61EB0AA8E00C91F87 /* UnlockData+CoreDataProperties.m */; };
+		2E0216F81EB2E22B00C91F87 /* ModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0216F71EB2E22B00C91F87 /* ModelTool.m */; };
+		2E0217061EB2EDA300C91F87 /* AgencyTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0216FB1EB2EDA300C91F87 /* AgencyTabbarController.m */; };
+		2E0217071EB2EDA300C91F87 /* AgencyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0216FD1EB2EDA300C91F87 /* AgencyNavigationController.m */; };
+		2E0217081EB2EDA300C91F87 /* AgencyPersonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0216FF1EB2EDA300C91F87 /* AgencyPersonController.m */; };
+		2E0217091EB2EDA300C91F87 /* AgencyHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217011EB2EDA300C91F87 /* AgencyHomeController.m */; };
+		2E02170A1EB2EDA300C91F87 /* BroadbandController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217031EB2EDA300C91F87 /* BroadbandController.m */; };
+		2E02170B1EB2EDA300C91F87 /* apartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217051EB2EDA300C91F87 /* apartmentCell.m */; };
+		2E0217131EB2EDC400C91F87 /* NetRoomListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02170E1EB2EDC400C91F87 /* NetRoomListController.m */; };
+		2E0217141EB2EDC400C91F87 /* TemRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217101EB2EDC400C91F87 /* TemRoomCell.m */; };
+		2E0217151EB2EDC400C91F87 /* RenterTemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217121EB2EDC400C91F87 /* RenterTemController.m */; };
+		2E0217181EB2EDD100C91F87 /* Agency.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0217161EB2EDD100C91F87 /* Agency.storyboard */; };
+		2E0217191EB2EDD100C91F87 /* message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0217171EB2EDD100C91F87 /* message.storyboard */; };
+		2E02171C1EB2F11200C91F87 /* TimeDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02171B1EB2F11200C91F87 /* TimeDate.m */; };
 		2E3AC7A81EA9AB9100A22E66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7A71EA9AB9100A22E66 /* main.m */; };
 		2E3AC7AB1EA9AB9100A22E66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AA1EA9AB9100A22E66 /* AppDelegate.m */; };
 		2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AD1EA9AB9100A22E66 /* ViewController.m */; };
@@ -91,6 +104,30 @@
 		2E0216E41EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UnlockData+CoreDataClass.m"; sourceTree = "<group>"; };
 		2E0216E51EB0AA8E00C91F87 /* UnlockData+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnlockData+CoreDataProperties.h"; sourceTree = "<group>"; };
 		2E0216E61EB0AA8E00C91F87 /* UnlockData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UnlockData+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2E0216F61EB2E22B00C91F87 /* ModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelTool.h; sourceTree = "<group>"; };
+		2E0216F71EB2E22B00C91F87 /* ModelTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTool.m; sourceTree = "<group>"; };
+		2E0216FA1EB2EDA300C91F87 /* AgencyTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyTabbarController.h; sourceTree = "<group>"; };
+		2E0216FB1EB2EDA300C91F87 /* AgencyTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyTabbarController.m; sourceTree = "<group>"; };
+		2E0216FC1EB2EDA300C91F87 /* AgencyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyNavigationController.h; sourceTree = "<group>"; };
+		2E0216FD1EB2EDA300C91F87 /* AgencyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyNavigationController.m; sourceTree = "<group>"; };
+		2E0216FE1EB2EDA300C91F87 /* AgencyPersonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyPersonController.h; sourceTree = "<group>"; };
+		2E0216FF1EB2EDA300C91F87 /* AgencyPersonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyPersonController.m; sourceTree = "<group>"; };
+		2E0217001EB2EDA300C91F87 /* AgencyHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyHomeController.h; sourceTree = "<group>"; };
+		2E0217011EB2EDA300C91F87 /* AgencyHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyHomeController.m; sourceTree = "<group>"; };
+		2E0217021EB2EDA300C91F87 /* BroadbandController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadbandController.h; sourceTree = "<group>"; };
+		2E0217031EB2EDA300C91F87 /* BroadbandController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BroadbandController.m; sourceTree = "<group>"; };
+		2E0217041EB2EDA300C91F87 /* apartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apartmentCell.h; sourceTree = "<group>"; };
+		2E0217051EB2EDA300C91F87 /* apartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = apartmentCell.m; sourceTree = "<group>"; };
+		2E02170D1EB2EDC400C91F87 /* NetRoomListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRoomListController.h; sourceTree = "<group>"; };
+		2E02170E1EB2EDC400C91F87 /* NetRoomListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetRoomListController.m; sourceTree = "<group>"; };
+		2E02170F1EB2EDC400C91F87 /* TemRoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemRoomCell.h; sourceTree = "<group>"; };
+		2E0217101EB2EDC400C91F87 /* TemRoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemRoomCell.m; sourceTree = "<group>"; };
+		2E0217111EB2EDC400C91F87 /* RenterTemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenterTemController.h; sourceTree = "<group>"; };
+		2E0217121EB2EDC400C91F87 /* RenterTemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenterTemController.m; sourceTree = "<group>"; };
+		2E0217161EB2EDD100C91F87 /* Agency.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Agency.storyboard; sourceTree = "<group>"; };
+		2E0217171EB2EDD100C91F87 /* message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = message.storyboard; sourceTree = "<group>"; };
+		2E02171A1EB2F11200C91F87 /* TimeDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeDate.h; sourceTree = "<group>"; };
+		2E02171B1EB2F11200C91F87 /* TimeDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeDate.m; sourceTree = "<group>"; };
 		2E3AC7A31EA9AB9100A22E66 /* SmartApartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartApartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3AC7A71EA9AB9100A22E66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2E3AC7A91EA9AB9100A22E66 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -224,6 +261,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E0216F91EB2ED7600C91F87 /* Agency */ = {
+			isa = PBXGroup;
+			children = (
+				2E02170C1EB2EDAD00C91F87 /* Apartment */,
+				2E0216FA1EB2EDA300C91F87 /* AgencyTabbarController.h */,
+				2E0216FB1EB2EDA300C91F87 /* AgencyTabbarController.m */,
+				2E0216FC1EB2EDA300C91F87 /* AgencyNavigationController.h */,
+				2E0216FD1EB2EDA300C91F87 /* AgencyNavigationController.m */,
+				2E0216FE1EB2EDA300C91F87 /* AgencyPersonController.h */,
+				2E0216FF1EB2EDA300C91F87 /* AgencyPersonController.m */,
+				2E0217001EB2EDA300C91F87 /* AgencyHomeController.h */,
+				2E0217011EB2EDA300C91F87 /* AgencyHomeController.m */,
+				2E0217021EB2EDA300C91F87 /* BroadbandController.h */,
+				2E0217031EB2EDA300C91F87 /* BroadbandController.m */,
+				2E0217041EB2EDA300C91F87 /* apartmentCell.h */,
+				2E0217051EB2EDA300C91F87 /* apartmentCell.m */,
+				2E0217161EB2EDD100C91F87 /* Agency.storyboard */,
+				2E0217171EB2EDD100C91F87 /* message.storyboard */,
+			);
+			name = Agency;
+			sourceTree = "<group>";
+		};
+		2E02170C1EB2EDAD00C91F87 /* Apartment */ = {
+			isa = PBXGroup;
+			children = (
+				2E02170D1EB2EDC400C91F87 /* NetRoomListController.h */,
+				2E02170E1EB2EDC400C91F87 /* NetRoomListController.m */,
+				2E02170F1EB2EDC400C91F87 /* TemRoomCell.h */,
+				2E0217101EB2EDC400C91F87 /* TemRoomCell.m */,
+				2E0217111EB2EDC400C91F87 /* RenterTemController.h */,
+				2E0217121EB2EDC400C91F87 /* RenterTemController.m */,
+			);
+			name = Apartment;
+			sourceTree = "<group>";
+		};
 		2E3AC79A1EA9AB9100A22E66 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +321,7 @@
 		2E3AC7A51EA9AB9100A22E66 /* SmartApartment */ = {
 			isa = PBXGroup;
 			children = (
+				2E0216F91EB2ED7600C91F87 /* Agency */,
 				2E3AC9321EAEE43600A22E66 /* Home&Person */,
 				2E3AC84E1EAB2B5F00A22E66 /* Login&Regist */,
 				2E3AC7F91EAA011600A22E66 /* Newfeature */,
@@ -321,17 +394,17 @@
 		2E3AC7DD1EA9ABC200A22E66 /* OpenDoor */ = {
 			isa = PBXGroup;
 			children = (
-				2E3AC9611EAF415A00A22E66 /* FBType.h */,
-				2E3AC9621EAF415A00A22E66 /* FBTimeData.h */,
-				2E3AC9631EAF415A00A22E66 /* FBTimeData.m */,
 				2E3AC9641EAF415A00A22E66 /* FBBLECentralManager.h */,
 				2E3AC9651EAF415A00A22E66 /* FBBLECentralManager.m */,
-				2E3AC9661EAF415A00A22E66 /* FBBLEFileHandle.h */,
-				2E3AC9671EAF415A00A22E66 /* FBBLEFileHandle.m */,
 				2E3AC9681EAF415A00A22E66 /* FBBLETransfer.h */,
 				2E3AC9691EAF415A00A22E66 /* FBBLETransfer.m */,
 				2E3AC96A1EAF415A00A22E66 /* TDBLENodeTool.h */,
 				2E3AC96B1EAF415A00A22E66 /* TDBLENodeTool.m */,
+				2E3AC9611EAF415A00A22E66 /* FBType.h */,
+				2E3AC9621EAF415A00A22E66 /* FBTimeData.h */,
+				2E3AC9631EAF415A00A22E66 /* FBTimeData.m */,
+				2E3AC9661EAF415A00A22E66 /* FBBLEFileHandle.h */,
+				2E3AC9671EAF415A00A22E66 /* FBBLEFileHandle.m */,
 				2E3AC96C1EAF415A00A22E66 /* TDBLEUnlockDataMode.h */,
 				2E3AC96D1EAF415A00A22E66 /* TDBLEUnlockDataMode.m */,
 			);
@@ -341,6 +414,8 @@
 		2E3AC7DF1EA9D4B000A22E66 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				2E02171A1EB2F11200C91F87 /* TimeDate.h */,
+				2E02171B1EB2F11200C91F87 /* TimeDate.m */,
 				2E3AC87C1EAB33EA00A22E66 /* Alert.h */,
 				2E3AC87D1EAB33EA00A22E66 /* Alert.m */,
 				2E3AC86C1EAB32C000A22E66 /* http */,
@@ -348,6 +423,8 @@
 				2E3AC7F51EAA00B100A22E66 /* AppTool.m */,
 				2E3AC7E11EA9D4DD00A22E66 /* 3rd_Lib */,
 				2E3AC7E01EA9D4C300A22E66 /* Category */,
+				2E0216F61EB2E22B00C91F87 /* ModelTool.h */,
+				2E0216F71EB2E22B00C91F87 /* ModelTool.m */,
 			);
 			name = Tool;
 			sourceTree = "<group>";
@@ -598,10 +675,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E3AC9341EAEED0000A22E66 /* UserHome.storyboard in Resources */,
+				2E0217191EB2EDD100C91F87 /* message.storyboard in Resources */,
 				2E3AC7B91EA9AB9100A22E66 /* LaunchScreen.storyboard in Resources */,
 				2E3AC8501EAB2C9700A22E66 /* Login.storyboard in Resources */,
 				2E3AC7B61EA9AB9100A22E66 /* Assets.xcassets in Resources */,
 				2E3AC7B11EA9AB9100A22E66 /* Main.storyboard in Resources */,
+				2E0217181EB2EDD100C91F87 /* Agency.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,21 +753,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E0217141EB2EDC400C91F87 /* TemRoomCell.m in Sources */,
+				2E02171C1EB2F11200C91F87 /* TimeDate.m in Sources */,
 				2E3AC9501EAF18E400A22E66 /* UserPersonController.m in Sources */,
 				2E3AC90C1EADCFC000A22E66 /* TDTabViewController.m in Sources */,
 				2E3AC9481EAEEFC200A22E66 /* ContractListController.m in Sources */,
 				2E3AC7FC1EAA012F00A22E66 /* NewFeatureViewController.m in Sources */,
 				2E3AC8621EAB300900A22E66 /* ResetKeyController.m in Sources */,
+				2E02170A1EB2EDA300C91F87 /* BroadbandController.m in Sources */,
 				2E3AC7F61EAA00B100A22E66 /* AppTool.m in Sources */,
 				2E3AC9561EAF32DE00A22E66 /* BankCard.m in Sources */,
 				2E3AC8781EAB32D400A22E66 /* WebAPI.m in Sources */,
 				2E3AC87A1EAB32D400A22E66 /* WebAPIForBroadband.m in Sources */,
+				2E0217071EB2EDA300C91F87 /* AgencyNavigationController.m in Sources */,
 				2E3AC8651EAB303500A22E66 /* RegFirstController.m in Sources */,
 				2E3AC90D1EADCFC000A22E66 /* MyTabBar.m in Sources */,
 				2E3AC87E1EAB33EA00A22E66 /* Alert.m in Sources */,
+				2E0217131EB2EDC400C91F87 /* NetRoomListController.m in Sources */,
 				2E3AC8791EAB32D400A22E66 /* WebAPIForRenthouse.m in Sources */,
 				2E3AC8611EAB300900A22E66 /* ForgetPwdController.m in Sources */,
 				2E3AC8531EAB2FD600A22E66 /* LoginViewController.m in Sources */,
+				2E0216F81EB2E22B00C91F87 /* ModelTool.m in Sources */,
 				2E3AC82F1EAB255A00A22E66 /* UserDataModel.xcdatamodeld in Sources */,
 				2E0216DF1EB0871100C91F87 /* MBProgressHUD+MJ.m in Sources */,
 				2E3AC8601EAB300900A22E66 /* SetNewPwdController.m in Sources */,
@@ -696,14 +781,17 @@
 				2E3AC9471EAEEFC200A22E66 /* MasterContractController.m in Sources */,
 				2E3AC9461EAEEFC200A22E66 /* SelectPersonController.m in Sources */,
 				2E3AC95C1EAF35D000A22E66 /* User.m in Sources */,
+				2E02170B1EB2EDA300C91F87 /* apartmentCell.m in Sources */,
 				2E3AC94D1EAEF22300A22E66 /* BBImagebaseTableVC.m in Sources */,
 				2E3AC87B1EAB32D400A22E66 /* WebAPIForMyDoorCard.m in Sources */,
 				2E3AC9451EAEEFC200A22E66 /* MasterPersonController.m in Sources */,
+				2E0217061EB2EDA300C91F87 /* AgencyTabbarController.m in Sources */,
 				2E3AC86B1EAB30C800A22E66 /* UserData+CoreDataProperties.m in Sources */,
 				2E3AC7E71EA9EEF300A22E66 /* UIView+TDExtension.m in Sources */,
 				2E3AC8771EAB32D400A22E66 /* HTTPRequest.m in Sources */,
 				2E3AC9591EAF33DF00A22E66 /* MasterInfo.m in Sources */,
 				2E3AC9491EAEEFC200A22E66 /* MasterMyBankController.m in Sources */,
+				2E0217091EB2EDA300C91F87 /* AgencyHomeController.m in Sources */,
 				2E3AC9701EAF415A00A22E66 /* FBBLEFileHandle.m in Sources */,
 				2E0216E71EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m in Sources */,
 				2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */,
@@ -714,7 +802,9 @@
 				2E3AC96E1EAF415A00A22E66 /* FBTimeData.m in Sources */,
 				2E3AC9711EAF415A00A22E66 /* FBBLETransfer.m in Sources */,
 				2E3AC96F1EAF415A00A22E66 /* FBBLECentralManager.m in Sources */,
+				2E0217081EB2EDA300C91F87 /* AgencyPersonController.m in Sources */,
 				2E3AC9731EAF415A00A22E66 /* TDBLEUnlockDataMode.m in Sources */,
+				2E0217151EB2EDC400C91F87 /* RenterTemController.m in Sources */,
 				2E3AC7AB1EA9AB9100A22E66 /* AppDelegate.m in Sources */,
 				2E3AC7A81EA9AB9100A22E66 /* main.m in Sources */,
 				2E3AC86A1EAB30C800A22E66 /* UserData+CoreDataClass.m in Sources */,
