@@ -20,7 +20,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[tableviewExtern shareInsatance]setExtraCellLineHidden:self.tableView];
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.tableFooterView.backgroundColor = [UIColor clearColor];
     
 }
 -(void)viewWillAppear:(BOOL)animated{

@@ -19,7 +19,7 @@
 //#import "CheckMessageController.h"
 //#import "DoorOpenController.h"
 //#import "SelectIDMsgController.h"
-//#import "GetRoomListController.h"
+#import "GetRoomListController.h"
 //#import "MasterSelfController.h"
 //#import "MasterIDPassController.h"
 //#import "RenterIDPassController.h"
@@ -157,42 +157,7 @@
 }
 
 
-#pragma mark - 首页开启蓝牙服务
-//- (void)initBLEManager{
-//    //FIXME:TODO
-//    //权限
-//    //    NSString *phoneNum = homeMaster.key;
-//    //    if (phoneNum.length==0) {
-//    //        return;
-//    //    }else{
-//    self.bleCentralManager = [FBBLECentralManager shareInsatance];
-//    self.bleCentralManager.delegate=self;
-//    [UIApplication sharedApplication].applicationSupportsShakeToEdit = NO;
-//    [self.bleCentralManager startCentralManagerService];
-//    //    }
-//}
--(void)fbBleCentralManagerDelegateShowMessage:(NSString *)message{
-    [self ShowBLMessage:message];
-}
-# pragma mark - 开门成功 代理 上传开门记录
--(void)fbBleCentralManagerDelegateUploadDoorRecord:(NSString *)localID{
-//    [[TDBLENodeTool manager]uploadDoorData:localID];
-}
 
-# pragma mark - 开门成功 代理 提示没有打开蓝牙
-- (void)showAlert{
-    self.alertController = [UIAlertController alertControllerWithTitle:@"请打开蓝牙并允许智慧公寓使用您的蓝牙" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    
-    [self.alertController addAction:cancelAction];
-    
-    [self presentViewController:self.alertController animated:YES completion:^{
-        
-    }];
-}
 
 -(void)viewWillDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:NO] ;
@@ -206,12 +171,7 @@
 //创建scrollivew
 -(void)initBannerScroll{
     NSLog(@"创建滚动栏");
-    //    NSArray *images = @[@"banner1.jpg",@"banner2.jpg",@"banner3.jpg"];
-    //    CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, self.bannerView.height * ratio );
-    //    YKLoopView *loopView = [[YKLoopView alloc] initWithFrame:frame images:images autoPlay:YES delay:3.0];
-    //    loopView.delegate = self;
-    //
-    //    [self.bannerView addSubview:loopView];
+
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"banner"]];
     [image setFrame:CGRectMake(0, 0, self.view.width, self.bannerView.height *ratio)];
     [self.bannerView addSubview:image];
@@ -265,9 +225,10 @@
 //点击在线签约
 - (IBAction)clickToSign:(id)sender {
     if ([master.memberType isEqualToString:@"master"]) {
-        self.tabBarController.tabBar.hidden = YES;
-//        GetRoomListController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"GetRoomList"];
-//        [self.navigationController pushViewController:vc animated:YES];
+     
+        GetRoomListController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"GetRoomList"];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
         
     }

@@ -24,6 +24,34 @@
 		2E0217181EB2EDD100C91F87 /* Agency.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0217161EB2EDD100C91F87 /* Agency.storyboard */; };
 		2E0217191EB2EDD100C91F87 /* message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E0217171EB2EDD100C91F87 /* message.storyboard */; };
 		2E02171C1EB2F11200C91F87 /* TimeDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02171B1EB2F11200C91F87 /* TimeDate.m */; };
+		2E0217331EB30D9700C91F87 /* GetRoomListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217201EB30D9700C91F87 /* GetRoomListController.m */; };
+		2E0217341EB30D9700C91F87 /* NewSignRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217221EB30D9700C91F87 /* NewSignRoomController.m */; };
+		2E0217351EB30D9700C91F87 /* SelectRentDateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217241EB30D9700C91F87 /* SelectRentDateController.m */; };
+		2E0217361EB30D9700C91F87 /* SelectRentMonthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217261EB30D9700C91F87 /* SelectRentMonthController.m */; };
+		2E0217371EB30D9700C91F87 /* SignRoomOKController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217281EB30D9700C91F87 /* SignRoomOKController.m */; };
+		2E0217381EB30D9700C91F87 /* CheckSignRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02172A1EB30D9700C91F87 /* CheckSignRoomController.m */; };
+		2E0217391EB30D9700C91F87 /* NewAddRenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02172C1EB30D9700C91F87 /* NewAddRenterController.m */; };
+		2E02173A1EB30D9700C91F87 /* AddRenterResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02172E1EB30D9700C91F87 /* AddRenterResultController.m */; };
+		2E02173B1EB30D9700C91F87 /* RenterAddPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217301EB30D9700C91F87 /* RenterAddPhoneController.m */; };
+		2E02173C1EB30D9700C91F87 /* CheckIDCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217321EB30D9700C91F87 /* CheckIDCardController.m */; };
+		2E02173E1EB30DB000C91F87 /* SignRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E02173D1EB30DB000C91F87 /* SignRoom.storyboard */; };
+		2E0217411EB30DEA00C91F87 /* RoomStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217401EB30DEA00C91F87 /* RoomStatusCell.m */; };
+		2E0217501EB30DF700C91F87 /* RenterPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217431EB30DF700C91F87 /* RenterPhoneCell.m */; };
+		2E0217511EB30DF700C91F87 /* AlertCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217451EB30DF700C91F87 /* AlertCell.m */; };
+		2E0217521EB30DF700C91F87 /* RenterNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217471EB30DF700C91F87 /* RenterNameCell.m */; };
+		2E0217531EB30DF700C91F87 /* RoomOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217491EB30DF700C91F87 /* RoomOtherCell.m */; };
+		2E0217541EB30DF700C91F87 /* RenterIDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02174B1EB30DF700C91F87 /* RenterIDCell.m */; };
+		2E0217551EB30DF700C91F87 /* CheckDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02174D1EB30DF700C91F87 /* CheckDetailCell.m */; };
+		2E0217561EB30DF700C91F87 /* IDCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02174F1EB30DF700C91F87 /* IDCardCell.m */; };
+		2E02175B1EB31C3500C91F87 /* PopHome.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02175A1EB31C3500C91F87 /* PopHome.m */; };
+		2E0217601EB31C8A00C91F87 /* NSDate+HooDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02175D1EB31C8A00C91F87 /* NSDate+HooDatePicker.m */; };
+		2E0217611EB31C8A00C91F87 /* HooDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02175F1EB31C8A00C91F87 /* HooDatePicker.m */; };
+		2E0217641EB31CC300C91F87 /* renterUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217631EB31CC300C91F87 /* renterUserCell.m */; };
+		2E0217681EB32A7C00C91F87 /* House.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217671EB32A7C00C91F87 /* House.m */; };
+		2E02176B1EB3313500C91F87 /* Community.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02176A1EB3313500C91F87 /* Community.m */; };
+		2E02176E1EB3347400C91F87 /* CommunityRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02176D1EB3347400C91F87 /* CommunityRelation.m */; };
+		2E0217711EB334EE00C91F87 /* Rent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217701EB334EE00C91F87 /* Rent.m */; };
+		2E0217741EB3375800C91F87 /* Renter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217731EB3375800C91F87 /* Renter.m */; };
 		2E3AC7A81EA9AB9100A22E66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7A71EA9AB9100A22E66 /* main.m */; };
 		2E3AC7AB1EA9AB9100A22E66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AA1EA9AB9100A22E66 /* AppDelegate.m */; };
 		2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AD1EA9AB9100A22E66 /* ViewController.m */; };
@@ -128,6 +156,63 @@
 		2E0217171EB2EDD100C91F87 /* message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = message.storyboard; sourceTree = "<group>"; };
 		2E02171A1EB2F11200C91F87 /* TimeDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeDate.h; sourceTree = "<group>"; };
 		2E02171B1EB2F11200C91F87 /* TimeDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeDate.m; sourceTree = "<group>"; };
+		2E02171F1EB30D9700C91F87 /* GetRoomListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRoomListController.h; sourceTree = "<group>"; };
+		2E0217201EB30D9700C91F87 /* GetRoomListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRoomListController.m; sourceTree = "<group>"; };
+		2E0217211EB30D9700C91F87 /* NewSignRoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSignRoomController.h; sourceTree = "<group>"; };
+		2E0217221EB30D9700C91F87 /* NewSignRoomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSignRoomController.m; sourceTree = "<group>"; };
+		2E0217231EB30D9700C91F87 /* SelectRentDateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectRentDateController.h; sourceTree = "<group>"; };
+		2E0217241EB30D9700C91F87 /* SelectRentDateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectRentDateController.m; sourceTree = "<group>"; };
+		2E0217251EB30D9700C91F87 /* SelectRentMonthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectRentMonthController.h; sourceTree = "<group>"; };
+		2E0217261EB30D9700C91F87 /* SelectRentMonthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectRentMonthController.m; sourceTree = "<group>"; };
+		2E0217271EB30D9700C91F87 /* SignRoomOKController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignRoomOKController.h; sourceTree = "<group>"; };
+		2E0217281EB30D9700C91F87 /* SignRoomOKController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignRoomOKController.m; sourceTree = "<group>"; };
+		2E0217291EB30D9700C91F87 /* CheckSignRoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckSignRoomController.h; sourceTree = "<group>"; };
+		2E02172A1EB30D9700C91F87 /* CheckSignRoomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckSignRoomController.m; sourceTree = "<group>"; };
+		2E02172B1EB30D9700C91F87 /* NewAddRenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAddRenterController.h; sourceTree = "<group>"; };
+		2E02172C1EB30D9700C91F87 /* NewAddRenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAddRenterController.m; sourceTree = "<group>"; };
+		2E02172D1EB30D9700C91F87 /* AddRenterResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRenterResultController.h; sourceTree = "<group>"; };
+		2E02172E1EB30D9700C91F87 /* AddRenterResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRenterResultController.m; sourceTree = "<group>"; };
+		2E02172F1EB30D9700C91F87 /* RenterAddPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenterAddPhoneController.h; sourceTree = "<group>"; };
+		2E0217301EB30D9700C91F87 /* RenterAddPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenterAddPhoneController.m; sourceTree = "<group>"; };
+		2E0217311EB30D9700C91F87 /* CheckIDCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckIDCardController.h; sourceTree = "<group>"; };
+		2E0217321EB30D9700C91F87 /* CheckIDCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckIDCardController.m; sourceTree = "<group>"; };
+		2E02173D1EB30DB000C91F87 /* SignRoom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignRoom.storyboard; sourceTree = "<group>"; };
+		2E02173F1EB30DEA00C91F87 /* RoomStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomStatusCell.h; sourceTree = "<group>"; };
+		2E0217401EB30DEA00C91F87 /* RoomStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomStatusCell.m; sourceTree = "<group>"; };
+		2E0217421EB30DF700C91F87 /* RenterPhoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenterPhoneCell.h; sourceTree = "<group>"; };
+		2E0217431EB30DF700C91F87 /* RenterPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenterPhoneCell.m; sourceTree = "<group>"; };
+		2E0217441EB30DF700C91F87 /* AlertCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertCell.h; sourceTree = "<group>"; };
+		2E0217451EB30DF700C91F87 /* AlertCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertCell.m; sourceTree = "<group>"; };
+		2E0217461EB30DF700C91F87 /* RenterNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenterNameCell.h; sourceTree = "<group>"; };
+		2E0217471EB30DF700C91F87 /* RenterNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenterNameCell.m; sourceTree = "<group>"; };
+		2E0217481EB30DF700C91F87 /* RoomOtherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomOtherCell.h; sourceTree = "<group>"; };
+		2E0217491EB30DF700C91F87 /* RoomOtherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomOtherCell.m; sourceTree = "<group>"; };
+		2E02174A1EB30DF700C91F87 /* RenterIDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenterIDCell.h; sourceTree = "<group>"; };
+		2E02174B1EB30DF700C91F87 /* RenterIDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenterIDCell.m; sourceTree = "<group>"; };
+		2E02174C1EB30DF700C91F87 /* CheckDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckDetailCell.h; sourceTree = "<group>"; };
+		2E02174D1EB30DF700C91F87 /* CheckDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckDetailCell.m; sourceTree = "<group>"; };
+		2E02174E1EB30DF700C91F87 /* IDCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardCell.h; sourceTree = "<group>"; };
+		2E02174F1EB30DF700C91F87 /* IDCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardCell.m; sourceTree = "<group>"; };
+		2E0217571EB3184400C91F87 /* MyDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDelegate.h; sourceTree = "<group>"; };
+		2E0217581EB3184400C91F87 /* MyDelegateDic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDelegateDic.h; sourceTree = "<group>"; };
+		2E0217591EB31C3500C91F87 /* PopHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopHome.h; sourceTree = "<group>"; };
+		2E02175A1EB31C3500C91F87 /* PopHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopHome.m; sourceTree = "<group>"; };
+		2E02175C1EB31C8A00C91F87 /* NSDate+HooDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HooDatePicker.h"; sourceTree = "<group>"; };
+		2E02175D1EB31C8A00C91F87 /* NSDate+HooDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HooDatePicker.m"; sourceTree = "<group>"; };
+		2E02175E1EB31C8A00C91F87 /* HooDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HooDatePicker.h; sourceTree = "<group>"; };
+		2E02175F1EB31C8A00C91F87 /* HooDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HooDatePicker.m; sourceTree = "<group>"; };
+		2E0217621EB31CC300C91F87 /* renterUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renterUserCell.h; sourceTree = "<group>"; };
+		2E0217631EB31CC300C91F87 /* renterUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = renterUserCell.m; sourceTree = "<group>"; };
+		2E0217661EB32A7C00C91F87 /* House.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = House.h; sourceTree = "<group>"; };
+		2E0217671EB32A7C00C91F87 /* House.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = House.m; sourceTree = "<group>"; };
+		2E0217691EB3313500C91F87 /* Community.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Community.h; sourceTree = "<group>"; };
+		2E02176A1EB3313500C91F87 /* Community.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Community.m; sourceTree = "<group>"; };
+		2E02176C1EB3347400C91F87 /* CommunityRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityRelation.h; sourceTree = "<group>"; };
+		2E02176D1EB3347400C91F87 /* CommunityRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityRelation.m; sourceTree = "<group>"; };
+		2E02176F1EB334EE00C91F87 /* Rent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rent.h; sourceTree = "<group>"; };
+		2E0217701EB334EE00C91F87 /* Rent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rent.m; sourceTree = "<group>"; };
+		2E0217721EB3375800C91F87 /* Renter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renter.h; sourceTree = "<group>"; };
+		2E0217731EB3375800C91F87 /* Renter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renter.m; sourceTree = "<group>"; };
 		2E3AC7A31EA9AB9100A22E66 /* SmartApartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartApartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3AC7A71EA9AB9100A22E66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2E3AC7A91EA9AB9100A22E66 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -296,6 +381,76 @@
 			name = Apartment;
 			sourceTree = "<group>";
 		};
+		2E02171D1EB2F55B00C91F87 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2E3AC9351EAEEF1200A22E66 /* NewMasterHomeController.h */,
+				2E3AC9361EAEEF1200A22E66 /* NewMasterHomeController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		2E02171E1EB30D1500C91F87 /* 在线签约 */ = {
+			isa = PBXGroup;
+			children = (
+				2E0217421EB30DF700C91F87 /* RenterPhoneCell.h */,
+				2E0217431EB30DF700C91F87 /* RenterPhoneCell.m */,
+				2E0217441EB30DF700C91F87 /* AlertCell.h */,
+				2E0217451EB30DF700C91F87 /* AlertCell.m */,
+				2E0217461EB30DF700C91F87 /* RenterNameCell.h */,
+				2E0217471EB30DF700C91F87 /* RenterNameCell.m */,
+				2E0217481EB30DF700C91F87 /* RoomOtherCell.h */,
+				2E0217491EB30DF700C91F87 /* RoomOtherCell.m */,
+				2E02174A1EB30DF700C91F87 /* RenterIDCell.h */,
+				2E02174B1EB30DF700C91F87 /* RenterIDCell.m */,
+				2E02174C1EB30DF700C91F87 /* CheckDetailCell.h */,
+				2E02174D1EB30DF700C91F87 /* CheckDetailCell.m */,
+				2E02174E1EB30DF700C91F87 /* IDCardCell.h */,
+				2E02174F1EB30DF700C91F87 /* IDCardCell.m */,
+				2E02173F1EB30DEA00C91F87 /* RoomStatusCell.h */,
+				2E0217401EB30DEA00C91F87 /* RoomStatusCell.m */,
+				2E02171F1EB30D9700C91F87 /* GetRoomListController.h */,
+				2E0217201EB30D9700C91F87 /* GetRoomListController.m */,
+				2E0217211EB30D9700C91F87 /* NewSignRoomController.h */,
+				2E0217221EB30D9700C91F87 /* NewSignRoomController.m */,
+				2E0217231EB30D9700C91F87 /* SelectRentDateController.h */,
+				2E0217241EB30D9700C91F87 /* SelectRentDateController.m */,
+				2E0217251EB30D9700C91F87 /* SelectRentMonthController.h */,
+				2E0217261EB30D9700C91F87 /* SelectRentMonthController.m */,
+				2E0217271EB30D9700C91F87 /* SignRoomOKController.h */,
+				2E0217281EB30D9700C91F87 /* SignRoomOKController.m */,
+				2E0217291EB30D9700C91F87 /* CheckSignRoomController.h */,
+				2E02172A1EB30D9700C91F87 /* CheckSignRoomController.m */,
+				2E02172B1EB30D9700C91F87 /* NewAddRenterController.h */,
+				2E02172C1EB30D9700C91F87 /* NewAddRenterController.m */,
+				2E02172D1EB30D9700C91F87 /* AddRenterResultController.h */,
+				2E02172E1EB30D9700C91F87 /* AddRenterResultController.m */,
+				2E02172F1EB30D9700C91F87 /* RenterAddPhoneController.h */,
+				2E0217301EB30D9700C91F87 /* RenterAddPhoneController.m */,
+				2E0217311EB30D9700C91F87 /* CheckIDCardController.h */,
+				2E0217321EB30D9700C91F87 /* CheckIDCardController.m */,
+				2E02173D1EB30DB000C91F87 /* SignRoom.storyboard */,
+			);
+			name = "在线签约";
+			sourceTree = "<group>";
+		};
+		2E0217651EB32A3500C91F87 /* 公寓 */ = {
+			isa = PBXGroup;
+			children = (
+				2E0217661EB32A7C00C91F87 /* House.h */,
+				2E0217671EB32A7C00C91F87 /* House.m */,
+				2E0217691EB3313500C91F87 /* Community.h */,
+				2E02176A1EB3313500C91F87 /* Community.m */,
+				2E02176C1EB3347400C91F87 /* CommunityRelation.h */,
+				2E02176D1EB3347400C91F87 /* CommunityRelation.m */,
+				2E02176F1EB334EE00C91F87 /* Rent.h */,
+				2E0217701EB334EE00C91F87 /* Rent.m */,
+				2E0217721EB3375800C91F87 /* Renter.h */,
+				2E0217731EB3375800C91F87 /* Renter.m */,
+			);
+			name = "公寓";
+			sourceTree = "<group>";
+		};
 		2E3AC79A1EA9AB9100A22E66 = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +476,17 @@
 		2E3AC7A51EA9AB9100A22E66 /* SmartApartment */ = {
 			isa = PBXGroup;
 			children = (
+				2E0217571EB3184400C91F87 /* MyDelegate.h */,
+				2E0217581EB3184400C91F87 /* MyDelegateDic.h */,
+				2E0217591EB31C3500C91F87 /* PopHome.h */,
+				2E02175A1EB31C3500C91F87 /* PopHome.m */,
+				2E02175C1EB31C8A00C91F87 /* NSDate+HooDatePicker.h */,
+				2E02175D1EB31C8A00C91F87 /* NSDate+HooDatePicker.m */,
+				2E02175E1EB31C8A00C91F87 /* HooDatePicker.h */,
+				2E02175F1EB31C8A00C91F87 /* HooDatePicker.m */,
+				2E0217621EB31CC300C91F87 /* renterUserCell.h */,
+				2E0217631EB31CC300C91F87 /* renterUserCell.m */,
+				2E02171E1EB30D1500C91F87 /* 在线签约 */,
 				2E0216F91EB2ED7600C91F87 /* Agency */,
 				2E3AC9321EAEE43600A22E66 /* Home&Person */,
 				2E3AC84E1EAB2B5F00A22E66 /* Login&Regist */,
@@ -372,6 +538,7 @@
 		2E3AC7DC1EA9ABA300A22E66 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E0217651EB32A3500C91F87 /* 公寓 */,
 				2E0216E31EB0AA8E00C91F87 /* UnlockData+CoreDataClass.h */,
 				2E0216E41EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m */,
 				2E0216E51EB0AA8E00C91F87 /* UnlockData+CoreDataProperties.h */,
@@ -513,9 +680,8 @@
 		2E3AC9321EAEE43600A22E66 /* Home&Person */ = {
 			isa = PBXGroup;
 			children = (
+				2E02171D1EB2F55B00C91F87 /* Home */,
 				2E3AC9381EAEEF9700A22E66 /* Person */,
-				2E3AC9351EAEEF1200A22E66 /* NewMasterHomeController.h */,
-				2E3AC9361EAEEF1200A22E66 /* NewMasterHomeController.m */,
 				2E3AC9331EAEED0000A22E66 /* UserHome.storyboard */,
 			);
 			name = "Home&Person";
@@ -674,6 +840,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E02173E1EB30DB000C91F87 /* SignRoom.storyboard in Resources */,
 				2E3AC9341EAEED0000A22E66 /* UserHome.storyboard in Resources */,
 				2E0217191EB2EDD100C91F87 /* message.storyboard in Resources */,
 				2E3AC7B91EA9AB9100A22E66 /* LaunchScreen.storyboard in Resources */,
@@ -753,6 +920,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E0217601EB31C8A00C91F87 /* NSDate+HooDatePicker.m in Sources */,
+				2E0217381EB30D9700C91F87 /* CheckSignRoomController.m in Sources */,
 				2E0217141EB2EDC400C91F87 /* TemRoomCell.m in Sources */,
 				2E02171C1EB2F11200C91F87 /* TimeDate.m in Sources */,
 				2E3AC9501EAF18E400A22E66 /* UserPersonController.m in Sources */,
@@ -772,31 +941,50 @@
 				2E0217131EB2EDC400C91F87 /* NetRoomListController.m in Sources */,
 				2E3AC8791EAB32D400A22E66 /* WebAPIForRenthouse.m in Sources */,
 				2E3AC8611EAB300900A22E66 /* ForgetPwdController.m in Sources */,
+				2E02173B1EB30D9700C91F87 /* RenterAddPhoneController.m in Sources */,
+				2E0217341EB30D9700C91F87 /* NewSignRoomController.m in Sources */,
 				2E3AC8531EAB2FD600A22E66 /* LoginViewController.m in Sources */,
 				2E0216F81EB2E22B00C91F87 /* ModelTool.m in Sources */,
+				2E0217331EB30D9700C91F87 /* GetRoomListController.m in Sources */,
+				2E0217541EB30DF700C91F87 /* RenterIDCell.m in Sources */,
+				2E0217531EB30DF700C91F87 /* RoomOtherCell.m in Sources */,
 				2E3AC82F1EAB255A00A22E66 /* UserDataModel.xcdatamodeld in Sources */,
 				2E0216DF1EB0871100C91F87 /* MBProgressHUD+MJ.m in Sources */,
 				2E3AC8601EAB300900A22E66 /* SetNewPwdController.m in Sources */,
 				2E3AC9371EAEEF1200A22E66 /* NewMasterHomeController.m in Sources */,
+				2E0217641EB31CC300C91F87 /* renterUserCell.m in Sources */,
 				2E3AC9471EAEEFC200A22E66 /* MasterContractController.m in Sources */,
+				2E0217511EB30DF700C91F87 /* AlertCell.m in Sources */,
+				2E0217611EB31C8A00C91F87 /* HooDatePicker.m in Sources */,
 				2E3AC9461EAEEFC200A22E66 /* SelectPersonController.m in Sources */,
+				2E02173A1EB30D9700C91F87 /* AddRenterResultController.m in Sources */,
+				2E0217681EB32A7C00C91F87 /* House.m in Sources */,
 				2E3AC95C1EAF35D000A22E66 /* User.m in Sources */,
 				2E02170B1EB2EDA300C91F87 /* apartmentCell.m in Sources */,
+				2E0217371EB30D9700C91F87 /* SignRoomOKController.m in Sources */,
+				2E02173C1EB30D9700C91F87 /* CheckIDCardController.m in Sources */,
 				2E3AC94D1EAEF22300A22E66 /* BBImagebaseTableVC.m in Sources */,
+				2E02175B1EB31C3500C91F87 /* PopHome.m in Sources */,
+				2E0217351EB30D9700C91F87 /* SelectRentDateController.m in Sources */,
 				2E3AC87B1EAB32D400A22E66 /* WebAPIForMyDoorCard.m in Sources */,
 				2E3AC9451EAEEFC200A22E66 /* MasterPersonController.m in Sources */,
 				2E0217061EB2EDA300C91F87 /* AgencyTabbarController.m in Sources */,
+				2E02176E1EB3347400C91F87 /* CommunityRelation.m in Sources */,
 				2E3AC86B1EAB30C800A22E66 /* UserData+CoreDataProperties.m in Sources */,
 				2E3AC7E71EA9EEF300A22E66 /* UIView+TDExtension.m in Sources */,
 				2E3AC8771EAB32D400A22E66 /* HTTPRequest.m in Sources */,
 				2E3AC9591EAF33DF00A22E66 /* MasterInfo.m in Sources */,
 				2E3AC9491EAEEFC200A22E66 /* MasterMyBankController.m in Sources */,
+				2E0217741EB3375800C91F87 /* Renter.m in Sources */,
+				2E02176B1EB3313500C91F87 /* Community.m in Sources */,
 				2E0217091EB2EDA300C91F87 /* AgencyHomeController.m in Sources */,
+				2E0217501EB30DF700C91F87 /* RenterPhoneCell.m in Sources */,
 				2E3AC9701EAF415A00A22E66 /* FBBLEFileHandle.m in Sources */,
 				2E0216E71EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m in Sources */,
 				2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */,
 				2E0216E21EB0A04300C91F87 /* NSString+TDChangeTimestamp.m in Sources */,
 				2E3AC85F1EAB300900A22E66 /* GetKeyCodeController.m in Sources */,
+				2E0217411EB30DEA00C91F87 /* RoomStatusCell.m in Sources */,
 				2E0216E81EB0AA8E00C91F87 /* UnlockData+CoreDataProperties.m in Sources */,
 				2E3AC94A1EAEEFC200A22E66 /* WebBookController.m in Sources */,
 				2E3AC96E1EAF415A00A22E66 /* FBTimeData.m in Sources */,
@@ -804,10 +992,16 @@
 				2E3AC96F1EAF415A00A22E66 /* FBBLECentralManager.m in Sources */,
 				2E0217081EB2EDA300C91F87 /* AgencyPersonController.m in Sources */,
 				2E3AC9731EAF415A00A22E66 /* TDBLEUnlockDataMode.m in Sources */,
+				2E0217361EB30D9700C91F87 /* SelectRentMonthController.m in Sources */,
 				2E0217151EB2EDC400C91F87 /* RenterTemController.m in Sources */,
+				2E0217391EB30D9700C91F87 /* NewAddRenterController.m in Sources */,
+				2E0217551EB30DF700C91F87 /* CheckDetailCell.m in Sources */,
 				2E3AC7AB1EA9AB9100A22E66 /* AppDelegate.m in Sources */,
 				2E3AC7A81EA9AB9100A22E66 /* main.m in Sources */,
+				2E0217521EB30DF700C91F87 /* RenterNameCell.m in Sources */,
+				2E0217561EB30DF700C91F87 /* IDCardCell.m in Sources */,
 				2E3AC86A1EAB30C800A22E66 /* UserData+CoreDataClass.m in Sources */,
+				2E0217711EB334EE00C91F87 /* Rent.m in Sources */,
 				2E3AC9721EAF415A00A22E66 /* TDBLENodeTool.m in Sources */,
 				2E3AC85E1EAB300900A22E66 /* FindKeyOneController.m in Sources */,
 			);
