@@ -1,0 +1,73 @@
+//
+//  PrefixHeader.pch
+//  SmartApartment
+//
+//  Created by Jevons on 2017/4/21.
+//  Copyright © 2017年 Jevons. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//RGB颜色设置
+#define TDRGBA(R, G, B, A)   [UIColor colorWithRed:((R) / 255.0f) green:((G) / 255.0f) blue:((B) / 255.0f) alpha:A]
+#define TDRGB(R, G, B)       [UIColor colorWithRed:((R) / 255.0f) green:((G) / 255.0f) blue:((B) / 255.0f) alpha:1.0f]
+#define TDGROBAL_COLOR TDRGB(26,126,248)
+#define TDGRAY_COLOR TDRGB(226,226,226)
+#define TDGRAY2_COLOR TDRGB(155,155,155)
+// 随机颜色
+#define TDRANDOM_COLOR TDRGB(arc4random_uniform(256),arc4random_uniform(256), arc4random_uniform(256))
+//主体的蓝色
+#define MainBlue [UIColor colorWithRed:46.0/ 255.0f green:126.0 / 255.0f blue:224.0 / 255.0f alpha:1.0f]
+#define MainRed [UIColor colorWithRed:229.0/ 255.0f green:89.0 / 255.0f blue:89.0 / 255.0f alpha:1.0f]
+#define MainGreen [UIColor colorWithRed:126.0/ 255.0f green:195.0 / 255.0f blue:105.0 / 255.0f alpha:1.0f]
+//cell中房间的房间view颜色
+#define cellRed [UIColor colorWithRed:229.0/ 255.0f green:89.0 / 255.0f blue:89.0 / 255.0f alpha:1.0f]
+#define cellGreen [UIColor colorWithRed:126.0/ 255.0f green:195.0 / 255.0f blue:105.0 / 255.0f alpha:1.0f]
+#define cellOrg [UIColor colorWithRed:245.0/ 255.0f green:166.0 / 255.0f blue:35.0 / 255.0f alpha:1.0f]
+//cell高度变化
+#define cellHeight  self.view.width/375*50
+#define ratio [UIScreen mainScreen].bounds.size.width/375
+
+
+#define EMPTYHOUSE @"2"//未出租
+#define LOGINHOUSE @"1"//已出租
+
+#define WARNING_TIME 1
+
+//网络请求的异常情况
+#define    RequestBad      if (!err) {NSString *rcode = [response objectForKey:@"rcode"];if (rcode.integerValue == 300211){    UINavigationController *login = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginNav"];[self presentViewController:login animated:YES completion:nil];}else {[Alert showFail:[response objectForKey:@"rmsg"] View:self.navigationController.navigationBar andTime:3 complete:nil];}}else{[Alert showFail:@"网络异常，请检查网络!" View:self.navigationController.navigationBar andTime:3 complete:nil];}[MBProgressHUD hideHUDForView:self.view animated:YES];
+
+#define RequestBadByNoNav   if (!err) {NSString *rcode = [response objectForKey:@"rcode"];if (rcode.integerValue == 300211||rcode.integerValue==300209){    UINavigationController *login = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginNav"];[self presentViewController:login animated:YES completion:nil];}else {[Alert showFail:[response objectForKey:@"rmsg"] View:self.view andTime:3 complete:nil];}}else{[Alert showFail:@"网络异常，请检查网络!" View:self.view andTime:3 complete:nil];}[MBProgressHUD hideHUDForView:self.view animated:YES];
+
+#define USEFUL_DOOR_NODE_PATH [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"useful_door_node.plist"]
+
+
+#define TEST_UPLOAD_API @"http://wisdomhouse.trudian.com/service/upload/uploadImgFile"
+#define TEST_API @"http://wisdomhouse.trudian.com/service"
+
+#define FORMAT_UPLOAD_API @"https://zhgy-app.wisdomhouse.trudian.com/service/upload/uploadImgFile"
+#define FORMAT_API @"https://zhgy-app.wisdomhouse.trudian.com/service"
+
+#define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define UMAppkey_test  @"583e4a24bbea8312b7000643"
+#define UMAPPkey    @"58a27d77aed1791419000f41"
+#define JPushAppkey @"e1068d4b00e499bf3cc90e33"
+
+#import "JLExtension.h"
+#import "UIView+TDExtension.h"
+#import "MagicalRecord.h"
+#import "UserData+CoreDataClass.h"
+#import "UserData+CoreDataProperties.h"
+#import "AppTool.h"
+#import "WebAPI.h"
+#import "Alert.h"
+#import "MBProgressHUD.h"
+#import "YYModel.h"
+#import "MBProgressHUD+MJ.h"
+#endif /* PrefixHeader_pch */
+

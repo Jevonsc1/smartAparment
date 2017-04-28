@@ -1,0 +1,6 @@
+framework module JLExtension {
+  umbrella header "JLExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

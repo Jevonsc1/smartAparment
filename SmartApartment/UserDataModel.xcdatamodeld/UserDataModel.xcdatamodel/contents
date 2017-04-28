@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="UnlockData" representedClassName="UnlockData" syncable="YES">
+        <attribute name="app_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unlock_time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UserData" representedClassName="UserData" syncable="YES">
+        <attribute name="boStatus" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="idCardNum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isOpenNet" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="member_sex" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="memberAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberAvailablePD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="memberAvatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberFreezePD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="memberID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberIsDisable" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="memberNickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberRegistTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="renterAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="renterStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="searchList" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="searchRecord" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trueName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserData" positionX="-63" positionY="-18" width="128" height="375"/>
+        <element name="UnlockData" positionX="-63" positionY="135" width="128" height="75"/>
+    </elements>
+</model>
