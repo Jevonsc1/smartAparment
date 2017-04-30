@@ -43,8 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     oneSectionRows = 5;
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[self.roomData objectForKey:@"houseID"],@"houseID",@"1",@"availableRentRecord", nil];
-    NSLog(@"%@",self.roomData);
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.house.houseID,@"houseID",@"1",@"availableRentRecord", nil];
     [WebAPI getHouseInfo:dic callback:^(NSError *err, id response) {
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
             houseDic = [response objectForKey:@"data"];
@@ -107,7 +106,7 @@
         [cell.cellIcon setImage:[UIImage imageNamed:@"check_house_icon"]];
         cell.cellName.text = @"房间名";
         cell.renterName.userInteractionEnabled = NO;
-        cell.renterName.placeholder = [NSString stringWithFormat:@"%@房",[self.roomData objectForKey:@"houseNum"]];
+        cell.renterName.placeholder = [NSString stringWithFormat:@"%@房",self.house.houseNum];
         return cell;
     }else if (indexPath.row == 1){
         if (oneSectionRows == 5 || oneSectionRows == 6) {
@@ -325,7 +324,7 @@
     }
     
     
-       dic= [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",renterName,@"renterName",rentRecordID,@"rentRecordID",[self.roomData objectForKey:@"houseID"],@"houseID",@"2",@"renterRoldID",renterPhone,@"renterPhone",backID,@"backIDCardAffixID",frontID,@"frontIDCardAffixID", nil];
+       dic= [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",renterName,@"renterName",rentRecordID,@"rentRecordID",self.house.houseID,@"houseID",@"2",@"renterRoldID",renterPhone,@"renterPhone",backID,@"backIDCardAffixID",frontID,@"frontIDCardAffixID", nil];
         [WebAPI addVirtualRenter:dic callback:^(NSError *err, id response) {
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
             AddRenterResultController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"AddRenterResult"];

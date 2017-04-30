@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Rent.h"
 @interface RenterAddPhoneController : UITableViewController
-@property(nonatomic)NSDictionary *renterDic;
-@property(nonatomic)NSDictionary *rentDic;
+@property(nonatomic,strong)Rent* rent;
+@property(nonatomic,strong)Renter* renter;
+//@property(nonatomic)NSDictionary *renterDic;
+//@property(nonatomic)NSDictionary *rentDic;
 @end

@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     oneSelectRow = 2;
-    renterName = [self.renterDic objectForKey:@"renterTrueName"];
+    renterName = self.renter.renterTrueName;
     hadSearch = false;
 }
 
@@ -169,7 +169,7 @@
     if (hadSearch) {
         //有租客信息
         if (renterStatus == 3) {
-            NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[self.rentDic objectForKey:@"rentRecordID"],@"rentRecordID",renterName,@"memberName",renterPhone,@"memberPhone", nil];
+            NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.rent.rentRecordID,@"rentRecordID",renterName,@"memberName",renterPhone,@"memberPhone", nil];
             [WebAPI editVirtualMainRenter:dic callback:^(NSError *err, id response) {
                 if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                     [Alert showFail:@"修改成功!" View:self.navigationController.navigationBar andTime:1 complete:^(BOOL isComplete) {
@@ -184,7 +184,7 @@
             return;
         }else{
             //用新的接口，替换
-            NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[self.rentDic objectForKey:@"rentRecordID"],@"rentRecordID",memberID,@"memberID", nil];
+            NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.rent.rentRecordID,@"rentRecordID",memberID,@"memberID", nil];
             [WebAPI replaceVirtualMainRenter:dic callback:^(NSError *err, id response) {
                 if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                     [Alert showFail:@"修改成功!" View:self.navigationController.navigationBar andTime:1 complete:^(BOOL isComplete) {
@@ -232,7 +232,7 @@
 //                    [Alert showFail:@"没找到该手机号码的用户!" View:self.navigationController.navigationBar andTime:1 complete:nil];
                 }
                 if (renterStatus == 3) {
-                    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[self.rentDic objectForKey:@"rentRecordID"],@"rentRecordID",renterName,@"memberName",renterPhone,@"memberPhone", nil];
+                    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.rent.rentRecordID,@"rentRecordID",renterName,@"memberName",renterPhone,@"memberPhone", nil];
                     [WebAPI editVirtualMainRenter:dic callback:^(NSError *err, id response) {
                         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                             [Alert showFail:@"修改成功!" View:self.navigationController.navigationBar andTime:1 complete:^(BOOL isComplete) {
@@ -247,7 +247,7 @@
                     return;
                 }else{
                     //用新的接口，替换
-                    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[self.rentDic objectForKey:@"rentRecordID"],@"rentRecordID",memberID,@"memberID", nil];
+                    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.rent.rentRecordID,@"rentRecordID",memberID,@"memberID", nil];
                     [WebAPI replaceVirtualMainRenter:dic callback:^(NSError *err, id response) {
                         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                             [Alert showFail:@"修改成功!" View:self.navigationController.navigationBar andTime:1 complete:^(BOOL isComplete) {

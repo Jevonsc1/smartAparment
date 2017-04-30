@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Rent.h"
+#import "Community.h"
+#import "CommunityRelation.h"
 @interface House : NSObject
 
 @property(nonatomic,strong)NSArray* communityInfo;
@@ -24,6 +26,7 @@
 @property(nonatomic,strong)NSNumber* houseHightNum;
 @property(nonatomic,strong)NSNumber* houseID;
 @property(nonatomic,strong)NSNumber* houseInitElectric;
+@property(nonatomic,strong)NSNumber* houseInitWater;
 @property(nonatomic,strong)NSNumber* houseIsDisable;
 @property(nonatomic,strong)NSNumber* houseIsValidated;
 @property(nonatomic,copy)NSString* houseMonthRent;

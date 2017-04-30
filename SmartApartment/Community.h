@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "House.h"
 @interface Community : NSObject
 
 @property(nonatomic,copy)NSString* communityAddress;

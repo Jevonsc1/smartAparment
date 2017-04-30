@@ -19,19 +19,25 @@
 #import "NewAddRenterController.h"
 #import "SelectRentDateController.h"
 #import "CheckIDCardController.h"
+
 @interface CheckSignRoomController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *endRentbTN;
 @property (weak, nonatomic) IBOutlet UIButton *addRenterBtn;
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleItem;
 
+@property(nonatomic,strong)Renter* mainRenter;
+
+@property(nonatomic,strong)House* house;
+
+@property(nonatomic,strong)Rent* rent;
 @end
 
 @implementation CheckSignRoomController
 {
-    NSDictionary *houseDic;
-    NSDictionary *rentDic;
+//    NSDictionary *houseDic;
+//    NSDictionary *rentDic;
     NSInteger renterStatus;//1-已认证，2-未认证，3-未注册
-    NSDictionary *mainRenterDic;
+//    NSDictionary *mainRenterDic;
     UITapGestureRecognizer *addPhoneTap;
     
     //身份证正面和背面
@@ -99,50 +105,51 @@
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.houseID,@"houseID",@"1",@"availableRentRecord", nil];
     [WebAPI getHouseInfo:dic callback:^(NSError *err, id response) {
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
-            houseDic = [response objectForKey:@"data"];
-            NSArray *rentArr = [houseDic objectForKey:@"rentInfo"];
-            if (rentArr.count >0) {
-                rentDic = rentArr[0];
-                hasPayBill = [rentDic intForKey:@"hasPayBill"];
-                outPayDay = [NSString stringWithFormat:@"%@",[rentDic objectForKey:@"rentRecordGraceDays"]];
-                payBillDay = [NSString stringWithFormat:@"%@",[rentDic objectForKey:@"payDateMonth"]];
-                rentTime = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:[NSString stringWithFormat:@"%@",[rentDic objectForKey:@"rentTime"]]],[TimeDate timeWithTimeIntervalString:[NSString stringWithFormat:@"%@",[rentDic objectForKey:@"rentDueTime"]]]];
-                rentDeposit = [NSString stringWithFormat:@"%@",[rentDic objectForKey:@"rentDeposit"]];
-                rentMoney = [NSString stringWithFormat:@"%@",[rentDic objectForKey:@"rentMoney"]];
-                startDian = [NSString stringWithFormat:@"%@",[rentDic objectForKey:@"initElectric"]];
-                startWater = [NSString stringWithFormat:@"%@",[rentDic objectForKey:@"initWater"]];
-                unitDina = [NSString stringWithFormat:@"%@",[rentDic objectForKey:@"initElectric"]];
-                unitWater = [NSString stringWithFormat:@"%@",[rentDic objectForKey:@"initWater"]];
-                otherMoney = [NSString stringWithFormat:@"%@",[rentDic objectForKey:@"otherChargePrice"]];
-                rentRecordID =[NSString stringWithFormat:@"%@", [rentDic objectForKey:@"rentRecordID"]];
-                NSArray *renterArr = [rentDic objectForKey:@"renterInfo"];
+            House* house =[House yy_modelWithDictionary:[response objectForKey:@"data"]];
+            if (house.rentInfo.count >0) {
+                Rent* rent = house.rentInfo[0];
+                //待解决，字段问题
+                self.rent = rent;
+                hasPayBill = rent.hasPayBill.integerValue;
+                outPayDay = rent.rentRecordGraceDays.stringValue;
+                payBillDay = rent.payDateMonth.stringValue;
+                rentTime = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:[NSString stringWithFormat:@"%@",rent.rentTime]],[TimeDate timeWithTimeIntervalString:[NSString stringWithFormat:@"%@",rent.rentDueTime]]];
+                rentDeposit = rent.rentDeposit;
+                rentMoney =  rent.rentMoney;
+                startDian =  rent.iniElectric.stringValue;
+                startWater = rent.iniWater.stringValue;
+                unitDina = rent.electricUnitPrice;
+                unitWater = rent.waterUnitPrice;
+                otherMoney = rent.otherChargePrice;
+                rentRecordID = rent.rentRecordID.stringValue;
+                NSArray *renterArr = rent.renterInfo;
                 for (int i = 0; i < renterArr.count; i++) {
-                    NSDictionary *dic = renterArr[i];
+                    Renter *renter = renterArr[i];
                     //虚拟租客
-                    NSString *renterRoleID= [NSString stringWithFormat:@"%@",[dic objectForKey:@"renterRoleID"]];
-                    if (renterRoleID.integerValue == 1) {
-                        mainRenterDic = dic;
-                        renterPhone = [NSString stringWithFormat:@"%@",[mainRenterDic objectForKey:@"renterPhone"]];
-                        if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"renterIsVirtual"]].integerValue == 1) {
+                    if ([renter.renterRoleID isEqual:@1]) {
+                        self.mainRenter = renter;
+                        renterPhone = renter.renterPhone.stringValue;
+                        if ([renter.renterIsVirtual isEqual:@1]) {
                             renterStatus = 3;
                         }else{
-                            if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"renterRoleID"]].integerValue == 1) {
-                                if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"renterStatus"]].integerValue == 30||[NSString stringWithFormat:@"%@",[dic objectForKey:@"renterStatus"]].integerValue==10) {
+                            if ([renter.renterRoleID isEqual:@1]) {
+                                if ([renter.renterStatus isEqual: @30]||[renter.renterStatus isEqual: @10]) {
                                     
                                     dispatch_group_t group =  dispatch_group_create();
                                     
                                     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                                        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"renterIDCardObverseSidePath"]]];
+                                        NSURL *url = [NSURL URLWithString:renter.renterIDCardObverseSidePath];
                                         NSData *resultData = [NSData dataWithContentsOfURL:url];
                                         frontIDImage = [UIImage imageWithData:resultData];
                                         
-                                        NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"renterIDCardReverseSidePath"]]];
+                                        NSURL *url1 = [NSURL URLWithString:renter.renterIDCardReverseSidePath];
                                         NSData *resultData1 = [NSData dataWithContentsOfURL:url1];
                                         backIDImage = [UIImage imageWithData:resultData1];
                                     });
                                     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
                                         [self.tableView reloadData];
                                     });
+                                    
                                     renterStatus = 1;
                                 }else{
                                     renterStatus = 2;
@@ -184,26 +191,26 @@
         RenterIDCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RenterIDCell"];
         
         if (renterStatus == 1) {
-            [cell.renterIcon sd_setImageWithURL:[NSURL URLWithString:[mainRenterDic objectForKey:@"memberAvatar"]] placeholderImage:[UIImage imageNamed:@"no_id_user"]];
+            [cell.renterIcon sd_setImageWithURL:[NSURL URLWithString:self.mainRenter.renterMemberAvatar] placeholderImage:[UIImage imageNamed:@"no_id_user"]];
             [cell.renterIDIcon setImage:[UIImage imageNamed:@"had_id_icon"]];
-            cell.renterName.text = [mainRenterDic  objectForKey:@"renterTrueName"];
+            cell.renterName.text = self.mainRenter.renterTrueName;
              cell.renterID.font = [UIFont systemFontOfSize:14*ratio];
             cell.renterIDNum.font = [UIFont systemFontOfSize:14*ratio];
-            cell.renterIDNum.text = [NSString stringWithFormat:@"身份证:%@",[mainRenterDic objectForKey:@"renterIDCardNum"]];
-                cell.renterID.text = [NSString stringWithFormat:@"电话:%@",[mainRenterDic objectForKey:@"renterPhone"]];
+            cell.renterIDNum.text = [NSString stringWithFormat:@"身份证:%@",self.mainRenter.renterIDCardNum];
+                cell.renterID.text = [NSString stringWithFormat:@"电话:%@",self.mainRenter.renterPhone];
             
         }else if(renterStatus == 2){
-            cell.renterName.text = [mainRenterDic  objectForKey:@"renterTrueName"];
+            cell.renterName.text = self.mainRenter.renterTrueName;
             [cell.renterIcon setImage:[UIImage imageNamed:@"no_id_user"]];
             [cell.renterIDIcon setImage:[UIImage imageNamed:@"no_id_icon"]];
             cell.renterID.text = @"该用户还未认证";
         }else if(renterStatus == 3){
-             NSString *phone = [mainRenterDic objectForKey:@"renterPhone"];
+             NSString *phone = self.mainRenter.renterPhone.stringValue;
              cell.renterID.font = [UIFont systemFontOfSize:14*ratio];
             if (phone.length <= 0 || phone == nil) {
                 cell.renterIDIcon.hidden = YES;
                 [cell.renterIcon setImage:[UIImage imageNamed:@"noknow_id_user"]];
-                cell.renterName.text = [mainRenterDic  objectForKey:@"renterTrueName"];
+                cell.renterName.text = self.mainRenter.renterTrueName;
                 
                 NSString *contentStr = @"如果该用户有手机号,可进行添加绑定\n请点击这里";
                 NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:contentStr];
@@ -216,8 +223,8 @@
             }else{
                 cell.renterIDIcon.hidden = YES;
                 [cell.renterIcon setImage:[UIImage imageNamed:@"no_id_user"]];
-                cell.renterName.text = [mainRenterDic  objectForKey:@"renterTrueName"];
-                NSString *contentStr = [NSString stringWithFormat:@"电话:%@\n可点击这里进行修改",[mainRenterDic objectForKey:@"renterPhone"]];
+                cell.renterName.text = self.mainRenter.renterTrueName;
+                NSString *contentStr = [NSString stringWithFormat:@"电话:%@\n可点击这里进行修改",self.mainRenter.renterPhone];
                 NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:contentStr];
                 [str addAttribute:NSForegroundColorAttributeName value:MainBlue range:NSMakeRange(str.length-6, 2)];
                 addPhoneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickToAddPhone)];
@@ -264,8 +271,8 @@
         RoomOtherCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RoomOtherCell"];
         [cell.icon setImage:[UIImage imageNamed:@"sign_ok_icon2"]];
         cell.cellName.text = @"签约房间";
-        if(rentDic.count >0){
-            cell.cellContent.text = [NSString stringWithFormat:@"%@ %@房",self.communityName,[houseDic objectForKey:@"houseNum"]];
+        if(self.rent){
+            cell.cellContent.text = [NSString stringWithFormat:@"%@ %@房",self.communityName,self.house.houseNum];
         }
         [cell.iconWidth setConstant:0];
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
@@ -280,8 +287,8 @@
         if (outPayDay.length !=0) {
             cell.cellContent.text = rentTime;
         }else{
-            if(rentDic.count >0){
-            cell.cellContent.text = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:[NSString stringWithFormat:@"%@",[rentDic objectForKey:@"rentTime"]]],[TimeDate timeWithTimeIntervalString:[NSString stringWithFormat:@"%@",[rentDic objectForKey:@"rentDueTime"]]]];
+            if(self.rent){
+            cell.cellContent.text = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:[NSString stringWithFormat:@"%@",self.rent.rentTime]],[TimeDate timeWithTimeIntervalString:[NSString stringWithFormat:@"%@",self.rent.rentDueTime]]];
             }
         }
         rentTime = cell.cellContent.text;
@@ -305,8 +312,8 @@
         cell.cellContent.tag = 4;
          cell.cellContent.delegate = self;
         cell.cellContent.keyboardType = UIKeyboardTypeDecimalPad;
-        if (rentDic.count>0) {
-            cell.cellContent.text =[rentDic RMBForKey:@"monthRent"];
+        if (self.rent) {
+            cell.cellContent.text = self.rent.monthRent;
         }
          [cell.iconWidth setConstant:0];
          cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
@@ -327,8 +334,8 @@
         cell.cellContent.tag = 5;
          cell.cellContent.delegate = self;
         cell.cellContent.keyboardType = UIKeyboardTypeDecimalPad;
-        if(rentDic.count>0){
-            cell.cellContent.text =[rentDic RMBForKey:@"rentDeposit"];
+        if(self.rent){
+            cell.cellContent.text = self.rent.rentDeposit;
         }
          [cell.iconWidth setConstant:-1.5];
          cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
@@ -350,8 +357,8 @@
         if (outPayDay.length !=0) {
             cell.cellContent.text =[NSString stringWithFormat:@"%@号",payBillDay];
         }else{
-            if (rentDic.count>0) {
-                cell.cellContent.text = [NSString stringWithFormat:@"%@号",[rentDic objectForKey:@"payDateMonth"]];
+            if (self.rent) {
+                cell.cellContent.text = [NSString stringWithFormat:@"%@号",self.rent.payDateMonth];
             }
         }
          [cell.iconWidth setConstant:0];
@@ -365,8 +372,8 @@
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon5"]];
         cell.cellName.text = @"缴费日期";
         cell.cellContent.keyboardType = UIKeyboardTypeNumberPad;
-        if (rentDic.count>0) {
-             cell.cellContent.text = [NSString stringWithFormat:@"出账日过后%@天",[rentDic objectForKey:@"rentRecordGraceDays"]];
+        if (self.rent) {
+             cell.cellContent.text = [NSString stringWithFormat:@"出账日过后%@天",self.rent.rentRecordGraceDays];
         }
          [cell.iconWidth setConstant:0];
         cell.cellContent.tag = 7;
@@ -412,8 +419,8 @@
         cell.cellContent.keyboardType = UIKeyboardTypeDecimalPad;
         cell.cellContent.tag = 11;
          cell.cellContent.delegate = self;
-        if(rentDic.count>0){
-             cell.cellContent.text = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[rentDic RMBForKey:@"initElectric"]].floatValue ];
+        if(self.rent){
+            cell.cellContent.text = [NSString stringWithFormat:@"%.2f",[self RMBString:self.rent.iniElectric.stringValue].floatValue ];
         }
          cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
          [cell.iconWidth setConstant:-3];
@@ -434,8 +441,8 @@
         cell.cellContent.tag = 12;
          cell.cellContent.delegate = self;
          cell.cellContent.keyboardType = UIKeyboardTypeDecimalPad;
-        if(rentDic.count>0){
-            cell.cellContent.text = [rentDic RMBForKey:@"electricUnitPrice"];
+        if(self.rent){
+            cell.cellContent.text = [self RMBString:self.rent.electricUnitPrice];
         }
          [cell.iconWidth setConstant:2];
          cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
@@ -456,8 +463,8 @@
         cell.cellContent.tag = 13;
          cell.cellContent.delegate = self;
         cell.cellContent.keyboardType = UIKeyboardTypeDecimalPad;
-        if (rentDic.count>0 ) {
-            cell.cellContent.text = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[self changeFloat:[NSString stringWithFormat:@"%@",[rentDic objectForKey:@"initWater"]]]].floatValue];
+        if (self.rent) {
+            cell.cellContent.text = [NSString stringWithFormat:@"%.2f",[self changeFloat:self.rent.iniWater.stringValue].floatValue];
         }
          [cell.iconWidth setConstant:-2];
          cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
@@ -478,8 +485,8 @@
         cell.cellContent.tag = 14;
          cell.cellContent.delegate = self;
         cell.cellContent.keyboardType = UIKeyboardTypeDecimalPad;
-        if (rentDic.count > 0) {
-            cell.cellContent.text = [rentDic RMBForKey:@"waterUnitPrice"];
+        if (self.rent) {
+            cell.cellContent.text = [self RMBString:self.rent.waterUnitPrice];
         }
          cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
          [cell.iconWidth setConstant:-1];
@@ -498,8 +505,8 @@
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon7"]];
         cell.cellName.text= @"其他费用";
         cell.cellContent.keyboardType = UIKeyboardTypeDecimalPad;
-        if(rentDic.count>0){
-            cell.cellContent.text = [rentDic RMBForKey:@"otherChargePrice"];
+        if(self.rent){
+            cell.cellContent.text = [self RMBString:self.rent.otherChargePrice];
         }
          [cell.iconWidth setConstant:0];
          cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
@@ -519,8 +526,8 @@
 
 -(void)clickToAddPhone{
     RenterAddPhoneController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"RenterAddPhone"];
-    vc.renterDic = mainRenterDic;
-    vc.rentDic = rentDic;
+    vc.renter = self.mainRenter;
+    vc.rent = self.rent;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -637,7 +644,7 @@
         
     }else{
         NewAddRenterController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"NewAddRenter"];
-        vc.roomData = houseDic;
+        vc.house = self.house;
         [self.navigationController pushViewController:vc animated:YES];
     }
    
@@ -656,6 +663,7 @@
     }
     NSString *rentStart = [NSString stringWithFormat:@"%@",[self timeStringTotimeData:rentArr[0]]];
     NSString *rentEnd = [NSString stringWithFormat:@"%@",[self timeStringTotimeData:rentArr[1]]];
+    
     NSLog(@"%@",payBillDay);
     NSLog(@"%@",self.houseID);
     //
@@ -693,7 +701,7 @@
 - (IBAction)clickToEndRent:(id)sender {
     UIAlertController *ac  = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n确定终止合同？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[houseDic objectForKey:@"houseID"],@"houseID",[rentDic objectForKey:@"rentRecordID"],@"rentRecordID", nil];
+        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.house.houseID,@"houseID",self.rent.rentRecordID,@"rentRecordID", nil];
         [WebAPI finishRentRecord:dic callback:^(NSError *err, id response) {
             if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                 [Alert showFail:@"终止合同成功！" View:self.navigationController.navigationBar andTime:2 complete:^(BOOL isComplete) {
@@ -870,7 +878,7 @@
         
         if (frontIDImage&&backIDImage) {
             //不是虚拟租客就可以编辑租客
-            NSString *menberID1 =[NSString stringWithFormat:@"%@", [mainRenterDic objectForKey:@"renterMemberID"]];
+            NSString *menberID1 = self.mainRenter.renterMemberID.stringValue;
             NSDictionary *jsonDic = [[NSDictionary alloc] initWithObjectsAndKeys:backIDCardAffixID,@"backIDCardAffixID",frontIDCardAffixID,@"frontIDCardAffixID", nil];
             NSString *jsonStr = [self dictionaryToJson:jsonDic];
             NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",menberID1,@"memberID",rentRecordID,@"rentRecordID",@"2.0" ,@"version",jsonStr,@"renterData",nil];
@@ -883,5 +891,13 @@
             }];
         }
     }
+}
+
+-(NSString*)RMBString:(NSString*)value{
+    NSString *rmb = (NSString *)value;
+    if ([rmb hasSuffix:@".00"]) {
+        rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
+    }
+    return [NSString stringWithFormat:@"%@元",rmb];
 }
 @end

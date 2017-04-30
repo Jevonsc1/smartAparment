@@ -29,5 +29,5 @@
 @property(nonatomic,strong)NSNumber* renterRoleID;
 @property(nonatomic,strong)NSNumber* renterStatus;
 @property(nonatomic,strong)NSNumber* renterTime;
-@property(nonatomic,strong)NSNumber* renterTrueName;
+@property(nonatomic,copy)NSString* renterTrueName;
 @end

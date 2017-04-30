@@ -7,7 +7,7 @@
 //
 
 #import "Community.h"
-#import "House.h"
+
 
 @implementation Community
 

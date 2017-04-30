@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "House.h"
 @interface SignRoomOKController : UITableViewController
-@property(nonatomic)NSDictionary *roomDic;
-@property(nonatomic)NSString *mainRenter;
-@property(nonatomic)NSString *rentTime;
-@property(nonatomic)NSInteger renterStatus;
-@property(nonatomic)NSDictionary *renterDic;
-@property(nonatomic)NSString *communityName;
+@property(nonatomic,strong)House *house;
+@property(nonatomic,copy)NSString *mainRenter;
+@property(nonatomic,copy)NSString *rentTime;
+@property(nonatomic,assign)NSInteger renterStatus;
+@property(nonatomic,strong)NSDictionary *renterDic;
+@property(nonatomic,copy)NSString *communityName;
 @end

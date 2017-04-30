@@ -7,9 +7,7 @@
 //
 
 #import "House.h"
-#import "Rent.h"
-#import "Community.h"
-#import "CommunityRelation.h"
+
 
 @implementation House
 

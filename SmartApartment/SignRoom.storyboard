@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -336,11 +336,11 @@
                                     <outlet property="renterName" destination="tp5-bR-W2Z" id="D6M-eW-KD8"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RoomOtherCell" rowHeight="50" id="qhp-bR-vc4" customClass="RoomOtherCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RoomOtherCell" rowHeight="50" id="qhp-bR-vc4" customClass="RoomOtherCell">
                                 <rect key="frame" x="0.0" y="160" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qhp-bR-vc4" id="PYx-ty-Ihn">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8QD-iu-JDY">
@@ -360,7 +360,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGO-sw-vDK">
-                                            <rect key="frame" x="114" y="9" width="9" height="30"/>
+                                            <rect key="frame" x="114" y="9" width="220" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="vVg-nF-tY9"/>
                                             </constraints>
@@ -377,6 +377,7 @@
                                         <constraint firstItem="8QD-iu-JDY" firstAttribute="leading" secondItem="PYx-ty-Ihn" secondAttribute="leadingMargin" constant="9" id="pK0-eN-qjK"/>
                                         <constraint firstItem="8QD-iu-JDY" firstAttribute="top" secondItem="PYx-ty-Ihn" secondAttribute="topMargin" constant="5.5" id="q0v-Bm-gkx"/>
                                         <constraint firstItem="CGO-sw-vDK" firstAttribute="leading" secondItem="3Ta-xl-gy4" secondAttribute="trailing" constant="17" id="sVf-zy-mwV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="CGO-sw-vDK" secondAttribute="trailing" id="v4Y-qB-jyE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -2075,11 +2076,11 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RoomOtherCell" rowHeight="50" id="cdS-fS-piR" customClass="RoomOtherCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RoomOtherCell" rowHeight="50" id="cdS-fS-piR" customClass="RoomOtherCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cdS-fS-piR" id="OR6-x0-7ni">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hni-zq-Jac">
@@ -2099,7 +2100,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DhI-9V-mgb">
-                                            <rect key="frame" x="107" y="9" width="9" height="30"/>
+                                            <rect key="frame" x="107" y="9" width="227" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="w1L-69-CiH"/>
                                             </constraints>
@@ -2116,6 +2117,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="hni-zq-Jac" secondAttribute="bottom" constant="6" id="fhD-31-snF"/>
                                         <constraint firstItem="hni-zq-Jac" firstAttribute="leading" secondItem="OR6-x0-7ni" secondAttribute="leadingMargin" constant="9" id="jQe-BM-Fy5"/>
                                         <constraint firstItem="Twe-Lp-nIG" firstAttribute="leading" secondItem="hni-zq-Jac" secondAttribute="trailing" constant="9" id="oiP-gb-WNI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DhI-9V-mgb" secondAttribute="trailing" id="pKJ-au-kFY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

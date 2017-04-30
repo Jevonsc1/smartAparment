@@ -7,7 +7,7 @@
 //
 
 #import "Rent.h"
-#import "Renter.h"
+
 
 @implementation Rent
 

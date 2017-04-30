@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Renter.h"
 @interface Rent : NSObject
 
 @property(nonatomic,copy)NSString* electricUnitPrice;
@@ -24,6 +24,8 @@
 @property(nonatomic,strong)NSNumber* rentRecordID;
 @property(nonatomic,strong)NSNumber* rentRecordStatus;
 @property(nonatomic,strong)NSNumber* rentTime;
+@property(nonatomic,strong)NSNumber* hasPayBill;
 @property(nonatomic,copy)NSString* waterUnitPrice;
 @property(nonatomic,strong)NSArray* renterInfo;
+@property(nonatomic,copy)NSString* rentMoney;
 @end

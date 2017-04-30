@@ -75,16 +75,16 @@
     rentTime = @"请选择";
     outPayDay = @"";
     payBillDay = @"5";
-    NSLog(@"%@",self.roomData);
-    rentMoney = [self.roomData RMBForKey:@"houseMonthRent"];
-    rentDeposit =[self.roomData RMBForKey:@"houseRequestRentDeposit"];
-    startDian = [NSString stringWithFormat:@"%@",[self.roomData objectForKey:@"houseInitElectric"]];
-    unitDina = [self.roomData RMBForKey:@"houseElectricUnitPrice"];
-    startWater = [NSString stringWithFormat:@"%@",[self.roomData objectForKey:@"houseInitWater"]];
-    unitWater = [self.roomData RMBForKey:@"houseWaterUnitPrice"];
-    otherMoney = [self.roomData RMBForKey:@"houseOtherChargePrice"];
-    houseID = [NSString stringWithFormat:@"%@",[self.roomData objectForKey:@"houseID"]];
-    self.title = [NSString stringWithFormat:@"%@房",[self.roomData objectForKey:@"houseNum"]];
+
+    rentMoney   = [self RMBString:self.house.houseMonthRent];
+    rentDeposit = [self RMBString:self.house.houseRequestRentDeposit];
+    startDian   =  self.house.houseInitElectric.stringValue;
+    unitDina    = [self RMBString:self.house.houseElectricUnitPrice];
+    startWater  =  self.house.houseInitWater.stringValue;
+    unitWater   = [self RMBString:self.house.houseWaterUnitPrice];
+    otherMoney  = [self RMBString:self.house.houseOtherChargePrice];
+    houseID = self.house.houseID.stringValue;
+    self.title = [NSString stringWithFormat:@"%@房",self.house.houseNum];
 }
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = NO;
@@ -675,7 +675,7 @@
         if (textField.text.length <=0) {
             textField.font = [UIFont systemFontOfSize:16*ratio];
         }
-        if ([self isMobileNumber:renterPhone]) {
+        if ([AppTool checkPhoneNumInput:renterPhone]) {
             isRightPhone = YES;
             if (oneSectionRows==5) {
                 oneSectionRows = 4;
@@ -855,7 +855,7 @@
     [WebAPI signVirtualRenter:dic callback:^(NSError *err, id response) {
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
             SignRoomOKController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"SignRoomOK"];
-            vc.roomDic = self.roomData;
+            vc.house = self.house;
             vc.communityName = self.communityName;
             vc.renterDic = renterMsg;
             vc.rentTime = rentTime;
@@ -911,53 +911,14 @@
     
     return @"0";
 }
-// 正则判断手机号码地址格式
-- (BOOL)isMobileNumber:(NSString *)mobileNum
-{
-    /**
-     * 手机号码
-     * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
-     * 联通：130,131,132,152,155,156,185,186
-     * 电信：133,1349,153,180,189
-     */
-    NSString * MOBILE = @"^1(3[0-9]|5[0-35-9]|8[0253-9])\\d{8}$";
-    /**
-     10         * 中国移动：China Mobile
-     11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
-     12         */
-    NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$";
-    /**
-     15         * 中国联通：China Unicom
-     16         * 130,131,132,152,155,156,185,186
-     17         */
-    NSString * CU = @"^1(3[0-2]|5[256]|8[56])\\d{8}$";
-    /**
-     20         * 中国电信：China Telecom
-     21         * 133,1349,153,180,189
-     22         */
-    NSString * CT = @"^1((33|53|8[09])[0-9]|349)\\d{7}$";
-    /**
-     25         * 大陆地区固话及小灵通
-     26         * 区号：010,020,021,022,023,024,025,027,028,029
-     27         * 号码：七位或八位
-     28         */
-    // NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
-    
-    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
-    NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM];
-    NSPredicate *regextestcu = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU];
-    NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT];
-    
-    if (([regextestmobile evaluateWithObject:mobileNum] == YES)
-        || ([regextestcm evaluateWithObject:mobileNum] == YES)
-        || ([regextestct evaluateWithObject:mobileNum] == YES)
-        || ([regextestcu evaluateWithObject:mobileNum] == YES))
-    {
-        return YES;
+
+
+
+-(NSString*)RMBString:(NSString*)value{
+    NSString *rmb = (NSString *)value;
+    if ([rmb hasSuffix:@".00"]) {
+        rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
     }
-    else
-    {
-        return NO;
-    }
+    return [NSString stringWithFormat:@"%@元",rmb];
 }
 @end

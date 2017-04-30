@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.roomAddress.text = [NSString stringWithFormat:@"%@ %@房",self.communityName,[self.roomDic objectForKey:@"houseNum"]];
+    self.roomAddress.text = [NSString stringWithFormat:@"%@ %@房",self.communityName,self.house.houseNum];
     self.renterName.text = self.mainRenter;
     self.rentTimeLabel.text = self.rentTime;
 }
@@ -35,7 +35,7 @@
 }
 - (IBAction)checkDetail:(id)sender {
     CheckSignRoomController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"CheckSignRoom"];
-    vc.houseID = [NSString stringWithFormat:@"%@",[self.roomDic objectForKey:@"houseID"]];
+    vc.houseID = self.house.houseID.stringValue;
     vc.communityName = self.communityName;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -46,7 +46,7 @@
  */
 - (IBAction)clickToAddRenter:(id)sender {
     NewAddRenterController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"NewAddRenter"];
-    vc.roomData = self.roomDic;
+    vc.house = self.house;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -64,7 +64,8 @@
 
  */
 - (IBAction)clickToRoomList:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"getApartmentList" object:[[self.roomDic objectForKey:@"communityRelationInfo"][0] objectForKey:@"houseCommunityID"]];
+    CommunityRelation* communityRelation = self.house.communityRelationInfo[0];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"getApartmentList" object:communityRelation.houseCommunityID];
     [PopHome popToController:@"GetRoomListController" andVC:self];
 }
 

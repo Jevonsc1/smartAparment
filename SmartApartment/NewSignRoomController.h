@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "House.h"
 @interface NewSignRoomController : UITableViewController
-@property(nonatomic)NSDictionary *roomData;
+@property(nonatomic,strong)House *house;
 @property(nonatomic)NSString *communityName;
 @end

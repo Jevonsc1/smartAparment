@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "House.h"
 @interface NewAddRenterController : UITableViewController
-@property(nonatomic)NSDictionary *roomData;
+@property(nonatomic,strong)House *house;
 @end
