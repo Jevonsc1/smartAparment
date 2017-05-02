@@ -225,7 +225,6 @@
 //点击在线签约
 - (IBAction)clickToSign:(id)sender {
     if ([master.memberType isEqualToString:@"master"]) {
-     
         GetRoomListController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"GetRoomList"];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

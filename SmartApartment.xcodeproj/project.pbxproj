@@ -393,34 +393,19 @@
 		2E02171E1EB30D1500C91F87 /* 在线签约 */ = {
 			isa = PBXGroup;
 			children = (
-				2E0217421EB30DF700C91F87 /* RenterPhoneCell.h */,
-				2E0217431EB30DF700C91F87 /* RenterPhoneCell.m */,
-				2E0217441EB30DF700C91F87 /* AlertCell.h */,
-				2E0217451EB30DF700C91F87 /* AlertCell.m */,
-				2E0217461EB30DF700C91F87 /* RenterNameCell.h */,
-				2E0217471EB30DF700C91F87 /* RenterNameCell.m */,
-				2E0217481EB30DF700C91F87 /* RoomOtherCell.h */,
-				2E0217491EB30DF700C91F87 /* RoomOtherCell.m */,
-				2E02174A1EB30DF700C91F87 /* RenterIDCell.h */,
-				2E02174B1EB30DF700C91F87 /* RenterIDCell.m */,
-				2E02174C1EB30DF700C91F87 /* CheckDetailCell.h */,
-				2E02174D1EB30DF700C91F87 /* CheckDetailCell.m */,
-				2E02174E1EB30DF700C91F87 /* IDCardCell.h */,
-				2E02174F1EB30DF700C91F87 /* IDCardCell.m */,
-				2E02173F1EB30DEA00C91F87 /* RoomStatusCell.h */,
-				2E0217401EB30DEA00C91F87 /* RoomStatusCell.m */,
+				2E0217761EB808BA00C91F87 /* cell */,
 				2E02171F1EB30D9700C91F87 /* GetRoomListController.h */,
 				2E0217201EB30D9700C91F87 /* GetRoomListController.m */,
 				2E0217211EB30D9700C91F87 /* NewSignRoomController.h */,
 				2E0217221EB30D9700C91F87 /* NewSignRoomController.m */,
+				2E0217291EB30D9700C91F87 /* CheckSignRoomController.h */,
+				2E02172A1EB30D9700C91F87 /* CheckSignRoomController.m */,
 				2E0217231EB30D9700C91F87 /* SelectRentDateController.h */,
 				2E0217241EB30D9700C91F87 /* SelectRentDateController.m */,
 				2E0217251EB30D9700C91F87 /* SelectRentMonthController.h */,
 				2E0217261EB30D9700C91F87 /* SelectRentMonthController.m */,
 				2E0217271EB30D9700C91F87 /* SignRoomOKController.h */,
 				2E0217281EB30D9700C91F87 /* SignRoomOKController.m */,
-				2E0217291EB30D9700C91F87 /* CheckSignRoomController.h */,
-				2E02172A1EB30D9700C91F87 /* CheckSignRoomController.m */,
 				2E02172B1EB30D9700C91F87 /* NewAddRenterController.h */,
 				2E02172C1EB30D9700C91F87 /* NewAddRenterController.m */,
 				2E02172D1EB30D9700C91F87 /* AddRenterResultController.h */,
@@ -449,6 +434,29 @@
 				2E0217731EB3375800C91F87 /* Renter.m */,
 			);
 			name = "公寓";
+			sourceTree = "<group>";
+		};
+		2E0217761EB808BA00C91F87 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E0217421EB30DF700C91F87 /* RenterPhoneCell.h */,
+				2E0217431EB30DF700C91F87 /* RenterPhoneCell.m */,
+				2E0217441EB30DF700C91F87 /* AlertCell.h */,
+				2E0217451EB30DF700C91F87 /* AlertCell.m */,
+				2E0217461EB30DF700C91F87 /* RenterNameCell.h */,
+				2E0217471EB30DF700C91F87 /* RenterNameCell.m */,
+				2E0217481EB30DF700C91F87 /* RoomOtherCell.h */,
+				2E0217491EB30DF700C91F87 /* RoomOtherCell.m */,
+				2E02174A1EB30DF700C91F87 /* RenterIDCell.h */,
+				2E02174B1EB30DF700C91F87 /* RenterIDCell.m */,
+				2E02174C1EB30DF700C91F87 /* CheckDetailCell.h */,
+				2E02174D1EB30DF700C91F87 /* CheckDetailCell.m */,
+				2E02174E1EB30DF700C91F87 /* IDCardCell.h */,
+				2E02174F1EB30DF700C91F87 /* IDCardCell.m */,
+				2E02173F1EB30DEA00C91F87 /* RoomStatusCell.h */,
+				2E0217401EB30DEA00C91F87 /* RoomStatusCell.m */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 		2E3AC79A1EA9AB9100A22E66 = {

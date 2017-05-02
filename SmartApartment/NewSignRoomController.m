@@ -89,10 +89,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = NO;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - Table view data source
 
@@ -146,6 +143,8 @@
         return cellHeight;
     }
 }
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1 &&indexPath.row == 0) {
         SelectRentDateController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"SelectRentDate"];

@@ -17,7 +17,7 @@
 @interface GetRoomListController ()<MyDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *apartmentName;
 @property (weak, nonatomic) IBOutlet UILabel *changLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *comTitleAutoWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *comTitleAutoWidth;//现在没有用到
 @property (weak, nonatomic) IBOutlet UIView *comTitleView;
 
 @property(strong,nonatomic)NSArray<Community *> *apartmentArr;
@@ -67,16 +67,10 @@
     [super viewDidLoad];
    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getaparmentList:) name:@"getApartmentList" object:nil];
-     [self getApartmentList];
     self.tableView.tableFooterView = [UIView new];
     self.tableView.tableFooterView.backgroundColor = [UIColor clearColor];
-}
--(void)viewWillAppear:(BOOL)animated{
-   
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self addTapForView];
+    [self getApartmentList];
 }
 
 #pragma mark - Table view data source
@@ -156,9 +150,6 @@
         cell.roomStatus.textColor = MainGreen;
     }
     
-  
-    
-    
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -212,32 +203,29 @@
         NSLog(@"公寓ID--%@----传入的ID%@",community.communityID,value);
         if (community.communityID.integerValue == value.integerValue) {
 //            currentAparmentDic = apartDic;
+//相当于_currentAparment = community
         }
     }
     self.apartmentName.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"New_CommunityName"];
-//    CGSize size = [self.apartmentName.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:self.apartmentName.font,NSFontAttributeName, nil]];
-//    [self.comTitleAutoWidth setConstant:size.width];
     [self getRoomList];
     [self.tableView reloadData];
 }
 //---点击公寓名字的view,跳转到公寓列表-----///
 -(void)addTapForView{
-    if (self.communityNameArr.count > 1) {
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickToComList)];
-        [self.comTitleView addGestureRecognizer:tap];
-    }else{
-        self.changLabel.hidden=YES;
-    }
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickToComList)];
+    [self.comTitleView addGestureRecognizer:tap];
    
 }
 -(void)ClickToComList{
+    if (self.communityNameArr.count > 1) {
 //    ShowCommunityController *vc = [[UIStoryboard storyboardWithName:@"CheckRead" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowCommunity"];
 //    vc.communityNameArr = communityCityNameArr;
 //    vc.communityCityDic = communityCityNameDic;
 //    vc.delegate = self;
 //    
 //    [self.navigationController pushViewController:vc animated:YES];
-    
+    }
 }
 -(void)getaparmentList:(NSNotification *)info{
     [self getApartmentList];
@@ -248,7 +236,6 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WebAPI getCommunityInfoList:dic callback:^(NSError *err, id response) {
             if (!err && [response intForKey:@"rcode"] == 10000) {
-                NSLog(@"---%@",[response objectForKey:@"data"]);
                 NSArray *comArr = [response objectForKey:@"data"];
                 NSMutableArray* communityArray = [NSMutableArray array];
                 int index = 0;
@@ -276,8 +263,6 @@
                 }else{
                     self.apartmentName.text =@"暂无公寓";
                 }
-                
-                [self addTapForView];
                 
             }else{
                 if (!err) {
