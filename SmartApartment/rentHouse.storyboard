@@ -1087,7 +1087,7 @@
                         <viewControllerLayoutGuide type="top" id="l20-2R-8ZS"/>
                         <viewControllerLayoutGuide type="bottom" id="3Tv-gj-ddm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MZs-7w-UIR" customClass="SAHitView">
+                    <view key="view" contentMode="scaleToFill" id="MZs-7w-UIR">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1097,7 +1097,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atV-Ih-NCV">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="747"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1x-oT-bpc" customClass="SAHitView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1x-oT-bpc">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jH3-0a-5fd">
@@ -1387,8 +1387,6 @@
                         <outlet property="depositBtnTwo" destination="6ge-oJ-Q5d" id="ofS-mL-qiM"/>
                         <outlet property="depositMoneyString" destination="sqS-RT-09C" id="JzC-yb-FX7"/>
                         <outlet property="depositPersentLabel" destination="tYa-PK-ILt" id="07f-iQ-FDJ"/>
-                        <outlet property="fistView" destination="T1x-oT-bpc" id="Rzz-aA-n45"/>
-                        <outlet property="hitView" destination="MZs-7w-UIR" id="ZYx-D9-R7A"/>
                         <outlet property="rentMoneyString" destination="si8-jp-HFM" id="UVA-2s-zzr"/>
                         <outlet property="roomCount" destination="ls2-lL-5Q4" id="CKn-pE-bzh"/>
                         <outlet property="scrollView" destination="JpU-Xd-6kH" id="XQc-iI-Qh6"/>

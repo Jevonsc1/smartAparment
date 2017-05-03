@@ -7,6 +7,8 @@
 //
 
 #import "SAshowhouseCollectionViewCell.h"
+#import "House.h"
+#import "BillOrder.h"
 //#import "SAhouseInfoModel.h"
 
 //#import "SAhouseRentInfoModel.h"
@@ -31,14 +33,14 @@
 
 @interface SAshowhouseCollectionViewCell()
 
-@property(nonatomic,strong)NSMutableArray *chargeInfoArray;
-
-@property(nonatomic,copy)NSString *keyString;
+//@property(nonatomic,strong)NSMutableArray *chargeInfoArray;
+//
+//@property(nonatomic,copy)NSString *keyString;
 
 @end
 
 @implementation SAshowhouseCollectionViewCell{
-    BOOL *hasBBMoney;
+//    BOOL *hasBBMoney;
 }
 
 - (void)awakeFromNib {
@@ -64,144 +66,102 @@
     }
 }
 
-- (void)setModel:(SAhouseInfoModel *)model{
-//    self.houseNum.text=model.houseNum;
-//    //houseStatus为1代表已出租，为2代表未出租
-//    if([model.houseStatus isEqualToString:EMPTYHOUSE]){
-//        //优先级1：空置
-//        NSString *string =@"空置";
-//        self.loginPeople.attributedText=[self colorString:@"空置" color:TDGRAY2_COLOR range:NSMakeRange(0, string.length)];
-//        [self.backgroundImageBtn setBackgroundImage:[UIImage imageNamed:@"roomhouse_empty"] forState:UIControlStateNormal];
-//        return;
-//    }
-//    
-//    //租赁信息
-//    NSArray *contractArray = model.rentInfo;//合同份数
-//    __block NSInteger renterCount = 0;
-//    if (contractArray.count>0) {
-//        __block SAhouseRentInfoModel *tempModel =[[SAhouseRentInfoModel alloc]init];
-//        [contractArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            SAhouseRentInfoModel *rentInfoModel = [SAhouseRentInfoModel mj_objectWithKeyValues:obj];
-//            //有效的合同租客，0表示有效，1表示失效
-//            if ([rentInfoModel.rentIsDisable isEqualToString:@"0"]) {
-//                tempModel=rentInfoModel;
-//                renterCount=rentInfoModel.renterInfo.count;
-//            }else{
-//                tempModel=nil;
-//            }
-//        }];
-//        
-//        NSAttributedString *dateOutTimeString = [self dateOut:tempModel.rentDueTime rentTime:nil];
-//        
-//        if (tempModel!=nil && dateOutTimeString.length>0) {
-//            //优先级2：到期
-//            self.loginPeople.attributedText=dateOutTimeString;
-//            [self.backgroundImageBtn setBackgroundImage:[UIImage imageNamed:@"roomhouse_dateout"] forState:UIControlStateNormal];
-//            return;
-//        }
-//    }
-//    
-//    NSMutableArray *billArray = self.billArray;
-//    __block CGFloat payMoeny=0.0;
-//    if (billArray.count>0) {
-//        [billArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            
-//            //NSLog(@"[houseNum]%@----model[]%@",[obj[@"houseNum"] class],[model.houseNum class]);
-//            NSString *houseStringNum = [NSString stringWithFormat:@"%@",obj[@"houseNum"]];
-//            if ([houseStringNum isEqualToString:model.houseNum]) {
-//                //优先级3：orderState为10表示未支付；orderState为20表示已支付
-//                
-//                //水费单
-//                NSArray *waterAry = obj[@"noPayOrder"][@"waterOrder"];
-//                if (waterAry.count>0) {
-//                    __block CGFloat totalWaterB =0;
-//                    [waterAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                        NSInteger state = [obj[@"orderState"] integerValue];
-//                        if (state==10) {
-//                            NSString *waterBill = obj[@"orderGoodsAmount"];
-//                            CGFloat waterB = [waterBill floatValue];
-//                            totalWaterB +=waterB;
-//                        }
-//                        
-//                    }];
-//                    NSLog(@"【totalWaterB】%f",totalWaterB);
-//                    payMoeny +=totalWaterB;
-//                }
-//                
-//                
-//                //电费单
-//                NSArray *eletricAry = obj[@"noPayOrder"][@"electricOrder"];
-//                if (eletricAry.count>0) {
-//                    __block CGFloat totaleletricB =0;
-//                    [eletricAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                        
-//                        NSInteger state = [obj[@"orderState"] integerValue];
-//                        if (state==10) {
-//                            NSString *eletriBill = obj[@"orderGoodsAmount"];
-//                            CGFloat eletriB = [eletriBill floatValue];
-//                            totaleletricB +=eletriB;
-//                        }
-//                        
-//                    }];
-//                    NSLog(@"【totaleletricB】%f",totaleletricB);
-//                    payMoeny +=totaleletricB;
-//                }
-//                
-//                //租金单
-//                NSArray *rentAry = obj[@"noPayOrder"][@"rentOrder"];
-//                if (rentAry.count>0) {
-//                    __block CGFloat totalrentB =0;
-//                    [rentAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                        
-//                        NSInteger state = [obj[@"orderState"] integerValue];
-//                        if (state==10) {
-//                            NSString *rentBill = obj[@"orderGoodsAmount"];
-//                            CGFloat rentB = [rentBill floatValue];
-//                            totalrentB +=rentB;
-//                        }
-//                        
-//                    }];
-//                    NSLog(@"【totalrentB】%f",totalrentB);
-//                    payMoeny +=totalrentB;
-//                }
-//                
-//                
-//                //其他费用单
-//                NSArray *otherAry = obj[@"noPayOrder"][@"otherOrder"];
-//                if (otherAry.count>0) {
-//                    __block CGFloat totalotherB =0;
-//                    [otherAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                        
-//                        NSInteger state = [obj[@"orderState"] integerValue];
-//                        if (state==10) {
-//                            NSString *otherBill = obj[@"orderGoodsAmount"];
-//                            CGFloat otherB = [otherBill floatValue];
-//                            totalotherB +=otherB;
-//                        }
-//                        
-//                    }];
-//                    NSLog(@"【totalotherB】%f",totalotherB);
-//                    payMoeny +=totalotherB;
-//                }
-//
-//            }
-//            
-//            
-//        }];
-//    }
-//    
-//    if (payMoeny>0) {
-//        NSString *string =[NSString stringWithFormat:@"欠费%.2f元",payMoeny];
-//        self.loginPeople.attributedText=[self colorString:string color:[UIColor redColor] range:NSMakeRange(2, string.length-3)];
-//        [self.backgroundImageBtn setBackgroundImage:[UIImage imageNamed:@"roomhouse_moeny"] forState:UIControlStateNormal];
-//        return;
-//    }else if(contractArray.count>0){
-//        //优先级4：住几个
-//        NSString *string =[NSString stringWithFormat:@"已入住%lu人",(unsigned long)renterCount];
-//        self.loginPeople.attributedText=[self colorString:string color:[UIColor redColor] range:NSMakeRange(3, 1)];
-//        [self.backgroundImageBtn setBackgroundImage:[UIImage imageNamed:@"roomhouse_green"] forState:UIControlStateNormal];
-//        return;
-//    }
+- (void)setModel:(House *)model{
+    self.houseNum.text = model.houseNum.stringValue;
+    //houseStatus为1代表已出租，为2代表未出租
+    if([model.houseStatus.stringValue isEqualToString:EMPTYHOUSE]){
+        //优先级1：空置
+        NSString *string =@"空置";
+        self.loginPeople.attributedText=[self colorString:@"空置" color:TDGRAY2_COLOR range:NSMakeRange(0, string.length)];
+        [self.backgroundImageBtn setBackgroundImage:[UIImage imageNamed:@"roomhouse_empty"] forState:UIControlStateNormal];
+        return;
+    }
+    
+    //租赁信息
+    NSArray *contractArray = model.rentInfo;//合同份数
+    NSInteger renterCount = 0;
+    if (contractArray.count>0) {
+        Rent* tempRent = [[Rent alloc]init];
+        for (Rent* rent in contractArray) {
+            if ([rent.rentIsDisable isEqual:@0]) {
+                tempRent = rent;
+                renterCount = rent.renterInfo.count;
+            }else{
+                tempRent = nil;
+            }
+        }
+        
+        NSAttributedString *dateOutTimeString = [self dateOut:tempRent.rentDueTime.stringValue rentTime:nil];
+        
+        if (tempRent != nil && dateOutTimeString.length>0) {
+            //优先级2：到期
+            self.loginPeople.attributedText=dateOutTimeString;
+            [self.backgroundImageBtn setBackgroundImage:[UIImage imageNamed:@"roomhouse_dateout"] forState:UIControlStateNormal];
+            return;
+        }
+    }
+    
+    NSArray *billArray = self.billArray;
+    CGFloat payMoeny=0.0;
+    
+    for (House* house in billArray) {
+        if ([house.houseNum isEqual:model.houseNum]) {
+            //优先级3：orderState为10表示未支付；orderState为20表示已支付
+            
+            //水费单
+            CGFloat totalWaterB =0;
+            NSArray *waterAry = house.noPayOrder.waterOrder;
+            for (BillOrder* billlOrder in waterAry) {
+                if([billlOrder.orderState isEqual:@10]){
+                    totalWaterB += billlOrder.orderGoodsAmount.floatValue;
+                }
+            }
+           payMoeny +=totalWaterB;
+            //电费单
+            totalWaterB = 0;
+            NSArray *eletric = house.noPayOrder.electricOrder;
+            for (BillOrder* billlOrder in eletric) {
+                if([billlOrder.orderState isEqual:@10]){
+                    totalWaterB += billlOrder.orderGoodsAmount.floatValue;
+                }
+            }
+            payMoeny +=totalWaterB;
+            //租金单
+            totalWaterB = 0;
+            NSArray *rentAry = house.noPayOrder.rentOrder;
+            for (BillOrder* billlOrder in rentAry) {
+                if([billlOrder.orderState isEqual:@10]){
+                    totalWaterB += billlOrder.orderGoodsAmount.floatValue;
+                }
+            }
+            payMoeny +=totalWaterB;
+            
+            //其他费用单
+            totalWaterB =0;
+            NSArray *otherAry = house.noPayOrder.otherOrder;
+            for (BillOrder* billlOrder in otherAry) {
+                if([billlOrder.orderState isEqual:@10]){
+                    totalWaterB += billlOrder.orderGoodsAmount.floatValue;
+                }
+            }
+            payMoeny +=totalWaterB;
+        }
+
+    }
+
+    
+    if (payMoeny > 0) {
+        NSString *string =[NSString stringWithFormat:@"欠费%.2f元",payMoeny];
+        self.loginPeople.attributedText = [self colorString:string color:[UIColor redColor] range:NSMakeRange(2, string.length-3)];
+        [self.backgroundImageBtn setBackgroundImage:[UIImage imageNamed:@"roomhouse_moeny"] forState:UIControlStateNormal];
+        return;
+    }else if(contractArray.count>0){
+        //优先级4：住几个
+        NSString *string =[NSString stringWithFormat:@"已入住%lu人",(unsigned long)renterCount];
+        self.loginPeople.attributedText = [self colorString:string color:[UIColor redColor] range:NSMakeRange(3, 1)];
+        [self.backgroundImageBtn setBackgroundImage:[UIImage imageNamed:@"roomhouse_green"] forState:UIControlStateNormal];
+        return;
+    }
 }
 
 - (NSAttributedString *)dateOut:(NSString*)dueTimeString rentTime:(NSString*)rentTime{
@@ -263,11 +223,5 @@
     return attributedStr;
 }
 
-- (NSMutableArray *)chargeInfoArray{
-    if (_chargeInfoArray == nil) {
-        _chargeInfoArray = [NSMutableArray array];
-    }
-    return _chargeInfoArray;
-}
 
 @end

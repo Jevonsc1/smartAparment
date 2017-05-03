@@ -39,7 +39,6 @@
         [self addTableView];
     }
     [self dealData];
-    NSLog(@"[SAcreathouseFinishVC communityID]%@",self.communityID);
 }
 
 - (void)dealData{
@@ -109,7 +108,7 @@
 //    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"communityID"]=self.communityID;
+    params[@"communityID"]=self.community.communityID;
     params[@"houseData"]=[self pingString];
     params[@"key"]=self.keyString;
 //todo

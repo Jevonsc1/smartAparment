@@ -23,4 +23,5 @@
 + (void)hideHUD;
 
 + (void)showProgress;
++ (void)showProgressWithText:(NSString*)string;
 @end

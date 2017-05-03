@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Community.h"
 @interface SAcreatemoreHouseVC : UIViewController
-@property(nonatomic,copy)NSString *communityID;
-@property(nonatomic,copy)NSString *bbWaterPrice;
-@property(nonatomic,copy)NSString *bbElectricPrice;
-@property(nonatomic,copy)NSString *bbOtherPrice;
+@property(nonatomic,strong)Community* community;
 @end

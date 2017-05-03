@@ -10,6 +10,7 @@
 #import "Rent.h"
 #import "Community.h"
 #import "CommunityRelation.h"
+#import "NoPayOrder.h"
 @interface House : NSObject
 
 @property(nonatomic,strong)NSArray* communityInfo;
@@ -40,7 +41,6 @@
 @property(nonatomic,strong)NSNumber* houseWaterDesc;
 @property(nonatomic,copy)NSString* houseWaterUnitPrice;
 @property(nonatomic,strong)NSArray* rentInfo;
-
-
+@property(nonatomic,strong)NoPayOrder* noPayOrder;
 
 @end

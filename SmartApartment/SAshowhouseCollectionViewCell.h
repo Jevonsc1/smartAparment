@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @class SAshowhouseCollectionViewCell;
-@class SAChargeModel;
 
 @protocol SAshowhouseCollectionViewCellDelegate <NSObject>
 
@@ -17,11 +16,11 @@
 
 @end
 
-@class SAhouseInfoModel;
+@class House;
 
 @interface SAshowhouseCollectionViewCell : UICollectionViewCell
 
-@property(nonatomic,strong)SAhouseInfoModel *model;
+@property(nonatomic,strong)House *model;
 @property (weak, nonatomic) IBOutlet UIImageView *closeImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *houseNum;
@@ -32,13 +31,13 @@
 
 @property (nonatomic, assign) id <SAshowhouseCollectionViewCellDelegate> delegate;
 
-@property(nonatomic,copy)NSString *communityID;
+//@property(nonatomic,copy)NSString *communityID;
+//
+//@property(nonatomic,strong)NSArray *chargeArray;
+//
+//@property(nonatomic,strong)SAChargeModel *chargeModel;
 
-@property(nonatomic,strong)NSArray *chargeArray;
-
-@property(nonatomic,strong)SAChargeModel *chargeModel;
-
-@property(nonatomic,strong)NSMutableArray *billArray;
+@property(nonatomic,strong)NSArray *billArray;
 
 @property (weak, nonatomic) IBOutlet UIButton *backgroundImageBtn;
 

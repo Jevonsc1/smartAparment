@@ -100,6 +100,7 @@
     [WebAPIForRenthouse getAreaList:params callback:^(NSError *err, id response) {
         if (!err && [response intForKey:@"rcode"]  == 10000) {
             NSArray* array =  response[@"data"][0];
+            [self.areaArray removeAllObjects];
             for (NSDictionary* dic in array) {
                 Geography* geography = [Geography yy_modelWithDictionary:dic];
                 [self.areaArray addObject:geography];
@@ -151,6 +152,7 @@
     [WebAPIForRenthouse requestApartmentList:params callback:^(NSError *err, id response) {
         if (!err && [response intForKey:@"rcode"] == 10000) {
             NSArray *comArr = [response objectForKey:@"data"];
+            [self.apartmentList removeAllObjects];
             for (NSDictionary* dic in comArr) {
                 Community* community = [Community yy_modelWithDictionary:dic];
                 [self.apartmentList addObject:community];
@@ -259,10 +261,7 @@
             
         }else{
             SAshowhouseCollectionVC *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"SAshowhouseCollectionVC"];
-            vc.communityID = community.communityID.stringValue;
-            vc.bbWaterPrice = community.communityWaterUnitPrice;
-            vc.bbElectricPrice = community.communityElectricUnitPrice;
-            vc.bbOtherPrice = community.communityOtherChargePrice;
+            vc.community = community;
             //vc.houseInfoArray=community.houseInfoList;
             [self.navigationController pushViewController:vc animated:YES];
         }

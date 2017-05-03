@@ -50,7 +50,6 @@
     self.roomCount.tag=10000;
     self.rentMoneyString.tag=10001;
     self.depositMoneyString.tag=10002;
-    NSLog(@"[SAcreatemoreHouseVC communityID]%@",self.communityID);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLayer:) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
@@ -179,10 +178,7 @@
     }
 
     vc.houseDict=self.houseLayerCountDict;
-    vc.communityID=self.communityID;
-    vc.bbWaterPrice=self.bbWaterPrice;
-    vc.bbElectricPrice=self.bbElectricPrice;
-    vc.bbOtherPrice=self.bbOtherPrice;
+    vc.community = self.community;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
