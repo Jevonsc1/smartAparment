@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -1387,6 +1387,7 @@
                         <outlet property="depositBtnTwo" destination="6ge-oJ-Q5d" id="ofS-mL-qiM"/>
                         <outlet property="depositMoneyString" destination="sqS-RT-09C" id="JzC-yb-FX7"/>
                         <outlet property="depositPersentLabel" destination="tYa-PK-ILt" id="07f-iQ-FDJ"/>
+                        <outlet property="fistView" destination="T1x-oT-bpc" id="4Px-1d-sxL"/>
                         <outlet property="rentMoneyString" destination="si8-jp-HFM" id="UVA-2s-zzr"/>
                         <outlet property="roomCount" destination="ls2-lL-5Q4" id="CKn-pE-bzh"/>
                         <outlet property="scrollView" destination="JpU-Xd-6kH" id="XQc-iI-Qh6"/>
