@@ -52,6 +52,36 @@
 		2E02176E1EB3347400C91F87 /* CommunityRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02176D1EB3347400C91F87 /* CommunityRelation.m */; };
 		2E0217711EB334EE00C91F87 /* Rent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217701EB334EE00C91F87 /* Rent.m */; };
 		2E0217741EB3375800C91F87 /* Renter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0217731EB3375800C91F87 /* Renter.m */; };
+		2E03B2EB1EB960AA0057A96C /* BBEmojiCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2E01EB960AA0057A96C /* BBEmojiCheck.m */; };
+		2E03B2EC1EB960AA0057A96C /* BBImagebaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2E21EB960AA0057A96C /* BBImagebaseVC.m */; };
+		2E03B2ED1EB960AA0057A96C /* BBImageuploadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2E41EB960AA0057A96C /* BBImageuploadTool.m */; };
+		2E03B2EE1EB960AA0057A96C /* SAaddApartmentTableviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2E61EB960AA0057A96C /* SAaddApartmentTableviewController.m */; };
+		2E03B2EF1EB960AA0057A96C /* SAapartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2E81EB960AA0057A96C /* SAapartmentViewController.m */; };
+		2E03B2F01EB960AA0057A96C /* SAeditApartmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2EA1EB960AA0057A96C /* SAeditApartmentTableViewController.m */; };
+		2E03B2F71EB961C80057A96C /* SAapartementAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2F21EB961C80057A96C /* SAapartementAddCell.m */; };
+		2E03B2F81EB961C80057A96C /* SAapartementAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E03B2F31EB961C80057A96C /* SAapartementAddCell.xib */; };
+		2E03B2F91EB961C80057A96C /* SAapartementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2F51EB961C80057A96C /* SAapartementCell.m */; };
+		2E03B2FA1EB961C80057A96C /* SAapartementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E03B2F61EB961C80057A96C /* SAapartementCell.xib */; };
+		2E03B3051EB961DD0057A96C /* SAshowhouseCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2FC1EB961DD0057A96C /* SAshowhouseCollectionVC.m */; };
+		2E03B3061EB961DD0057A96C /* SAcreatemoreHouseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B2FE1EB961DD0057A96C /* SAcreatemoreHouseVC.m */; };
+		2E03B3071EB961DD0057A96C /* SAcreathouseFinishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3001EB961DD0057A96C /* SAcreathouseFinishVC.m */; };
+		2E03B3081EB961DD0057A96C /* SAcreateOneHouseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3021EB961DD0057A96C /* SAcreateOneHouseVC.m */; };
+		2E03B3091EB961DD0057A96C /* SAcreathouseFinishEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3041EB961DD0057A96C /* SAcreathouseFinishEditViewController.m */; };
+		2E03B3191EB962400057A96C /* SAhouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B30B1EB962400057A96C /* SAhouseCell.m */; };
+		2E03B31A1EB962400057A96C /* SAhouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E03B30C1EB962400057A96C /* SAhouseCell.xib */; };
+		2E03B31B1EB962400057A96C /* SAhouseDecripitionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B30E1EB962400057A96C /* SAhouseDecripitionCell.m */; };
+		2E03B31C1EB962400057A96C /* SAhouseDecripitionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E03B30F1EB962400057A96C /* SAhouseDecripitionCell.xib */; };
+		2E03B31D1EB962400057A96C /* SAshowhouseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3111EB962400057A96C /* SAshowhouseCollectionViewCell.m */; };
+		2E03B31E1EB962400057A96C /* SAshowhouseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E03B3121EB962400057A96C /* SAshowhouseCollectionViewCell.xib */; };
+		2E03B31F1EB962400057A96C /* SAshowhouseAddCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3141EB962400057A96C /* SAshowhouseAddCollectionViewCell.m */; };
+		2E03B3201EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E03B3151EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib */; };
+		2E03B3211EB962400057A96C /* SAhouseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3171EB962400057A96C /* SAhouseView.m */; };
+		2E03B3221EB962400057A96C /* SAhouseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E03B3181EB962400057A96C /* SAhouseView.xib */; };
+		2E03B3251EB962570057A96C /* SAcreditCardCheckVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3241EB962570057A96C /* SAcreditCardCheckVC.m */; };
+		2E03B32B1EB9629A0057A96C /* ApertmentRejectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3291EB9629A0057A96C /* ApertmentRejectController.m */; };
+		2E03B32C1EB9629A0057A96C /* rentHouse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E03B32A1EB9629A0057A96C /* rentHouse.storyboard */; };
+		2E03B32F1EB96C170057A96C /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B32E1EB96C170057A96C /* UITextView+Placeholder.m */; };
+		2E03B3331EB9733A0057A96C /* Geography.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3321EB9733A0057A96C /* Geography.m */; };
 		2E3AC7A81EA9AB9100A22E66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7A71EA9AB9100A22E66 /* main.m */; };
 		2E3AC7AB1EA9AB9100A22E66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AA1EA9AB9100A22E66 /* AppDelegate.m */; };
 		2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AD1EA9AB9100A22E66 /* ViewController.m */; };
@@ -213,6 +243,58 @@
 		2E0217701EB334EE00C91F87 /* Rent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rent.m; sourceTree = "<group>"; };
 		2E0217721EB3375800C91F87 /* Renter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renter.h; sourceTree = "<group>"; };
 		2E0217731EB3375800C91F87 /* Renter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renter.m; sourceTree = "<group>"; };
+		2E03B2DF1EB960AA0057A96C /* BBEmojiCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEmojiCheck.h; sourceTree = "<group>"; };
+		2E03B2E01EB960AA0057A96C /* BBEmojiCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEmojiCheck.m; sourceTree = "<group>"; };
+		2E03B2E11EB960AA0057A96C /* BBImagebaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBImagebaseVC.h; sourceTree = "<group>"; };
+		2E03B2E21EB960AA0057A96C /* BBImagebaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBImagebaseVC.m; sourceTree = "<group>"; };
+		2E03B2E31EB960AA0057A96C /* BBImageuploadTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBImageuploadTool.h; sourceTree = "<group>"; };
+		2E03B2E41EB960AA0057A96C /* BBImageuploadTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBImageuploadTool.m; sourceTree = "<group>"; };
+		2E03B2E51EB960AA0057A96C /* SAaddApartmentTableviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAaddApartmentTableviewController.h; sourceTree = "<group>"; };
+		2E03B2E61EB960AA0057A96C /* SAaddApartmentTableviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAaddApartmentTableviewController.m; sourceTree = "<group>"; };
+		2E03B2E71EB960AA0057A96C /* SAapartmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAapartmentViewController.h; sourceTree = "<group>"; };
+		2E03B2E81EB960AA0057A96C /* SAapartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAapartmentViewController.m; sourceTree = "<group>"; };
+		2E03B2E91EB960AA0057A96C /* SAeditApartmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAeditApartmentTableViewController.h; sourceTree = "<group>"; };
+		2E03B2EA1EB960AA0057A96C /* SAeditApartmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAeditApartmentTableViewController.m; sourceTree = "<group>"; };
+		2E03B2F11EB961C80057A96C /* SAapartementAddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAapartementAddCell.h; sourceTree = "<group>"; };
+		2E03B2F21EB961C80057A96C /* SAapartementAddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAapartementAddCell.m; sourceTree = "<group>"; };
+		2E03B2F31EB961C80057A96C /* SAapartementAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAapartementAddCell.xib; sourceTree = "<group>"; };
+		2E03B2F41EB961C80057A96C /* SAapartementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAapartementCell.h; sourceTree = "<group>"; };
+		2E03B2F51EB961C80057A96C /* SAapartementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAapartementCell.m; sourceTree = "<group>"; };
+		2E03B2F61EB961C80057A96C /* SAapartementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAapartementCell.xib; sourceTree = "<group>"; };
+		2E03B2FB1EB961DD0057A96C /* SAshowhouseCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAshowhouseCollectionVC.h; sourceTree = "<group>"; };
+		2E03B2FC1EB961DD0057A96C /* SAshowhouseCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAshowhouseCollectionVC.m; sourceTree = "<group>"; };
+		2E03B2FD1EB961DD0057A96C /* SAcreatemoreHouseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAcreatemoreHouseVC.h; sourceTree = "<group>"; };
+		2E03B2FE1EB961DD0057A96C /* SAcreatemoreHouseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAcreatemoreHouseVC.m; sourceTree = "<group>"; };
+		2E03B2FF1EB961DD0057A96C /* SAcreathouseFinishVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAcreathouseFinishVC.h; sourceTree = "<group>"; };
+		2E03B3001EB961DD0057A96C /* SAcreathouseFinishVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAcreathouseFinishVC.m; sourceTree = "<group>"; };
+		2E03B3011EB961DD0057A96C /* SAcreateOneHouseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAcreateOneHouseVC.h; sourceTree = "<group>"; };
+		2E03B3021EB961DD0057A96C /* SAcreateOneHouseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAcreateOneHouseVC.m; sourceTree = "<group>"; };
+		2E03B3031EB961DD0057A96C /* SAcreathouseFinishEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAcreathouseFinishEditViewController.h; sourceTree = "<group>"; };
+		2E03B3041EB961DD0057A96C /* SAcreathouseFinishEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAcreathouseFinishEditViewController.m; sourceTree = "<group>"; };
+		2E03B30A1EB962400057A96C /* SAhouseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAhouseCell.h; sourceTree = "<group>"; };
+		2E03B30B1EB962400057A96C /* SAhouseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAhouseCell.m; sourceTree = "<group>"; };
+		2E03B30C1EB962400057A96C /* SAhouseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAhouseCell.xib; sourceTree = "<group>"; };
+		2E03B30D1EB962400057A96C /* SAhouseDecripitionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAhouseDecripitionCell.h; sourceTree = "<group>"; };
+		2E03B30E1EB962400057A96C /* SAhouseDecripitionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAhouseDecripitionCell.m; sourceTree = "<group>"; };
+		2E03B30F1EB962400057A96C /* SAhouseDecripitionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAhouseDecripitionCell.xib; sourceTree = "<group>"; };
+		2E03B3101EB962400057A96C /* SAshowhouseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAshowhouseCollectionViewCell.h; sourceTree = "<group>"; };
+		2E03B3111EB962400057A96C /* SAshowhouseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAshowhouseCollectionViewCell.m; sourceTree = "<group>"; };
+		2E03B3121EB962400057A96C /* SAshowhouseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAshowhouseCollectionViewCell.xib; sourceTree = "<group>"; };
+		2E03B3131EB962400057A96C /* SAshowhouseAddCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAshowhouseAddCollectionViewCell.h; sourceTree = "<group>"; };
+		2E03B3141EB962400057A96C /* SAshowhouseAddCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAshowhouseAddCollectionViewCell.m; sourceTree = "<group>"; };
+		2E03B3151EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAshowhouseAddCollectionViewCell.xib; sourceTree = "<group>"; };
+		2E03B3161EB962400057A96C /* SAhouseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAhouseView.h; sourceTree = "<group>"; };
+		2E03B3171EB962400057A96C /* SAhouseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAhouseView.m; sourceTree = "<group>"; };
+		2E03B3181EB962400057A96C /* SAhouseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAhouseView.xib; sourceTree = "<group>"; };
+		2E03B3231EB962570057A96C /* SAcreditCardCheckVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAcreditCardCheckVC.h; sourceTree = "<group>"; };
+		2E03B3241EB962570057A96C /* SAcreditCardCheckVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAcreditCardCheckVC.m; sourceTree = "<group>"; };
+		2E03B3281EB9629A0057A96C /* ApertmentRejectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApertmentRejectController.h; sourceTree = "<group>"; };
+		2E03B3291EB9629A0057A96C /* ApertmentRejectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApertmentRejectController.m; sourceTree = "<group>"; };
+		2E03B32A1EB9629A0057A96C /* rentHouse.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = rentHouse.storyboard; sourceTree = "<group>"; };
+		2E03B32D1EB96C170057A96C /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		2E03B32E1EB96C170057A96C /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		2E03B3311EB9733A0057A96C /* Geography.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geography.h; sourceTree = "<group>"; };
+		2E03B3321EB9733A0057A96C /* Geography.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geography.m; sourceTree = "<group>"; };
 		2E3AC7A31EA9AB9100A22E66 /* SmartApartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartApartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3AC7A71EA9AB9100A22E66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2E3AC7A91EA9AB9100A22E66 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -459,6 +541,87 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
+		2E03B2C81EB95E770057A96C /* 未分类 */ = {
+			isa = PBXGroup;
+			children = (
+				2E0217571EB3184400C91F87 /* MyDelegate.h */,
+				2E0217581EB3184400C91F87 /* MyDelegateDic.h */,
+				2E0217591EB31C3500C91F87 /* PopHome.h */,
+				2E02175A1EB31C3500C91F87 /* PopHome.m */,
+				2E02175C1EB31C8A00C91F87 /* NSDate+HooDatePicker.h */,
+				2E02175D1EB31C8A00C91F87 /* NSDate+HooDatePicker.m */,
+				2E02175E1EB31C8A00C91F87 /* HooDatePicker.h */,
+				2E02175F1EB31C8A00C91F87 /* HooDatePicker.m */,
+				2E0217621EB31CC300C91F87 /* renterUserCell.h */,
+				2E0217631EB31CC300C91F87 /* renterUserCell.m */,
+			);
+			name = "未分类";
+			sourceTree = "<group>";
+		};
+		2E03B2C91EB95EE90057A96C /* 我的公寓 */ = {
+			isa = PBXGroup;
+			children = (
+				2E03B2E71EB960AA0057A96C /* SAapartmentViewController.h */,
+				2E03B2E81EB960AA0057A96C /* SAapartmentViewController.m */,
+				2E03B2DF1EB960AA0057A96C /* BBEmojiCheck.h */,
+				2E03B2E01EB960AA0057A96C /* BBEmojiCheck.m */,
+				2E03B2E11EB960AA0057A96C /* BBImagebaseVC.h */,
+				2E03B2E21EB960AA0057A96C /* BBImagebaseVC.m */,
+				2E03B2E31EB960AA0057A96C /* BBImageuploadTool.h */,
+				2E03B2E41EB960AA0057A96C /* BBImageuploadTool.m */,
+				2E03B2E51EB960AA0057A96C /* SAaddApartmentTableviewController.h */,
+				2E03B2E61EB960AA0057A96C /* SAaddApartmentTableviewController.m */,
+				2E03B2E91EB960AA0057A96C /* SAeditApartmentTableViewController.h */,
+				2E03B2EA1EB960AA0057A96C /* SAeditApartmentTableViewController.m */,
+				2E03B2F11EB961C80057A96C /* SAapartementAddCell.h */,
+				2E03B2F21EB961C80057A96C /* SAapartementAddCell.m */,
+				2E03B2F31EB961C80057A96C /* SAapartementAddCell.xib */,
+				2E03B2F41EB961C80057A96C /* SAapartementCell.h */,
+				2E03B2F51EB961C80057A96C /* SAapartementCell.m */,
+				2E03B2F61EB961C80057A96C /* SAapartementCell.xib */,
+				2E03B2FB1EB961DD0057A96C /* SAshowhouseCollectionVC.h */,
+				2E03B2FC1EB961DD0057A96C /* SAshowhouseCollectionVC.m */,
+				2E03B2FD1EB961DD0057A96C /* SAcreatemoreHouseVC.h */,
+				2E03B2FE1EB961DD0057A96C /* SAcreatemoreHouseVC.m */,
+				2E03B2FF1EB961DD0057A96C /* SAcreathouseFinishVC.h */,
+				2E03B3001EB961DD0057A96C /* SAcreathouseFinishVC.m */,
+				2E03B3011EB961DD0057A96C /* SAcreateOneHouseVC.h */,
+				2E03B3021EB961DD0057A96C /* SAcreateOneHouseVC.m */,
+				2E03B3031EB961DD0057A96C /* SAcreathouseFinishEditViewController.h */,
+				2E03B3041EB961DD0057A96C /* SAcreathouseFinishEditViewController.m */,
+				2E03B30A1EB962400057A96C /* SAhouseCell.h */,
+				2E03B30B1EB962400057A96C /* SAhouseCell.m */,
+				2E03B30C1EB962400057A96C /* SAhouseCell.xib */,
+				2E03B30D1EB962400057A96C /* SAhouseDecripitionCell.h */,
+				2E03B30E1EB962400057A96C /* SAhouseDecripitionCell.m */,
+				2E03B30F1EB962400057A96C /* SAhouseDecripitionCell.xib */,
+				2E03B3101EB962400057A96C /* SAshowhouseCollectionViewCell.h */,
+				2E03B3111EB962400057A96C /* SAshowhouseCollectionViewCell.m */,
+				2E03B3121EB962400057A96C /* SAshowhouseCollectionViewCell.xib */,
+				2E03B3131EB962400057A96C /* SAshowhouseAddCollectionViewCell.h */,
+				2E03B3141EB962400057A96C /* SAshowhouseAddCollectionViewCell.m */,
+				2E03B3151EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib */,
+				2E03B3161EB962400057A96C /* SAhouseView.h */,
+				2E03B3171EB962400057A96C /* SAhouseView.m */,
+				2E03B3181EB962400057A96C /* SAhouseView.xib */,
+				2E03B3231EB962570057A96C /* SAcreditCardCheckVC.h */,
+				2E03B3241EB962570057A96C /* SAcreditCardCheckVC.m */,
+				2E03B3281EB9629A0057A96C /* ApertmentRejectController.h */,
+				2E03B3291EB9629A0057A96C /* ApertmentRejectController.m */,
+				2E03B32A1EB9629A0057A96C /* rentHouse.storyboard */,
+			);
+			name = "我的公寓";
+			sourceTree = "<group>";
+		};
+		2E03B3301EB972AC0057A96C /* 地理 */ = {
+			isa = PBXGroup;
+			children = (
+				2E03B3311EB9733A0057A96C /* Geography.h */,
+				2E03B3321EB9733A0057A96C /* Geography.m */,
+			);
+			name = "地理";
+			sourceTree = "<group>";
+		};
 		2E3AC79A1EA9AB9100A22E66 = {
 			isa = PBXGroup;
 			children = (
@@ -484,16 +647,8 @@
 		2E3AC7A51EA9AB9100A22E66 /* SmartApartment */ = {
 			isa = PBXGroup;
 			children = (
-				2E0217571EB3184400C91F87 /* MyDelegate.h */,
-				2E0217581EB3184400C91F87 /* MyDelegateDic.h */,
-				2E0217591EB31C3500C91F87 /* PopHome.h */,
-				2E02175A1EB31C3500C91F87 /* PopHome.m */,
-				2E02175C1EB31C8A00C91F87 /* NSDate+HooDatePicker.h */,
-				2E02175D1EB31C8A00C91F87 /* NSDate+HooDatePicker.m */,
-				2E02175E1EB31C8A00C91F87 /* HooDatePicker.h */,
-				2E02175F1EB31C8A00C91F87 /* HooDatePicker.m */,
-				2E0217621EB31CC300C91F87 /* renterUserCell.h */,
-				2E0217631EB31CC300C91F87 /* renterUserCell.m */,
+				2E03B2C91EB95EE90057A96C /* 我的公寓 */,
+				2E03B2C81EB95E770057A96C /* 未分类 */,
 				2E02171E1EB30D1500C91F87 /* 在线签约 */,
 				2E0216F91EB2ED7600C91F87 /* Agency */,
 				2E3AC9321EAEE43600A22E66 /* Home&Person */,
@@ -546,6 +701,7 @@
 		2E3AC7DC1EA9ABA300A22E66 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E03B3301EB972AC0057A96C /* 地理 */,
 				2E0217651EB32A3500C91F87 /* 公寓 */,
 				2E0216E31EB0AA8E00C91F87 /* UnlockData+CoreDataClass.h */,
 				2E0216E41EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m */,
@@ -593,13 +749,13 @@
 				2E02171B1EB2F11200C91F87 /* TimeDate.m */,
 				2E3AC87C1EAB33EA00A22E66 /* Alert.h */,
 				2E3AC87D1EAB33EA00A22E66 /* Alert.m */,
-				2E3AC86C1EAB32C000A22E66 /* http */,
 				2E3AC7F41EAA00B100A22E66 /* AppTool.h */,
 				2E3AC7F51EAA00B100A22E66 /* AppTool.m */,
-				2E3AC7E11EA9D4DD00A22E66 /* 3rd_Lib */,
-				2E3AC7E01EA9D4C300A22E66 /* Category */,
 				2E0216F61EB2E22B00C91F87 /* ModelTool.h */,
 				2E0216F71EB2E22B00C91F87 /* ModelTool.m */,
+				2E3AC86C1EAB32C000A22E66 /* http */,
+				2E3AC7E11EA9D4DD00A22E66 /* 3rd_Lib */,
+				2E3AC7E01EA9D4C300A22E66 /* Category */,
 			);
 			name = Tool;
 			sourceTree = "<group>";
@@ -607,6 +763,8 @@
 		2E3AC7E01EA9D4C300A22E66 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2E03B32D1EB96C170057A96C /* UITextView+Placeholder.h */,
+				2E03B32E1EB96C170057A96C /* UITextView+Placeholder.m */,
 				2E0216DD1EB0871100C91F87 /* MBProgressHUD+MJ.h */,
 				2E0216DE1EB0871100C91F87 /* MBProgressHUD+MJ.m */,
 				2E0216E01EB0A04300C91F87 /* NSString+TDChangeTimestamp.h */,
@@ -854,8 +1012,16 @@
 				2E3AC7B91EA9AB9100A22E66 /* LaunchScreen.storyboard in Resources */,
 				2E3AC8501EAB2C9700A22E66 /* Login.storyboard in Resources */,
 				2E3AC7B61EA9AB9100A22E66 /* Assets.xcassets in Resources */,
+				2E03B31A1EB962400057A96C /* SAhouseCell.xib in Resources */,
+				2E03B2FA1EB961C80057A96C /* SAapartementCell.xib in Resources */,
+				2E03B32C1EB9629A0057A96C /* rentHouse.storyboard in Resources */,
+				2E03B3201EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib in Resources */,
 				2E3AC7B11EA9AB9100A22E66 /* Main.storyboard in Resources */,
+				2E03B31C1EB962400057A96C /* SAhouseDecripitionCell.xib in Resources */,
+				2E03B3221EB962400057A96C /* SAhouseView.xib in Resources */,
 				2E0217181EB2EDD100C91F87 /* Agency.storyboard in Resources */,
+				2E03B2F81EB961C80057A96C /* SAapartementAddCell.xib in Resources */,
+				2E03B31E1EB962400057A96C /* SAshowhouseCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,15 +1095,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E0217601EB31C8A00C91F87 /* NSDate+HooDatePicker.m in Sources */,
+				2E03B2EC1EB960AA0057A96C /* BBImagebaseVC.m in Sources */,
 				2E0217381EB30D9700C91F87 /* CheckSignRoomController.m in Sources */,
 				2E0217141EB2EDC400C91F87 /* TemRoomCell.m in Sources */,
 				2E02171C1EB2F11200C91F87 /* TimeDate.m in Sources */,
 				2E3AC9501EAF18E400A22E66 /* UserPersonController.m in Sources */,
+				2E03B3071EB961DD0057A96C /* SAcreathouseFinishVC.m in Sources */,
 				2E3AC90C1EADCFC000A22E66 /* TDTabViewController.m in Sources */,
 				2E3AC9481EAEEFC200A22E66 /* ContractListController.m in Sources */,
+				2E03B3211EB962400057A96C /* SAhouseView.m in Sources */,
 				2E3AC7FC1EAA012F00A22E66 /* NewFeatureViewController.m in Sources */,
+				2E03B31D1EB962400057A96C /* SAshowhouseCollectionViewCell.m in Sources */,
 				2E3AC8621EAB300900A22E66 /* ResetKeyController.m in Sources */,
 				2E02170A1EB2EDA300C91F87 /* BroadbandController.m in Sources */,
+				2E03B3191EB962400057A96C /* SAhouseCell.m in Sources */,
 				2E3AC7F61EAA00B100A22E66 /* AppTool.m in Sources */,
 				2E3AC9561EAF32DE00A22E66 /* BankCard.m in Sources */,
 				2E3AC8781EAB32D400A22E66 /* WebAPI.m in Sources */,
@@ -946,10 +1117,16 @@
 				2E3AC8651EAB303500A22E66 /* RegFirstController.m in Sources */,
 				2E3AC90D1EADCFC000A22E66 /* MyTabBar.m in Sources */,
 				2E3AC87E1EAB33EA00A22E66 /* Alert.m in Sources */,
+				2E03B31B1EB962400057A96C /* SAhouseDecripitionCell.m in Sources */,
 				2E0217131EB2EDC400C91F87 /* NetRoomListController.m in Sources */,
 				2E3AC8791EAB32D400A22E66 /* WebAPIForRenthouse.m in Sources */,
+				2E03B3081EB961DD0057A96C /* SAcreateOneHouseVC.m in Sources */,
+				2E03B3091EB961DD0057A96C /* SAcreathouseFinishEditViewController.m in Sources */,
 				2E3AC8611EAB300900A22E66 /* ForgetPwdController.m in Sources */,
 				2E02173B1EB30D9700C91F87 /* RenterAddPhoneController.m in Sources */,
+				2E03B3051EB961DD0057A96C /* SAshowhouseCollectionVC.m in Sources */,
+				2E03B32B1EB9629A0057A96C /* ApertmentRejectController.m in Sources */,
+				2E03B2EB1EB960AA0057A96C /* BBEmojiCheck.m in Sources */,
 				2E0217341EB30D9700C91F87 /* NewSignRoomController.m in Sources */,
 				2E3AC8531EAB2FD600A22E66 /* LoginViewController.m in Sources */,
 				2E0216F81EB2E22B00C91F87 /* ModelTool.m in Sources */,
@@ -960,6 +1137,7 @@
 				2E0216DF1EB0871100C91F87 /* MBProgressHUD+MJ.m in Sources */,
 				2E3AC8601EAB300900A22E66 /* SetNewPwdController.m in Sources */,
 				2E3AC9371EAEEF1200A22E66 /* NewMasterHomeController.m in Sources */,
+				2E03B32F1EB96C170057A96C /* UITextView+Placeholder.m in Sources */,
 				2E0217641EB31CC300C91F87 /* renterUserCell.m in Sources */,
 				2E3AC9471EAEEFC200A22E66 /* MasterContractController.m in Sources */,
 				2E0217511EB30DF700C91F87 /* AlertCell.m in Sources */,
@@ -968,8 +1146,10 @@
 				2E02173A1EB30D9700C91F87 /* AddRenterResultController.m in Sources */,
 				2E0217681EB32A7C00C91F87 /* House.m in Sources */,
 				2E3AC95C1EAF35D000A22E66 /* User.m in Sources */,
+				2E03B2F01EB960AA0057A96C /* SAeditApartmentTableViewController.m in Sources */,
 				2E02170B1EB2EDA300C91F87 /* apartmentCell.m in Sources */,
 				2E0217371EB30D9700C91F87 /* SignRoomOKController.m in Sources */,
+				2E03B3061EB961DD0057A96C /* SAcreatemoreHouseVC.m in Sources */,
 				2E02173C1EB30D9700C91F87 /* CheckIDCardController.m in Sources */,
 				2E3AC94D1EAEF22300A22E66 /* BBImagebaseTableVC.m in Sources */,
 				2E02175B1EB31C3500C91F87 /* PopHome.m in Sources */,
@@ -979,12 +1159,16 @@
 				2E0217061EB2EDA300C91F87 /* AgencyTabbarController.m in Sources */,
 				2E02176E1EB3347400C91F87 /* CommunityRelation.m in Sources */,
 				2E3AC86B1EAB30C800A22E66 /* UserData+CoreDataProperties.m in Sources */,
+				2E03B31F1EB962400057A96C /* SAshowhouseAddCollectionViewCell.m in Sources */,
 				2E3AC7E71EA9EEF300A22E66 /* UIView+TDExtension.m in Sources */,
 				2E3AC8771EAB32D400A22E66 /* HTTPRequest.m in Sources */,
+				2E03B3331EB9733A0057A96C /* Geography.m in Sources */,
 				2E3AC9591EAF33DF00A22E66 /* MasterInfo.m in Sources */,
 				2E3AC9491EAEEFC200A22E66 /* MasterMyBankController.m in Sources */,
 				2E0217741EB3375800C91F87 /* Renter.m in Sources */,
+				2E03B2EF1EB960AA0057A96C /* SAapartmentViewController.m in Sources */,
 				2E02176B1EB3313500C91F87 /* Community.m in Sources */,
+				2E03B3251EB962570057A96C /* SAcreditCardCheckVC.m in Sources */,
 				2E0217091EB2EDA300C91F87 /* AgencyHomeController.m in Sources */,
 				2E0217501EB30DF700C91F87 /* RenterPhoneCell.m in Sources */,
 				2E3AC9701EAF415A00A22E66 /* FBBLEFileHandle.m in Sources */,
@@ -996,10 +1180,12 @@
 				2E0216E81EB0AA8E00C91F87 /* UnlockData+CoreDataProperties.m in Sources */,
 				2E3AC94A1EAEEFC200A22E66 /* WebBookController.m in Sources */,
 				2E3AC96E1EAF415A00A22E66 /* FBTimeData.m in Sources */,
+				2E03B2EE1EB960AA0057A96C /* SAaddApartmentTableviewController.m in Sources */,
 				2E3AC9711EAF415A00A22E66 /* FBBLETransfer.m in Sources */,
 				2E3AC96F1EAF415A00A22E66 /* FBBLECentralManager.m in Sources */,
 				2E0217081EB2EDA300C91F87 /* AgencyPersonController.m in Sources */,
 				2E3AC9731EAF415A00A22E66 /* TDBLEUnlockDataMode.m in Sources */,
+				2E03B2F71EB961C80057A96C /* SAapartementAddCell.m in Sources */,
 				2E0217361EB30D9700C91F87 /* SelectRentMonthController.m in Sources */,
 				2E0217151EB2EDC400C91F87 /* RenterTemController.m in Sources */,
 				2E0217391EB30D9700C91F87 /* NewAddRenterController.m in Sources */,
@@ -1012,6 +1198,8 @@
 				2E0217711EB334EE00C91F87 /* Rent.m in Sources */,
 				2E3AC9721EAF415A00A22E66 /* TDBLENodeTool.m in Sources */,
 				2E3AC85E1EAB300900A22E66 /* FindKeyOneController.m in Sources */,
+				2E03B2F91EB961C80057A96C /* SAapartementCell.m in Sources */,
+				2E03B2ED1EB960AA0057A96C /* BBImageuploadTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

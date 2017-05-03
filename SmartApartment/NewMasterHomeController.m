@@ -9,6 +9,8 @@
 #import "NewMasterHomeController.h"
 //#import "IDMsgUploadController.h"
 #import "LoginViewController.h"
+#import "GetRoomListController.h"
+#import "SAapartmentViewController.h"
 //#import "WifiHomeController.h"
 //#import "renterListController.h"
 //#import "roomRentersController.h"
@@ -19,7 +21,7 @@
 //#import "CheckMessageController.h"
 //#import "DoorOpenController.h"
 //#import "SelectIDMsgController.h"
-#import "GetRoomListController.h"
+
 //#import "MasterSelfController.h"
 //#import "MasterIDPassController.h"
 //#import "RenterIDPassController.h"
@@ -211,12 +213,12 @@
     
     
 }
-//点击公寓列表
+//点击我的公寓
 - (IBAction)ClickToApartment:(id)sender {
     self.tabBarController.tabBar.hidden = YES;
     if ([master.memberType isEqualToString:@"master"] ) {
-//        SAapartmentViewController *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"Apertmant1"];
-//        [self.navigationController pushViewController:vc animated:YES];
+        SAapartmentViewController *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"Apertmant1"];
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
 //        renterRoomController *vc = [[UIStoryboard storyboardWithName:@"homeMessage" bundle:nil] instantiateViewControllerWithIdentifier:@"renterRoom"];
 //        [self.navigationController pushViewController:vc animated:YES];

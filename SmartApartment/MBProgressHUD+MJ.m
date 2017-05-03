@@ -13,7 +13,7 @@
 + (void)showProgress
 {
 
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication].windows lastObject] animated:YES];
+    [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication].windows lastObject] animated:YES];
 
 
 }
@@ -49,13 +49,13 @@
 #pragma mark 显示一些信息
 + (MBProgressHUD *)showMessage:(NSString *)message toView:(UIView *)view {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
-    // 快速显示一个提示信息
+  
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.label.text = message;
-    // 隐藏时候从父控件中移除
+    if(message.length > 10){
+        hud.label.font = [UIFont systemFontOfSize:13];
+    }
     hud.removeFromSuperViewOnHide = YES;
-    // YES代表需要蒙版效果
-//    hud.dimBackground = YES;
     hud.mode = MBProgressHUDModeText;
     [hud hideAnimated:YES afterDelay:1];
     return hud;
