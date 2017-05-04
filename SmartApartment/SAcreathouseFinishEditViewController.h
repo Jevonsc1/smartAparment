@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "House.h"
 
 @interface SAcreathouseFinishEditViewController : UIViewController
 
-@property(nonatomic,copy) void (^TDPersonMyDataDetailViewControllerBlock)(NSString *rentMoeny ,NSString *depositMoeny);
+@property(nonatomic,copy) void (^TDPersonMyDataDetailViewControllerBlock)(House* house);
 
-@property(nonatomic,copy)NSString *depositMoneyString;
-
-@property(nonatomic,copy)NSString *rentMoneyString;
-
-@property(nonatomic,copy)NSString *homeNum;
+@property(nonatomic,strong)House* house;
 
 @end

@@ -90,7 +90,6 @@
 		2E03B34D1EB9BEBF0057A96C /* STPickerViewUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3441EB9BEBF0057A96C /* STPickerViewUI.m */; };
 		2E03B34E1EB9BEBF0057A96C /* UIView+STFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3461EB9BEBF0057A96C /* UIView+STFrame.m */; };
 		2E03B34F1EB9BEBF0057A96C /* STPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3491EB9BEBF0057A96C /* STPickerView.m */; };
-		2E03B3521EB9D67E0057A96C /* SAHitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3511EB9D67E0057A96C /* SAHitView.m */; };
 		2E3AC7A81EA9AB9100A22E66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7A71EA9AB9100A22E66 /* main.m */; };
 		2E3AC7AB1EA9AB9100A22E66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AA1EA9AB9100A22E66 /* AppDelegate.m */; };
 		2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AD1EA9AB9100A22E66 /* ViewController.m */; };
@@ -320,8 +319,6 @@
 		2E03B3461EB9BEBF0057A96C /* UIView+STFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+STFrame.m"; sourceTree = "<group>"; };
 		2E03B3481EB9BEBF0057A96C /* STPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPickerView.h; sourceTree = "<group>"; };
 		2E03B3491EB9BEBF0057A96C /* STPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPickerView.m; sourceTree = "<group>"; };
-		2E03B3501EB9D67E0057A96C /* SAHitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAHitView.h; sourceTree = "<group>"; };
-		2E03B3511EB9D67E0057A96C /* SAHitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAHitView.m; sourceTree = "<group>"; };
 		2E3AC7A31EA9AB9100A22E66 /* SmartApartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartApartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3AC7A71EA9AB9100A22E66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2E3AC7A91EA9AB9100A22E66 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -575,8 +572,6 @@
 		2E03B2C81EB95E770057A96C /* 未分类 */ = {
 			isa = PBXGroup;
 			children = (
-				2E03B3501EB9D67E0057A96C /* SAHitView.h */,
-				2E03B3511EB9D67E0057A96C /* SAHitView.m */,
 				2E03B2DF1EB960AA0057A96C /* BBEmojiCheck.h */,
 				2E03B2E01EB960AA0057A96C /* BBEmojiCheck.m */,
 				2E03B2E11EB960AA0057A96C /* BBImagebaseVC.h */,
@@ -609,8 +604,11 @@
 				2E03B2FC1EB961DD0057A96C /* SAshowhouseCollectionVC.m */,
 				2E03B2FD1EB961DD0057A96C /* SAcreatemoreHouseVC.h */,
 				2E03B2FE1EB961DD0057A96C /* SAcreatemoreHouseVC.m */,
+				2E03B2FF1EB961DD0057A96C /* SAcreathouseFinishVC.h */,
+				2E03B3001EB961DD0057A96C /* SAcreathouseFinishVC.m */,
 				2E03B3101EB962400057A96C /* SAshowhouseCollectionViewCell.h */,
 				2E03B3111EB962400057A96C /* SAshowhouseCollectionViewCell.m */,
+				2E03B3121EB962400057A96C /* SAshowhouseCollectionViewCell.xib */,
 				2E03B2E51EB960AA0057A96C /* SAaddApartmentTableviewController.h */,
 				2E03B2E61EB960AA0057A96C /* SAaddApartmentTableviewController.m */,
 				2E03B2E91EB960AA0057A96C /* SAeditApartmentTableViewController.h */,
@@ -618,8 +616,6 @@
 				2E03B2F11EB961C80057A96C /* SAapartementAddCell.h */,
 				2E03B2F21EB961C80057A96C /* SAapartementAddCell.m */,
 				2E03B2F31EB961C80057A96C /* SAapartementAddCell.xib */,
-				2E03B2FF1EB961DD0057A96C /* SAcreathouseFinishVC.h */,
-				2E03B3001EB961DD0057A96C /* SAcreathouseFinishVC.m */,
 				2E03B3011EB961DD0057A96C /* SAcreateOneHouseVC.h */,
 				2E03B3021EB961DD0057A96C /* SAcreateOneHouseVC.m */,
 				2E03B3031EB961DD0057A96C /* SAcreathouseFinishEditViewController.h */,
@@ -630,7 +626,6 @@
 				2E03B30D1EB962400057A96C /* SAhouseDecripitionCell.h */,
 				2E03B30E1EB962400057A96C /* SAhouseDecripitionCell.m */,
 				2E03B30F1EB962400057A96C /* SAhouseDecripitionCell.xib */,
-				2E03B3121EB962400057A96C /* SAshowhouseCollectionViewCell.xib */,
 				2E03B3131EB962400057A96C /* SAshowhouseAddCollectionViewCell.h */,
 				2E03B3141EB962400057A96C /* SAshowhouseAddCollectionViewCell.m */,
 				2E03B3151EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib */,
@@ -1252,7 +1247,6 @@
 				2E0217741EB3375800C91F87 /* Renter.m in Sources */,
 				2E03B2EF1EB960AA0057A96C /* SAapartmentViewController.m in Sources */,
 				2E02176B1EB3313500C91F87 /* Community.m in Sources */,
-				2E03B3521EB9D67E0057A96C /* SAHitView.m in Sources */,
 				2E03B3251EB962570057A96C /* SAcreditCardCheckVC.m in Sources */,
 				2E0217091EB2EDA300C91F87 /* AgencyHomeController.m in Sources */,
 				2E0217501EB30DF700C91F87 /* RenterPhoneCell.m in Sources */,

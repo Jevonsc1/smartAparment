@@ -9,22 +9,14 @@
 #import "SAcreathouseFinishVC.h"
 #import "SAhouseDecripitionCell.h"
 
-//#import "SAhouseDescriptionDodel.h"
-
-//#import "SVProgressHUD.h"
-
-//#import "MJExtension.h"
-
 #import "SAcreathouseFinishEditViewController.h"
 
 @interface SAcreathouseFinishVC ()<UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong)NSMutableArray *countArray;
-@property(nonatomic,strong)NSMutableDictionary *countDict;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *allhouseArray;
 
 @property(nonatomic,copy)NSString *editString;
-@property(nonatomic,copy)NSString *keyString;
+
 @end
 
 @implementation SAcreathouseFinishVC
@@ -32,43 +24,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addRightBtn];
-    self.keyString = [ModelTool find_UserData].key;
-    [self.countDict removeAllObjects];
-    self.countDict=self.houseDict;
-    if (self.countDict.count>0) {
+    
+    if (self.houseDict.count>0) {
         [self addTableView];
     }
+    
     [self dealData];
 }
 
 - (void)dealData{
-    
-    [self.countDict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        NSString *keyvalue=key;
-        
-        NSString *objvalue=obj;
-        int objint = objvalue.intValue;
-        for (int i=0; i<objint; i++) {
-//todo
-//            SAhouseDescriptionDodel *model = [[SAhouseDescriptionDodel alloc]init];
-//            if (i<9) {
-//                model.houseNumber=[NSString stringWithFormat:@"%@0%d",keyvalue,i+1];
-//            }else{
-//                model.houseNumber=[NSString stringWithFormat:@"%@%d",keyvalue,i+1];
-//            }
-//            
-//            model.houseRentMoney= [NSString stringWithFormat:@"租金%@元/月",self.rentMoneyString];
-//            model.houseDepostMoney= [NSString stringWithFormat:@"押金%@元",self.depostiMoneyString];
-//            model.houseRentMoneyNumber=self.rentMoneyString;
-//            model.houseDepostMoneyNumber=self.depostiMoneyString;
-//            [self.allhouseArray addObject:model];
+    [self.allhouseArray removeAllObjects];
+    [self.houseDict enumerateKeysAndObjectsUsingBlock:^(NSString*  _Nonnull key, NSString*  _Nonnull obj, BOOL * _Nonnull stop) {
+
+        for (int i=0; i<obj.intValue; i++) {
+            House* house = [[House alloc]init];
+            house.houseNum = [NSNumber numberWithInteger:key.intValue*100+i+1];
+            house.houseMonthRent = self.rentMoneyString;
+            house.houseRequestRentDeposit = self.depostiMoneyString;
+            [self.allhouseArray addObject:house];
+
         }
     }];
     
-    NSSortDescriptor  *moneyWithSort ;
-    moneyWithSort  =[[NSSortDescriptor alloc]initWithKey:@"houseNumber" ascending:YES];
-    NSArray *elementarr=[NSArray arrayWithObjects:moneyWithSort, nil];
-    self.allhouseArray=[NSMutableArray arrayWithArray:[self.allhouseArray sortedArrayUsingDescriptors:elementarr]];
 }
 
 - (void)addTableView{
@@ -101,59 +78,53 @@
         return;
     }
     
-//todo
-//    [SVProgressHUD showWithStatus:@""];
-//    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
-//    [SVProgressHUD setBackgroundColor:[UIColor clearColor]];
-//    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
-    
+    [MBProgressHUD showProgress];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"communityID"]=self.community.communityID;
     params[@"houseData"]=[self pingString];
-    params[@"key"]=self.keyString;
-//todo
-//    [WebAPIForRenthouse creatRenthouse:params callback:^(NSError *err, id response) {
-//        SAResponse *responseModel =[SAResponse mj_objectWithKeyValues:response];
-//        if (!err && responseModel.rcode==10000) {
-//            
-//            [SVProgressHUD dismiss];
-//            
-//            int index = (int)[[self.navigationController viewControllers]indexOfObject:self];
-//            
-//            if(index>2){
-//                [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(index-2)] animated:YES];
-//            }else{
-//                [self.navigationController popToRootViewControllerAnimated:YES];
-//            }
-//        }else{
-//            NSString *string =[response objectForKey:@"rmsg"];
-//            if (string.length>0) {
-//                [Alert showFail:string View:self.navigationController.navigationBar andTime:WARNING_TIME complete:nil];
-//            }
-//            [SVProgressHUD dismiss];
-//        }
-//    }];
+    params[@"key"]=[ModelTool find_UserData].key;
+
+    [WebAPIForRenthouse creatRenthouse:params callback:^(NSError *err, id response) {
+
+        if (!err && [response intForKey:@"rcode"]==10000) {
+       
+            int index = (int)[[self.navigationController viewControllers]indexOfObject:self];
+            
+            if(index>2){
+                [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(index-2)] animated:YES];
+            }else{
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+        }else{
+            NSString *string =[response objectForKey:@"rmsg"];
+            if (string.length>0) {
+                [Alert showFail:string View:self.navigationController.navigationBar andTime:WARNING_TIME complete:nil];
+            }
+           
+        }
+        [MBProgressHUD hideHUD];
+    }];
 }
 
 #pragma mark -拼接数据
 - (NSString*)pingString{
     NSMutableArray *array = [NSMutableArray array];
-//todo
-//    for (SAhouseDescriptionDodel *model in self.allhouseArray) {
-//        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//        dict[@"houseNum"]=model.houseNumber;//房号
-//        dict[@"monthRent"]=model.houseRentMoneyNumber;//租金
-//        dict[@"rentDeposit"]=model.houseDepostMoneyNumber;//押金
-//        dict[@"houseWaterUnitPrice"]=self.bbWaterPrice;
-//        dict[@"houseElectricUnitPrice"]=self.bbElectricPrice;
-//        
-//        //默认值
-//        dict[@"initWater"]=@"";
-//        dict[@"initElectric"]=@"";
-//        dict[@"houseOtherChargePrice"]=self.bbOtherPrice;
-//        dict[@"houseOtherChargeDesc"]=@"";
-//        [array addObject:dict];
-//    }
+
+    for (House *model in self.allhouseArray) {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[@"houseNum"]=  model.houseNum;//房号
+        dict[@"monthRent"] = model.houseMonthRent;//租金
+        dict[@"rentDeposit"] = model.houseRequestRentDeposit;//押金
+        dict[@"houseWaterUnitPrice"]=self.community.communityWaterUnitPrice;
+        dict[@"houseElectricUnitPrice"]=self.community.communityElectricUnitPrice;
+        
+        //默认值
+        dict[@"initWater"]=@"";
+        dict[@"initElectric"]=@"";
+        dict[@"houseOtherChargePrice"]=self.community.communityOtherChargePrice;
+        dict[@"houseOtherChargeDesc"]=@"";
+        [array addObject:dict];
+    }
     
     NSString *jsonString = [[NSString alloc] initWithData:[self toJSONData:array] encoding:NSUTF8StringEncoding];
     return jsonString;
@@ -188,33 +159,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//todo
-//    SAcreathouseFinishEditViewController *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"SAcreathouseFinishEditViewController"];
-//    SAhouseDescriptionDodel *selectmodel = self.allhouseArray[indexPath.row];
-//    
-//    vc.depositMoneyString=selectmodel.houseDepostMoneyNumber;
-//    vc.rentMoneyString=selectmodel.houseRentMoneyNumber;
-//    vc.homeNum=selectmodel.houseNumber;
-//    vc.TDPersonMyDataDetailViewControllerBlock =^(NSString *rentMoeny ,NSString *depositMoeny){
-//        selectmodel.houseRentMoney= [NSString stringWithFormat:@"租金%@元/月",rentMoeny];
-//        selectmodel.houseDepostMoney= [NSString stringWithFormat:@"押金%@元",depositMoeny];
-//        NSMutableArray *tempHouseArray = [NSMutableArray array];
-//        tempHouseArray =self.allhouseArray;
-//        [tempHouseArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            SAhouseDescriptionDodel *model= obj;
-//            if (model.houseNumber==selectmodel.houseNumber) {
-//                model.houseRentMoneyNumber=rentMoeny;
-//                model.houseDepostMoneyNumber=depositMoeny;
-//                self.allhouseArray=tempHouseArray;
-//                
-//                SAhouseDescriptionDodel *model= self.allhouseArray[0];
-//                NSLog(@"%@",model.houseRentMoney);
-//            }
-//        }];
-//        
-//        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
-//    };
-//    [self.navigationController pushViewController:vc animated:YES];
+
+    SAcreathouseFinishEditViewController *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"SAcreathouseFinishEditViewController"];
+    House *selectmodel = self.allhouseArray[indexPath.row];
+    
+    vc.house = selectmodel;
+
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -236,9 +187,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
 - (IBAction)popVC{
     [self.navigationController popViewControllerAnimated:YES];
@@ -249,12 +197,6 @@
 
 }
 
-- (NSMutableArray *)countArray{
-    if (_countArray == nil) {
-        _countArray = [NSMutableArray array];
-    }
-    return _countArray;
-}
 
 - (NSMutableArray *)allhouseArray{
     if (_allhouseArray == nil) {

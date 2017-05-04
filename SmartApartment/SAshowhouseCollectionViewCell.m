@@ -153,6 +153,7 @@
     if (payMoeny > 0) {
         NSString *string =[NSString stringWithFormat:@"欠费%.2f元",payMoeny];
         self.loginPeople.attributedText = [self colorString:string color:[UIColor redColor] range:NSMakeRange(2, string.length-3)];
+        
         [self.backgroundImageBtn setBackgroundImage:[UIImage imageNamed:@"roomhouse_moeny"] forState:UIControlStateNormal];
         return;
     }else if(contractArray.count>0){

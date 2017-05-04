@@ -11,7 +11,7 @@
 @interface SAcreathouseFinishVC : UIViewController
 @property(nonatomic,strong)Community* community;
 @property(nonatomic,strong)NSMutableDictionary *houseDict;
-@property(nonatomic,strong)NSMutableArray *houseArray;
+//@property(nonatomic,strong)NSMutableArray *houseArray;
 @property(nonatomic,copy)NSString *rentMoneyString;
 @property(nonatomic,copy)NSString *depostiMoneyString;
 @end

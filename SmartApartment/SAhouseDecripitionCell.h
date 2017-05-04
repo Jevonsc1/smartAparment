@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class SAhouseDescriptionDodel;
+#import "House.h"
 
 @interface SAhouseDecripitionCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *houseNumer;
@@ -18,6 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *depositMoneyLabel;
 
-@property(nonatomic,strong)SAhouseDescriptionDodel *model;
+@property(nonatomic,strong)House *model;
 
 @end

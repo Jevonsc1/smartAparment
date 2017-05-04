@@ -23,10 +23,15 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)setModel:(SAhouseModel *)model{
-//todo
-//    self.houseLayer.text=model.houseLayerString;
-//    self.houseLayerCount.text=model.houseLayerCountString;
+-(void)setLayerString:(NSString *)layerString{
+    _layerString = layerString;
+    self.houseLayer.text = layerString;
+    self.houseLayerCount.text = layerString;
 }
+//- (void)setModel:(SAhouseModel *)model{
+////todo
+////    self.houseLayer.text=model.houseLayerString;
+////    self.houseLayerCount.text=model.houseLayerCountString;
+//}
 
 @end

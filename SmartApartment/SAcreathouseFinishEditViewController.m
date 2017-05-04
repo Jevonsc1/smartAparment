@@ -18,15 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=self.homeNum;
-    self.depositMoney.text=self.depositMoneyString;
-    self.rentMoney.text=self.rentMoneyString;
+    self.title = self.house.houseNum.stringValue;
+    self.depositMoney.text = self.house.houseRequestRentDeposit;
+    self.rentMoney.text = self.house.houseMonthRent;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)popVC:(id)sender{
     [self.navigationController popViewControllerAnimated:YES];
@@ -35,7 +31,9 @@
 - (IBAction)finishEdit:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     if (self.TDPersonMyDataDetailViewControllerBlock) {
-        self.TDPersonMyDataDetailViewControllerBlock(self.rentMoney.text,self.depositMoney.text);
+        self.house.houseMonthRent = self.rentMoney.text;
+        self.house.houseRequestRentDeposit = self.depositMoney.text;
+        self.TDPersonMyDataDetailViewControllerBlock(self.house);
     }
 }
 

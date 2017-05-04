@@ -21,11 +21,12 @@
 
 }
 
-//todo
-//- (void)setModel:(SAhouseDescriptionDodel *)model{
-//    self.houseNumer.text=model.houseNumber;
-//    self.rentMoneyLabel.text=model.houseRentMoney;
-//    self.depositMoneyLabel.text=model.houseDepostMoney;
-//}
+
+- (void)setModel:(House *)model{
+    _model = model;
+    self.houseNumer.text= model.houseNum.stringValue;
+    self.rentMoneyLabel.text = [NSString stringWithFormat:@"租金%@元/月",model.houseMonthRent];
+    self.depositMoneyLabel.text = [NSString stringWithFormat:@"押金%@元",model.houseRequestRentDeposit];
+}
 
 @end

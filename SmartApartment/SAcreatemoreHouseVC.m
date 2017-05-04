@@ -19,25 +19,29 @@
 
 @interface SAcreatemoreHouseVC ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@property(nonatomic,strong)UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet UIView *fistView;
-@property(nonatomic,assign)int roomArray;
-@property(nonatomic,strong)NSMutableArray *houseLayerArray;
+
+@property (weak, nonatomic) IBOutlet UITextField *rentMoneyString;//月租
+//押金的两个按键
 @property (weak, nonatomic) IBOutlet UIButton *depositBtnOne;
 @property (weak, nonatomic) IBOutlet UIButton *depositBtnTwo;
+
+@property (weak, nonatomic) IBOutlet UITextField *depositMoneyString;//押金或押金比例
 @property (weak, nonatomic) IBOutlet UILabel *depositPersentLabel;
-@property(nonatomic,strong)NSMutableArray *houseLayerCountArray;
-@property(nonatomic,strong)NSMutableDictionary *houseLayerCountDict;
-//@property (strong, nonatomic) IBOutlet SAHitView *hitView;
+@property (weak, nonatomic) IBOutlet UITextField *roomCount;//楼层数
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollHeightView;
 
 @property(nonatomic,strong)IBOutlet UIScrollView *scrollView;
 //传的值
-@property (weak, nonatomic) IBOutlet UITextField *rentMoneyString;//月租
-@property (weak, nonatomic) IBOutlet UITextField *depositMoneyString;//押金或押金比例
-@property (weak, nonatomic) IBOutlet UITextField *roomCount;//楼层数
 
+//@property(nonatomic,strong)NSMutableArray *houseLayerCountArray;
+@property(nonatomic,strong)NSMutableDictionary *houseLayerCountDict;
 @property(nonatomic,strong)UIScrollView *scrollViewIn;
+//@property(nonatomic,strong)UITableView *tableView;
+//@property(nonatomic,assign)int roomArray;
+@property(nonatomic,strong)NSMutableArray *houseLayerArray;
 @end
 
 @implementation SAcreatemoreHouseVC
@@ -53,6 +57,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLayer:) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
+- (void)defaultSet{
+    self.depositBtnTwo.selected=NO;
+    self.depositBtnOne.selected=YES;
+    [self.depositPersentLabel setText:@"元"];
+    self.depositMoneyString.text =@"";
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (self.scrollViewIn==nil) {
@@ -61,17 +72,11 @@
     }
 }
 
-- (void)updateViewConstraints{
-    [super updateViewConstraints];
-    //self.scrollHeightView.constant=CGRectGetHeight(self.tableView.frame)*1.5;
-}
 
 //创建房间列表
 - (void)showLayer:(NSNotification*)info{
     
     UITextField *textField =info.object;
-    NSLog(@"[textfield]%@",textField.text);
-    
     if (textField.tag==10000) {
         [self.houseLayerCountDict removeAllObjects];
         for(UIView *view in [self.scrollViewIn subviews]){
@@ -80,10 +85,7 @@
         [self.houseLayerArray removeAllObjects];
         int num =[textField.text intValue];
         for (int i=0; i<num; i++) {
-//todo
-//            SAhouseModel *model = [[SAhouseModel alloc]init];
-//            model.houseLayerString= [NSString stringWithFormat:@"%d",i+1];
-//            [self.houseLayerArray addObject:model];
+            [self.houseLayerArray addObject:[NSString stringWithFormat:@"%d",i+1]];
         }
 
         [self addView:num];
@@ -129,9 +131,6 @@
     [self initBtn];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
 - (IBAction)popVC:(id)sender{
     [self.navigationController popViewControllerAnimated:YES];
@@ -169,7 +168,7 @@
     }
     
     SAcreathouseFinishVC *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"SAcreathouseFinishVC"];
-    vc.rentMoneyString=self.rentMoneyString.text;
+    vc.rentMoneyString = self.rentMoneyString.text;
     if (self.depositBtnOne.selected) {
         vc.depostiMoneyString=self.depositMoneyString.text;
     }else{
@@ -186,33 +185,33 @@
     return self.houseLayerArray.count;
 }
 
-- (void)addTableView{
-//todo
-//原来是TDTableView 我换了为UITableView
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, self.fistView.height+self.fistView.y, self.view.frame.size.width, self.view.height-self.fistView.height-100)];
-    tableView.delegate   = self;
-    tableView.dataSource = self;
-    [tableView registerNib:[UINib nibWithNibName:@"SAhouseCell" bundle:nil]  forCellReuseIdentifier:@"SAhouseCell"];
-    self.tableView = tableView;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.scrollView addSubview:tableView];
-    
-    [self initBtn];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString *cellIdentifier = @"SAhouseCell";
-    SAhouseCell *cell = [tableView dequeueReusableCellWithIdentifier: cellIdentifier];
-    cell.houseLayerCount.delegate=self;
-    cell.houseLayerCount.tag=indexPath.row+1;
-    if (cell == nil) {
-        cell = [[SAhouseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier: cellIdentifier];
-    }
-    
-    cell.model=self.houseLayerArray[indexPath.row];
-    return cell;
-}
+//- (void)addTableView{
+////todo
+////原来是TDTableView 我换了为UITableView
+//    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, self.fistView.height+self.fistView.y, self.view.frame.size.width, self.view.height-self.fistView.height-100)];
+//    tableView.delegate   = self;
+//    tableView.dataSource = self;
+//    [tableView registerNib:[UINib nibWithNibName:@"SAhouseCell" bundle:nil]  forCellReuseIdentifier:@"SAhouseCell"];
+//    self.tableView = tableView;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    [self.scrollView addSubview:tableView];
+//    
+//    [self initBtn];
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    static NSString *cellIdentifier = @"SAhouseCell";
+//    SAhouseCell *cell = [tableView dequeueReusableCellWithIdentifier: cellIdentifier];
+//    cell.houseLayerCount.delegate=self;
+//    cell.houseLayerCount.tag=indexPath.row+1;
+//    if (cell == nil) {
+//        cell = [[SAhouseCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier: cellIdentifier];
+//    }
+//    
+//    cell.layerString = self.houseLayerArray[indexPath.row];
+//    return cell;
+//}
 
 - (NSMutableArray *)houseLayerArray{
     if (_houseLayerArray == nil) {
@@ -221,12 +220,12 @@
     return _houseLayerArray;
 }
 
-- (NSMutableArray *)houseLayerCountArray{
-    if (_houseLayerCountArray == nil) {
-        _houseLayerCountArray = [NSMutableArray array];
-    }
-    return _houseLayerCountArray;
-}
+//- (NSMutableArray *)houseLayerCountArray{
+//    if (_houseLayerCountArray == nil) {
+//        _houseLayerCountArray = [NSMutableArray array];
+//    }
+//    return _houseLayerCountArray;
+//}
 - (IBAction)clickDepostiBtnOne:(id)sender {
     //固定押金
     self.depositBtnTwo.selected=NO;
@@ -238,12 +237,7 @@
     self.depositMoneyString.placeholder = @"请填写金额";
 }
 
-- (void)defaultSet{
-    self.depositBtnTwo.selected=NO;
-    self.depositBtnOne.selected=YES;
-    [self.depositPersentLabel setText:@"元"];
-    self.depositMoneyString.text =@"";
-}
+
 
 - (IBAction)clickDepositBtnTwo:(id)sender {
     //按月押金

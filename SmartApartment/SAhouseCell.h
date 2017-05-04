@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class SAhouseModel;
+
 
 @interface SAhouseCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *houseLayer;
 @property (weak, nonatomic) IBOutlet UITextField *houseLayerCount;
 
-@property(nonatomic,strong)SAhouseModel *model;
+@property(nonatomic,copy)NSString *layerString;
 
 @end
