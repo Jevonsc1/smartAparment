@@ -35,7 +35,7 @@
 //#import "YKLoopView.h"
 //#import "NeedRentRoomController.h"
 //#import "RenterBillController.h"
-//#import "AccessListController.h"
+#import "AccessListController.h"
 
 //#import "EntryRecordController.h"
 //#import "FBBLECentralManager.h"//蓝牙
@@ -249,9 +249,9 @@
         //        }
         //
         //-----------------跳转到新的租客门禁-------------//
-//        AccessListController *vc = [[UIStoryboard storyboardWithName:@"AccessControl" bundle:nil] instantiateViewControllerWithIdentifier:@"AccessList"];
-//        self.tabBarController.tabBar.hidden = YES;
-//        [self.navigationController pushViewController:vc animated:YES];
+        AccessListController *vc = [[UIStoryboard storyboardWithName:@"AccessControl" bundle:nil] instantiateViewControllerWithIdentifier:@"AccessList"];
+        self.tabBarController.tabBar.hidden = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
         //        if (master.renterStatus.integerValue == 30) {
 //        roomRentersController *vc = [[UIStoryboard storyboardWithName:@"renterManager" bundle:nil] instantiateViewControllerWithIdentifier:@"roomRenters"];

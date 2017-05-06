@@ -79,4 +79,12 @@
     }];
 }
 
++(void)getRenterACOptStatusInfo:(NSDictionary *)paramster callback:(void (^)(NSError * err, id response))callback {
+    HTTPRequest* request = [[HTTPRequest alloc]init];
+    NSString *urlString = [self urlString:@"/ac_card/getRenterACOptStatusInfo"];
+    [request POST:urlString body:paramster response:^(NSError *error, id response) {
+        callback(error,response);
+    }];
+}
+
 @end

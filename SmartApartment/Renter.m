@@ -9,5 +9,15 @@
 #import "Renter.h"
 
 @implementation Renter
++ (NSDictionary *)modelCustomPropertyMapper {
+    
+    return @{@"renterMemberAvatar" : @[@"memberAvatar",@"renterMemberAvatar"],
+             @"renterIsValidate": @[@"memberIsValidate",@"renterIsValidate"],
+             @"renterTrueName": @[@"memberTrueName",@"renterTrueName"],
+             @"renterPhone": @[@"memberPhone",@"renterPhone"],
+             @"renterMemberID":@[@"renterMemberID",@"memberID"]};
+    
+}
+
 
 @end

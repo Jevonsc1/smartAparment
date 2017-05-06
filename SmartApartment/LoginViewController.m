@@ -340,7 +340,6 @@
         NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:self.userName.text,@"userPhone",keyCode,@"userPassword",@"2.0",@"version", nil];
          [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [WebAPI userAccountLogin:dic callback:^(NSError *err, id response) {
-
             NSString  *status =[response objectForKey:@"rcode"];
             if (!err && status.integerValue == 10000) {
                 _userDic = [response objectForKey:@"data"];

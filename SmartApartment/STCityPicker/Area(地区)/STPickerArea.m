@@ -50,6 +50,7 @@
     
     [self.areaMutableArea addObjectsFromArray:array];
     
+    
     for (Geography* province in array) {
         [self.arrayProvince addObject:province.node_name];
     }
@@ -64,6 +65,8 @@
         [self.arrayArea addObject:area.node_name];
         [self.areaIDArr addObject:area.node_id];
     }
+    
+    
     
     self.province=@"广东";
     self.city=@"中山市";

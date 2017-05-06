@@ -13,10 +13,6 @@
 #import "SAcreatemoreHouseVC.h"
 
 
-//#import "SAhouseInfoModel.h"
-
-//#import "MJExtension.h"
-
 //#import "RoomPayMsgController.h"
 
 #import "SAcreateOneHouseVC.h"
@@ -25,9 +21,6 @@
 
 //#import "RenterRoomMsgController.h"
 
-//#import "SAapartmentModel.h"
-
-//#import "SAChargeModel.h"
 
 #import "MJRefresh.h"
 
@@ -52,14 +45,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initCollectionView];
-    [self.collectionView.mj_header beginRefreshing];
+    
 }
 
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-
-
+    [self.collectionView.mj_header beginRefreshing];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -86,13 +78,37 @@
         [self.collectionView registerNib:[UINib nibWithNibName:@"SAshowhouseAddCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier2];
         __weak typeof(self) weakself = self;
         self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [weakself requestRoomList];
             [weakself requestChargeInfoData];
         }];
         [self.view addSubview:self.collectionView];
     }
 }
 
-
+- (void)requestRoomList{
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"key"]= [ModelTool find_UserData].key;
+    params[@"pageSize"]=@"100000";
+    
+    [WebAPIForRenthouse requestApartmentList:params callback:^(NSError *err, id response) {
+        if (!err && [response intForKey:@"rcode"] == 10000) {
+            NSArray *comArr = [response objectForKey:@"data"];
+            for (NSDictionary* dic in comArr) {
+                if (self.community.communityID.intValue == [dic intForKey:@"communityID"]) {
+                    Community* community = [Community yy_modelWithDictionary:dic];
+                    self.community = community;
+                }
+                
+            }
+            [self.collectionView reloadData];
+        }else{
+            [MBProgressHUD showMessage:[response objectForKey:@"rmsg"]];
+        }
+        
+        
+    }];
+}
 
 
 

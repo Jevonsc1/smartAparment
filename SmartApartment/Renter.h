@@ -30,4 +30,20 @@
 @property(nonatomic,strong)NSNumber* renterStatus;
 @property(nonatomic,strong)NSNumber* renterTime;
 @property(nonatomic,copy)NSString* renterTrueName;
+
+@property(nonatomic,copy)NSString* memberName;
+//门禁记录
+@property(nonatomic,strong)NSNumber* acICCardExist;
+@property(nonatomic,strong)NSNumber* acICCardStatus;
+@property(nonatomic,strong)NSNumber* acIDCardExist;
+@property(nonatomic,strong)NSNumber* acIDCardStatus;
+@property(nonatomic,strong)NSNumber* acLastestLogTime;
+@property(nonatomic,copy)NSString* acLogDes;
+@property(nonatomic,strong)NSNumber* acMobileExist;
+@property(nonatomic,strong)NSNumber* acMobileStatus;
+@property(nonatomic,copy)NSString* houseName;
+@property(nonatomic,strong)NSNumber* houseNum;
+@property(nonatomic,strong)NSNumber* rentRecordDueTime;
+@property(nonatomic,strong)NSNumber* payBillComplete;
+@property(nonatomic,strong)NSNumber* payBillEndTime;
 @end

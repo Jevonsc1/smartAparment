@@ -16,6 +16,8 @@
 @property(nonatomic,copy)NSString *node_name;
 @property(nonatomic,copy)NSString *node_nick_name;
 @property(nonatomic,copy)NSString *node_parent_id;
+
+
 @property(nonatomic,strong)NSArray *sub;
 
 @end
