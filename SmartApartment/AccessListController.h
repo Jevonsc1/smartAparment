@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Community.h"
 
 @interface AccessListController : UIViewController
 
+@property(nonatomic,strong)NSArray<Community *>* communityArray;
 @end

@@ -50,6 +50,8 @@
 //#import "TDPricingPackageListViewController.h"
 //#import "TDMyDoorCardListViewController.h"
 
+#import "Community.h"
+#import "YYModel.h"
 #define viewHeight  125*ratio
 @interface NewMasterHomeController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *oneTitleAutoLead;
@@ -69,6 +71,7 @@
 @property (weak, nonatomic) IBOutlet UIView *masterView;
 @property (weak, nonatomic) IBOutlet UIView *renterView;
 
+@property(nonatomic,strong)NSMutableArray *communityArr;
 @end
 
 @implementation NewMasterHomeController
@@ -79,11 +82,14 @@
     BOOL isFirstRegist;
     UserData *master;
     
-    NSArray *communityArr;
-    
-    
-    
 }
+-(NSMutableArray *)communityArr{
+    if (!_communityArr) {
+        _communityArr = [NSMutableArray array];
+    }
+    return _communityArr;
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     
     self.scrollview.scrollEnabled = NO;
@@ -135,15 +141,18 @@
             if ([master.memberType isEqualToString:@"master"]) {
                 NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:master.key,@"key",@"9999",@"pageSize", nil];
                 [WebAPI getCommunityInfoList:dic callback:^(NSError *err, id response) {
-                    NSArray *comArr;
-                    if(!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000){
-                        comArr = [response objectForKey:@"data"];
-                        if (comArr.count > 0) {
-                            communityArr = comArr;
-                            
-                            NSDictionary *comDic = comArr[0];
-                            
-                            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",[comDic objectForKey:@"communityID"]] forKey:@"comID"];
+                    
+                    if(!err && [response intForKey:@"rcode"] == 10000){
+                        NSArray* comArr = [response objectForKey:@"data"];
+                        int index = 0;
+                        [self.communityArr removeAllObjects];
+                        for (NSDictionary* dic in comArr ) {
+                            Community* community = [Community yy_modelWithDictionary:dic];
+                            if (index == 0) {
+                                [[NSUserDefaults standardUserDefaults] setObject:community.communityID forKey:@"comID"];
+                            }
+                            index++;
+                            [self.communityArr addObject:community];
                         }
                     }
                 }];
@@ -250,7 +259,8 @@
         //
         //-----------------跳转到新的租客门禁-------------//
         AccessListController *vc = [[UIStoryboard storyboardWithName:@"AccessControl" bundle:nil] instantiateViewControllerWithIdentifier:@"AccessList"];
-        self.tabBarController.tabBar.hidden = YES;
+        vc.communityArray = self.communityArr;
+        vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }else{
         //        if (master.renterStatus.integerValue == 30) {

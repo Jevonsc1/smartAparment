@@ -17,5 +17,11 @@
     // Drawing code
 }
 */
-
+-(void)drawRect:(CGRect)rect{
+    
+//    CGRect frame = self.BtnView.frame;
+//    frame.size.width = rect.size.width;
+//    self.BtnView.frame = frame;
+    
+}
 @end

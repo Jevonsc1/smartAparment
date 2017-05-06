@@ -11,6 +11,10 @@
 @interface SearchAccessView : UIView
 @property (weak, nonatomic) IBOutlet UIView *communityTagView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *communityAutoHeigh;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *renterAutoHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *actayeAutoHeight;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *selectRoomButton;
 @property (weak, nonatomic) IBOutlet UILabel *selectRoomLabel;
 @property (weak, nonatomic) IBOutlet UIView *accessStatusTagView;
@@ -19,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *resetBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 @property (weak, nonatomic) IBOutlet UIView *selectRoomView;
+@property (weak, nonatomic) IBOutlet UIView *BtnView;
 
 @end

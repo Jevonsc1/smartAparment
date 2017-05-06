@@ -7,6 +7,7 @@
 //
 
 #import "GBTagListView.h"
+#import "Community.h"
 #define HORIZONTAL_PADDING 7.0f
 #define VERTICAL_PADDING   3.0f
 #define LABEL_MARGIN       10.0f
@@ -43,10 +44,10 @@ alpha:1.0]
     return self;
     
 }
--(void)setTagWithDictionary:(NSArray *)arr andKey:(NSString *)key{
+-(void)setTagWithCommunityArray:(NSArray *)arr{
     previousFrame = CGRectZero;
     [_tagArr addObjectsFromArray:arr];
-    [arr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+    [arr enumerateObjectsUsingBlock:^(Community *obj, NSUInteger idx, BOOL *stop) {
         
         UIButton*tagBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         tagBtn.frame=CGRectZero;
@@ -69,7 +70,7 @@ alpha:1.0]
         [tagBtn setTitleColor:MainBlue forState:UIControlStateSelected];
         tagBtn.titleLabel.font=[UIFont systemFontOfSize:14*ratio];
         [tagBtn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [tagBtn setTitle:[obj objectForKey:key] forState:UIControlStateNormal];
+        [tagBtn setTitle:obj.communityName forState:UIControlStateNormal];
         
         tagBtn.tag=KBtnTag+idx;
         tagBtn.titleEdgeInsets =UIEdgeInsetsMake(0, 0, 0, 0);
@@ -82,7 +83,7 @@ alpha:1.0]
         //        tagBtn.layer.borderWidth=0.3;
         //        tagBtn.clipsToBounds=YES;
         NSDictionary *attrs = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:14*ratio]};
-        CGSize Size_str=[[obj objectForKey:key] sizeWithAttributes:attrs];
+        CGSize Size_str=[obj.communityName sizeWithAttributes:attrs];
         Size_str.width += HORIZONTAL_PADDING*3;
         Size_str.height += VERTICAL_PADDING*3;
         CGRect newRect = CGRectZero;

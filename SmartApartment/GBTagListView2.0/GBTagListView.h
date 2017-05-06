@@ -60,12 +60,11 @@
  *  标签文本赋值
  */
 -(void)setTagWithTagArray:(NSArray*)arr;
--(void)setTagWithDictionary:(NSArray *)arr andKey:(NSString *)key;
+-(void)setTagWithCommunityArray:(NSArray *)arr;
 -(void)setTagWithSearchType:(NSArray *)arr;
 /**
  *  设置tag之间的距离
  *
- *  @param Margin
  */
 -(void)setMarginBetweenTagLabel:(CGFloat)Margin AndBottomMargin:(CGFloat)BottomMargin;
 

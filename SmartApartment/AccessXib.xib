@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,52 +17,40 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73s-Yb-x69">
-                    <rect key="frame" x="0.0" y="590" width="300" height="77"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PgG-2h-svV">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="667"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrL-lJ-h0C">
-                            <rect key="frame" x="8.5" y="21" width="125" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="wrL-lJ-h0C" secondAttribute="height" multiplier="25:8" id="pJ3-N7-lGk"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="重置" backgroundImage="bill_select_reset">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjb-9t-Mmu">
-                            <rect key="frame" x="166.5" y="21" width="125" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="确认" backgroundImage="bill_select_sure">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJs-DC-0SP">
-                            <rect key="frame" x="149.5" y="0.0" width="1" height="77"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73s-Yb-x69">
+                            <rect key="frame" x="0.0" y="403" width="300" height="73"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjb-9t-Mmu">
+                                    <rect key="frame" x="158" y="21" width="126" height="36"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="确认" backgroundImage="bill_select_sure">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrL-lJ-h0C">
+                                    <rect key="frame" x="16" y="21" width="126" height="36"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="重置" backgroundImage="bill_select_reset">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="1" id="qOW-Ii-Q0y"/>
+                                <constraint firstItem="Mjb-9t-Mmu" firstAttribute="top" secondItem="wrL-lJ-h0C" secondAttribute="top" id="0h8-Ue-7PO"/>
+                                <constraint firstItem="Mjb-9t-Mmu" firstAttribute="leading" secondItem="wrL-lJ-h0C" secondAttribute="trailing" constant="16" id="7bb-cW-xvb"/>
+                                <constraint firstItem="wrL-lJ-h0C" firstAttribute="leading" secondItem="73s-Yb-x69" secondAttribute="leading" constant="16" id="LLX-gJ-cOF"/>
+                                <constraint firstItem="wrL-lJ-h0C" firstAttribute="top" secondItem="73s-Yb-x69" secondAttribute="top" constant="21" id="bvB-59-XOd"/>
+                                <constraint firstAttribute="trailing" secondItem="Mjb-9t-Mmu" secondAttribute="trailing" constant="16" id="ezx-dx-VDG"/>
+                                <constraint firstAttribute="width" secondItem="73s-Yb-x69" secondAttribute="height" multiplier="100:27" constant="30" id="lst-WG-72Q"/>
+                                <constraint firstItem="Mjb-9t-Mmu" firstAttribute="height" secondItem="wrL-lJ-h0C" secondAttribute="height" id="wJa-lY-nDD"/>
+                                <constraint firstItem="Mjb-9t-Mmu" firstAttribute="width" secondItem="wrL-lJ-h0C" secondAttribute="width" id="www-A3-3qb"/>
+                                <constraint firstAttribute="bottom" secondItem="wrL-lJ-h0C" secondAttribute="bottom" constant="16" id="z73-lu-59j"/>
                             </constraints>
                         </view>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="Mjb-9t-Mmu" firstAttribute="top" secondItem="wrL-lJ-h0C" secondAttribute="top" id="0h8-Ue-7PO"/>
-                        <constraint firstItem="IJs-DC-0SP" firstAttribute="centerX" secondItem="73s-Yb-x69" secondAttribute="centerX" id="NfF-vb-yM4"/>
-                        <constraint firstItem="IJs-DC-0SP" firstAttribute="leading" secondItem="wrL-lJ-h0C" secondAttribute="trailing" constant="16" id="ZcG-bi-Flz"/>
-                        <constraint firstItem="wrL-lJ-h0C" firstAttribute="top" secondItem="73s-Yb-x69" secondAttribute="top" constant="21" id="bvB-59-XOd"/>
-                        <constraint firstAttribute="bottom" secondItem="IJs-DC-0SP" secondAttribute="bottom" id="cEi-9W-wdU"/>
-                        <constraint firstAttribute="width" secondItem="73s-Yb-x69" secondAttribute="height" multiplier="300:77" id="feb-f2-xPN"/>
-                        <constraint firstItem="Mjb-9t-Mmu" firstAttribute="leading" secondItem="IJs-DC-0SP" secondAttribute="trailing" constant="16" id="lo0-dD-32W"/>
-                        <constraint firstItem="IJs-DC-0SP" firstAttribute="top" secondItem="73s-Yb-x69" secondAttribute="top" id="vgp-sh-1Vy"/>
-                        <constraint firstItem="Mjb-9t-Mmu" firstAttribute="height" secondItem="wrL-lJ-h0C" secondAttribute="height" id="wJa-lY-nDD"/>
-                        <constraint firstItem="Mjb-9t-Mmu" firstAttribute="width" secondItem="wrL-lJ-h0C" secondAttribute="width" id="www-A3-3qb"/>
-                        <constraint firstAttribute="bottom" secondItem="wrL-lJ-h0C" secondAttribute="bottom" constant="16" id="z73-lu-59j"/>
-                    </constraints>
-                </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PgG-2h-svV">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="590"/>
-                    <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择公寓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCd-uy-eJ6">
                             <rect key="frame" x="12" y="12" width="66" height="21"/>
                             <constraints>
@@ -210,12 +198,15 @@
                         <constraint firstItem="nbu-bV-WKo" firstAttribute="top" secondItem="1zS-gd-2nY" secondAttribute="bottom" constant="10" id="FAN-cQ-OAt"/>
                         <constraint firstItem="1zS-gd-2nY" firstAttribute="top" secondItem="viX-Yl-mZ9" secondAttribute="bottom" constant="9" id="FKi-hO-3AS"/>
                         <constraint firstAttribute="trailing" secondItem="1zS-gd-2nY" secondAttribute="trailing" id="FXY-bD-ODJ"/>
+                        <constraint firstItem="73s-Yb-x69" firstAttribute="top" secondItem="nbu-bV-WKo" secondAttribute="bottom" id="IsJ-xS-pcn"/>
+                        <constraint firstAttribute="trailing" secondItem="73s-Yb-x69" secondAttribute="trailing" id="Jiu-ZF-bT7"/>
                         <constraint firstItem="fBz-Je-ZtE" firstAttribute="top" secondItem="6k5-8r-8UM" secondAttribute="bottom" id="NUE-gG-Pqt"/>
                         <constraint firstAttribute="bottom" secondItem="tjO-KR-CUe" secondAttribute="bottom" constant="461" id="NeO-gV-CG6"/>
                         <constraint firstItem="nbu-bV-WKo" firstAttribute="leading" secondItem="PgG-2h-svV" secondAttribute="leading" constant="10" id="POq-2m-p6P"/>
                         <constraint firstItem="PeQ-TH-oUW" firstAttribute="top" secondItem="XZJ-Yg-XRt" secondAttribute="bottom" constant="9" id="Pgh-LG-DLd"/>
                         <constraint firstItem="6k5-8r-8UM" firstAttribute="top" secondItem="tjO-KR-CUe" secondAttribute="bottom" constant="10" id="R6b-Rc-hZ9"/>
                         <constraint firstItem="fBz-Je-ZtE" firstAttribute="leading" secondItem="PgG-2h-svV" secondAttribute="leading" id="TYb-Nw-Yqj"/>
+                        <constraint firstItem="73s-Yb-x69" firstAttribute="leading" secondItem="PgG-2h-svV" secondAttribute="leading" id="Tkb-Lv-b0O"/>
                         <constraint firstItem="RCd-uy-eJ6" firstAttribute="leading" secondItem="PgG-2h-svV" secondAttribute="leading" constant="12" id="Vam-Jn-gwc"/>
                         <constraint firstAttribute="trailing" secondItem="sw3-BU-gIH" secondAttribute="trailing" constant="10" id="YCb-w2-gJe"/>
                         <constraint firstItem="tjO-KR-CUe" firstAttribute="leading" secondItem="PgG-2h-svV" secondAttribute="leading" id="YUd-ag-NRH"/>
@@ -236,19 +227,19 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="73s-Yb-x69" secondAttribute="trailing" id="1kf-VM-qIo"/>
                 <constraint firstItem="PgG-2h-svV" firstAttribute="leading" secondItem="faf-MM-vL9" secondAttribute="leading" id="78b-Tw-dAa"/>
+                <constraint firstAttribute="bottom" secondItem="PgG-2h-svV" secondAttribute="bottom" id="9F8-PY-yas"/>
                 <constraint firstAttribute="trailing" secondItem="PgG-2h-svV" secondAttribute="trailing" id="EIw-WK-YRa"/>
                 <constraint firstItem="PgG-2h-svV" firstAttribute="top" secondItem="faf-MM-vL9" secondAttribute="top" id="NXh-IR-yfR"/>
-                <constraint firstAttribute="bottom" secondItem="73s-Yb-x69" secondAttribute="bottom" id="evG-to-m6X"/>
-                <constraint firstItem="73s-Yb-x69" firstAttribute="leading" secondItem="faf-MM-vL9" secondAttribute="leading" id="uh8-Re-Led"/>
-                <constraint firstItem="73s-Yb-x69" firstAttribute="top" secondItem="PgG-2h-svV" secondAttribute="bottom" id="z8m-cd-zXo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="BtnView" destination="73s-Yb-x69" id="u0Y-tY-Evc"/>
                 <outlet property="accessStatusTagView" destination="sw3-BU-gIH" id="gB6-fI-vvO"/>
+                <outlet property="actayeAutoHeight" destination="vAa-33-efe" id="X1l-JU-fKV"/>
                 <outlet property="communityAutoHeigh" destination="F1X-hi-W35" id="r55-kv-frh"/>
                 <outlet property="communityTagView" destination="6k5-8r-8UM" id="GIu-8o-uir"/>
+                <outlet property="renterAutoHeight" destination="Br4-IX-4B4" id="G2x-7A-2R1"/>
                 <outlet property="renterTypeTagView" destination="nbu-bV-WKo" id="PgM-ut-gCK"/>
                 <outlet property="resetBtn" destination="wrL-lJ-h0C" id="G6o-MM-wJX"/>
                 <outlet property="scrollView" destination="PgG-2h-svV" id="8Ws-z9-rI7"/>
