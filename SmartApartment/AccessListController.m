@@ -284,7 +284,7 @@
     [tapView addGestureRecognizer:hideSearchTap];
     self.fourBackgroundView.hidden = YES;
     //加载view
-    self.searchAccessView = [[NSBundle mainBundle] loadNibNamed:@"AccessXib" owner:self options:nil][0];
+    self.searchAccessView = [[NSBundle mainBundle] loadNibNamed:@"AccessXib" owner:nil options:nil][0];
     self.searchAccessView.frame = CGRectMake(self.tableView.width, 0, 300*ratio ,self.view.height-45);
     [self.fourBackgroundView addSubview:self.searchAccessView];
     accessStatusTagView = [[GBTagListView alloc] initWithFrame:CGRectMake(0, 0, 300*ratio-40, 0)];
@@ -388,10 +388,21 @@
 
 
 }
+-(void)viewWillLayoutSubviews{
+    
+//    NSLog(@"6666---%@",NSStringFromCGRect(self.searchAccessView.scrollView.frame));
+//    self.searchAccessView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 300-300*ratio);
+    [super viewWillLayoutSubviews];
+    self.searchAccessView.contentHeight.constant = CGRectGetMaxY(self.searchAccessView.BtnView.frame)+45+30;
+}
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    [self.searchAccessView.scrollView setContentSize:CGSizeMake(300*ratio, CGRectGetMaxY(self.searchAccessView.BtnView.frame)+45+30)];
 
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear: animated];
+    NSLog(@"11---%@",NSStringFromCGRect(self.searchAccessView.scrollView.frame));
+    NSLog(@"-22--%@",NSStringFromCGRect(self.searchAccessView.BtnView.frame));
 }
 
 /**

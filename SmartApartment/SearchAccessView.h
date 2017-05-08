@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *resetBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 @property (weak, nonatomic) IBOutlet UIView *selectRoomView;
+
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIView *BtnView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 
 @end
