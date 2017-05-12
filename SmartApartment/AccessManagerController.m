@@ -114,7 +114,6 @@
                            @"version":@"2.0",
                            @"houseID":_renter.houseID};
     [WebAPIForMyDoorCard getRenterACOptStatusInfo:dic callback:^(NSError *err, id response) {
-        NSLog(@"%@",response);
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
             NSDictionary *renterData = [response objectForKey:@"data"];
 

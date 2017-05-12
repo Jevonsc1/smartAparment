@@ -47,6 +47,9 @@
 @property(nonatomic,strong)UIView *fourBackgroundView;
 //筛选框
 @property(nonatomic,strong)SearchAccessView *searchAccessView;
+
+@property(nonatomic,strong)NSArray* selectCommuntyHouses;
+@property(nonatomic,strong)Community* seletedCommunity;
 @end
 
 @implementation AccessListController
@@ -62,9 +65,7 @@
     //楼层以及房间的数据
     NSMutableDictionary *highNumDic;
     NSMutableArray *highNumArr;
-    NSArray *houseFromHighArr;
-    //全部房间
-    NSArray *allHouseArr;
+
     //选中的房间数据
     NSDictionary *selectRoomDic;
     //选择的层
@@ -83,8 +84,7 @@
     //选择后的按钮保存颜色状态
     NSString *oneButtonTitle;
     NSString *twoButtonTitle;
-    //临时保存的公寓id
-    NSString *tempCommnityIDs;
+
     //请求数据的参数
     NSString *accessStatusID;//门口机状态
     
@@ -151,9 +151,9 @@
     
      [self initEntrySelectView];
     
-    if (!entryRoomView) {
-        [self initSelectRoomView];
-    }
+ 
+    [self initSelectRoomView];
+    
 }
 
 -(void)setupTableView{
@@ -344,6 +344,7 @@
     communityTagView.signalTagColor = [UIColor whiteColor];
     communityTagView.isSingleSelect = YES;
     communityTagView.canTouch = YES;
+
     self.searchAccessView.selectRoomView.hidden = YES;
     
     
@@ -357,7 +358,6 @@
             communityIDs = [communityIDs stringByAppendingString:[NSString stringWithFormat:@",%@",community.communityID.stringValue]];
         }
     }
-    tempCommnityIDs = communityIDs;
     communityIDs = [NSString stringWithFormat:@"[%@]",communityIDs];
     
     if (self.communityArray.count != 0) {
@@ -389,11 +389,10 @@
 
 }
 -(void)viewWillLayoutSubviews{
-    
-//    NSLog(@"6666---%@",NSStringFromCGRect(self.searchAccessView.scrollView.frame));
-//    self.searchAccessView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 300-300*ratio);
     [super viewWillLayoutSubviews];
+
     self.searchAccessView.contentHeight.constant = CGRectGetMaxY(self.searchAccessView.BtnView.frame)+45+30;
+    
 }
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
@@ -423,9 +422,9 @@
 }
 -(void)searchBySome{
     [self hideRoomEntryView];
-    if (communityIDs.length==0) {
-        communityIDs = [NSString stringWithFormat:@"[%@]",tempCommnityIDs];
-    }
+//    if (communityIDs.length==0) {
+//        communityIDs = [NSString stringWithFormat:@"[%@]",tempCommnityIDs];
+//    }
     [self loadNew];
 }
 
@@ -457,7 +456,7 @@
             communityIDs = [communityIDs stringByAppendingString:[NSString stringWithFormat:@",%@",community.communityID]];
         }
     }
-    tempCommnityIDs = communityIDs;
+//    tempCommnityIDs = communityIDs;
     communityIDs = [NSString stringWithFormat:@"[%@]",communityIDs];
     [communityTagView setTagWithCommunityArray:self.communityArray];
     for (UIButton *btn in accessStatusTagView.subviews) {
@@ -709,14 +708,13 @@
  初始化房间view的数据
  */
 -(void)showSelectRoomView:(Community *)community{
+    self.seletedCommunity = community;
     entryRoomView.communityName.text = community.communityName;
-    NSArray *houseArr = community.houseInfoList;
-    houseFromHighArr = houseArr;
-    allHouseArr = houseArr;
-    highNumDic = [NSMutableDictionary dictionaryWithCapacity:0];
-    highNumArr = [NSMutableArray arrayWithCapacity:0];
-    for (int i = 0; i < houseArr.count; i++) {
-        House *house = houseArr[i];
+    self.selectCommuntyHouses = community.houseInfoList;
+    highNumDic = [NSMutableDictionary dictionary];
+    highNumArr = [NSMutableArray array];
+    for (int i = 0; i < self.selectCommuntyHouses.count; i++) {
+        House *house = self.selectCommuntyHouses[i];
         NSString *highNum = house.houseHightNum.stringValue;
         NSArray *highHouseArr = [highNumDic objectForKey:highNum];
         if (highHouseArr.count == 0) {
@@ -724,7 +722,7 @@
             [highNumDic setObject:arr forKey:highNum];
             [highNumArr addObject:highNum];
         }else{
-            NSMutableArray *arr = [NSMutableArray arrayWithArray:[highNumDic objectForKey:highNum]];
+            NSMutableArray *arr = [[highNumDic objectForKey:highNum] mutableCopy];
             [arr addObject:house ];
             [highNumDic setObject:arr forKey:highNum];
         }
@@ -879,9 +877,10 @@
         if (indexPath.row == 0) {
             [cell.content setTitle:@"所有房间" forState:UIControlStateNormal];
         }else{
-            if (houseFromHighArr.count >=1) {
-                NSString *houseNum = [houseFromHighArr[indexPath.row-1] objectForKey:@"houseNum"];
-                [cell.content setTitle:[NSString stringWithFormat:@"%@房",houseNum] forState:UIControlStateNormal];
+            if (self.selectCommuntyHouses.count >=1) {
+//                NSString *houseNum = [self[indexPath.row-1] objectForKey:@"houseNum"];
+                House* house = self.selectCommuntyHouses[indexPath.row-1];
+                [cell.content setTitle:[NSString stringWithFormat:@"%@房",house.houseNum] forState:UIControlStateNormal];
             }
         }
         return cell;
@@ -977,11 +976,11 @@
     if (tableView.tag == 1) {
         if (indexPath.row != 0) {
             isAllRoom = NO;
-            houseFromHighArr = [highNumDic objectForKey:highNumArr[indexPath.row-1]];
+            self.selectCommuntyHouses = [highNumDic objectForKey:highNumArr[indexPath.row-1]];
             highIndex = indexPath.row - 1;
         }else{
             isAllRoom = YES;
-            houseFromHighArr = allHouseArr;
+            self.selectCommuntyHouses = self.seletedCommunity.houseInfoList;
         }
         selectHeight = YES;
         [entryRoomView.roomNumTable reloadData];
@@ -996,11 +995,11 @@
                     NSArray *houseArr = [highNumDic objectForKey:[NSString stringWithFormat:@"%@",highNumArr[highIndex]]];
                     
                     for (int i = 0; i <houseArr.count; i++) {
-                        NSDictionary *dic = houseArr[i];
+                        House *house = houseArr[i];
                         if (i == 0) {
-                            houseIDs = [NSString stringWithFormat:@"%@",[dic objectForKey:@"houseID"]];
+                            houseIDs = house.houseID.stringValue;
                         }else{
-                            houseIDs = [houseIDs stringByAppendingString:[NSString stringWithFormat:@",%@",[dic objectForKey:@"houseID"]]];
+                            houseIDs = [houseIDs stringByAppendingString:[NSString stringWithFormat:@",%@",house.houseID]];
                         }
                     }
 
@@ -1011,10 +1010,10 @@
                 NSLog(@"%@",houseIDs);
             }
         }else{
-            selectRoomDic = houseFromHighArr[indexPath.row-1];
+            House* house = self.selectCommuntyHouses[indexPath.row-1];
             
-            self.searchAccessView.selectRoomLabel.text = [NSString stringWithFormat:@"%@ %@房",entryRoomView.communityName.text,[selectRoomDic objectForKey:@"houseNum"]];
-            houseIDs = [NSString stringWithFormat:@"[%@]",[selectRoomDic objectForKey:@"houseNum"]];
+            self.searchAccessView.selectRoomLabel.text = [NSString stringWithFormat:@"%@ %@房",entryRoomView.communityName.text,house.houseNum];
+            houseIDs = [NSString stringWithFormat:@"[%@]",house.houseNum];
         }
         [self hideRoomViewByClick];
         
@@ -1084,7 +1083,7 @@
     if (tableView.tag == 1) {
         return highNumArr.count+1;
     }else if (tableView.tag == 2){
-        return houseFromHighArr.count + 1;
+        return self.selectCommuntyHouses.count + 1;
     }else{
         return 1;
 

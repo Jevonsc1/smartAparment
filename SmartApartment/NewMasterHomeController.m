@@ -37,7 +37,7 @@
 //#import "RenterBillController.h"
 #import "AccessListController.h"
 
-//#import "EntryRecordController.h"
+#import "EntryRecordController.h"
 //#import "FBBLECentralManager.h"//蓝牙
 //#import "TDBLENodeTool.h"//上传蓝牙记录
 //--------二期类-------------//
@@ -395,10 +395,10 @@
 }
 //跳转到出入记录
 - (IBAction)clickToEntryRecord:(id)sender {
-//    EntryRecordController *vc = [[UIStoryboard storyboardWithName:@"EntryRecord" bundle:nil] instantiateViewControllerWithIdentifier:@"EntryRecord"];
-//    self.tabBarController.tabBar.hidden = YES;
-//    vc.userType = master.memberType;
-//    [self.navigationController pushViewController:vc animated:YES];
+    EntryRecordController *vc = [[UIStoryboard storyboardWithName:@"EntryRecord" bundle:nil] instantiateViewControllerWithIdentifier:@"EntryRecord"];
+    self.tabBarController.tabBar.hidden = YES;
+    vc.userType = master.memberType;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 //跳转到门禁管理
 //- (IBAction)clickToAccessManager:(id)sender {
