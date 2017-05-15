@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EntryRecord.h"
 @interface EntryRecordCell : UITableViewCell
+
+@property(nonatomic,strong)EntryRecord* entryRecord;
+
 @property (weak, nonatomic) IBOutlet UIImageView *acLogMemberAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *acLogMemberName;
 @property (weak, nonatomic) IBOutlet UILabel *acLogCategoryName;

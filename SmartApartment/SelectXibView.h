@@ -21,4 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonFour;
 @property (weak, nonatomic) IBOutlet UIButton *buttonFive;
 
+-(void)setAllTextColor:(UIColor*)textColor;
+
 @end

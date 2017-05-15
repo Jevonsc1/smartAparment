@@ -129,7 +129,7 @@
  */
 -(void)getRenterAcLogByRefresh{
     pageNum = [NSString stringWithFormat:@"%ld",pageNum.integerValue +1];
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:acCategory,@"acCategory",endTimeTemp,@"endTime",houseID,@"houseID",[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",@"1",@"pageNum",@"10",@"pageSize",renterID,@"renterID",startTimeTemp,@"startTime",@"2.0",@"version", nil];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:acCategory,@"acCategory",endTimeTemp,@"endTime",houseID,@"houseID",[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",pageNum,@"pageNum",@"10",@"pageSize",renterID,@"renterID",startTimeTemp,@"startTime",@"2.0",@"version", nil];
     [WebAPI getSomeRenterAcLogList:dic callback:^(NSError *err, id response) {
         if (!err &&[NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
             NSArray *arr = [[response objectForKey:@"data"] objectForKey:@"acLogList"];
@@ -137,7 +137,7 @@
             if (arr.count > 0) {
                 [outinArr addObjectsFromArray:arr];
             }else{
-                [Alert showFail:@"没有更多数据了!" View:self.navigationController.navigationBar andTime:1.5f complete:nil];
+                [MBProgressHUD showMessage:@"没有更多数据了"];
             }
             [self.tableView reloadData];
         }else{

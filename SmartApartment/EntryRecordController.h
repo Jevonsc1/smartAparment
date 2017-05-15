@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Community.h"
 @interface EntryRecordController : UIViewController
-@property(nonatomic)NSString *userType;
+
+@property(nonatomic,strong)NSArray<Community *>* communityArray;
+
 @end

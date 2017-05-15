@@ -14,7 +14,7 @@
 @property(nonatomic,copy)NSString* communityAuditSuggestion;
 @property(nonatomic,copy)NSString* communityCity;
 @property(nonatomic,copy)NSString* communityElectricUnitPrice;
-@property(nonatomic,strong)NSNumber* communityID;
+@property(nonatomic,copy)NSString* communityID;
 @property(nonatomic,strong)NSNumber* communityIsAuditing;
 @property(nonatomic,strong)NSNumber* communityIsDisable;
 @property(nonatomic,copy)NSString* communityName;

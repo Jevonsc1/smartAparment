@@ -104,11 +104,11 @@
 		2E03B3821EBAF7A00057A96C /* GBTagListView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03B3801EBAF7A00057A96C /* GBTagListView2.m */; };
 		2E09B2D51EC5B1810078E714 /* EntryRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E09B2CA1EC5B1810078E714 /* EntryRecordController.m */; };
 		2E09B2D61EC5B1810078E714 /* EntrySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E09B2CC1EC5B1810078E714 /* EntrySearchViewController.m */; };
-		2E09B2D71EC5B1810078E714 /* EntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E09B2CE1EC5B1810078E714 /* EntryModel.m */; };
 		2E09B2D81EC5B1810078E714 /* EntryRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E09B2D01EC5B1810078E714 /* EntryRecordCell.m */; };
 		2E09B2D91EC5B1810078E714 /* SearchTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E09B2D21EC5B1810078E714 /* SearchTypeView.m */; };
 		2E09B2DA1EC5B1810078E714 /* EntryRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E09B2D31EC5B1810078E714 /* EntryRecord.storyboard */; };
-		2E09B2DB1EC5B1810078E714 /* EntrySearchXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E09B2D41EC5B1810078E714 /* EntrySearchXib.xib */; };
+		2E09B2DB1EC5B1810078E714 /* SearchTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E09B2D41EC5B1810078E714 /* SearchTypeView.xib */; };
+		2E09B2DF1EC95AC60078E714 /* EntryRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E09B2DE1EC95AC60078E714 /* EntryRecord.m */; };
 		2E2BDEAE1EBD4B1C00D8FB92 /* SelectXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2BDEA61EBD4B1C00D8FB92 /* SelectXibView.m */; };
 		2E2BDEAF1EBD4B1C00D8FB92 /* EntrySelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2BDEA81EBD4B1C00D8FB92 /* EntrySelectView.m */; };
 		2E2BDEB01EBD4B1C00D8FB92 /* EntrySelectRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2BDEAA1EBD4B1C00D8FB92 /* EntrySelectRoomView.m */; };
@@ -374,14 +374,14 @@
 		2E09B2CA1EC5B1810078E714 /* EntryRecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryRecordController.m; sourceTree = "<group>"; };
 		2E09B2CB1EC5B1810078E714 /* EntrySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySearchViewController.h; sourceTree = "<group>"; };
 		2E09B2CC1EC5B1810078E714 /* EntrySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySearchViewController.m; sourceTree = "<group>"; };
-		2E09B2CD1EC5B1810078E714 /* EntryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryModel.h; sourceTree = "<group>"; };
-		2E09B2CE1EC5B1810078E714 /* EntryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryModel.m; sourceTree = "<group>"; };
 		2E09B2CF1EC5B1810078E714 /* EntryRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryRecordCell.h; sourceTree = "<group>"; };
 		2E09B2D01EC5B1810078E714 /* EntryRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryRecordCell.m; sourceTree = "<group>"; };
 		2E09B2D11EC5B1810078E714 /* SearchTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTypeView.h; sourceTree = "<group>"; };
 		2E09B2D21EC5B1810078E714 /* SearchTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTypeView.m; sourceTree = "<group>"; };
 		2E09B2D31EC5B1810078E714 /* EntryRecord.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EntryRecord.storyboard; sourceTree = "<group>"; };
-		2E09B2D41EC5B1810078E714 /* EntrySearchXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntrySearchXib.xib; sourceTree = "<group>"; };
+		2E09B2D41EC5B1810078E714 /* SearchTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTypeView.xib; sourceTree = "<group>"; };
+		2E09B2DD1EC95AC60078E714 /* EntryRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryRecord.h; sourceTree = "<group>"; };
+		2E09B2DE1EC95AC60078E714 /* EntryRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryRecord.m; sourceTree = "<group>"; };
 		2E2BDEA51EBD4B1C00D8FB92 /* SelectXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectXibView.h; sourceTree = "<group>"; };
 		2E2BDEA61EBD4B1C00D8FB92 /* SelectXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectXibView.m; sourceTree = "<group>"; };
 		2E2BDEA71EBD4B1C00D8FB92 /* EntrySelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySelectView.h; sourceTree = "<group>"; };
@@ -825,6 +825,15 @@
 			path = GBTagListView2.0;
 			sourceTree = "<group>";
 		};
+		2E09B2DC1EC95A920078E714 /* 出入记录 */ = {
+			isa = PBXGroup;
+			children = (
+				2E09B2DD1EC95AC60078E714 /* EntryRecord.h */,
+				2E09B2DE1EC95AC60078E714 /* EntryRecord.m */,
+			);
+			name = "出入记录";
+			sourceTree = "<group>";
+		};
 		2E2BDEC11EC0110D00D8FB92 /* 出入记录 */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,14 +841,12 @@
 				2E09B2CA1EC5B1810078E714 /* EntryRecordController.m */,
 				2E09B2CB1EC5B1810078E714 /* EntrySearchViewController.h */,
 				2E09B2CC1EC5B1810078E714 /* EntrySearchViewController.m */,
-				2E09B2CD1EC5B1810078E714 /* EntryModel.h */,
-				2E09B2CE1EC5B1810078E714 /* EntryModel.m */,
 				2E09B2CF1EC5B1810078E714 /* EntryRecordCell.h */,
 				2E09B2D01EC5B1810078E714 /* EntryRecordCell.m */,
 				2E09B2D11EC5B1810078E714 /* SearchTypeView.h */,
 				2E09B2D21EC5B1810078E714 /* SearchTypeView.m */,
 				2E09B2D31EC5B1810078E714 /* EntryRecord.storyboard */,
-				2E09B2D41EC5B1810078E714 /* EntrySearchXib.xib */,
+				2E09B2D41EC5B1810078E714 /* SearchTypeView.xib */,
 			);
 			name = "出入记录";
 			sourceTree = "<group>";
@@ -925,6 +932,7 @@
 		2E3AC7DC1EA9ABA300A22E66 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E09B2DC1EC95A920078E714 /* 出入记录 */,
 				2E03B3301EB972AC0057A96C /* 地理 */,
 				2E0217651EB32A3500C91F87 /* 公寓 */,
 				2E0216E31EB0AA8E00C91F87 /* UnlockData+CoreDataClass.h */,
@@ -1244,7 +1252,7 @@
 				2E03B31A1EB962400057A96C /* SAhouseCell.xib in Resources */,
 				2E03B2FA1EB961C80057A96C /* SAapartementCell.xib in Resources */,
 				2E03B32C1EB9629A0057A96C /* rentHouse.storyboard in Resources */,
-				2E09B2DB1EC5B1810078E714 /* EntrySearchXib.xib in Resources */,
+				2E09B2DB1EC5B1810078E714 /* SearchTypeView.xib in Resources */,
 				2E03B3201EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib in Resources */,
 				2E03B3751EBAF5810057A96C /* AccessXib.xib in Resources */,
 				2E3AC7B11EA9AB9100A22E66 /* Main.storyboard in Resources */,
@@ -1334,6 +1342,7 @@
 				2E0217141EB2EDC400C91F87 /* TemRoomCell.m in Sources */,
 				2E02171C1EB2F11200C91F87 /* TimeDate.m in Sources */,
 				2E3AC9501EAF18E400A22E66 /* UserPersonController.m in Sources */,
+				2E09B2DF1EC95AC60078E714 /* EntryRecord.m in Sources */,
 				2E03B3071EB961DD0057A96C /* SAcreathouseFinishVC.m in Sources */,
 				2E3AC90C1EADCFC000A22E66 /* TDTabViewController.m in Sources */,
 				2E3AC9481EAEEFC200A22E66 /* ContractListController.m in Sources */,
@@ -1404,7 +1413,6 @@
 				2E2BDEAE1EBD4B1C00D8FB92 /* SelectXibView.m in Sources */,
 				2E03B34E1EB9BEBF0057A96C /* UIView+STFrame.m in Sources */,
 				2E2BDEBB1EBD538800D8FB92 /* AccessBtn.m in Sources */,
-				2E09B2D71EC5B1810078E714 /* EntryModel.m in Sources */,
 				2E0217061EB2EDA300C91F87 /* AgencyTabbarController.m in Sources */,
 				2E02176E1EB3347400C91F87 /* CommunityRelation.m in Sources */,
 				2E3AC86B1EAB30C800A22E66 /* UserData+CoreDataProperties.m in Sources */,

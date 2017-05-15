@@ -16,38 +16,60 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIButton *searchTypeBtn;
 
+
+@property(nonatomic,strong)NSArray *searchRecord;
+
+@property(nonatomic,strong)NSMutableArray *searchType;
+@property(nonatomic,strong)NSMutableArray *searchContent;
+@property(nonatomic,strong)NSMutableDictionary *searchDic;
+
 @end
 
 @implementation EntrySearchViewController
 {
     GBTagListView *tagView;
-    //搜索记录
-    NSArray *searchRecord;
-    NSMutableArray *searchType;
-    NSMutableArray *searchContent;
-    //用户数据
-    UserData *userdata;
-    //筛选租客或房间的黑色view
     SearchTypeView *searchTypeView;
-    //返回搜索的参数
-    NSMutableDictionary *searchDic;
-    
+}
+
+-(NSMutableDictionary *)searchDic{
+    if (!_searchDic) {
+        _searchDic = [NSMutableDictionary dictionary];
+        [_searchDic setObject:@"0" forKey:@"searchType"];
+    }
+    return _searchDic;
+}
+
+-(NSArray *)searchRecord{
+    if (!_searchRecord) {
+        _searchRecord = [NSArray array];
+    }
+    return _searchRecord;
+}
+
+-(NSMutableArray *)searchContent{
+    if (!_searchContent) {
+        _searchContent = [NSMutableArray array];
+    }
+    return _searchContent;
+}
+
+-(NSMutableArray *)searchType{
+    if (!_searchType) {
+        _searchType = [NSMutableArray array];
+    }
+    return _searchType;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.contentView.layer.cornerRadius = 8;
-    searchDic = [NSMutableDictionary dictionaryWithCapacity:0];
-    searchType = [NSMutableArray arrayWithCapacity:0];
-    searchContent = [NSMutableArray arrayWithCapacity:0];
-    [searchDic setObject:@"0" forKey:@"searchType"];
-    userdata = [ModelTool find_UserData];
-    NSString *searchString = userdata.searchRecord;
-    searchRecord = [searchString componentsSeparatedByString:@","];
-    for (NSString *record in searchRecord) {
+    
+    NSString *searchString = [ModelTool find_UserData].searchRecord;
+    self.searchRecord = [searchString componentsSeparatedByString:@","];
+    for (NSString *record in self.searchRecord) {
         NSArray *recordStr = [record componentsSeparatedByString:@"|"];
-        [searchContent addObject:recordStr[0]];
-        [searchType addObject:recordStr[1]];
+        [self.searchContent addObject:recordStr[0]];
+        [self.searchType addObject:recordStr[1]];
     }
     
     self.navigationController.navigationBar.hidden = YES;
@@ -57,41 +79,41 @@
     tagView.isSingleSelect = YES;
     tagView.isSearch = YES;
     tagView.signalTagColor = [UIColor whiteColor];
-    [tagView setTagWithSearchType:searchContent];
-    __block EntrySearchViewController *blockSelf = self;
+    [tagView setTagWithSearchType:self.searchContent];
+    __weak  typeof(self) weakself = self;
     [tagView setDidselectItemBlock:^(NSArray * arr) {
         if (arr.count>0) {
-             blockSelf->_searchTextField.text = arr[0];
-            [blockSelf->searchDic setObject:blockSelf->_searchTextField.text forKey:@"searchContent"];
-            for (int i = 0; i <blockSelf->searchContent.count; i++) {
-                NSString *content  = blockSelf->searchContent[i];
+             weakself.searchTextField.text = arr[0];
+            [weakself.searchDic setObject:weakself.searchTextField.text forKey:@"searchContent"];
+            for (int i = 0; i <weakself.searchContent.count; i++) {
+                NSString *content  = weakself.searchContent[i];
                 if ([content isEqualToString:arr[0]]) {
-                    [blockSelf->searchDic setObject:blockSelf->searchType[i] forKey:@"searchType"];
+                    [weakself.searchDic setObject:weakself.searchType[i] forKey:@"searchType"];
                 
                 }
             }
             
           
-            [blockSelf->_delegate passValue:blockSelf->searchDic];
-            [blockSelf.navigationController popViewControllerAnimated:YES];
+            [weakself.delegate passValue:weakself.searchDic];
+            [weakself.navigationController popViewControllerAnimated:YES];
             
             
             
             
         }else{
-            blockSelf->_searchTextField.text = @"";
+            weakself.searchTextField.text = @"";
         }
     }];
     [self.scrollView addSubview:tagView];
     [self.scrollView setContentSize:CGSizeMake(0, tagView.height)];
-    searchTypeView = [[NSBundle mainBundle] loadNibNamed:@"EntrySearchXib" owner:self options:nil][0];
+    searchTypeView = [[NSBundle mainBundle] loadNibNamed:@"SearchTypeView" owner:self options:nil][0];
     searchTypeView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.79f];
     [self.view addSubview:searchTypeView];
     searchTypeView.x = self.contentView.x;
     searchTypeView.y = self.contentView.y+55;
     searchTypeView.height = 0;
     searchTypeView.hidden = YES;
-    [searchDic setObject:@"0" forKey:@"searchType"];
+    [self.searchDic setObject:@"0" forKey:@"searchType"];
     [searchTypeView.searchRenter addTarget:self action:@selector(clickSearchName) forControlEvents:UIControlEventTouchUpInside];
     [searchTypeView.searchRoom addTarget:self action:@selector(clickRoomNumber) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -103,7 +125,7 @@
 -(void)clickSearchName{
     self.searchTextField.placeholder = @"请输入租客名/手机";
     [self.searchTypeBtn setTitle:@"租客" forState:UIControlStateNormal];
-    [searchDic setObject:@"0" forKey:@"searchType"];
+    [self.searchDic setObject:@"0" forKey:@"searchType"];
     [UIView animateWithDuration:0.25f animations:^{
         searchTypeView.height = 0;
     }];
@@ -119,7 +141,7 @@
 -(void)clickRoomNumber{
     self.searchTextField.placeholder = @"请输入公寓名/房间号";
     [self.searchTypeBtn setTitle:@"房间" forState:UIControlStateNormal];
-    [searchDic setObject:@"1" forKey:@"searchType"];
+    [self.searchDic setObject:@"1" forKey:@"searchType"];
     [UIView animateWithDuration:0.25f animations:^{
         searchTypeView.height = 0;
     }];
@@ -130,8 +152,6 @@
 
 /**
  点击展示搜索类型
-
- @param sender
  */
 - (IBAction)clickToShowSearchType:(UIButton *)sender {
     if (sender.tag == 1) {
@@ -154,23 +174,23 @@
 
 - (IBAction)clickToSearch:(id)sender {
     if (self.searchTextField.text.length <=0) {
-        [Alert showFail:@"请输入搜索内容" View:self.view andTime:1.5 complete:nil];
+        [MBProgressHUD showMessage:@"请输入搜索内容"];
         return;
     }
-    NSString *searchString = userdata.searchRecord;
+    NSString *searchString = [ModelTool find_UserData].searchRecord;
     if (searchString.length == 0) {
-        searchString = [NSString stringWithFormat:@"%@|%@",self.searchTextField.text,[searchDic objectForKey:@"searchType"]];
+        searchString = [NSString stringWithFormat:@"%@|%@",self.searchTextField.text,[self.searchDic objectForKey:@"searchType"]];
     }else{
        searchString= [searchString stringByAppendingString:@","];
-       searchString= [searchString stringByAppendingString:[NSString stringWithFormat:@"%@|%@",self.searchTextField.text,[searchDic objectForKey:@"searchType"]]];
+       searchString= [searchString stringByAppendingString:[NSString stringWithFormat:@"%@|%@",self.searchTextField.text,[self.searchDic objectForKey:@"searchType"]]];
     }
-    if (userdata.searchRecord.length == 0) {
-            userdata.searchRecord = searchString;
+    if ([ModelTool find_UserData].searchRecord.length == 0) {
+            [ModelTool find_UserData].searchRecord = searchString;
     }
-    for (int i = 0; i <searchRecord.count; i++) {
-        NSString *string = searchRecord[i];
-        if (![string isEqualToString:[searchString stringByAppendingString:[NSString stringWithFormat:@"%@|%@",self.searchTextField.text,[searchDic objectForKey:@"searchType"]]]]) {
-            userdata.searchRecord = searchString;
+    for (int i = 0; i <self.searchRecord.count; i++) {
+        NSString *string = self.searchRecord[i];
+        if (![string isEqualToString:[searchString stringByAppendingString:[NSString stringWithFormat:@"%@|%@",self.searchTextField.text,[self.searchDic objectForKey:@"searchType"]]]]) {
+            [ModelTool find_UserData].searchRecord = searchString;
         }
     }
     
@@ -178,21 +198,17 @@
         NSManagedObjectContext *privateContext= [NSManagedObjectContext MR_contextWithParent:[NSManagedObjectContext MR_defaultContext]];
         [privateContext MR_saveToPersistentStoreAndWait];
     });
-    [searchDic setObject:self.searchTextField.text forKey:@"searchContent"];
-    [self.delegate passValue:searchDic];
+    
+    [self.searchDic setObject:self.searchTextField.text forKey:@"searchContent"];
+    [self.delegate passValue:self.searchDic];
     [self.navigationController popViewControllerAnimated:YES];
 
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
 
 - (IBAction)clickToCleanHirstory:(id)sender {
-    userdata = [ModelTool find_UserData];
-    userdata.searchRecord=@"";
+    [ModelTool find_UserData].searchRecord=@"";
     NSManagedObjectContext *privateContext= [NSManagedObjectContext MR_contextWithParent:[NSManagedObjectContext MR_defaultContext]];
     [privateContext MR_saveToPersistentStoreAndWait];
     
@@ -205,7 +221,6 @@
 /**
  返回到上一个界面
 
- @param sender
  */
 - (IBAction)click:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

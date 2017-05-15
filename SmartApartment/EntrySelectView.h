@@ -33,5 +33,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *comLabel;
 @property (weak, nonatomic) IBOutlet UIView *line;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 
 @end

@@ -281,7 +281,7 @@
         if ([model.houseStatus.stringValue isEqualToString:LOGINHOUSE]) {
             CheckSignRoomController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"CheckSignRoom"];
             vc.houseID = model.houseID.stringValue;
-            vc.apartmentID = self.community.communityID.stringValue;
+            vc.apartmentID = self.community.communityID;
             vc.communityName = self.community.communityName;
             [self.navigationController pushViewController:vc animated:YES];
         }else if([model.houseStatus.stringValue isEqualToString:EMPTYHOUSE]){
@@ -300,7 +300,7 @@
         //批量建房
         if (self.community.houseInfoList.count>0) {
             SAcreateOneHouseVC *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"SAcreateOneHouseVC"];
-            vc.communityID = self.community.communityID.stringValue;
+            vc.communityID = self.community.communityID;
             
             [self.navigationController pushViewController:vc animated:YES];
         }else{

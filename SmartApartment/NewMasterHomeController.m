@@ -80,7 +80,6 @@
     NSString *appUser;
     //是否第一次注册
     BOOL isFirstRegist;
-    UserData *master;
     
 }
 -(NSMutableArray *)communityArr{
@@ -123,9 +122,8 @@
 }
 
 -(void)initUIShow{
-    master = [ModelTool find_UserData];
     //根据 MemberType隐藏或显示租客屋主界面
-    if ([master.memberType isEqualToString:@"master"]) {
+    if ([[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
         self.masterView.hidden= NO;
         self.renterView.hidden= YES;
     }else {
@@ -133,13 +131,13 @@
         self.renterView.hidden= NO;
     }
     [ self.oneViewAutoHeight setConstant:viewHeight];
-    if (![master.memberType isEqualToString:@"agency"]) {
-        if ([master.memberType isEqualToString:@"notype"]&&master.boStatus == 0 && master.renterStatus.integerValue == 0) {
+    if (![[ModelTool find_UserData].memberType isEqualToString:@"agency"]) {
+        if ([[ModelTool find_UserData].memberType isEqualToString:@"notype"]&&[ModelTool find_UserData].boStatus == 0 && [ModelTool find_UserData].renterStatus.integerValue == 0) {
             isFirstRegist = true;
         }else{
             isFirstRegist = false;
-            if ([master.memberType isEqualToString:@"master"]) {
-                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:master.key,@"key",@"9999",@"pageSize", nil];
+            if ([[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
+                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key",@"9999",@"pageSize", nil];
                 [WebAPI getCommunityInfoList:dic callback:^(NSError *err, id response) {
                     
                     if(!err && [response intForKey:@"rcode"] == 10000){
@@ -194,7 +192,7 @@
 //点击公寓抄表
 - (IBAction)ClickToCheckRead:(id)sender {
     
-    if ([master.memberType isEqualToString:@"master"]) {
+    if ([[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
         self.tabBarController.tabBar.hidden = YES;
 //        CheckHomeController *vc = [[UIStoryboard storyboardWithName:@"CheckRead" bundle:nil] instantiateViewControllerWithIdentifier:@"CheckHome"];
 //        [self.navigationController pushViewController:vc animated:YES];
@@ -206,14 +204,14 @@
 - (IBAction)ClickToApartmentBill:(id)sender {
     self.tabBarController.tabBar.hidden = YES;
     
-    if ([master.memberType isEqualToString:@"master"]) {
+    if ([[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
         
 //        ApartmentBillController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"ApartmentBill"];
 //        [self.navigationController pushViewController:vc animated:YES];
 //        [[NSUserDefaults standardUserDefaults] setObject:@"no" forKey:@"formNotif"];
 //        
         
-    }else if([master.memberType isEqualToString:@"renter"] ){
+    }else if([[ModelTool find_UserData].memberType isEqualToString:@"renter"] ){
         
         
 //        RenterBillController *vc = [[UIStoryboard storyboardWithName:@"RenterBill" bundle:  nil] instantiateViewControllerWithIdentifier:@"RenterBill"];
@@ -225,7 +223,7 @@
 //点击我的公寓
 - (IBAction)ClickToApartment:(id)sender {
     self.tabBarController.tabBar.hidden = YES;
-    if ([master.memberType isEqualToString:@"master"] ) {
+    if ([[ModelTool find_UserData].memberType isEqualToString:@"master"] ) {
         SAapartmentViewController *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"Apertmant1"];
         [self.navigationController pushViewController:vc animated:YES];
     }else{
@@ -235,7 +233,7 @@
 }
 //点击在线签约
 - (IBAction)clickToSign:(id)sender {
-    if ([master.memberType isEqualToString:@"master"]) {
+    if ([[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
         GetRoomListController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"GetRoomList"];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
@@ -247,11 +245,11 @@
 //租客列表
 - (IBAction)ClickToRenterList:(id)sender {
     self.tabBarController.tabBar.hidden = YES;
-    if ( [master.memberType isEqualToString:@"master"]) {
-        //        if (master.boStatus == 30) {
+    if ( [[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
+        //        if ([ModelTool find_UserData].boStatus == 30) {
         //            renterListController *vc = [[UIStoryboard storyboardWithName:@"renterManager" bundle:nil] instantiateViewControllerWithIdentifier:@"renterList"];
         //            [self.navigationController pushViewController:vc animated:YES];
-        //        }else if (master.boStatus == 20){
+        //        }else if ([ModelTool find_UserData].boStatus == 20){
         //            [self FailToIDSure];
         //        }else{
         //            [self WaittoIDSure];
@@ -263,11 +261,11 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }else{
-        //        if (master.renterStatus.integerValue == 30) {
+        //        if ([ModelTool find_UserData].renterStatus.integerValue == 30) {
 //        roomRentersController *vc = [[UIStoryboard storyboardWithName:@"renterManager" bundle:nil] instantiateViewControllerWithIdentifier:@"roomRenters"];
 //        vc.inWay = @"byRenter";
 //        [self.navigationController pushViewController:vc animated:YES];
-        //        }else if (master.renterStatus.integerValue == 20){
+        //        }else if ([ModelTool find_UserData].renterStatus.integerValue == 20){
         //            [self FailToIDSure];
         //        }else{
         //            [self WaittoIDSure];
@@ -396,8 +394,8 @@
 //跳转到出入记录
 - (IBAction)clickToEntryRecord:(id)sender {
     EntryRecordController *vc = [[UIStoryboard storyboardWithName:@"EntryRecord" bundle:nil] instantiateViewControllerWithIdentifier:@"EntryRecord"];
-    self.tabBarController.tabBar.hidden = YES;
-    vc.userType = master.memberType;
+    vc.hidesBottomBarWhenPushed = YES;
+    vc.communityArray = self.communityArr;
     [self.navigationController pushViewController:vc animated:YES];
 }
 //跳转到门禁管理

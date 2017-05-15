@@ -72,5 +72,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "TimeDate.h"
 #import "PopHome.h"
+#import "YYModel.h"
+#import "UIImageView+WebCache.h"
 #endif /* PrefixHeader_pch */
 

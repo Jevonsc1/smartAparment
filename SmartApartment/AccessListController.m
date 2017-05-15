@@ -337,6 +337,8 @@
 
     //点击所有房间，展示数据
     [self.searchAccessView.selectRoomButton addTarget:self action:@selector(showRoomViewByClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     [self.searchAccessView.sureBtn addTarget:self action:@selector(searchBySome) forControlEvents:UIControlEventTouchUpInside];
      [self.searchAccessView.resetBtn addTarget:self action:@selector(resetSearch) forControlEvents:UIControlEventTouchUpInside];
   
@@ -353,9 +355,9 @@
     
     for (Community* community in self.communityArray) {
         if (communityIDs.length == 0) {
-            communityIDs = community.communityID.stringValue;
+            communityIDs = community.communityID;
         }else{
-            communityIDs = [communityIDs stringByAppendingString:[NSString stringWithFormat:@",%@",community.communityID.stringValue]];
+            communityIDs = [communityIDs stringByAppendingString:[NSString stringWithFormat:@",%@",community.communityID]];
         }
     }
     communityIDs = [NSString stringWithFormat:@"[%@]",communityIDs];
@@ -477,7 +479,8 @@
  通过动画展示房间view
  */
 -(void)showRoomViewByClick{
-    if (selectCom) {
+    
+    if (self.seletedCommunity) {
         [entryRoomView.hightNumTable reloadData];
         [entryRoomView.roomNumTable reloadData];
         [UIView animateWithDuration:0.25f animations:^{
