@@ -42,7 +42,7 @@
 //#import "TDBLENodeTool.h"//上传蓝牙记录
 //--------二期类-------------//
 //#import "CheckHomeController.h"
-//#import "ApartmentBillController.h"
+#import "ApartmentBillController.h"
 
 //#import "TDBroadbandViewController.h"
 //#import "TDOrderInfoViewController.h"
@@ -206,10 +206,10 @@
     
     if ([[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
         
-//        ApartmentBillController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"ApartmentBill"];
-//        [self.navigationController pushViewController:vc animated:YES];
-//        [[NSUserDefaults standardUserDefaults] setObject:@"no" forKey:@"formNotif"];
-//        
+        ApartmentBillController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"ApartmentBill"];
+        [self.navigationController pushViewController:vc animated:YES];
+        [[NSUserDefaults standardUserDefaults] setObject:@"no" forKey:@"formNotif"];
+        
         
     }else if([[ModelTool find_UserData].memberType isEqualToString:@"renter"] ){
         
