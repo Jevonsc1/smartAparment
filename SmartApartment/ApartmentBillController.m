@@ -103,6 +103,7 @@
     isSelectOverTime = false;
     isSelectWaitPay = false;
     
+    self.tableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     [self initSelectView];
     [self initThreeBtnAddTarget];
     [self getRoomData];
@@ -768,7 +769,7 @@
     
     self.selectedShowArray = selectArr;
     
-        [self.tableview reloadData];
+    [self.tableview reloadData];
     
 }
 

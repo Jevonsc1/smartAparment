@@ -45,10 +45,7 @@
     [self addTagView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (IBAction)searchBill:(id)sender {
  
     if (self.searchText.text.length >0) {

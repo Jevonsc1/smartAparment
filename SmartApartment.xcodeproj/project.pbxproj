@@ -947,6 +947,13 @@
 			name = "公寓账单";
 			sourceTree = "<group>";
 		};
+		2E09B3211ECAE8540078E714 /* 我要租房 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "我要租房";
+			sourceTree = "<group>";
+		};
 		2E2BDEC11EC0110D00D8FB92 /* 出入记录 */ = {
 			isa = PBXGroup;
 			children = (
@@ -989,6 +996,7 @@
 		2E3AC7A51EA9AB9100A22E66 /* SmartApartment */ = {
 			isa = PBXGroup;
 			children = (
+				2E09B3211ECAE8540078E714 /* 我要租房 */,
 				2E09B2E01EC9A5920078E714 /* 公寓账单 */,
 				2E2BDEC11EC0110D00D8FB92 /* 出入记录 */,
 				2E03B3531EBADA370057A96C /* 租客门禁 */,

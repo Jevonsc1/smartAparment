@@ -476,7 +476,7 @@
                                 <action selector="clickToPop:" destination="2zV-PJ-D0w" id="O7m-l0-xhL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="check_search_icon" id="E2f-Sq-KJ2">
+                        <barButtonItem key="rightBarButtonItem" image="search_icon" id="E2f-Sq-KJ2">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="clickToSearchBar:" destination="2zV-PJ-D0w" id="Q9L-w9-Ha4"/>
@@ -886,7 +886,7 @@
                                         <rect key="frame" x="0.0" y="484" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HGA-7T-o5y" id="9f4-og-gdN">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon6" translatesAutoresizingMaskIntoConstraints="NO" id="1iJ-9y-7NB">
@@ -931,7 +931,7 @@
                                         <rect key="frame" x="0.0" y="534" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c8g-Yj-MwV" id="Trr-hN-mAl">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon7" translatesAutoresizingMaskIntoConstraints="NO" id="Lzc-jm-hCx">
@@ -1160,7 +1160,7 @@
                                         <rect key="frame" x="0.0" y="812" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OfH-MN-RbM" id="uoZ-hy-7g3">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="room_bill_icon12" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-be-S6y">
@@ -2831,7 +2831,6 @@
         <image name="bill_select_icon" width="21" height="21"/>
         <image name="bill_select_sure" width="250" height="80"/>
         <image name="check_house_icon" width="32" height="32"/>
-        <image name="check_search_icon" width="24" height="24"/>
         <image name="icon6" width="29" height="36"/>
         <image name="icon7" width="29" height="36"/>
         <image name="navgation_back" width="11" height="19"/>
