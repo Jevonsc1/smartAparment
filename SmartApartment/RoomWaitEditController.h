@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "House.h"
 @interface RoomWaitEditController : UITableViewController
-@property (nonatomic)NSDictionary *roomDic;
+@property (nonatomic,strong)House *house;
 @end

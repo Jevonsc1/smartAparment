@@ -18,4 +18,24 @@
              @"communityRelationInfo":[CommunityRelation class]};
 }
 
+-(NSComparisonResult)compareHouseByTime:(House *)house{
+  
+    NSComparisonResult result = [house.billInfo.payBillTime compare:self.billInfo.payBillTime];
+
+    if (result == NSOrderedSame) {
+        result = [house.houseNum compare:self.houseNum];
+    }
+    return result;
+}
+
+-(NSComparisonResult)compareHouseByName:(House *)house{
+    
+    NSComparisonResult result = [house.communityName compare:self.communityName];
+    
+    if (result == NSOrderedSame) {
+        result = [house.houseNum compare:self.houseNum];
+    }
+    return result;
+}
+
 @end

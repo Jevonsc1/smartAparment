@@ -16,4 +16,10 @@
     return @{@"houseInfoList" : [House class] };
 }
 
++ (NSDictionary *)modelCustomPropertyMapper {
+    
+    return @{@"houseInfoList" : @[@"houseInfoList",@"houseInfo"]};
+    
+}
+
 @end

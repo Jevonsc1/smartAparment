@@ -882,14 +882,14 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Section-3" id="A8j-9N-aYd">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="HGA-7T-o5y">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="HGA-7T-o5y">
                                         <rect key="frame" x="0.0" y="484" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HGA-7T-o5y" id="9f4-og-gdN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_dian_icon" translatesAutoresizingMaskIntoConstraints="NO" id="1iJ-9y-7NB">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon6" translatesAutoresizingMaskIntoConstraints="NO" id="1iJ-9y-7NB">
                                                     <rect key="frame" x="17" y="11" width="26" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="1iJ-9y-7NB" secondAttribute="height" multiplier="1:1" id="Ja8-zJ-XOE"/>
@@ -905,12 +905,6 @@
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_anchor" translatesAutoresizingMaskIntoConstraints="NO" id="WGN-12-brH">
-                                                    <rect key="frame" x="347" y="15" width="11" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="WGN-12-brH" secondAttribute="height" multiplier="11:20" id="Fcv-h1-G4z"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbl-8E-nhF">
                                                     <rect key="frame" x="212" y="14" width="131" height="21"/>
                                                     <constraints>
@@ -923,27 +917,24 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="WGN-12-brH" firstAttribute="leading" secondItem="jbl-8E-nhF" secondAttribute="trailing" constant="4" id="3sy-sI-3az"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="1iJ-9y-7NB" secondAttribute="bottom" constant="4" id="4ob-fX-n7W"/>
                                                 <constraint firstItem="1iJ-9y-7NB" firstAttribute="leading" secondItem="9f4-og-gdN" secondAttribute="leadingMargin" constant="9" id="8Ov-m4-hdT"/>
+                                                <constraint firstAttribute="trailing" secondItem="jbl-8E-nhF" secondAttribute="trailing" constant="-1" id="Dwx-RZ-srV"/>
                                                 <constraint firstItem="ZeM-LM-ea8" firstAttribute="centerY" secondItem="9f4-og-gdN" secondAttribute="centerY" id="Hqz-Ul-0zU"/>
                                                 <constraint firstItem="1iJ-9y-7NB" firstAttribute="top" secondItem="9f4-og-gdN" secondAttribute="topMargin" constant="3" id="LQR-DE-2Hh"/>
                                                 <constraint firstItem="ZeM-LM-ea8" firstAttribute="leading" secondItem="1iJ-9y-7NB" secondAttribute="trailing" constant="5" id="MbM-Ta-ZBl"/>
                                                 <constraint firstItem="jbl-8E-nhF" firstAttribute="centerY" secondItem="9f4-og-gdN" secondAttribute="centerY" id="R3J-RD-wQO"/>
-                                                <constraint firstItem="WGN-12-brH" firstAttribute="top" secondItem="9f4-og-gdN" secondAttribute="topMargin" constant="7" id="kOK-xS-IAp"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="WGN-12-brH" secondAttribute="trailing" constant="9" id="qzE-va-hSQ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="WGN-12-brH" secondAttribute="bottom" constant="6" id="tno-Y7-mrR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="c8g-Yj-MwV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="c8g-Yj-MwV">
                                         <rect key="frame" x="0.0" y="534" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c8g-Yj-MwV" id="Trr-hN-mAl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_water_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Lzc-jm-hCx">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon7" translatesAutoresizingMaskIntoConstraints="NO" id="Lzc-jm-hCx">
                                                     <rect key="frame" x="17" y="13" width="22" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Lzc-jm-hCx" secondAttribute="height" multiplier="1:1" id="OEc-ie-jlh"/>
@@ -969,22 +960,15 @@
                                                     <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_anchor" translatesAutoresizingMaskIntoConstraints="NO" id="Hbn-6V-Xp8">
-                                                    <rect key="frame" x="347" y="15" width="11" height="20"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hgS-qK-NES" firstAttribute="centerY" secondItem="Trr-hN-mAl" secondAttribute="centerY" id="5Uw-RD-PJh"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Hbn-6V-Xp8" secondAttribute="trailing" constant="9" id="6wC-jW-cTJ"/>
-                                                <constraint firstItem="Hbn-6V-Xp8" firstAttribute="top" secondItem="Trr-hN-mAl" secondAttribute="topMargin" constant="7" id="A3f-ZA-6bz"/>
                                                 <constraint firstItem="Lzc-jm-hCx" firstAttribute="top" secondItem="Trr-hN-mAl" secondAttribute="topMargin" constant="5" id="Npv-wL-gPE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Lzc-jm-hCx" secondAttribute="bottom" constant="6" id="PKd-b9-lcI"/>
                                                 <constraint firstItem="hgS-qK-NES" firstAttribute="leading" secondItem="Lzc-jm-hCx" secondAttribute="trailing" constant="8" id="Y8S-JP-wor"/>
                                                 <constraint firstItem="Lzc-jm-hCx" firstAttribute="leading" secondItem="Trr-hN-mAl" secondAttribute="leadingMargin" constant="9" id="bGs-d0-gyZ"/>
                                                 <constraint firstItem="FiA-zR-29P" firstAttribute="centerY" secondItem="Trr-hN-mAl" secondAttribute="centerY" id="ccc-Ci-j0d"/>
-                                                <constraint firstItem="Hbn-6V-Xp8" firstAttribute="width" secondItem="Hbn-6V-Xp8" secondAttribute="height" multiplier="11:20" id="oXH-Zf-9g2"/>
-                                                <constraint firstItem="Hbn-6V-Xp8" firstAttribute="leading" secondItem="FiA-zR-29P" secondAttribute="trailing" constant="4" id="v5z-Nh-b4u"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Hbn-6V-Xp8" secondAttribute="bottom" constant="6" id="z7J-Ax-wrH"/>
+                                                <constraint firstAttribute="trailing" secondItem="FiA-zR-29P" secondAttribute="trailing" constant="-1" id="pge-bj-LbX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1172,11 +1156,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="OfH-MN-RbM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="OfH-MN-RbM">
                                         <rect key="frame" x="0.0" y="812" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OfH-MN-RbM" id="uoZ-hy-7g3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="room_bill_icon12" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-be-S6y">
@@ -1205,20 +1189,11 @@
                                                     <color key="textColor" red="0.89803921568627454" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_anchor" translatesAutoresizingMaskIntoConstraints="NO" id="tpt-dK-G1L">
-                                                    <rect key="frame" x="349" y="15" width="11" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="tpt-dK-G1L" secondAttribute="height" multiplier="11:20" id="pqS-yx-20k"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="tpt-dK-G1L" firstAttribute="leading" secondItem="4v7-ot-Q5R" secondAttribute="trailing" constant="5.5" id="3b4-LT-tNH"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="tpt-dK-G1L" secondAttribute="bottom" constant="6" id="AMU-ft-uYa"/>
+                                                <constraint firstAttribute="trailing" secondItem="4v7-ot-Q5R" secondAttribute="trailing" constant="-1" id="5zV-9c-gJ1"/>
                                                 <constraint firstItem="4v7-ot-Q5R" firstAttribute="centerY" secondItem="uoZ-hy-7g3" secondAttribute="centerY" id="NjK-VZ-11b"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Srf-be-S6y" secondAttribute="bottom" constant="6" id="Wke-Jn-1yE"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="tpt-dK-G1L" secondAttribute="trailing" constant="7" id="Wrw-4b-A2n"/>
-                                                <constraint firstItem="tpt-dK-G1L" firstAttribute="top" secondItem="uoZ-hy-7g3" secondAttribute="topMargin" constant="7" id="p4W-vV-yd7"/>
                                                 <constraint firstItem="Srf-be-S6y" firstAttribute="leading" secondItem="uoZ-hy-7g3" secondAttribute="leadingMargin" constant="9" id="pMl-SJ-9ND"/>
                                                 <constraint firstItem="Srf-be-S6y" firstAttribute="top" secondItem="uoZ-hy-7g3" secondAttribute="topMargin" constant="5" id="rd1-4E-oNe"/>
                                                 <constraint firstItem="Z4l-z0-l6p" firstAttribute="leading" secondItem="Srf-be-S6y" secondAttribute="trailing" constant="8" id="vND-Ll-1F9"/>
@@ -2855,11 +2830,10 @@
         <image name="bill_search_icon" width="35" height="36"/>
         <image name="bill_select_icon" width="21" height="21"/>
         <image name="bill_select_sure" width="250" height="80"/>
-        <image name="check_anchor" width="20" height="33"/>
-        <image name="check_dian_icon" width="32" height="32"/>
         <image name="check_house_icon" width="32" height="32"/>
         <image name="check_search_icon" width="24" height="24"/>
-        <image name="check_water_icon" width="32" height="32"/>
+        <image name="icon6" width="29" height="36"/>
+        <image name="icon7" width="29" height="36"/>
         <image name="navgation_back" width="11" height="19"/>
         <image name="room_bill_icon10" width="32" height="32"/>
         <image name="room_bill_icon11" width="32" height="32"/>

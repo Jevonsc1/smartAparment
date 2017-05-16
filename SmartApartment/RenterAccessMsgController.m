@@ -10,7 +10,7 @@
 #import "AccessManagerController.h"
 #import "OutInRecordController.h"
 #import "UIImageView+WebCache.h"
-//#import "RoomBillController.h"
+#import "RoomBillController.h"
 @interface RenterAccessMsgController ()
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 @property (weak, nonatomic) IBOutlet UILabel *userNAME;
@@ -126,13 +126,11 @@
     }else if (indexPath.row == 6){
         NSString *payBillEndTime = self.renter.payBillEndTime.stringValue;
         if (payBillEndTime.integerValue != 0) {
-//todo
-//            RoomBillController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomBill"];
-//            vc.wayIn =@"hadPay";
-//            NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[self.renterDic objectForKey:@"houseID"],@"houseID", nil];
-//            vc.roomDic = dic;
-//            vc.mainName = self.userNAME.text;
-//            [self.navigationController pushViewController:vc animated:YES];
+            RoomBillController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomBill"];
+            vc.wayIn =@"hadPay";
+            vc.renter = self.renter;
+            vc.mainName = self.userNAME.text;
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }else if (indexPath.row == 7){
         OutInRecordController *vc = [[UIStoryboard storyboardWithName:@"AccessControl" bundle:nil] instantiateViewControllerWithIdentifier:@"OutInRecord"];

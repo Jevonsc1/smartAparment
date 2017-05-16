@@ -11,6 +11,7 @@
 #import "Community.h"
 #import "CommunityRelation.h"
 #import "NoPayOrder.h"
+#import "Bill.h"
 @interface House : NSObject
 
 @property(nonatomic,strong)NSArray* communityInfo;
@@ -43,4 +44,14 @@
 @property(nonatomic,strong)NSArray* rentInfo;
 @property(nonatomic,strong)NoPayOrder* noPayOrder;
 
+@property(nonatomic,strong)Bill* billInfo;
+@property(nonatomic,assign)BOOL hasAC;
+@property(nonatomic,assign)BOOL acEnable;
+
+//辅助作用
+@property(nonatomic,copy)NSString* communityName;
+
+-(NSComparisonResult)compareHouseByTime:(House *)house;
+
+-(NSComparisonResult)compareHouseByName:(House *)house;
 @end

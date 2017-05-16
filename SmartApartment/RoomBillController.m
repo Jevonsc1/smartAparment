@@ -9,6 +9,8 @@
 #import "RoomBillController.h"
 #import "RoomDianDetailController.h"
 #import "RoomBillWaitController.h"
+#import "Good.h"
+#import "GlobalPass.h"
 @interface RoomBillController ()
 @property (weak, nonatomic) IBOutlet UIButton *payBillBtn;
 @property (weak, nonatomic) IBOutlet UILabel *apartmentNameLab;
@@ -39,8 +41,8 @@
 
 @implementation RoomBillController
 {
-    NSString *waterMoney1;
-    NSString *eletrictMoney;
+    float waterMoney1;
+    float eletrictMoney;
     NSString *acEnable;
 }
 - (void)viewDidLoad {
@@ -56,88 +58,84 @@
 }
 
 -(void)GetHadPayRoomBill{
-    NSLog(@"%@",self.roomDic);
     NSDate *currentDate = [NSDate date];//获取当前时间，日期
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"YYYYMM"];
     NSString *dateString = [dateFormatter stringFromDate:currentDate];
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[NSString stringWithFormat:@"%@",[self.roomDic objectForKey:@"houseID"]],@"houseID",dateString,@"monthDate" ,nil];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key",self.renter.houseID,@"houseID",dateString,@"monthDate" ,nil];
     [WebAPI getHouseAvailableBill:dic callback:^(NSError *err, id response) {
-        if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
+        if (!err && [response intForKey:@"rcode"] == 10000) {
             NSArray *dataArr = [response objectForKey:@"data"];
             if (dataArr.count >0) {
-                NSDictionary *dataDic = dataArr[0];
-                NSDictionary *rentInfo = [dataDic objectForKey:@"rentInfo"][0];
-                NSDictionary *billInfo = [dataDic objectForKey:@"billInfo"];
-                 NSArray *goodsInfo = [billInfo objectForKey:@"goodsInfo"];
-                self.roomDic = dataDic;
-              
+                House* house = [House yy_modelWithDictionary:dataArr[0]];
+                Rent* rent = house.rentInfo[0];
+                Bill *bill =house.billInfo;
+                NSArray *goodsInfo = bill.goodsInfo;
+                self.house = house;
                 @try {
-                    self.title = [NSString stringWithFormat:@"%@房",[dataDic objectForKey:@"houseNum"]];
-                    NSArray *comArr = [dataDic objectForKey:@"communityInfo"];
-                    NSDictionary *comDic = comArr[0];
-                    self.apartmentNameLab.text =[comDic  objectForKey:@"communityName"];
-                    self.rentTime.text = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:[[self.roomDic objectForKey:@"rentInfo"][0]  objectForKey:@"rentTime"]],[TimeDate timeWithTimeIntervalString:[[self.roomDic objectForKey:@"rentInfo"][0]  objectForKey:@"rentDueTime"]]];
-                    NSString *outPayTime = [[self.rentTime.text substringToIndex:10] substringFromIndex:8];
-                    NSLog(@"%@",outPayTime);
+                    self.title = house.houseNum.stringValue;
+                    NSArray *comArr = house.communityInfo;
+                    Community *community = comArr[0];
+                    self.apartmentNameLab.text =community.communityName;
+                    self.rentTime.text = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:rent.rentTime.stringValue],[TimeDate timeWithTimeIntervalString:rent.rentDueTime.stringValue]];
+      
                     self.mainRenter.text = self.mainName;
-                    self.rentMoney.text = [NSString stringWithFormat:@"%@元",[rentInfo objectForKey:@"rentDeposit"]];
-                    //        self.payRentTime.text = [TimeDate timeWithTimeIntervalString:[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillTime"]];
-//                    NSString *days = [[self.roomDic objectForKey:@"rentInfo"][0] objectForKey:@"rentRecordGraceDays"];
+                    
+                    self.rentMoney.text = [NSString stringWithFormat:@"%@元",rent.rentDeposit];
+                    NSString *outPayTime = [[self.rentTime.text substringToIndex:10] substringFromIndex:8];
                     self.payRentTime.text =[NSString stringWithFormat:@"%@号",outPayTime];
-                    self.rememberTime.text = [NSString stringWithFormat:@"%@至%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"billStartDate"],[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"billEndDate"]];
+                    self.rememberTime.text = [NSString stringWithFormat:@"%@至%@",bill.billStartDate,bill.billEndDate];
                     self.repairMoney.text = [NSString stringWithFormat:@"0元"];
                     self.lightMoney.text = [NSString stringWithFormat:@"0元"];
-                    [goodsInfo enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        NSDictionary *dic = obj;
-                        //电费
-                        if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 2 ) {
-                            self.electricMoney.text =[NSString stringWithFormat:@"%@", [dic RMBForKey:@"goodsPrice"]];
-                            eletrictMoney = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsPrice"]].floatValue];
-                        }
-                        //租金
-                        if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 3) {
-                            self.roomMoney.text =[NSString stringWithFormat:@"%@", [dic RMBForKey:@"goodsPrice"]];
-                        }
-                        //水费
-                        if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 1) {
-                            self.waterMoney.text =[NSString stringWithFormat:@"%@", [dic RMBForKey:@"goodsPrice"]];
-                             waterMoney1 = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsPrice"]].floatValue];
-                            
-                        }
-                        //上期未缴
-                        if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 5) {
-                            self.preNotPay.text =[NSString stringWithFormat:@"%@", [dic RMBForKey:@"goodsPrice"]];
-                        }
-                        if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 4) {
-                            self.otherPay.text=[NSString stringWithFormat:@"%@", [dic RMBForKey:@"goodsPrice"]];
+                    
+                    for (Good* good in goodsInfo) {
+                        
+                        if (good.goodsID.integerValue == 3) {
+                            self.roomMoney.text = [self RMBString:good.goodsPrice];
                         }
                         
-                    }];
+                        if (good.goodsID.integerValue == 2) {
+                            self.electricMoney.text = [self RMBString:good.goodsPrice];
+                            eletrictMoney = good.goodsPrice.floatValue;
+                        }
+                        
+                        if (good.goodsID.integerValue == 1) {
+                            self.waterMoney.text = [self RMBString:good.goodsPrice];
+                            waterMoney1 = good.goodsPrice.floatValue;
+                        }
+                        
+                        if (good.goodsID.integerValue == 4) {
+                            self.otherPay.text = [self RMBString:good.goodsPrice];
+                        }
+                        
+                        if (good.goodsID.integerValue == 5) {
+                            self.preNotPay.text = [self RMBString:good.goodsPrice];
+                        }
+                    }
+                    
                     
                     //固定费用--暂未加入维修基金以及楼梯灯费
-                    self.fixedPay.text = [NSString stringWithFormat:@"%@",[billInfo RMBForKey:@"payBillFixedCostInfo"]];
+                    self.fixedPay.text = [self RMBString:bill.payBillFixedCostInfo];
                     //非固定费用
-                    NSString *rmb =  [NSString stringWithFormat:@"%.2f",waterMoney1.floatValue+eletrictMoney.floatValue];
+                    NSString *rmb =  [NSString stringWithFormat:@"%.2f",waterMoney1+eletrictMoney];
                     if ([rmb hasSuffix:@".00"]) {
                         rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
                     }
                     self.notFixedPay.text = [NSString stringWithFormat:@"%@元",rmb];
                     //总费用
-                    NSString *rmb1 =  [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillFixedCostInfo"]].floatValue +[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillVariableCostInfo"]].floatValue ];
+                    NSString *rmb1 =  [NSString stringWithFormat:@"%.2f",bill.payBillFixedCostInfo.floatValue + bill.payBillVariableCostInfo.floatValue];
                     if ([rmb1 hasSuffix:@".00"]) {
                         rmb1 = [rmb1 stringByReplacingOccurrencesOfString:@".00" withString:@""];
                     }
                     self.allMoneyPay.text =[NSString stringWithFormat:@"%@元",rmb1 ];
                     //待缴费用
-                    NSString *rmb2 =   [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillNotPay"]].floatValue + [NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillFreezingPay"]].floatValue];
+                    NSString *rmb2 =   [NSString stringWithFormat:@"%.2f",bill.payBillNotPay.floatValue+bill.payBillFreezingPay.floatValue];
                     if ([rmb2 hasSuffix:@".00"]) {
                         rmb2 = [rmb2 stringByReplacingOccurrencesOfString:@".00" withString:@""];
                     }
                     self.waitToPay.text = [NSString stringWithFormat:@"%@元",rmb2];
-//
-                    NSInteger payBillStatus = [NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillStatus"]].integerValue;
-                    if (payBillStatus == 0) {
+                    
+                    if (bill.payBillStatus.integerValue == 0) {
                         [self.payBillBtn setImage:[UIImage imageNamed:@"room_bill_icon14"] forState:UIControlStateNormal];
                         [self.payIcon setImage:[UIImage imageNamed:@"room_bill_icon13"]];
                         self.payStatus.text = @"费用未缴清";
@@ -162,73 +160,78 @@
 }
 //房间账单
 -(void)GetRoomBill{
-    NSDictionary *rentInfo = [self.roomDic objectForKey:@"rentInfo"][0] ;
-    NSDictionary *billInfo = [self.roomDic objectForKey:@"billInfo"];
-    NSArray *goodsInfo = [billInfo objectForKey:@"goodsInfo"];
+    Rent* rent = self.house.rentInfo[0];
+    Bill *bill = self.house.billInfo;
+    NSArray *goodsInfo = bill.goodsInfo;
     @try {
         if ([self.billType isEqualToString:@"欠费"]) {
             self.doorLabel.textColor = MainRed;
         }
-        self.title = [NSString stringWithFormat:@"%@房",[self.roomDic objectForKey:@"houseNum"]];
-        self.apartmentNameLab.text = self.aparmentName;
-        self.rentTime.text = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:[[self.roomDic objectForKey:@"rentInfo"][0]  objectForKey:@"rentTime"]],[TimeDate timeWithTimeIntervalString:[[self.roomDic objectForKey:@"rentInfo"][0]  objectForKey:@"rentDueTime"]]];
-        self.mainRenter.text = self.mainName;
-        self.rentMoney.text = [NSString stringWithFormat:@"%@",[rentInfo RMBForKey:@"rentDeposit"]];
-        //        self.payRentTime.text = [TimeDate timeWithTimeIntervalString:[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillTime"]];
-//        NSString *days = [[self.roomDic objectForKey:@"rentInfo"][0] objectForKey:@"rentRecordGraceDays"];
-        self.payRentTime.text = [self dateStringAfterlocalDateForYear:0 Month:0 Day:0 Hour:0 Minute:0 Second:0 andDate:[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillTime"]];
-        self.rememberTime.text = [NSString stringWithFormat:@"%@至%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"billStartDate"],[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"billEndDate"]];
+        self.title = [NSString stringWithFormat:@"%@房",self.house.houseNum];
+        self.apartmentNameLab.text = self.house.communityName;
+        
+        self.rentTime.text = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:rent.rentTime.stringValue],[TimeDate timeWithTimeIntervalString:rent.rentDueTime.stringValue]];
+        if (rent.renterInfo.count > 0) {
+            for (Renter* renter in rent.renterInfo) {
+                if ([renter.renterRoleID isEqual:@1]) {
+                    self.mainRenter.text = renter.renterTrueName;
+                }
+            }
+        }
+        self.rentMoney.text = [NSString stringWithFormat:@"%@元",rent.rentDeposit];
+        NSString *outPayTime = [[self.rentTime.text substringToIndex:10] substringFromIndex:8];
+        self.payRentTime.text =[NSString stringWithFormat:@"%@号",outPayTime];
+        self.rememberTime.text = [NSString stringWithFormat:@"%@至%@",bill.billStartDate,bill.billEndDate];
         self.repairMoney.text = [NSString stringWithFormat:@"0元"];
         self.lightMoney.text = [NSString stringWithFormat:@"0元"];
-        [goodsInfo enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSDictionary *dic = obj;
-            //电费
-            if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 2 ) {
-                self.electricMoney.text =[NSString stringWithFormat:@"%@", [dic RMBForKey:@"goodsPrice"]];
-                eletrictMoney = [NSString stringWithFormat:@"%@",[dic RMBForKey:@"goodsPrice"]];
-            }
-            //租金
-            if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 3) {
-                self.roomMoney.text =[dic RMBForKey:@"goodsPrice"];
-            }
-            //水费
-            if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 1) {
-                self.waterMoney.text =[dic RMBForKey:@"goodsPrice"];
-                waterMoney1 = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsPrice"]].floatValue];
-            }
-            //上期未缴
-            if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 5) {
-                self.preNotPay.text =[dic RMBForKey:@"goodsPrice"];
-            }
-            if ([NSString stringWithFormat:@"%@",[dic objectForKey:@"goodsID"]].integerValue == 4) {
-                self.otherPay.text=[dic RMBForKey:@"goodsPrice"];
+        
+        for (Good* good in goodsInfo) {
+            
+            if (good.goodsID.integerValue == 3) {
+                self.roomMoney.text = [self RMBString:good.goodsPrice];
             }
             
-        }];
+            if (good.goodsID.integerValue == 2) {
+                self.electricMoney.text = [self RMBString:good.goodsPrice];
+                eletrictMoney = good.goodsPrice.floatValue;
+            }
+            
+            if (good.goodsID.integerValue == 1) {
+                self.waterMoney.text = [self RMBString:good.goodsPrice];
+                waterMoney1 = good.goodsPrice.floatValue;
+            }
+            
+            if (good.goodsID.integerValue == 4) {
+                self.otherPay.text = [self RMBString:good.goodsPrice];
+            }
+            
+            if (good.goodsID.integerValue == 5) {
+                self.preNotPay.text = [self RMBString:good.goodsPrice];
+            }
+        }
         
         //固定费用--暂未加入维修基金以及楼梯灯费
-        self.fixedPay.text =[billInfo RMBForKey:@"payBillFixedCostInfo"];
+        self.fixedPay.text = [self RMBString:bill.payBillFixedCostInfo];
         //非固定费用
-        NSString *rmb4 =[NSString stringWithFormat:@"%.2f",waterMoney1.floatValue+eletrictMoney.floatValue];
-        if ([rmb4 hasSuffix:@".00"]) {
-            rmb4 = [rmb4 stringByReplacingOccurrencesOfString:@".00" withString:@""];
-        }
-        self.notFixedPay.text = [NSString stringWithFormat:@"%@元",rmb4];
-        //总费用
-        NSString *rmb =[NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillFixedCostInfo"]].floatValue +[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillVariableCostInfo"]].floatValue ];
+        NSString *rmb =  [NSString stringWithFormat:@"%.2f",waterMoney1+eletrictMoney];
         if ([rmb hasSuffix:@".00"]) {
             rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
         }
-        self.allMoneyPay.text =[NSString stringWithFormat:@"%@元",rmb];
-        //待缴费用
-        NSString *rmb1 =[NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillNotPay"]].floatValue+[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillFreezingPay"]].floatValue];
+        self.notFixedPay.text = [NSString stringWithFormat:@"%@元",rmb];
+        //总费用
+        NSString *rmb1 =  [NSString stringWithFormat:@"%.2f",bill.payBillFixedCostInfo.floatValue + bill.payBillVariableCostInfo.floatValue];
         if ([rmb1 hasSuffix:@".00"]) {
             rmb1 = [rmb1 stringByReplacingOccurrencesOfString:@".00" withString:@""];
         }
-        self.waitToPay.text =[NSString stringWithFormat:@"%@元",rmb1];
+        self.allMoneyPay.text =[NSString stringWithFormat:@"%@元",rmb1 ];
+        
+        NSString *rmb2 =   [NSString stringWithFormat:@"%.2f",bill.payBillNotPay.floatValue+bill.payBillFreezingPay.floatValue];
+        if ([rmb2 hasSuffix:@".00"]) {
+            rmb2 = [rmb2 stringByReplacingOccurrencesOfString:@".00" withString:@""];
+        }
+        self.waitToPay.text = [NSString stringWithFormat:@"%@元",rmb2];
 
-        NSInteger payBillStatus = [NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillStatus"]].integerValue;
-        if (payBillStatus == 0) {
+        if (bill.payBillStatus.integerValue == 0) {
             [self.payBillBtn setImage:[UIImage imageNamed:@"room_bill_icon14"] forState:UIControlStateNormal];
             [self.payIcon setImage:[UIImage imageNamed:@"room_bill_icon13"]];
             self.payStatus.text = @"费用未缴清";
@@ -271,10 +274,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (IBAction)clickToEnableDoor:(UIButton *)sender {
     UIAlertController *ac ;
     if (acEnable.integerValue == 1) {
@@ -285,12 +285,12 @@
     UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSDictionary *oneDic ;
         if (acEnable.integerValue == 1) {
-            oneDic  = [[NSDictionary alloc] initWithObjectsAndKeys:@"1",@"ban",[self.roomDic objectForKey:@"houseID"],@"houseID",[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key" ,nil];
+            oneDic  = [[NSDictionary alloc] initWithObjectsAndKeys:@"1",@"ban",self.house.houseID,@"houseID",[ModelTool find_UserData].key,@"key" ,nil];
         }else{
-            oneDic = [[NSDictionary alloc] initWithObjectsAndKeys:@"0",@"ban",[self.roomDic objectForKey:@"houseID"],@"houseID",[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key" ,nil];
+            oneDic = [[NSDictionary alloc] initWithObjectsAndKeys:@"0",@"ban",self.house.houseID,@"houseID",[ModelTool find_UserData].key,@"key" ,nil];
         }
         [WebAPI operateHouseAC:oneDic callback:^(NSError *err, id response) {
-            if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
+            if (!err && [response intForKey:@"rcode"] == 10000) {
                 if (sender.tag ==1) {
                     sender.tag = 2;
                     CATransition *transition = [CATransition animation];
@@ -348,7 +348,7 @@
                    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n是否设为已缴状态" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            NSDictionary   *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillID"],@"payBillID",@"0",@"payBillAmount",[NSString stringWithFormat:@"%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]],@"payBillCharges", nil];
+            NSDictionary   *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key",self.house.billInfo.payBillID,@"payBillID",@"0",@"payBillAmount",self.house.billInfo.payBillNotPay,@"payBillCharges", nil];
             [WebAPI editHousePayBill:dic callback:^(NSError *err, id response) {
                 if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                 
@@ -391,10 +391,8 @@
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n是否设为未缴状态" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            
-            NSDictionary *billInfo = [self.roomDic objectForKey:@"billInfo"];
-            if ([NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillCanUnpaid"]].integerValue == 1) {
-                NSDictionary   *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillID"],@"payBillID",nil];
+            if (self.house.billInfo.payBillCanUnpaid.integerValue == 1) {
+                NSDictionary   *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key",self.house.billInfo.payBillID,@"payBillID",nil];
                 [WebAPI setHousePayBillUnpaid:dic callback:^(NSError *err, id response) {
                     if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                         
@@ -446,8 +444,8 @@
     if (indexPath.section == 2 && indexPath.row == 0) {
         RoomDianDetailController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomDianDetail"];
         vc.wayIn = 1;
-        vc.houseID = [NSString stringWithFormat:@"%@",[self.roomDic objectForKey:@"houseID"]];
-        NSString *monthDate  =[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"billEndDate"];
+        vc.houseID = self.house.houseID.stringValue;
+        NSString *monthDate  = self.house.billInfo.billEndDate;
         monthDate = [monthDate stringByReplacingOccurrencesOfString:@"-" withString:@""];
         monthDate = [monthDate substringToIndex:monthDate.length -2];
         vc.monthDate = monthDate;
@@ -455,8 +453,8 @@
     }else if (indexPath.section == 2 && indexPath.row == 1){
         RoomDianDetailController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomDianDetail"];
         vc.wayIn = 2;
-        vc.houseID = [NSString stringWithFormat:@"%@",[self.roomDic objectForKey:@"houseID"]];
-        NSString *monthDate  =[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"billEndDate"];
+        vc.houseID = self.house.houseID.stringValue;
+        NSString *monthDate  = self.house.billInfo.billEndDate;
         monthDate = [monthDate stringByReplacingOccurrencesOfString:@"-" withString:@""];
         monthDate = [monthDate substringToIndex:monthDate.length -2];
         vc.monthDate = monthDate;
@@ -464,11 +462,8 @@
     }
     else if(indexPath.section == 3 && indexPath.row == 4){
         RoomBillWaitController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomBillWait"];
-        NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-        NSString *filePath = [path stringByAppendingPathComponent:@"roomDic.data"];
-        // 归档
-        [NSKeyedArchiver archiveRootObject:self.roomDic toFile:filePath];
-        [[NSUserDefaults standardUserDefaults] setObject:self.allMoneyPay.text forKey:@"allMoneyPay"];
+        [GlobalPass pass].apartmentBillHouse = self.house;
+        [GlobalPass pass].allMoneyPay = self.allMoneyPay.text;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -552,5 +547,13 @@
     NSArray *arr = [dateString componentsSeparatedByString:@"-"];
     dateString = arr[2];
     return [NSString stringWithFormat:@"%ld号",(long)[dateString integerValue]];
+}
+
+-(NSString*)RMBString:(NSString*)value{
+    NSString *rmb = (NSString *)value;
+    if ([rmb hasSuffix:@".00"]) {
+        rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
+    }
+    return [NSString stringWithFormat:@"%@元",rmb];
 }
 @end

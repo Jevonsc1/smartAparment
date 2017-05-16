@@ -12,6 +12,7 @@
 #import "EditMoneyCell.h"
 #import "SurplusMoneyCell.h"
 #import "CashPayRecordCell.h"
+#import "GlobalPass.h"
 @interface RoomWaitEditController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *waitToPay;
 @property (weak, nonatomic) IBOutlet UITextField *cashPay;
@@ -34,18 +35,13 @@
     //添加确认修改的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sureToEdit:) name:@"payBillSureEdit" object:nil];
     
-    
-    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-    NSString *filePath = [path stringByAppendingPathComponent:@"roomDic.data"];
-    // 解档
-    self.roomDic = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    self.waitToPay.text = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"allMoneyPay"]];
-//    self.resultLabel.text = [NSString stringWithFormat:@"¥%.2f",[NSString stringWithFormat:@"%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]].floatValue+[NSString stringWithFormat:@"%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillFreezingPay"]].floatValue];
-    NSLog(@"------%.2f-----%.2f",[NSString stringWithFormat:@"%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]].floatValue,[NSString stringWithFormat:@"%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillFreezingPay"]].floatValue);
-    float notPay =[NSString stringWithFormat:@"%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]].floatValue;
-    float freezyPay =[NSString stringWithFormat:@"%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillFreezingPay"]].floatValue;
-    self.resultLabel.text = [NSString stringWithFormat:@"¥%.2f",notPay+freezyPay];
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key", [[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillID"],@"payBillID",nil];
+    self.house = [GlobalPass pass].apartmentBillHouse;
+    self.waitToPay.text = [GlobalPass pass].allMoneyPay;
+
+    float notPay = self.house.billInfo.payBillNotPay.floatValue;
+    float freezyPay = self.house.billInfo.payBillFreezingPay.floatValue;
+    self.resultLabel.text = [NSString stringWithFormat:@"¥%.2f",notPay + freezyPay];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key", self.house.billInfo.payBillID,@"payBillID",nil];
     [WebAPI getHousePayBillLog:dic callback:^(NSError *err, id response) {
         if ([NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000 && !err) {
             recordList = [response objectForKey:@"data"];
@@ -59,7 +55,7 @@
 }
 #pragma mark -m 点击增加变减号，点击减少变加号
 - (IBAction)clickToChangeStatus:(UIButton *)sender {
-    NSString * waitPay =[NSString stringWithFormat:@"%@", [[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]];
+    NSString * waitPay = self.house.billInfo.payBillNotPay;
     NSIndexPath *surIndex = [NSIndexPath indexPathForRow:0 inSection:2];
     SurplusMoneyCell *surpCell = [self.tableView cellForRowAtIndexPath:surIndex];
     NSIndexPath *editIndex = [NSIndexPath indexPathForRow:1 inSection:1];
@@ -89,7 +85,7 @@
 }
 ///根据cell的输入框，调整tableview的contentOffset
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    NSString * waitPay =[NSString stringWithFormat:@"%@", [[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]];
+    NSString * waitPay = self.house.billInfo.payBillNotPay;
     NSIndexPath *surIndex = [NSIndexPath indexPathForRow:0 inSection:2];
     SurplusMoneyCell *surpCell = [self.tableView cellForRowAtIndexPath:surIndex];
     NSIndexPath *editIndex = [NSIndexPath indexPathForRow:1 inSection:1];
@@ -185,7 +181,9 @@
         return cell;
     }else if(indexPath.section == 2 && indexPath.row == 0){
         SurplusMoneyCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"SurplusMoneyCell"];
-        cell.resultLabel.text =[NSString stringWithFormat:@"¥%.2f",[NSString stringWithFormat:@"%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]].floatValue+[NSString stringWithFormat:@"%@",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillFreezingPay"]].floatValue];
+        float notPay = self.house.billInfo.payBillNotPay.floatValue;
+        float freezyPay = self.house.billInfo.payBillFreezingPay.floatValue;
+        cell.resultLabel.text = [NSString stringWithFormat:@"¥%.2f",notPay + freezyPay];
         return cell;
     }else{
         CashPayRecordCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CashPayRecordCell"];
@@ -275,9 +273,9 @@
     CashPayCell *cell = [self.tableView cellForRowAtIndexPath:cashIndex];
     
     if (self.editBtn.tag == 1) {
-        dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillID"],@"payBillID",[NSString stringWithFormat:@"+%@",editCell.editMoney.text],@"payBillAmount",cell.cashPay.text,@"payBillCharges", nil];
+        dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key",self.house.billInfo.payBillID,@"payBillID",[NSString stringWithFormat:@"+%@",editCell.editMoney.text],@"payBillAmount",cell.cashPay.text,@"payBillCharges", nil];
     }else{
-        dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[[self.roomDic objectForKey:@"billInfo"] objectForKey:@"payBillID"],@"payBillID",[NSString stringWithFormat:@"-%@",editCell.editMoney.text],@"payBillAmount",cell.cashPay.text,@"payBillCharges", nil];
+        dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key",self.house.billInfo.payBillID,@"payBillID",[NSString stringWithFormat:@"-%@",editCell.editMoney.text],@"payBillAmount",cell.cashPay.text,@"payBillCharges", nil];
     }
     [WebAPI editHousePayBill:dic callback:^(NSError *err, id response) {
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {

@@ -15,6 +15,7 @@
 #import "searchBarView.h"
 #import "TipsCell.h"
 #import "SearchBillController.h"
+#import "Community.h"
 @interface ApartmentBillController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *onesj;
 @property (weak, nonatomic) IBOutlet UIButton *one_btn;
@@ -29,6 +30,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *three_label;
 @property (weak, nonatomic) IBOutlet UILabel *four_label;
 
+@property(nonatomic,strong)NSMutableArray* communityArray;
+@property(nonatomic,strong)NSMutableArray* allHouseArray;
+@property(nonatomic,strong)NSMutableArray* tagSelectedHouseArray;
+@property(nonatomic,strong)NSMutableArray* selectedShowArray;
 @end
 
 @implementation ApartmentBillController
@@ -37,12 +42,7 @@
     BillSelectView *billView;
     //标签view
     GBTagListView*_tempTag;
-    //选择的标签
-    NSArray *tagArr;
-    //公寓名tag
-    NSMutableArray *apartmentTagArr;
-    //公寓id
-    NSMutableDictionary *apartmentIdDic;
+
     //保存标签数据的数组
     NSArray*strArray;
     //三个按钮的数组
@@ -53,24 +53,6 @@
     BOOL isSelectWaitPay;
     //三个label
     
-    //公寓账单
-    NSArray *apartmentBillArr;
-    //所有房间的数组
-    NSMutableArray *allRoomArr;
-    //所有房间对应的公寓名
-    NSMutableArray *apartmentNameArr;
-    //公寓金额字典
-    NSMutableDictionary *apartmentBillMoneyDic;
-    //公寓金额数组
-    NSMutableArray *apartmentBillMoneyArr;
-    //公寓账单日字典
-    NSMutableDictionary *apartmentBillDayDic;
-    //公寓账单日数组
-    NSMutableArray *apartmentBillDayArr;
-    
-    //三个数组--保存 默认排序，金额，收租日
-    NSArray *defaultArr;
-    NSArray *moneyArr;
     NSArray *getPayArr;
     //点击搜索钱的数组
     NSArray *searchTempArr;
@@ -83,6 +65,34 @@
     //选择框
     GBTagListView *tagList;
     NSString *Tagname;
+}
+
+-(NSMutableArray *)communityArray{
+    if (!_communityArray) {
+        _communityArray = [NSMutableArray array];
+    }
+    return _communityArray;
+}
+
+-(NSMutableArray *)allHouseArray{
+    if (!_allHouseArray) {
+        _allHouseArray = [NSMutableArray array];
+    }
+    return _allHouseArray;
+}
+
+-(NSMutableArray *)selectedShowArray{
+    if (!_selectedShowArray) {
+        _selectedShowArray = [NSMutableArray array];
+    }
+    return _selectedShowArray;
+}
+
+-(NSMutableArray *)tagSelectedHouseArray{
+    if (!_tagSelectedHouseArray) {
+        _tagSelectedHouseArray = [NSMutableArray array];
+    }
+    return  _tagSelectedHouseArray;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -97,51 +107,40 @@
     [self initThreeBtnAddTarget];
     [self getRoomData];
 }
--(void)viewWillAppear:(BOOL)animated{
-  
-}
+
+
 -(void)getRoomData{
-    allRoomArr = [NSMutableArray arrayWithCapacity:0];
-    apartmentTagArr = [NSMutableArray arrayWithCapacity:0];
-    apartmentIdDic = [NSMutableDictionary dictionaryWithCapacity:0];
-    apartmentNameArr = [NSMutableArray arrayWithCapacity:0];
-    apartmentBillMoneyDic = [NSMutableDictionary dictionaryWithCapacity:0];
-    apartmentBillMoneyArr = [NSMutableArray arrayWithCapacity:0];
-    apartmentBillDayDic = [NSMutableDictionary dictionaryWithCapacity:0];
-    apartmentBillDayArr = [NSMutableArray arrayWithCapacity:0];
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key", @"2.0",@"version",nil];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key", @"2.0",@"version",nil];
     @try {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [WebAPI getCommunityAvailableBill:dic callback:^(NSError *err, id response) {
-            if ([NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000 && !err) {
-                apartmentBillArr = [response objectForKey:@"data"];
-                for (int i = 0; i<apartmentBillArr.count; i++) {
-                    [apartmentTagArr addObject:[apartmentBillArr[i] objectForKey:@"communityName"]];
+            if ([response intForKey:@"rcode"] == 10000 && !err) {
+                NSArray* array = [response objectForKey:@"data"];
+                [self.communityArray removeAllObjects];
+                [self.allHouseArray removeAllObjects];
+                for (NSDictionary* dic in array) {
+                    Community* community = [Community yy_modelWithDictionary:dic];
+                    [self.communityArray addObject:community];
                     
-                    NSArray *arr = [apartmentBillArr[i] objectForKey:@"houseInfo"];
-                    for (int j = 0; j <arr.count; j++) {
-                        NSMutableDictionary *roomDic = [NSMutableDictionary dictionaryWithDictionary:arr[j]];
-                        [roomDic setObject:[apartmentBillArr[i] objectForKey:@"communityName"] forKey:@"communityName"];
-                        [roomDic setObject:[NSString stringWithFormat:@"%f",[NSString stringWithFormat:@"%@",[[arr[j] objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]].floatValue] forKey:@"totalPay"];
-                        [roomDic setObject:[NSString stringWithFormat:@"%@",[[arr[j] objectForKey:@"billInfo"] objectForKey:@"payBillTime"]] forKey:@"payBillTime"];
-                        [allRoomArr addObject:roomDic];
+                    for(House* house in community.houseInfoList){
+                        house.communityName = community.communityName;
+                        [self.allHouseArray addObject:house];
                     }
-                    
-                   
-                    
                 }
-                searchTempArr = allRoomArr;
+
+                searchTempArr = self.allHouseArray;
                 [self addTagView];
-                defaultArr = allRoomArr;
+                self.selectedShowArray = [self.allHouseArray mutableCopy];
+                
                 self.one_btn.tag = 1;
                 [self clickByDefault:self.one_btn];
-                
+                [self.tableview reloadData];
                 
             }else{
                 RequestBad
             }
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [self.tableview reloadData];
+            
         }];
     } @catch (NSException *exception) {
         NSLog(@"获取公寓已出账单出错--%@",exception);
@@ -152,15 +151,15 @@
 - (IBAction)clickToPop:(id)sender {
  
     if (isSelect) {
-        self.tableview.scrollEnabled = YES;
+//        self.tableview.scrollEnabled = YES;
         [UIView animateWithDuration:0.25 animations:^{
             billView.x = self.view.width;
-            bgView.x = self.view.width;
+            bgView.alpha = 0;
         }];
         isSelect = false;
     }else if (isSearch){
         [self resetNavigationItem];
-        allRoomArr = [NSMutableArray arrayWithArray:defaultArr];
+        self.selectedShowArray =  [self.allHouseArray mutableCopy];
         isSearch = false;
         [self.tableview reloadData];
     }
@@ -185,43 +184,37 @@
 }
   //创建一个半透明的黑色蒙层
 -(void)initSelectView {
-    bgView = [[UIView alloc] initWithFrame:CGRectMake( self.view.width, 60, self.view.width, self.view.height - 60 )];
+    bgView = [[UIView alloc] initWithFrame:CGRectMake( 0, 60, self.view.width, self.view.height - 60 )];
+    bgView.alpha = 0;
     bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
     billView = [[NSBundle mainBundle] loadNibNamed:@"BillSelectView" owner:self options:nil][0];
     
-    billView.frame = CGRectMake(bgView.width - 300*ratio, 0, 300*ratio, bgView.height);
-    UIView* clickView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width - 300*ratio, bgView.height)];
-    clickView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
-    [bgView addSubview:clickView];
+    billView.frame = CGRectMake(self.view.width, 0, 300*ratio, bgView.height);
+    bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
     [bgView addSubview:billView];
     [billView.sureSelect addTarget:self action:@selector(sureSelectTags) forControlEvents:UIControlEventTouchUpInside];
     [billView.resetSelect addTarget:self action:@selector(resetSelect) forControlEvents:UIControlEventTouchUpInside];
     //添加两种手势--点击以及滑动
     UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backForSelect)];
-    [clickView addGestureRecognizer:tapG];
+    [bgView addGestureRecognizer:tapG];
     UISwipeGestureRecognizer *swipG = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backForSelect)];
     swipG.direction = UISwipeGestureRecognizerDirectionRight;
-    [clickView addGestureRecognizer:swipG];
+    [bgView addGestureRecognizer:swipG];
     [self.view addSubview:bgView];
 }
 
 //点击黑色蒙层收起选择窗口
 -(void)backForSelect{
     isSelect = false;
-    self.tableview.scrollEnabled = YES;
+//    self.tableview.scrollEnabled = YES;
     [UIView animateWithDuration:0.25 animations:^{
         billView.x = self.view.width;
-        bgView.x =  self.view.width;
+        bgView.alpha =  0;
     }];
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.25*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//        [bgView removeFromSuperview];
-//    });
+   
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 //点击默认排序
 - (IBAction)clickByDefault:(id)sender {
     if (self.one_btn.tag == 1) {
@@ -240,7 +233,7 @@
         [self.onesj setImage:[UIImage imageNamed:@"bill_downsj_icon"]];
     }
     [self arrayByName:self.one_btn];
-    beforeSelectArr = allRoomArr;
+    beforeSelectArr = self.allHouseArray;
     
     [self.tableview reloadData];
 }
@@ -263,7 +256,7 @@
     
 
     
-     beforeSelectArr = allRoomArr;
+     beforeSelectArr = self.allHouseArray;
     [self.tableview reloadData];
     
 }
@@ -282,12 +275,12 @@
     self.three_label.textColor = MainRed;
     self.four_label.textColor = TDRGB(102, 102, 102);
     [self arrayByDate:self.three_btn];
-     beforeSelectArr = allRoomArr;
+     beforeSelectArr = self.allHouseArray;
     [self.tableview reloadData];
 }
 //点击筛选---弹出筛选小窗口
 - (IBAction)clickBySelet:(UIButton *)sender {
-    self.tableview.scrollEnabled = NO;
+//    self.tableview.scrollEnabled = NO;
     
     self.one_label.textColor = TDRGB(102, 102, 102);
     self.two_label.textColor = TDRGB(102, 102, 102);
@@ -297,10 +290,7 @@
 //    [self.view addSubview:bgView];
     [UIView animateWithDuration:0.25 animations:^{
         billView.x = self.view.width - 300 *ratio;
-        
-    }];
-    [UIView animateWithDuration:0.25 animations:^{
-        bgView.x = 0;
+        bgView.alpha = 1;
     }];
    
 }
@@ -309,7 +299,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return allRoomArr.count+1;
+    return self.selectedShowArray.count+1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 10*ratio;
@@ -330,39 +320,28 @@
     return 1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == allRoomArr.count) {
+    if (indexPath.section == self.selectedShowArray.count) {
          return cellHeight;
     }
     return 110 * ratio;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section >=allRoomArr.count) {
+    if (indexPath.section >=self.selectedShowArray.count) {
         TipsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TipsCell"];
         return cell;
     }
-    ApartmentBillCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ApartmentBillCell" forIndexPath:indexPath];
+        ApartmentBillCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ApartmentBillCell" forIndexPath:indexPath];
     
-        NSDictionary *roomDic = allRoomArr[indexPath.section];
-        NSArray *rentInfo = [roomDic objectForKey:@"rentInfo"];
-       
-        NSDictionary *billInfo = [roomDic objectForKey:@"billInfo"];
-        NSDictionary *comDic = [roomDic objectForKey:@"communityRelationInfo"][0];
-        cell.roomNum.text = [NSString stringWithFormat:@"%@",[roomDic objectForKey:@"houseNum"]];
-        
-     
-        
-        for (int i = 0; i <apartmentBillArr.count;i++) {
-            NSString *apartmentID = [NSString stringWithFormat:@"%@",[apartmentBillArr[i] objectForKey:@"communityID"]];
-            if ([apartmentID isEqualToString:[NSString stringWithFormat:@"%@",[comDic objectForKey:@"houseCommunityID"]]]) {
-                cell.apartmentName.text= [apartmentBillArr[i] objectForKey:@"communityName"];
-                break;
-            }
-        }
-        
-        
+        House* house = self.selectedShowArray[indexPath.section];
+        NSArray *rentInfo = house.rentInfo;
+    
+        Bill* bill = house.billInfo;
+        cell.roomNum.text = house.houseNum.stringValue;
+        cell.apartmentName.text= house.communityName;
         //获取租赁信息中的租客信息
         if (rentInfo.count > 0) {
-             NSArray *renterInfo = [rentInfo[0] objectForKey:@"renterInfo"];
+            Rent* rent = rentInfo[0];
+            NSArray *renterInfo = rent.renterInfo;
             if (renterInfo.count == 1) {
                 cell.renters.text = [NSString stringWithFormat:@"独自居住"];
             }else{
@@ -370,10 +349,9 @@
             }
         
             if (renterInfo.count > 0) {
-                for (int j = 0 ; j<renterInfo.count; j++) {
-                    NSDictionary *renterDic = renterInfo[j];
-                    if ([NSString stringWithFormat:@"%@",[renterDic objectForKey:@"renterRoleID"]].integerValue == 1) {
-                        cell.roomRenterNAME.text = [renterDic objectForKey:@"renterTrueName"];
+                for (Renter *renter in renterInfo) {
+                    if ([renter.renterRoleID isEqual:@1]) {
+                        cell.roomRenterNAME.text = renter.renterTrueName;
                         break;
                     }
                     
@@ -384,12 +362,11 @@
   
         }
         
-        float notPay =[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillNotPay"]].floatValue +[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillFreezingPay"]].floatValue ;
-        NSInteger payBillStatus = [NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillStatus"]].integerValue;
+       float notPay = bill.payBillNotPay.floatValue + bill.payBillFreezingPay.floatValue;
        
-        if (payBillStatus == 0) {
+        if (bill.payBillStatus.integerValue == 0) {
             //判断是否过期
-            NSInteger compareDate = [self dateOut:[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillEndTime"]]];
+            NSInteger compareDate = [self dateOut:bill.payBillEndTime];
             if(compareDate >0){
                 
                 NSString *time = [NSString stringWithFormat:@"剩%ld天缴费",(long)compareDate];
@@ -424,13 +401,13 @@
             }
          cell.payMoney.font = [UIFont systemFontOfSize:18*ratio];
     }
-        else if(payBillStatus != 0) {
+        else if(bill.payBillStatus.integerValue != 0) {
             [cell.roomNumBgView setBackgroundColor:TDRGB(126.0, 195.0, 105.0)];
             cell.payType.text = @"费用已缴清";
             cell.payType.textColor = TDRGB(126.0, 195.0, 105.0);
             cell.payStatus.text = @"缴费日期";
             cell.payMoney.font = [UIFont systemFontOfSize:14*ratio];
-            cell.payMoney.text = [TimeDate timeWithTimeIntervalString:[billInfo objectForKey:@"payBillIsCompleteTime"]];
+            cell.payMoney.text = [TimeDate timeWithTimeIntervalString:bill.payBillIsCompleteTime];
             cell.payStatus.textColor = TDRGB(126.0, 195.0, 105.0);
             cell.payMoney.textColor =TDRGB(126.0, 195.0, 105.0);
             [cell.payType.layer setBorderColor:TDRGB(126.0, 195.0, 105.0).CGColor];
@@ -445,17 +422,17 @@
     return cell;
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section>=allRoomArr.count) {
+    if (indexPath.section>=self.selectedShowArray.count) {
         return NO;
     }
     return YES;
 }
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *roomDic = allRoomArr[indexPath.section];
-    NSDictionary *billInfo = [roomDic objectForKey:@"billInfo"];
-      NSArray *renterInfo = [roomDic objectForKey:@"rentInfo"];
-    float notPay =[NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillNotPay"]].floatValue;
-     NSString *payBillCanUnpaid = [NSString stringWithFormat:@"%@",[billInfo objectForKey:@"payBillCanUnpaid"]];
+    House* house = self.selectedShowArray[indexPath.section];
+    Bill *bill = house.billInfo;
+    NSArray *renterInfo = house.rentInfo;
+
+    
     UITableViewRowAction *rentMoneyType;
     UITableViewRowAction *callPhone = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"拨打\n电话" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         NSString *phone;
@@ -487,15 +464,12 @@
         [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
         [self.view addSubview:callWebview];
             }];
-    //获取paybillStatus
-    NSString *payBillStatus = [billInfo objectForKey:@"payBillStatus"];
-//    NSLog(@"%@",payBillStatus);
-    if (payBillStatus.integerValue == 0) {
+    if (bill.payBillStatus.integerValue == 0) {
        
             rentMoneyType = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"设为\n已缴" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
                 UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n是否设为已缴状态" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    NSDictionary   *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[[roomDic objectForKey:@"billInfo"] objectForKey:@"payBillID"],@"payBillID",@"0",@"payBillAmount",[NSString stringWithFormat:@"%.2f",notPay],@"payBillCharges", nil];
+                    NSDictionary   *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key",bill.payBillID,@"payBillID",@"0",@"payBillAmount",[NSString stringWithFormat:@"%.2f",bill.payBillNotPay.floatValue],@"payBillCharges", nil];
                     [WebAPI editHousePayBill:dic callback:^(NSError *err, id response) {
                         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                             [Alert showFail:@"调整成功！" View:self.navigationController.navigationBar andTime:3 complete:nil];
@@ -520,14 +494,14 @@
         callPhone.backgroundColor = MainBlue;
         return @[callPhone,rentMoneyType];
      
-    }else if(payBillStatus.integerValue == 1){
-       if (payBillCanUnpaid.integerValue == 1) {
+    }else if(bill.payBillStatus.integerValue == 1){
+       if (bill.payBillCanUnpaid.integerValue == 1) {
           rentMoneyType = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"设为\n未缴" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
               //点击后操作
               
               UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"提示" message:@"\n是否设为未缴状态" preferredStyle:UIAlertControllerStyleAlert];
               UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                  NSDictionary   *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",[[roomDic objectForKey:@"billInfo"] objectForKey:@"payBillID"],@"payBillID",nil];
+                  NSDictionary   *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",bill.payBillID,@"payBillID",nil];
                   [WebAPI setHousePayBillUnpaid:dic callback:^(NSError *err, id response) {
                       if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                           [Alert showFail:@"设置账单未缴状态成功！" View:self.navigationController.navigationBar andTime:3 complete:nil];
@@ -566,31 +540,16 @@
 }
 //点击cell跳转到房间的账单信息
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section >= allRoomArr.count) {
+    if (indexPath.section >= self.selectedShowArray.count) {
         return;
     }
     ApartmentBillCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     RoomBillController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomBill"];
-    NSDictionary *roomDic = allRoomArr[indexPath.section];
-    vc.roomDic = roomDic;
+    House* house = self.selectedShowArray[indexPath.section];
+    vc.house = house;
     vc.billType = cell.payStatus.text;
-    vc.aparmentName = [roomDic objectForKey:@"communityName"];
     //获取租赁信息中的租客信息
-    NSArray *renterInfo = [roomDic objectForKey:@"rentInfo"];
-    if (renterInfo.count > 0) {
-        NSDictionary *dic = renterInfo[0];
-        NSArray *renterArr = [dic objectForKey:@"renterInfo"];
-        if (renterArr.count > 0) {
-            for (int j = 0 ; j<renterArr.count; j++) {
-                NSDictionary *renterDic = renterArr[j];
-                if ([NSString stringWithFormat:@"%@",[renterDic objectForKey:@"renterRoleID"]].integerValue == 1) {
-                    vc.mainName = [renterDic objectForKey:@"renterTrueName"];
-                    break;
-                }
-            }
-        }
-        
-    }
+   
     [self.navigationController pushViewController:vc animated:YES];
 }
 //重置所有的选择
@@ -614,15 +573,12 @@
         btn.selected = NO;
       
     }
-    tagArr =nil;
-    apartmentIdDic = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [tagList setTagWithTagArray:apartmentTagArr];
+    [tagList setTagWithCommunityArray:self.communityArray];
   
-    
+    self.selectedShowArray = [self.allHouseArray mutableCopy];
 }
 //添加标签的view
 -(void)addTagView{
-    strArray=apartmentTagArr;
     if (tagList != nil) {
         [tagList removeFromSuperview];
         tagList = nil;
@@ -635,23 +591,13 @@
     /**控制是否是单选模式 */
     tagList.isSingleSelect=NO;
     tagList.signalTagColor=[UIColor whiteColor];
-    [tagList setTagWithTagArray:strArray];
+    [tagList setTagWithCommunityArray:self.communityArray];
     
-    __block ApartmentBillController*blockSelf = self;
+    __weak typeof(self) weakself = self;
     [tagList setDidselectItemBlock:^(NSArray *arr) {
-        tagArr = arr;
-        for (int i = 0; i<arr.count; i++) {
-             blockSelf->Tagname= tagArr[i];
-            for (int j = 0; j <apartmentBillArr.count; j++) {
-                NSDictionary *dic = blockSelf->apartmentBillArr[j];
-                NSLog(@"公寓名%@--%@",blockSelf->Tagname,[dic objectForKey:@"communityID"]);
-                if ([blockSelf->Tagname isEqualToString:[dic objectForKey:@"communityName"]]) {
-                    
-                    [blockSelf->apartmentIdDic setObject:[dic objectForKey:@"communityID"] forKey:blockSelf->Tagname];
-                    NSLog(@"%@",blockSelf->apartmentIdDic);
-                }
-            }
- 
+        [weakself.tagSelectedHouseArray removeAllObjects];
+        for (Community* community in arr) {
+            [weakself.tagSelectedHouseArray addObjectsFromArray:community.houseInfoList];
         }
     }];
     
@@ -704,75 +650,47 @@
 //确定筛选内容
 -(void)sureSelectTags{
     isSelect = false;
-    allRoomArr = [NSMutableArray arrayWithArray:defaultArr];
+    [self.selectedShowArray removeAllObjects];
+    [self.selectedShowArray addObjectsFromArray:self.tagSelectedHouseArray.count > 0 ? self.tagSelectedHouseArray :self.allHouseArray];
       NSMutableArray *selectArr = [NSMutableArray arrayWithCapacity:0];
     //筛选已缴费
     if (isSelectHadPay) {
-      
-        for (int i = 0; i <allRoomArr.count; i++) {
-            NSDictionary *dic = allRoomArr[i];
-            NSLog(@"已缴费%@---%@",[dic objectForKey:@"houseNum"],[[dic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]);
-             NSString *payBillStatus = [[dic objectForKey:@"billInfo"] objectForKey:@"payBillStatus"];
-            if ([NSString stringWithFormat:@"%@",[[dic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]].floatValue == 0.00&& payBillStatus.integerValue == 1) {
-                [selectArr addObject:dic];
+        
+        for (House* house in self.selectedShowArray) {
+            if (house.billInfo.payBillStatus.integerValue == 1 && house.billInfo.payBillNotPay.floatValue == 0.00) {
+                [selectArr addObject:house];
             }
         }
+      
         
     }
     //筛选未缴费
     if (isSelectWaitPay) {
         
-        for (int i = 0; i < allRoomArr.count; i++) {
-            NSDictionary *dic = allRoomArr[i];
-            
-             NSInteger compareDate = [self dateOut:[NSString stringWithFormat:@"%@",[[dic objectForKey:@"billInfo"] objectForKey:@"payBillEndTime"]]];
-            if ([NSString stringWithFormat:@"%@",[[dic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]].floatValue != 0.00 && compareDate>=0) {
-                NSLog(@"未交费%@---%@",[dic objectForKey:@"houseNum"],[[dic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]);
-                [selectArr addObject:dic];
+        for (House* house in self.selectedShowArray) {
+             NSInteger compareDate = [self dateOut:house.billInfo.payBillEndTime];
+            if (compareDate >= 0 && house.billInfo.payBillNotPay.floatValue != 0.00) {
+                [selectArr addObject:house];
             }
         }
+        
     }
     //筛选已逾期
     if (isSelectOverTime) {
-        
-        for (int i = 0; i < allRoomArr.count; i++) {
-            NSDictionary *dic = allRoomArr[i];
-            
-             NSInteger compareDate = [self dateOut:[NSString stringWithFormat:@"%@",[[dic objectForKey:@"billInfo"] objectForKey:@"payBillEndTime"]]];
-            NSString *payBillStatus = [[dic objectForKey:@"billInfo"] objectForKey:@"payBillStatus"];
-            if (compareDate<0 && payBillStatus.integerValue != 1) {
-                [selectArr addObject:dic];
+        for (House* house in self.selectedShowArray) {
+            NSInteger compareDate = [self dateOut:house.billInfo.payBillEndTime];
+            if (compareDate < 0 && house.billInfo.payBillStatus.integerValue != 1) {
+                [selectArr addObject:house];
             }
         }
         
     }
-    if (!isSelectHadPay&&!isSelectWaitPay&& !isSelectOverTime) {
-        allRoomArr = [NSMutableArray arrayWithArray:defaultArr];
-    }else{
-        allRoomArr = [NSMutableArray arrayWithArray:selectArr];
-    }
-    if (tagArr.count >0) {
-        NSMutableArray *selectNameArr = [NSMutableArray arrayWithCapacity:0];
-        for (int i = 0; i <tagArr.count;i++) {
-            NSString *name = tagArr[i];
-            NSString *apartmentID = [apartmentIdDic objectForKey:name];
-            for (int j = 0; j <allRoomArr.count; j++) {
-                NSDictionary *apartmentDic = [allRoomArr[j] objectForKey:@"communityRelationInfo"][0];
-                if ([[NSString stringWithFormat:@"%@",apartmentID] isEqualToString:[NSString stringWithFormat:@"%@",[apartmentDic objectForKey:@"houseCommunityID"]]]) {
-                    
-                    [selectNameArr addObject:allRoomArr[j]];
-                }
-            }
-        }
+    if (isSelectHadPay || isSelectWaitPay || isSelectOverTime) {
         
-        allRoomArr = selectNameArr;
-        
+        self.selectedShowArray = [selectArr mutableCopy];
     }
     
-    
-    
-    
-    self.tableview.scrollEnabled = YES;
+//    self.tableview.scrollEnabled = YES;
     [UIView animateWithDuration:0.25 animations:^{
         billView.x = self.view.width;
         bgView.alpha = 0;
@@ -801,7 +719,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)clickToSearchBar:(id)sender {
-    self.tableview.scrollEnabled = YES;
+//    self.tableview.scrollEnabled = YES;
     [UIView animateWithDuration:0.25 animations:^{
         billView.x = self.view.width;
         bgView.alpha = 0;
@@ -813,7 +731,6 @@
 #pragma mark -m 点击了搜索，添加搜索bar到navigation中
 -(void)addSearchBar:(NSNotification *)info{
     isSearch =true;
-    allRoomArr = [NSMutableArray arrayWithArray:defaultArr];
     searchBarView *searchView = [[NSBundle mainBundle] loadNibNamed:@"BillSelectView" owner:self options:nil][1];
     [searchView.endSearch addTarget:self action:@selector(resetNavigationItem) forControlEvents:UIControlEventTouchUpInside];
     searchView.searchContent.text = info.object;
@@ -823,43 +740,33 @@
     searchView.layer.cornerRadius = 10;
     self.navigationItem.titleView = searchView;
     //对数据进行筛选
-    NSMutableArray *selectArr = [NSMutableArray arrayWithCapacity:0];
+    NSMutableArray *selectArr = [NSMutableArray array];
     
-    for (int i = 0 ; i<allRoomArr.count; i++) {
-        NSDictionary *roomdic = allRoomArr[i];
-        NSString *houseNum = [NSString stringWithFormat:@"%@",[roomdic objectForKey:@"houseNum"]];
-        NSString *mainRenter;
-        NSString *mainRenterPhone;
-        NSArray *renterInfo = [roomdic objectForKey:@"rentInfo"];
-        if (renterInfo.count > 0) {
-            NSDictionary *dic = renterInfo[0];
-            NSArray *renterArr = [dic objectForKey:@"renterInfo"];
-            if (renterArr.count > 0) {
-                for (int j = 0 ; j<renterArr.count; j++) {
-                    NSDictionary *renterDic = renterArr[j];
-                    if ([NSString stringWithFormat:@"%@",[renterDic objectForKey:@"renterRoleID"]].integerValue == 1) {
-                       mainRenter =[renterDic objectForKey:@"renterTrueName"];
-                        mainRenterPhone = [renterDic objectForKey:@"renterPhone"];
-                        break;
-                    }
-                    
+    for (House* house in self.allHouseArray) {
+        NSString* mainName = @"";
+        NSString *mainRenterPhone = @"";
+        Rent* rent = house.rentInfo[0];
+        if (rent.renterInfo.count > 0) {
+            for (Renter *renter in rent.renterInfo) {
+                if ([renter.renterRoleID isEqual:@1]) {
+                    mainName = renter.renterTrueName;
+                    mainRenterPhone = renter.renterPhone.stringValue;
+                    break;
+                }
+                
             }
         }
-        if ([houseNum rangeOfString:info.object].location != NSNotFound) {
-            [selectArr addObject:roomdic];
-        }else{
-            if ([mainRenter rangeOfString:info.object].location != NSNotFound &&mainRenter != nil) {
-                [selectArr addObject:roomdic];
-            }else{
-                if ([mainRenterPhone rangeOfString:info.object].location != NSNotFound && mainRenterPhone !=nil) {
-                    [selectArr addObject:roomdic];
-                }
-             }
-            }
-        
+        if ([house.houseNum.stringValue rangeOfString:info.object].location != NSNotFound) {
+            [selectArr addObject:house];
+        }else if([mainName rangeOfString:info.object].location != NSNotFound && mainName.length > 0){
+            [selectArr addObject:house];
+        }else if ([mainRenterPhone rangeOfString:info.object].location != NSNotFound && mainRenterPhone.length > 0 ){
+            [selectArr addObject:house];
         }
     }
-        allRoomArr = selectArr;
+    
+    
+    self.selectedShowArray = selectArr;
     
         [self.tableview reloadData];
     
@@ -916,92 +823,49 @@
 }
 ///----------------按照公寓名——-------------------///
 -(void)arrayByName:(UIButton *)btn{
-    if (allRoomArr.count == 0) {
-        allRoomArr = [NSMutableArray arrayWithArray:defaultArr];
-    }
     NSSortDescriptor *moneyWithSort;
     NSSortDescriptor *moneyWithSort1;
     if (btn.tag != 1) {
         moneyWithSort  =[[NSSortDescriptor alloc]initWithKey:@"communityName" ascending:NO];
          moneyWithSort1  =[[NSSortDescriptor alloc]initWithKey:@"houseNum" ascending:YES];
         NSArray *elementarr=[NSArray arrayWithObjects:moneyWithSort,moneyWithSort1, nil];
-        allRoomArr=[NSMutableArray arrayWithArray:[allRoomArr sortedArrayUsingDescriptors:elementarr]];
+        self.selectedShowArray = [[self.selectedShowArray sortedArrayUsingDescriptors:elementarr] mutableCopy];
     }else{
         moneyWithSort  =[[NSSortDescriptor alloc]initWithKey:@"communityName" ascending:YES];
          moneyWithSort1  =[[NSSortDescriptor alloc]initWithKey:@"houseNum" ascending:NO];
         NSArray *elementarr=[NSArray arrayWithObjects:moneyWithSort,moneyWithSort1, nil];
-        allRoomArr=[NSMutableArray arrayWithArray:[allRoomArr sortedArrayUsingDescriptors:elementarr]];
+        self.selectedShowArray = [[self.selectedShowArray sortedArrayUsingDescriptors:elementarr] mutableCopy];
     }
     
-    moneyArr =allRoomArr;
 }
 
 ///------------------------------按照日期排序------------------------------------------//
 -(void)arrayByDate :(UIButton *)btn{
-    if (allRoomArr.count == 0) {
-        allRoomArr = [NSMutableArray arrayWithArray:defaultArr];
-    }
-    NSSortDescriptor *moneyWithSort;
     if (btn.tag != 1) {
-        moneyWithSort  =[[NSSortDescriptor alloc]initWithKey:@"payBillTime" ascending:NO];
-        NSArray *elementarr=[NSArray arrayWithObjects:moneyWithSort, nil];
-        allRoomArr=[NSMutableArray arrayWithArray:[allRoomArr sortedArrayUsingDescriptors:elementarr]];
+        self.selectedShowArray = [[self.selectedShowArray sortedArrayUsingSelector:@selector(compareHouseByTime:)] mutableCopy];
     }else{
-        moneyWithSort  =[[NSSortDescriptor alloc]initWithKey:@"payBillTime" ascending:YES];
-        NSArray *elementarr=[NSArray arrayWithObjects:moneyWithSort, nil];
-        allRoomArr=[NSMutableArray arrayWithArray:[allRoomArr sortedArrayUsingDescriptors:elementarr]];
+       self.selectedShowArray = [[self.selectedShowArray sortedArrayUsingSelector:@selector(compareHouseByTime:)] mutableCopy];
+        self.selectedShowArray = [self arrayByTurn:self.selectedShowArray];
     }
-    
-    
 }
+
+
 ///-----------------------------按照金额排序------------------------------------------//
 -(void)arrayByMoney :(UIButton *)btn{
-    if (allRoomArr.count == 0) {
-        allRoomArr = [NSMutableArray arrayWithArray:defaultArr];
-    }
-
-//    NSSortDescriptor *moneyWithSort;
-//    if (btn.tag != 1) {
-//      moneyWithSort  =[[NSSortDescriptor alloc]initWithKey:@"totalPay" ascending:NO];
-//        NSArray *elementarr=[NSArray arrayWithObject:moneyWithSort];
-//        allRoomArr=[NSMutableArray arrayWithArray:[allRoomArr sortedArrayUsingDescriptors:elementarr]];
-//    }else{
-//        moneyWithSort  =[[NSSortDescriptor alloc]initWithKey:@"totalPay" ascending:YES];
-//        NSArray *elementarr=[NSArray arrayWithObject:moneyWithSort];
-//        allRoomArr=[NSMutableArray arrayWithArray:[allRoomArr sortedArrayUsingDescriptors:elementarr]];
-//        
-//    }
-  
-   
-    NSArray *arr2 = [allRoomArr sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2)
+    self.selectedShowArray = [[self.selectedShowArray sortedArrayUsingComparator:^NSComparisonResult(House* obj1, House* obj2)
                           {
-                              //取出对象里的一个值作比较，根据大小返回结果
-                              NSString  *c = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[[obj1 objectForKey:@"billInfo"] valueForKey:@"payBillNotPay"]].floatValue +[NSString stringWithFormat:@"%@",[[obj1 objectForKey:@"billInfo"] objectForKey:@"payBillFreezingPay"]].floatValue];
-                              NSString  *d = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[[obj2 objectForKey:@"billInfo"] valueForKey:@"payBillNotPay"]].floatValue +[NSString stringWithFormat:@"%@",[[obj2 objectForKey:@"billInfo"] objectForKey:@"payBillFreezingPay"]].floatValue];
-                              
-                              int a =[c intValue]; //转成整形int比较
-                              int b =[d intValue];
-                              //按照降序排列，如果升序就返回结果对换
+                              float  value1 = obj1.billInfo.payBillNotPay.floatValue + obj1.billInfo.payBillFreezingPay.floatValue;
+                              float  value2 = obj2.billInfo.payBillNotPay.floatValue + obj2.billInfo.payBillFreezingPay.floatValue;
+                        
                               if (btn.tag == 1) {
-                                  if (a > b)
-                                  {
-                                      return NSOrderedAscending;
-                                  }else
-                                  {
-                                      return NSOrderedDescending;
-                                  }
+                                  return value1 > value2 ? NSOrderedAscending : NSOrderedDescending;
+                    
                               }else{
-                                  if (a < b)
-                                  {
-                                      return NSOrderedAscending;
-                                  }else
-                                  {
-                                      return NSOrderedDescending;
-                                  }
+                            
+                                 return value1 < value2 ? NSOrderedAscending : NSOrderedDescending;
                               }
                              
-                          }];
-    allRoomArr = [NSMutableArray arrayWithArray:arr2];
+                          }] mutableCopy];
   
 }
 

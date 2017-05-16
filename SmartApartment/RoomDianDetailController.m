@@ -28,11 +28,12 @@
    
 }
 -(void)viewWillAppear:(BOOL)animated{
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.houseID,@"houseID",self.monthDate,@"monthDate", nil];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key",self.houseID,@"houseID",self.monthDate,@"monthDate", nil];
     if (self.wayIn == 1) {
         self.title  = @"电费详情";
         [WebAPI getHouseElectricDetail:dic callback:^(NSError *err, id response) {
-            if ([NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000&&!err) {
+            NSLog(@"%@",response);
+            if ([response intForKey:@"rcode"] == 10000&&!err) {
                 NSDictionary *dic = [response objectForKey:@"data"];
                 if (dic.count >0) {
                     self.billTwoTime.text = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:[[dic objectForKey:@"billCycle"] objectForKey:@"startTime"]],[TimeDate timeWithTimeIntervalString:[[dic objectForKey:@"billCycle"] objectForKey:@"endTime"]]];
