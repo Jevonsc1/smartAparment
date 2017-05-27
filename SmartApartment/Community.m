@@ -13,7 +13,8 @@
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     // value should be Class or Class name.
-    return @{@"houseInfoList" : [House class] };
+    return @{@"houseInfoList" : [House class],
+             @"tagInfoList":[CommunityTag class]};
 }
 
 + (NSDictionary *)modelCustomPropertyMapper {

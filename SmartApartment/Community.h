@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "House.h"
+#import "CommunityTag.h"
 @interface Community : NSObject
 
 @property(nonatomic,copy)NSString* communityAddress;
@@ -28,5 +29,16 @@
 @property(nonatomic,strong)NSNumber* communitySubmitTime;
 @property(nonatomic,copy)NSString* communityWaterUnitPrice;
 @property(nonatomic,strong)NSArray* houseInfoList;
+
+//我要租房添加字段
+@property(nonatomic,copy)NSString* communityBOName;
+@property(nonatomic,copy)NSString* communityBOPhone;
+@property(nonatomic,copy)NSString* communityHouseAmount;
+@property(nonatomic,copy)NSString* communityEmptyHouseAmount;
+@property(nonatomic,copy)NSString* communityHouseRentMax;
+@property(nonatomic,copy)NSString* communityHouseRentMin;
+@property(nonatomic,copy)NSString* communityNodeName;
+@property(nonatomic,strong)NSArray* tagInfoList;
+
 
 @end

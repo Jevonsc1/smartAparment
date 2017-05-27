@@ -33,7 +33,7 @@
 //#import "SAaddApartmentTableviewController.h"
 //#import "AccountBookController.h"
 //#import "YKLoopView.h"
-//#import "NeedRentRoomController.h"
+#import "NeedRentRoomController.h"
 //#import "RenterBillController.h"
 #import "AccessListController.h"
 
@@ -380,9 +380,9 @@
 }
 //跳转到我要租房模块
 - (IBAction)clickToRentRoom:(id)sender {
-//    NeedRentRoomController *vc = [[UIStoryboard storyboardWithName:@"SearchRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"NeedRentRoom"];
-//    self.tabBarController.tabBar.hidden = YES;
-//    [self.navigationController pushViewController:vc animated:YES];
+    NeedRentRoomController *vc = [[UIStoryboard storyboardWithName:@"SearchRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"NeedRentRoom"];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 //跳转到我的账本
 - (IBAction)clickToAccountBook:(id)sender {

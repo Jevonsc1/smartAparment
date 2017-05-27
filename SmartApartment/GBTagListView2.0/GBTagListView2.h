@@ -59,6 +59,7 @@
 /**
  *  标签文本赋值
  */
+-(void)setTagWithCommunityTagArray:(NSArray *)arr andType:(NSString *)type;
 -(void)setTagWithTagArray:(NSArray*)arr;
 
 /**

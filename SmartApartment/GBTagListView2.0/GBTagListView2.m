@@ -7,6 +7,7 @@
 //
 
 #import "GBTagListView2.h"
+#import "CommunityTag.h"
 #define HORIZONTAL_PADDING 4.0f
 #define VERTICAL_PADDING   3.0f
 #define LABEL_MARGIN       4.0f
@@ -18,6 +19,7 @@
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 \
 alpha:1.0]
+
 @interface GBTagListView2(){
     
     CGFloat _KTagMargin;//左右tag之间的间距
@@ -43,6 +45,92 @@ alpha:1.0]
     return self;
     
 }
+-(void)setTagWithCommunityTagArray:(NSArray *)arr andType:(NSString *)type{
+    previousFrame = CGRectZero;
+    [_tagArr addObjectsFromArray:arr];
+    [arr enumerateObjectsUsingBlock:^(CommunityTag *communityTag, NSUInteger idx, BOOL *stop) {
+        
+        UILabel*tagBtn=[[UILabel alloc] init];
+        tagBtn.frame=CGRectZero;
+        
+        
+        tagBtn.backgroundColor=[UIColor whiteColor];
+        
+        if(_canTouch){
+            tagBtn.userInteractionEnabled=YES;
+            
+        }else{
+            
+            tagBtn.userInteractionEnabled=NO;
+        }
+        
+        [tagBtn setText:communityTag.communityTagName];
+        [tagBtn setTextColor:[self colorWithHexString:communityTag.communityTagRGB]];
+        if ([type isEqualToString:@"cell"]) {
+            [tagBtn setFont:[UIFont boldSystemFontOfSize:12 *ratio]];
+        }else{
+            [tagBtn setFont:[UIFont boldSystemFontOfSize:14 *ratio]];
+        }
+        tagBtn.tag=KBtnTag+idx;
+        tagBtn.textAlignment = NSTextAlignmentCenter;
+        //将开销转移到CPU
+        tagBtn.layer.shouldRasterize = YES;
+        tagBtn.opaque = YES;
+        tagBtn.layer.cornerRadius=4;
+        tagBtn.layer.borderColor=[self colorWithHexString:communityTag.communityTagRGB].CGColor;
+        tagBtn.layer.borderWidth=0.3;
+        tagBtn.clipsToBounds=YES;
+        NSDictionary *attrs = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:15]};
+        CGSize Size_str=[[NSString stringWithFormat:@"%@",communityTag.communityTagName] sizeWithAttributes:attrs];
+        Size_str.width += HORIZONTAL_PADDING;
+        Size_str.height += VERTICAL_PADDING;
+        CGRect newRect = CGRectZero;
+        
+        if(_KTagMargin&&_KBottomMargin){
+            
+            if (previousFrame.origin.x + previousFrame.size.width + Size_str.width + _KTagMargin > self.bounds.size.width) {
+                
+                newRect.origin = CGPointMake(10, previousFrame.origin.y + Size_str.height + _KBottomMargin);
+                totalHeight +=Size_str.height + _KBottomMargin;
+            }
+            else {
+                newRect.origin = CGPointMake(previousFrame.origin.x + previousFrame.size.width + _KTagMargin, previousFrame.origin.y);
+                
+            }
+            [self setHight:self andHight:totalHeight+Size_str.height + _KBottomMargin];
+            
+            
+        }else{
+            if (previousFrame.origin.x + previousFrame.size.width + Size_str.width + LABEL_MARGIN > self.bounds.size.width) {
+                
+                newRect.origin = CGPointMake(10, previousFrame.origin.y + Size_str.height + BOTTOM_MARGIN);
+                totalHeight +=Size_str.height + BOTTOM_MARGIN;
+            }
+            else {
+                newRect.origin = CGPointMake(previousFrame.origin.x + previousFrame.size.width + LABEL_MARGIN, previousFrame.origin.y);
+                
+            }
+            [self setHight:self andHight:totalHeight+Size_str.height + BOTTOM_MARGIN];
+        }
+        newRect.size = Size_str;
+        [tagBtn setFrame:newRect];
+        previousFrame=tagBtn.frame;
+        [self setHight:self andHight:totalHeight+Size_str.height + BOTTOM_MARGIN];
+        [self addSubview:tagBtn];
+        
+        
+    }];
+    if(_GBbackgroundColor){
+        
+        self.backgroundColor=_GBbackgroundColor;
+        
+    }else{
+        
+        self.backgroundColor=[UIColor whiteColor];
+        
+    }
+    
+}
 -(void)setTagWithTagArrayByDictionary:(NSArray *)arr andType:(NSString *)type{
     previousFrame = CGRectZero;
     [_tagArr addObjectsFromArray:arr];
@@ -51,13 +139,9 @@ alpha:1.0]
         UILabel*tagBtn=[[UILabel alloc] init];
         tagBtn.frame=CGRectZero;
         
-        //        if(_signalTagColor){
-        //可以单一设置tag的颜色
+
         tagBtn.backgroundColor=[UIColor whiteColor];
-        //        }else{
-        //            //tag颜色多样
-        //            tagBtn.backgroundColor=[UIColor colorWithRed:random()%255/255.0 green:random()%255/255.0 blue:random()%255/255.0 alpha:1];
-        //        }
+
         if(_canTouch){
             tagBtn.userInteractionEnabled=YES;
             
@@ -65,11 +149,7 @@ alpha:1.0]
             
             tagBtn.userInteractionEnabled=NO;
         }
-        //        [tagBtn setTitleColor:R_G_B_16(0x818181) forState:UIControlStateNormal];
-        //        [tagBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-        //        tagBtn.titleLabel.font=[UIFont boldSystemFontOfSize:15];
-        //        [tagBtn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        //        [tagBtn setTitle:str forState:UIControlStateNormal];
+
         [tagBtn setText:[dic objectForKey:@"communityTagName"]];
         [tagBtn setTextColor:[self colorWithHexString:[dic objectForKey:@"communityTagRGB"]]];
         if ([type isEqualToString:@"cell"]) {
