@@ -202,6 +202,16 @@
 		2E3AC9731EAF415A00A22E66 /* TDBLEUnlockDataMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC96D1EAF415A00A22E66 /* TDBLEUnlockDataMode.m */; };
 		2E3AC9D21EB0518E00A22E66 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3AC9D11EB0518D00A22E66 /* libresolv.tbd */; };
 		2EC203A91EDA51850030F23E /* TDString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203A81EDA51850030F23E /* TDString.m */; };
+		2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AC1EDA69F10030F23E /* CheckCommunityCell.m */; };
+		2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AE1EDA69F10030F23E /* CheckHouseCell.m */; };
+		2EC203C01EDA69F10030F23E /* HouseHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203B01EDA69F10030F23E /* HouseHistoryCell.m */; };
+		2EC203C11EDA69F10030F23E /* HouseInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203B21EDA69F10030F23E /* HouseInputCell.m */; };
+		2EC203C21EDA69F10030F23E /* CheckHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203B41EDA69F10030F23E /* CheckHomeController.m */; };
+		2EC203C31EDA69F10030F23E /* CheckInputReadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203B61EDA69F10030F23E /* CheckInputReadController.m */; };
+		2EC203C41EDA69F10030F23E /* HouseHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203B81EDA69F10030F23E /* HouseHistoryController.m */; };
+		2EC203C51EDA69F10030F23E /* ShowCheckHouseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203BA1EDA69F10030F23E /* ShowCheckHouseController.m */; };
+		2EC203C61EDA69F10030F23E /* ShowCommunityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203BC1EDA69F10030F23E /* ShowCommunityController.m */; };
+		2EC203C71EDA69F10030F23E /* CheckRead.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC203BD1EDA69F10030F23E /* CheckRead.storyboard */; };
 		2EE58D081ED952AB000CC970 /* RentRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE58D071ED952AB000CC970 /* RentRoom.m */; };
 		2EE58D0B1ED9539A000CC970 /* CityNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE58D0A1ED9539A000CC970 /* CityNode.m */; };
 		6515BDFAECE20620762322A0 /* Pods_SmartApartment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9721C1F9F3F837E7C8AF0A /* Pods_SmartApartment.framework */; };
@@ -596,6 +606,25 @@
 		2E3AC9D11EB0518D00A22E66 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		2EC203A71EDA51850030F23E /* TDString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDString.h; sourceTree = "<group>"; };
 		2EC203A81EDA51850030F23E /* TDString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDString.m; sourceTree = "<group>"; };
+		2EC203AB1EDA69F10030F23E /* CheckCommunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckCommunityCell.h; sourceTree = "<group>"; };
+		2EC203AC1EDA69F10030F23E /* CheckCommunityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckCommunityCell.m; sourceTree = "<group>"; };
+		2EC203AD1EDA69F10030F23E /* CheckHouseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckHouseCell.h; sourceTree = "<group>"; };
+		2EC203AE1EDA69F10030F23E /* CheckHouseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckHouseCell.m; sourceTree = "<group>"; };
+		2EC203AF1EDA69F10030F23E /* HouseHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseHistoryCell.h; sourceTree = "<group>"; };
+		2EC203B01EDA69F10030F23E /* HouseHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseHistoryCell.m; sourceTree = "<group>"; };
+		2EC203B11EDA69F10030F23E /* HouseInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseInputCell.h; sourceTree = "<group>"; };
+		2EC203B21EDA69F10030F23E /* HouseInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseInputCell.m; sourceTree = "<group>"; };
+		2EC203B31EDA69F10030F23E /* CheckHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckHomeController.h; sourceTree = "<group>"; };
+		2EC203B41EDA69F10030F23E /* CheckHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckHomeController.m; sourceTree = "<group>"; };
+		2EC203B51EDA69F10030F23E /* CheckInputReadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInputReadController.h; sourceTree = "<group>"; };
+		2EC203B61EDA69F10030F23E /* CheckInputReadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInputReadController.m; sourceTree = "<group>"; };
+		2EC203B71EDA69F10030F23E /* HouseHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseHistoryController.h; sourceTree = "<group>"; };
+		2EC203B81EDA69F10030F23E /* HouseHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseHistoryController.m; sourceTree = "<group>"; };
+		2EC203B91EDA69F10030F23E /* ShowCheckHouseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCheckHouseController.h; sourceTree = "<group>"; };
+		2EC203BA1EDA69F10030F23E /* ShowCheckHouseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCheckHouseController.m; sourceTree = "<group>"; };
+		2EC203BB1EDA69F10030F23E /* ShowCommunityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCommunityController.h; sourceTree = "<group>"; };
+		2EC203BC1EDA69F10030F23E /* ShowCommunityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCommunityController.m; sourceTree = "<group>"; };
+		2EC203BD1EDA69F10030F23E /* CheckRead.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CheckRead.storyboard; sourceTree = "<group>"; };
 		2EE58D061ED952AB000CC970 /* RentRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentRoom.h; sourceTree = "<group>"; };
 		2EE58D071ED952AB000CC970 /* RentRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentRoom.m; sourceTree = "<group>"; };
 		2EE58D091ED9539A000CC970 /* CityNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityNode.h; sourceTree = "<group>"; };
@@ -1048,6 +1077,8 @@
 		2E3AC7A51EA9AB9100A22E66 /* SmartApartment */ = {
 			isa = PBXGroup;
 			children = (
+				2EC203C81EDA9F560030F23E /* 我的账本 */,
+				2EC203AA1EDA60350030F23E /* 公寓抄表 */,
 				2E09B3211ECAE8540078E714 /* 我要租房 */,
 				2E09B2E01EC9A5920078E714 /* 公寓账单 */,
 				2E2BDEC11EC0110D00D8FB92 /* 出入记录 */,
@@ -1290,6 +1321,39 @@
 			name = Person;
 			sourceTree = "<group>";
 		};
+		2EC203AA1EDA60350030F23E /* 公寓抄表 */ = {
+			isa = PBXGroup;
+			children = (
+				2EC203AB1EDA69F10030F23E /* CheckCommunityCell.h */,
+				2EC203AC1EDA69F10030F23E /* CheckCommunityCell.m */,
+				2EC203AD1EDA69F10030F23E /* CheckHouseCell.h */,
+				2EC203AE1EDA69F10030F23E /* CheckHouseCell.m */,
+				2EC203AF1EDA69F10030F23E /* HouseHistoryCell.h */,
+				2EC203B01EDA69F10030F23E /* HouseHistoryCell.m */,
+				2EC203B11EDA69F10030F23E /* HouseInputCell.h */,
+				2EC203B21EDA69F10030F23E /* HouseInputCell.m */,
+				2EC203B31EDA69F10030F23E /* CheckHomeController.h */,
+				2EC203B41EDA69F10030F23E /* CheckHomeController.m */,
+				2EC203B51EDA69F10030F23E /* CheckInputReadController.h */,
+				2EC203B61EDA69F10030F23E /* CheckInputReadController.m */,
+				2EC203B71EDA69F10030F23E /* HouseHistoryController.h */,
+				2EC203B81EDA69F10030F23E /* HouseHistoryController.m */,
+				2EC203B91EDA69F10030F23E /* ShowCheckHouseController.h */,
+				2EC203BA1EDA69F10030F23E /* ShowCheckHouseController.m */,
+				2EC203BB1EDA69F10030F23E /* ShowCommunityController.h */,
+				2EC203BC1EDA69F10030F23E /* ShowCommunityController.m */,
+				2EC203BD1EDA69F10030F23E /* CheckRead.storyboard */,
+			);
+			name = "公寓抄表";
+			sourceTree = "<group>";
+		};
+		2EC203C81EDA9F560030F23E /* 我的账本 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "我的账本";
+			sourceTree = "<group>";
+		};
 		2EE58D051ED95261000CC970 /* 我要租房 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1444,6 +1508,7 @@
 				2E2BDEBD1EBD538800D8FB92 /* AccessControl.storyboard in Resources */,
 				2E09B3171EC9A74B0078E714 /* BillSelectView.xib in Resources */,
 				2E09B3361ECBD5230078E714 /* SearchRoom.storyboard in Resources */,
+				2EC203C71EDA69F10030F23E /* CheckRead.storyboard in Resources */,
 				2E3AC7B61EA9AB9100A22E66 /* Assets.xcassets in Resources */,
 				2E03B31A1EB962400057A96C /* SAhouseCell.xib in Resources */,
 				2E09B3371ECBD5230078E714 /* CellXib.xib in Resources */,
@@ -1557,6 +1622,7 @@
 				2E09B3091EC9A74B0078E714 /* MonthCell.m in Sources */,
 				2E09B33B1ECBD62A0078E714 /* TTRangeSlider.m in Sources */,
 				2E03B3701EBAF5730057A96C /* AccessCloseView.m in Sources */,
+				2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */,
 				2E03B31D1EB962400057A96C /* SAshowhouseCollectionViewCell.m in Sources */,
 				2E3AC8621EAB300900A22E66 /* ResetKeyController.m in Sources */,
 				2E02170A1EB2EDA300C91F87 /* BroadbandController.m in Sources */,
@@ -1576,6 +1642,7 @@
 				2E2BDEBC1EBD538800D8FB92 /* ACCheckIDCardController.m in Sources */,
 				2E03B31B1EB962400057A96C /* SAhouseDecripitionCell.m in Sources */,
 				2E03B35C1EBADEE70057A96C /* AccessListController.m in Sources */,
+				2EC203C61EDA69F10030F23E /* ShowCommunityController.m in Sources */,
 				2E0217131EB2EDC400C91F87 /* NetRoomListController.m in Sources */,
 				2E3AC8791EAB32D400A22E66 /* WebAPIForRenthouse.m in Sources */,
 				2E03B3081EB961DD0057A96C /* SAcreateOneHouseVC.m in Sources */,
@@ -1601,6 +1668,7 @@
 				2E0216DF1EB0871100C91F87 /* MBProgressHUD+MJ.m in Sources */,
 				2E3AC8601EAB300900A22E66 /* SetNewPwdController.m in Sources */,
 				2E3AC9371EAEEF1200A22E66 /* NewMasterHomeController.m in Sources */,
+				2EC203C21EDA69F10030F23E /* CheckHomeController.m in Sources */,
 				2E09B3061EC9A74B0078E714 /* BillModel.m in Sources */,
 				2E03B32F1EB96C170057A96C /* UITextView+Placeholder.m in Sources */,
 				2E0217641EB31CC300C91F87 /* renterUserCell.m in Sources */,
@@ -1611,6 +1679,8 @@
 				2E3AC9461EAEEFC200A22E66 /* SelectPersonController.m in Sources */,
 				2E02173A1EB30D9700C91F87 /* AddRenterResultController.m in Sources */,
 				2E0217681EB32A7C00C91F87 /* House.m in Sources */,
+				2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */,
+				2EC203C41EDA69F10030F23E /* HouseHistoryController.m in Sources */,
 				2E3AC95C1EAF35D000A22E66 /* User.m in Sources */,
 				2E03B2F01EB960AA0057A96C /* SAeditApartmentTableViewController.m in Sources */,
 				2E02170B1EB2EDA300C91F87 /* apartmentCell.m in Sources */,
@@ -1625,6 +1695,7 @@
 				2E09B3201ECACBBB0078E714 /* GlobalPass.m in Sources */,
 				2E02175B1EB31C3500C91F87 /* PopHome.m in Sources */,
 				2E03B36C1EBAF5730057A96C /* SearchAccessView.m in Sources */,
+				2EC203C11EDA69F10030F23E /* HouseInputCell.m in Sources */,
 				2E0217351EB30D9700C91F87 /* SelectRentDateController.m in Sources */,
 				2E3AC87B1EAB32D400A22E66 /* WebAPIForMyDoorCard.m in Sources */,
 				2E3AC9451EAEEFC200A22E66 /* MasterPersonController.m in Sources */,
@@ -1655,7 +1726,9 @@
 				2E09B2D81EC5B1810078E714 /* EntryRecordCell.m in Sources */,
 				2E3AC9701EAF415A00A22E66 /* FBBLEFileHandle.m in Sources */,
 				2E0216E71EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m in Sources */,
+				2EC203C31EDA69F10030F23E /* CheckInputReadController.m in Sources */,
 				2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */,
+				2EC203C51EDA69F10030F23E /* ShowCheckHouseController.m in Sources */,
 				2E09B2D91EC5B1810078E714 /* SearchTypeView.m in Sources */,
 				2E0216E21EB0A04300C91F87 /* NSString+TDChangeTimestamp.m in Sources */,
 				2E3AC85F1EAB300900A22E66 /* GetKeyCodeController.m in Sources */,
@@ -1692,6 +1765,7 @@
 				2E3AC85E1EAB300900A22E66 /* FindKeyOneController.m in Sources */,
 				2E03B36D1EBAF5730057A96C /* AccessCell.m in Sources */,
 				2E03B2F91EB961C80057A96C /* SAapartementCell.m in Sources */,
+				2EC203C01EDA69F10030F23E /* HouseHistoryCell.m in Sources */,
 				2E09B2D61EC5B1810078E714 /* EntrySearchViewController.m in Sources */,
 				2E03B3811EBAF7A00057A96C /* GBTagListView.m in Sources */,
 				2E09B3351ECBD5230078E714 /* CheckImageController.m in Sources */,

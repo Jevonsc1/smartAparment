@@ -41,7 +41,7 @@
 //#import "FBBLECentralManager.h"//蓝牙
 //#import "TDBLENodeTool.h"//上传蓝牙记录
 //--------二期类-------------//
-//#import "CheckHomeController.h"
+#import "CheckHomeController.h"
 #import "ApartmentBillController.h"
 
 //#import "TDBroadbandViewController.h"
@@ -193,20 +193,21 @@
 - (IBAction)ClickToCheckRead:(id)sender {
     
     if ([[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
-        self.tabBarController.tabBar.hidden = YES;
-//        CheckHomeController *vc = [[UIStoryboard storyboardWithName:@"CheckRead" bundle:nil] instantiateViewControllerWithIdentifier:@"CheckHome"];
-//        [self.navigationController pushViewController:vc animated:YES];
+        CheckHomeController *vc = [[UIStoryboard storyboardWithName:@"CheckRead" bundle:nil] instantiateViewControllerWithIdentifier:@"CheckHome"];
+         vc.hidesBottomBarWhenPushed = YES;
+        vc.communityArray = self.communityArr;
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
         
     }
 }
 //点击公寓账单
 - (IBAction)ClickToApartmentBill:(id)sender {
-    self.tabBarController.tabBar.hidden = YES;
     
     if ([[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
         
         ApartmentBillController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"ApartmentBill"];
+         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
         [[NSUserDefaults standardUserDefaults] setObject:@"no" forKey:@"formNotif"];
         
@@ -225,6 +226,7 @@
     self.tabBarController.tabBar.hidden = YES;
     if ([[ModelTool find_UserData].memberType isEqualToString:@"master"] ) {
         SAapartmentViewController *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"Apertmant1"];
+         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }else{
 //        renterRoomController *vc = [[UIStoryboard storyboardWithName:@"homeMessage" bundle:nil] instantiateViewControllerWithIdentifier:@"renterRoom"];
