@@ -31,7 +31,7 @@
 
 //#import <CoreBluetooth/CoreBluetooth.h>
 //#import "SAaddApartmentTableviewController.h"
-//#import "AccountBookController.h"
+#import "AccountBookController.h"
 //#import "YKLoopView.h"
 #import "NeedRentRoomController.h"
 //#import "RenterBillController.h"
@@ -388,10 +388,10 @@
 }
 //跳转到我的账本
 - (IBAction)clickToAccountBook:(id)sender {
-//    AccountBookController *vc = [[UIStoryboard storyboardWithName:@"AccountBook" bundle:nil] instantiateViewControllerWithIdentifier:@"AccountBook"];
-//    self.tabBarController.tabBar.hidden = YES;
-//    [self.navigationController pushViewController:vc animated:YES];
-//    
+    AccountBookController *vc = [[UIStoryboard storyboardWithName:@"AccountBook" bundle:nil] instantiateViewControllerWithIdentifier:@"AccountBook"];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 //跳转到出入记录
 - (IBAction)clickToEntryRecord:(id)sender {
