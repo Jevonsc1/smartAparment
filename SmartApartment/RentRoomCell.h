@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *roomMsg;
 @property (weak, nonatomic) IBOutlet UILabel *roomArea;
 @property (weak, nonatomic) IBOutlet UILabel *roomMoney;
-@property (weak, nonatomic) IBOutlet GBTagListView2 *roomTags;
+@property (weak, nonatomic) IBOutlet UIView *roomTags;
 @property(nonatomic,strong)Community *modelData;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tagViewHeight;
 @property (weak, nonatomic) IBOutlet UILabel *emptyRoomNum;

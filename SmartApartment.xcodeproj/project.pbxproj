@@ -201,6 +201,7 @@
 		2E3AC9721EAF415A00A22E66 /* TDBLENodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC96B1EAF415A00A22E66 /* TDBLENodeTool.m */; };
 		2E3AC9731EAF415A00A22E66 /* TDBLEUnlockDataMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC96D1EAF415A00A22E66 /* TDBLEUnlockDataMode.m */; };
 		2E3AC9D21EB0518E00A22E66 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3AC9D11EB0518D00A22E66 /* libresolv.tbd */; };
+		2EC203A91EDA51850030F23E /* TDString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203A81EDA51850030F23E /* TDString.m */; };
 		2EE58D081ED952AB000CC970 /* RentRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE58D071ED952AB000CC970 /* RentRoom.m */; };
 		2EE58D0B1ED9539A000CC970 /* CityNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE58D0A1ED9539A000CC970 /* CityNode.m */; };
 		6515BDFAECE20620762322A0 /* Pods_SmartApartment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9721C1F9F3F837E7C8AF0A /* Pods_SmartApartment.framework */; };
@@ -593,6 +594,8 @@
 		2E3AC96C1EAF415A00A22E66 /* TDBLEUnlockDataMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBLEUnlockDataMode.h; sourceTree = "<group>"; };
 		2E3AC96D1EAF415A00A22E66 /* TDBLEUnlockDataMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBLEUnlockDataMode.m; sourceTree = "<group>"; };
 		2E3AC9D11EB0518D00A22E66 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		2EC203A71EDA51850030F23E /* TDString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDString.h; sourceTree = "<group>"; };
+		2EC203A81EDA51850030F23E /* TDString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDString.m; sourceTree = "<group>"; };
 		2EE58D061ED952AB000CC970 /* RentRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentRoom.h; sourceTree = "<group>"; };
 		2EE58D071ED952AB000CC970 /* RentRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentRoom.m; sourceTree = "<group>"; };
 		2EE58D091ED9539A000CC970 /* CityNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityNode.h; sourceTree = "<group>"; };
@@ -1167,6 +1170,8 @@
 		2E3AC7E01EA9D4C300A22E66 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2EC203A71EDA51850030F23E /* TDString.h */,
+				2EC203A81EDA51850030F23E /* TDString.m */,
 				2E03B32D1EB96C170057A96C /* UITextView+Placeholder.h */,
 				2E03B32E1EB96C170057A96C /* UITextView+Placeholder.m */,
 				2E0216DD1EB0871100C91F87 /* MBProgressHUD+MJ.h */,
@@ -1541,6 +1546,7 @@
 				2E3AC90C1EADCFC000A22E66 /* TDTabViewController.m in Sources */,
 				2E3AC9481EAEEFC200A22E66 /* ContractListController.m in Sources */,
 				2E03B34B1EB9BEBF0057A96C /* STPickerArea.m in Sources */,
+				2EC203A91EDA51850030F23E /* TDString.m in Sources */,
 				2E09B3081EC9A74B0078E714 /* BillSelectView.m in Sources */,
 				2E09B30F1EC9A74B0078E714 /* ApartmentBillController.m in Sources */,
 				2E09B31D1ECA865F0078E714 /* Good.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import "GBTagListView.h"
 #import "Community.h"
+#import "CityNode.h"
+#import "CommunityTag.h"
 #define HORIZONTAL_PADDING 7.0f
 #define VERTICAL_PADDING   3.0f
 #define LABEL_MARGIN       10.0f
@@ -44,6 +46,192 @@ alpha:1.0]
     return self;
     
 }
+
+-(void)setTagWithCityArray:(NSArray *)arr{
+    previousFrame = CGRectZero;
+    [_tagArr addObjectsFromArray:arr];
+    [arr enumerateObjectsUsingBlock:^(CityNode *obj, NSUInteger idx, BOOL *stop) {
+        
+        UIButton*tagBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        tagBtn.frame=CGRectZero;
+        
+        if(_signalTagColor){
+            //可以单一设置tag的颜色
+            tagBtn.backgroundColor=_signalTagColor;
+        }else{
+            //tag颜色多样
+            tagBtn.backgroundColor=[UIColor colorWithRed:random()%255/255.0 green:random()%255/255.0 blue:random()%255/255.0 alpha:1];
+        }
+        if(_canTouch){
+            tagBtn.userInteractionEnabled=YES;
+            
+        }else{
+            
+            tagBtn.userInteractionEnabled=NO;
+        }
+        [tagBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [tagBtn setTitleColor:MainBlue forState:UIControlStateSelected];
+        tagBtn.titleLabel.font=[UIFont systemFontOfSize:14*ratio];
+        [tagBtn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [tagBtn setTitle:obj.nodeName forState:UIControlStateNormal];
+        
+        tagBtn.tag=KBtnTag+idx;
+        tagBtn.titleEdgeInsets =UIEdgeInsetsMake(0, 0, 0, 0);
+        [tagBtn setBackgroundImage:[UIImage imageNamed:@"bill_select_border2"] forState:UIControlStateNormal];
+        [tagBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
+        NSDictionary *attrs = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:14*ratio]};
+        CGSize Size_str=[obj.nodeName sizeWithAttributes:attrs];
+        Size_str.width += HORIZONTAL_PADDING*3;
+        Size_str.height += VERTICAL_PADDING*3;
+        CGRect newRect = CGRectZero;
+        
+        if(_KTagMargin&&_KBottomMargin){
+            
+            if (previousFrame.origin.x + previousFrame.size.width + Size_str.width + _KTagMargin > self.bounds.size.width) {
+                
+                newRect.origin = CGPointMake(10, previousFrame.origin.y + Size_str.height + _KBottomMargin);
+                totalHeight +=Size_str.height + _KBottomMargin;
+            }
+            else {
+                newRect.origin = CGPointMake(previousFrame.origin.x + previousFrame.size.width + _KTagMargin, previousFrame.origin.y);
+                
+            }
+            [self setHight:self andHight:totalHeight+Size_str.height + _KBottomMargin];
+            
+            
+        }else{
+            if (previousFrame.origin.x + previousFrame.size.width + Size_str.width + LABEL_MARGIN > self.bounds.size.width) {
+                
+                newRect.origin = CGPointMake(10, previousFrame.origin.y + Size_str.height + BOTTOM_MARGIN);
+                totalHeight +=Size_str.height + BOTTOM_MARGIN;
+            }
+            else {
+                newRect.origin = CGPointMake(previousFrame.origin.x + previousFrame.size.width + LABEL_MARGIN, previousFrame.origin.y);
+                
+            }
+            [self setHight:self andHight:totalHeight+Size_str.height + BOTTOM_MARGIN];
+        }
+        newRect.size = Size_str;
+        [tagBtn setFrame:newRect];
+        tagBtn.size = CGSizeMake(tagBtn.size.width+20, tagBtn.size.height);
+        previousFrame=tagBtn.frame;
+        [self setHight:self andHight:totalHeight+Size_str.height + BOTTOM_MARGIN];
+        [self addSubview:tagBtn];
+        
+        UIImageView *rightIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"select_right_icon"]];
+        
+        rightIcon.centerY= tagBtn.height/2;
+        [tagBtn addSubview:rightIcon];
+        [rightIcon setFrame:CGRectMake(14, 7, 12, 8)];
+        rightIcon.hidden =YES;
+    }];
+    if(_GBbackgroundColor){
+        
+        self.backgroundColor=_GBbackgroundColor;
+        
+    }else{
+        
+        self.backgroundColor=[UIColor whiteColor];
+        
+    }
+}
+
+-(void)setTagWithCommunityTagArray:(NSArray *)arr{
+    previousFrame = CGRectZero;
+    [_tagArr addObjectsFromArray:arr];
+    [arr enumerateObjectsUsingBlock:^(CommunityTag *obj, NSUInteger idx, BOOL *stop) {
+        
+        UIButton*tagBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+        tagBtn.frame=CGRectZero;
+        
+        if(_signalTagColor){
+            //可以单一设置tag的颜色
+            tagBtn.backgroundColor=_signalTagColor;
+        }else{
+            //tag颜色多样
+            tagBtn.backgroundColor=[UIColor colorWithRed:random()%255/255.0 green:random()%255/255.0 blue:random()%255/255.0 alpha:1];
+        }
+        if(_canTouch){
+            tagBtn.userInteractionEnabled=YES;
+            
+        }else{
+            
+            tagBtn.userInteractionEnabled=NO;
+        }
+        [tagBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [tagBtn setTitleColor:MainBlue forState:UIControlStateSelected];
+        tagBtn.titleLabel.font=[UIFont systemFontOfSize:14*ratio];
+        [tagBtn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [tagBtn setTitle:obj.communityTagName forState:UIControlStateNormal];
+        
+        tagBtn.tag=KBtnTag+idx;
+        tagBtn.titleEdgeInsets =UIEdgeInsetsMake(0, 0, 0, 0);
+        [tagBtn setBackgroundImage:[UIImage imageNamed:@"bill_select_border2"] forState:UIControlStateNormal];
+        [tagBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
+        //        [tagBtn setBackgroundColor:TDRGB(236.0, 236.0, 236.0)];
+        //        tagBtn.layer.cornerRadius=5;
+        //        tagBtn.layer.borderColor=R_G_B_16(0x818181).CGColor;
+        //        tagBtn.layer.borderWidth=0.3;
+        //        tagBtn.clipsToBounds=YES;
+        NSDictionary *attrs = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:14*ratio]};
+        CGSize Size_str=[obj.communityTagName sizeWithAttributes:attrs];
+        Size_str.width += HORIZONTAL_PADDING*3;
+        Size_str.height += VERTICAL_PADDING*3;
+        CGRect newRect = CGRectZero;
+        
+        if(_KTagMargin&&_KBottomMargin){
+            
+            if (previousFrame.origin.x + previousFrame.size.width + Size_str.width + _KTagMargin > self.bounds.size.width) {
+                
+                newRect.origin = CGPointMake(10, previousFrame.origin.y + Size_str.height + _KBottomMargin);
+                totalHeight +=Size_str.height + _KBottomMargin;
+            }
+            else {
+                newRect.origin = CGPointMake(previousFrame.origin.x + previousFrame.size.width + _KTagMargin, previousFrame.origin.y);
+                
+            }
+            [self setHight:self andHight:totalHeight+Size_str.height + _KBottomMargin];
+            
+            
+        }else{
+            if (previousFrame.origin.x + previousFrame.size.width + Size_str.width + LABEL_MARGIN > self.bounds.size.width) {
+                
+                newRect.origin = CGPointMake(10, previousFrame.origin.y + Size_str.height + BOTTOM_MARGIN);
+                totalHeight +=Size_str.height + BOTTOM_MARGIN;
+            }
+            else {
+                newRect.origin = CGPointMake(previousFrame.origin.x + previousFrame.size.width + LABEL_MARGIN, previousFrame.origin.y);
+                
+            }
+            [self setHight:self andHight:totalHeight+Size_str.height + BOTTOM_MARGIN];
+        }
+        newRect.size = Size_str;
+        [tagBtn setFrame:newRect];
+        tagBtn.size = CGSizeMake(tagBtn.size.width+20, tagBtn.size.height);
+        previousFrame=tagBtn.frame;
+        [self setHight:self andHight:totalHeight+Size_str.height + BOTTOM_MARGIN];
+        [self addSubview:tagBtn];
+        
+        UIImageView *rightIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"select_right_icon"]];
+        
+        rightIcon.centerY= tagBtn.height/2;
+        [tagBtn addSubview:rightIcon];
+        [rightIcon setFrame:CGRectMake(14, 7, 12, 8)];
+        rightIcon.hidden =YES;
+    }];
+    if(_GBbackgroundColor){
+        
+        self.backgroundColor=_GBbackgroundColor;
+        
+    }else{
+        
+        self.backgroundColor=[UIColor whiteColor];
+        
+    }
+}
+
 -(void)setTagWithCommunityArray:(NSArray *)arr{
     previousFrame = CGRectZero;
     [_tagArr addObjectsFromArray:arr];

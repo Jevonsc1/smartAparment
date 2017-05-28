@@ -16,6 +16,7 @@
 #import "MJRefresh.h"
 #import "communityDetailController.h"
 
+#import "TDString.h"
 #import "RentRoom.h"
 @interface NeedRentRoomController ()<UITableViewDelegate,UITableViewDataSource,TTRangeSliderDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -98,11 +99,13 @@
 }
 -(void)getCommunityRentInfoList{
     NSString* page = [NSString stringWithFormat:@"%ld",(long)self.pageNum];
-    NSDictionary *dic =[[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",page,@"pageNum",@"10",@"pageSize",rentRange,@"rentRange",self.cityNodeString?self.cityNodeString:@"",@"areaNodeIDs",self.tagString?self.tagString:@"",@"tags", @"中山市",@"cityName",self.forward?@"true":@"false",@"forward",[NSString stringWithFormat:@"%d",sortType],@"sortType",nil];
+    NSDictionary *dic =[[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",page,@"pageNum",@"10",@"pageSize",rentRange,@"rentRange",self.cityNodeString?self.cityNodeString:@"",@"areaNodeIDs",self.tagString?self.tagString:@"",@"tags", @"中山市",@"cityName",self.forward?@"true":@"",@"forward",[NSString stringWithFormat:@"%d",sortType],@"sortType",nil];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [WebAPI getCommunityRentInfoList:dic callback:^(NSError *err, id response) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         if (!err && [response intForKey:@"rcode"] == 10000 ) {
             RentRoom *rentRoom = [RentRoom yy_modelWithDictionary:[response objectForKey:@"data"]] ;
             self.rentRoom = rentRoom;
@@ -119,8 +122,7 @@
         }else{
                 RequestBad
         }
-       
-        [self.tableView.mj_footer endRefreshing];
+        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
@@ -146,8 +148,10 @@
     Community *model = self.communityArray[indexPath.section];
     communityDetailController *comDetailVC = [[UIStoryboard storyboardWithName:@"SearchRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"communityDetail"];
     comDetailVC.model = model;
-//TODO
-//    comDetailVC.tagHeight =[NSString stringWithFormat:@"%@", cellHeightArr[indexPath.section]].floatValue;
+    
+    RentRoomCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    comDetailVC.tagHeight = cell.roomcellHeight ;
+
     [self.navigationController pushViewController:comDetailVC animated:YES];
 }
 
@@ -252,18 +256,14 @@
     /**控制是否是单选模式 */
     tagListArea.isSingleSelect=NO;
     tagListArea.signalTagColor=[UIColor whiteColor];
-    __block NeedRentRoomController *blockSelf = self;
-//TODO
-//    [tagListArea setTagWithDictionary:cityNodeInfoList andKey:@"nodeName"];
+    [tagListArea setTagWithCityArray:self.rentRoom.cityNodeInfoList];
+    __weak typeof(self) weakself = self;
     [tagListArea setDidselectItemBlock:^(NSArray * arr) {
-        blockSelf->areaNodeIDs = @"";
-        [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            blockSelf->areaNodeIDs = [blockSelf->areaNodeIDs stringByAppendingString:[NSString stringWithFormat:@"%@,",[obj objectForKey:@"nodeID"]]];
-        }];
-        if (![blockSelf->areaNodeIDs isEqualToString:@""]) {
-            blockSelf->areaNodeIDs = [blockSelf->areaNodeIDs substringToIndex:areaNodeIDs.length-1];
+        NSMutableArray* array = [NSMutableArray array];
+        for (CityNode* node in arr) {
+            [array addObject:node.nodeID];
         }
-        NSLog(@"区域ID-%@",blockSelf->areaNodeIDs);
+        weakself.cityNodeString = [array yy_modelToJSONString];
     }];
     
     UILabel *labelTwo = [[UILabel alloc] initWithFrame:CGRectMake(12, tagListArea.y+tagListArea.height+12, 42, 21)];
@@ -318,16 +318,13 @@
     /**控制是否是单选模式 */
     tagListTag.isSingleSelect=NO;
     tagListTag.signalTagColor=[UIColor whiteColor];
-//TODO
-//    [tagListTag setTagWithDictionary:communityTagsList andKey:@"communityTagName"];
+    [tagListTag setTagWithCommunityTagArray:self.rentRoom.communityTagsList];
     [tagListTag setDidselectItemBlock:^(NSArray * arr) {
-        blockSelf->tagsArr = @"";
-        [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            blockSelf->tagsArr = [blockSelf->tagsArr stringByAppendingString:[NSString stringWithFormat:@"%@,",[obj objectForKey:@"communityTagsID"]]];
-        }];
-        if (![blockSelf->tagsArr isEqualToString:@""]) {
-              blockSelf->tagsArr = [blockSelf->tagsArr substringToIndex:tagsArr.length-1];
+        NSMutableArray* array = [NSMutableArray array];
+        for (CommunityTag* tag in arr) {
+            [array addObject:tag.communityTagsID];
         }
+        weakself.tagString = [array yy_modelToJSONString];
     }];
     
     resetBtn = [[UIButton alloc] initWithFrame:CGRectMake(14, tagListTag.height+tagListTag.y + 10, 125*ratio, 45*ratio)];
@@ -479,8 +476,10 @@
     return 1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return 70;
+    Community* community  = self.communityArray[indexPath.row];
+    GBTagListView2 *view = [[GBTagListView2 alloc]initWithFrame:CGRectMake(0, 0, 128, 0)];
+    [view setTagWithCommunityTagArray:community.tagInfoList andType:@"cell"];
+    return  view.height + 64;
 }
 
 @end

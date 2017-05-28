@@ -61,7 +61,9 @@
  */
 -(void)setTagWithTagArray:(NSArray*)arr;
 -(void)setTagWithCommunityArray:(NSArray *)arr;
+-(void)setTagWithCommunityTagArray:(NSArray *)arr;
 -(void)setTagWithSearchType:(NSArray *)arr;
+-(void)setTagWithCityArray:(NSArray *)arr;
 /**
  *  设置tag之间的距离
  *

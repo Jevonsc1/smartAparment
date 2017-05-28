@@ -7,7 +7,6 @@
 //
 
 #import "communityDetailController.h"
-//#import "YKLoopView.h"
 #import "UIImageView+WebCache.h"
 #import "GBTagListView2.h"
 #import "CheckImageController.h"
@@ -78,16 +77,12 @@
     
     tagList = [[GBTagListView2 alloc] initWithFrame:CGRectMake(0, 0, self.tagView.width- 50, 0)];
     tagList.canTouch = NO;
-    [tagList setTagWithTagArrayByDictionary:self.model.tagInfoList andType:@"detail"];
+    [tagList setTagWithCommunityTagArray:self.model.tagInfoList andType:@"detail"];
    
     [self.tagView addSubview:tagList];
     [self.tableView reloadData];
 }
--(void)viewDidAppear:(BOOL)animated{
-    [self.tableView setContentSize:CGSizeMake(0, 26*ratio*4+281*ratio+5*cellHeight + 47 + tagList.height -24 )];
-     NSLog(@"标签高度--%f---滚动范围--%f",tagList.height,self.tableView.contentSize.height-(26*ratio*4+281*ratio+5*cellHeight + 47 ));
 
-}
 -(void)checkImage:(UIGestureRecognizer *)tap{
     UIImageView *imgV = (UIImageView *)tap.view;
     CheckImageController *vc = [[UIStoryboard storyboardWithName:@"SearchRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"CheckImage"];
