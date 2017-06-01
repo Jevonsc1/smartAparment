@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Community.h"
 @interface GetRoomListController : UITableViewController
 @property(nonatomic)NSString *wayIn;
+
+@property(strong,nonatomic)NSArray<Community *> *apartmentArr;
 @end

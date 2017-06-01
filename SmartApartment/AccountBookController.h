@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Community.h"
 @interface AccountBookController : UIViewController
 
+@property(nonatomic,strong)NSArray<Community *>* communityArray;
 @end

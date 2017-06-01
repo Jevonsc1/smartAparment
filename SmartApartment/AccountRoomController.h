@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MyDelegate.h"
+#import "House.h"
 @interface AccountRoomController : UIViewController
-@property(nonatomic)NSString *houseID;
+@property(nonatomic,strong)House *house;
 @property(nonatomic)NSObject<MyDelegate> *delegate;
-@property(nonatomic)NSString *apartmentID;
-@property(nonatomic)NSString *communityName;
-@property(nonatomic)NSString *houseNum;
-@property(nonatomic)NSDictionary *rentInfo;
+
 @end

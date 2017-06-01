@@ -53,6 +53,7 @@
     GetRoomListController *vc = [[UIStoryboard storyboardWithName:@"AccountBook" bundle:nil] instantiateViewControllerWithIdentifier:@"GetRoomList"];
     self.navigationController.navigationBar.hidden = NO;
     vc.wayIn = @"Account";
+    vc.apartmentArr = self.communityArray;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

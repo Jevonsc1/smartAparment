@@ -390,6 +390,7 @@
 - (IBAction)clickToAccountBook:(id)sender {
     AccountBookController *vc = [[UIStoryboard storyboardWithName:@"AccountBook" bundle:nil] instantiateViewControllerWithIdentifier:@"AccountBook"];
     vc.hidesBottomBarWhenPushed = YES;
+    vc.communityArray = self.communityArr;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

@@ -1648,7 +1648,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S2H-1S-5RI" id="j1g-Ez-pUM">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ptq-aV-4Dj">
@@ -1668,7 +1668,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Es-pJ-Ntq">
-                                                    <rect key="frame" x="102" y="9" width="9" height="30"/>
+                                                    <rect key="frame" x="102" y="9" width="232" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="0PN-Xr-Tqf"/>
                                                     </constraints>
@@ -1681,6 +1681,7 @@
                                                 <constraint firstItem="8FL-ZY-SyG" firstAttribute="centerY" secondItem="j1g-Ez-pUM" secondAttribute="centerY" id="732-7L-JSg"/>
                                                 <constraint firstItem="Ptq-aV-4Dj" firstAttribute="top" secondItem="j1g-Ez-pUM" secondAttribute="topMargin" constant="5.5" id="HHR-tQ-twn"/>
                                                 <constraint firstItem="4Es-pJ-Ntq" firstAttribute="leading" secondItem="8FL-ZY-SyG" secondAttribute="trailing" constant="17" id="XsQ-WN-EBK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4Es-pJ-Ntq" secondAttribute="trailing" id="bZq-Zk-83L"/>
                                                 <constraint firstItem="8FL-ZY-SyG" firstAttribute="leading" secondItem="Ptq-aV-4Dj" secondAttribute="trailing" constant="3" id="e5u-1a-bPy"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ptq-aV-4Dj" secondAttribute="bottom" constant="5.5" id="gck-ws-OKy"/>
                                                 <constraint firstItem="Ptq-aV-4Dj" firstAttribute="leading" secondItem="j1g-Ez-pUM" secondAttribute="leadingMargin" constant="9" id="koK-mC-aP8"/>
@@ -1798,7 +1799,7 @@
                                 <rect key="frame" x="0.0" y="78" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6na-7g-4rz" id="42Y-Th-rY9">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_house_icon" translatesAutoresizingMaskIntoConstraints="NO" id="woM-NY-fct">

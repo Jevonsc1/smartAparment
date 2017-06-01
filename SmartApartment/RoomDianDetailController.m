@@ -55,7 +55,7 @@
     }else{
         self.title = @"水费详情";
         [WebAPI getHouseWaterDetail:dic callback:^(NSError *err, id response) {
-            if ([NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000&&!err) {
+            if ([response intForKey:@"rcode"] == 10000&&!err) {
                 NSDictionary *dic = [response objectForKey:@"data"];
                 if (dic.count >0) {
                     self.billTwoTime.text = [NSString stringWithFormat:@"%@至%@",[TimeDate timeWithTimeIntervalString:[[dic objectForKey:@"billCycle"] objectForKey:@"startTime"]],[TimeDate timeWithTimeIntervalString:[[dic objectForKey:@"billCycle"] objectForKey:@"endTime"]]];

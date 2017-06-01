@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--2016年12月-->
+        <scene sceneID="Yan-Ys-FnX">
+            <objects>
+                <tableViewController storyboardIdentifier="RenterBill" id="O05-sC-pgS" customClass="RenterBillController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HiQ-2w-gCu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="uSb-if-NW6">
+                            <rect key="frame" x="0.0" y="78" width="375" height="120"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSi-t8-9kr">
+                                    <rect key="frame" x="97" y="38" width="180" height="45"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="aSi-t8-9kr" secondAttribute="height" multiplier="4:1" id="Pzr-oB-jTi"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="立即缴费" backgroundImage="surebtn">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="clickToPay:" destination="O05-sC-pgS" eventType="touchUpInside" id="cT1-eq-s6A"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="aSi-t8-9kr" secondAttribute="trailing" constant="98" id="29A-Zt-Cz6"/>
+                                <constraint firstItem="aSi-t8-9kr" firstAttribute="top" secondItem="uSb-if-NW6" secondAttribute="top" constant="38" id="QnF-BX-4Mt"/>
+                                <constraint firstItem="aSi-t8-9kr" firstAttribute="leading" secondItem="uSb-if-NW6" secondAttribute="leading" constant="97" id="U2a-RD-HCF"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RenterBillCell" rowHeight="50" id="Xkw-0Y-TDT" customClass="RenterBillCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xkw-0Y-TDT" id="V6b-xf-WWd">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2do-8q-Agf">
+                                            <rect key="frame" x="17" y="13" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="2do-8q-Agf" secondAttribute="height" multiplier="1:1" id="h72-yH-rGH"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxG-Fk-jcz">
+                                            <rect key="frame" x="49" y="14" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="7y4-lo-S7w"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bill_anchor_icon" translatesAutoresizingMaskIntoConstraints="NO" id="aRF-tM-gyg">
+                                            <rect key="frame" x="347" y="15" width="11" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="aRF-tM-gyg" secondAttribute="height" multiplier="11:20" id="UfE-gV-no7"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81c-7e-9cj">
+                                            <rect key="frame" x="297" y="14" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="qQR-6Q-Mwe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xxG-Fk-jcz" firstAttribute="top" secondItem="V6b-xf-WWd" secondAttribute="topMargin" constant="6" id="66C-Sf-W8m"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="aRF-tM-gyg" secondAttribute="bottom" constant="6.5" id="6ra-0O-kMY"/>
+                                        <constraint firstItem="aRF-tM-gyg" firstAttribute="top" secondItem="V6b-xf-WWd" secondAttribute="topMargin" constant="6.5" id="EXm-tJ-Rbg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="aRF-tM-gyg" secondAttribute="trailing" constant="9" id="Fep-SJ-1Jq"/>
+                                        <constraint firstItem="xxG-Fk-jcz" firstAttribute="leading" secondItem="2do-8q-Agf" secondAttribute="trailing" constant="10" id="LOM-8y-ebp"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2do-8q-Agf" secondAttribute="bottom" constant="6" id="Tuv-U5-vtp"/>
+                                        <constraint firstItem="aRF-tM-gyg" firstAttribute="leading" secondItem="81c-7e-9cj" secondAttribute="trailing" constant="8" id="VlT-Kg-ghj"/>
+                                        <constraint firstItem="2do-8q-Agf" firstAttribute="top" secondItem="V6b-xf-WWd" secondAttribute="topMargin" constant="5" id="c8n-b1-rZp"/>
+                                        <constraint firstItem="81c-7e-9cj" firstAttribute="top" secondItem="V6b-xf-WWd" secondAttribute="topMargin" constant="6" id="gbI-83-fnE"/>
+                                        <constraint firstItem="2do-8q-Agf" firstAttribute="leading" secondItem="V6b-xf-WWd" secondAttribute="leadingMargin" constant="9" id="h8j-IF-cXV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="81c-7e-9cj" secondAttribute="bottom" constant="6" id="q3X-qV-EK8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="xxG-Fk-jcz" secondAttribute="bottom" constant="6" id="ssY-8b-j5T"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="AnchorRatio" destination="UfE-gV-no7" id="n8x-uu-oY9"/>
+                                    <outlet property="cellAnchor" destination="aRF-tM-gyg" id="NFh-6V-abQ"/>
+                                    <outlet property="cellContent" destination="81c-7e-9cj" id="Abr-aw-yfC"/>
+                                    <outlet property="cellIcon" destination="2do-8q-Agf" id="635-gP-HIT"/>
+                                    <outlet property="cellIconRatio" destination="h72-yH-rGH" id="RaD-Ki-KNU"/>
+                                    <outlet property="cellName" destination="xxG-Fk-jcz" id="jKZ-90-8t2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="O05-sC-pgS" id="OTc-vw-evh"/>
+                            <outlet property="delegate" destination="O05-sC-pgS" id="O2f-K3-Dei"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="2016年12月" id="4lT-Bz-XdE">
+                        <barButtonItem key="leftBarButtonItem" image="navgation_back" id="Qvs-G5-tDX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="clickToPop:" destination="O05-sC-pgS" id="cIP-y0-Guw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="renter_bill_icon" id="EPo-7u-dBy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="clickToHistory:" destination="O05-sC-pgS" id="2S6-RX-BiJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="payBrn" destination="aSi-t8-9kr" id="asS-rt-rIT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iok-xN-shW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1015.2" y="163.26836581709148"/>
+        </scene>
+        <!--历史账单-->
+        <scene sceneID="fi8-z8-T3u">
+            <objects>
+                <tableViewController storyboardIdentifier="RenterBillHistory" id="zms-lT-yTp" customClass="RenterBillHistoryController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="czl-7a-nTW">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BillMonthCell" rowHeight="50" id="xbJ-Se-GEC" customClass="BillMonthCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xbJ-Se-GEC" id="AhD-TO-naF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bill_month_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yIt-Ki-GUI">
+                                            <rect key="frame" x="17" y="13.5" width="22.5" height="22.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="yIt-Ki-GUI" secondAttribute="height" multiplier="1:1" id="eHd-mx-the"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU2-5o-CvU">
+                                            <rect key="frame" x="49.5" y="15" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="jLh-0w-od0"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="mad-YV-Nkp"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bill_anchor_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Laf-de-ZbW">
+                                            <rect key="frame" x="339" y="14" width="11" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Laf-de-ZbW" secondAttribute="height" multiplier="11:21" id="Tuh-9g-z0B"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="yIt-Ki-GUI" firstAttribute="top" secondItem="AhD-TO-naF" secondAttribute="topMargin" constant="5.5" id="2pF-1v-vof"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="yIt-Ki-GUI" secondAttribute="bottom" constant="5.5" id="CfF-pc-Vu8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Laf-de-ZbW" secondAttribute="trailing" constant="17" id="ROF-Ao-YHi"/>
+                                        <constraint firstItem="BU2-5o-CvU" firstAttribute="leading" secondItem="yIt-Ki-GUI" secondAttribute="trailing" constant="10" id="RsH-gV-2Fo"/>
+                                        <constraint firstItem="yIt-Ki-GUI" firstAttribute="leading" secondItem="AhD-TO-naF" secondAttribute="leadingMargin" constant="9" id="UIo-Ni-OQ8"/>
+                                        <constraint firstItem="Laf-de-ZbW" firstAttribute="top" secondItem="AhD-TO-naF" secondAttribute="topMargin" constant="6" id="mLC-Rj-ufa"/>
+                                        <constraint firstItem="BU2-5o-CvU" firstAttribute="centerY" secondItem="yIt-Ki-GUI" secondAttribute="centerY" id="mZD-tu-uaC"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Laf-de-ZbW" secondAttribute="bottom" constant="6" id="tlQ-ix-q9P"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="month" destination="BU2-5o-CvU" id="o8c-x3-7Xd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zms-lT-yTp" id="qq5-dE-ndW"/>
+                            <outlet property="delegate" destination="zms-lT-yTp" id="VnP-hV-IyY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="历史账单" id="A4T-XY-EUo">
+                        <barButtonItem key="leftBarButtonItem" image="navgation_back" id="CwQ-Fy-Xsc">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="clickToPop:" destination="zms-lT-yTp" id="sCb-8c-Zc6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xtp-cL-uQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-392.80000000000001" y="162.3688155922039"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bill_anchor_icon" width="14" height="24"/>
+        <image name="bill_month_icon" width="32" height="32"/>
+        <image name="navgation_back" width="11" height="19"/>
+        <image name="renter_bill_icon" width="20" height="22"/>
+        <image name="surebtn" width="360" height="90"/>
+    </resources>
+</document>

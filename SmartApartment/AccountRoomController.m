@@ -8,9 +8,10 @@
 
 #import "AccountRoomController.h"
 #import "RoomOtherCell.h"
-//#import "RenterBillHistoryController.h"
+#import "RenterBillHistoryController.h"
 #import "RoomDianDetailController.h"
 #import "MyDelegateDic.h"
+#import "Bill.h"
 #define textGray cell.cellContent.textColor = TDRGB(139, 139, 139);
 #define textDark cell.cellContent.textColor = TDRGB(51, 51, 51);
 @interface AccountRoomController ()<UITableViewDelegate,UITableViewDataSource,MyDelegateDic>
@@ -19,53 +20,50 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *tapView;
 
+@property(nonatomic,strong)NSMutableArray* billArray;
+@property(nonatomic,strong)Good* waterGood;
+@property(nonatomic,strong)Good* roomMoneyGood;
+@property(nonatomic,strong)Good* otherGood;
+@property(nonatomic,strong)Good* preNotPayGood;
+@property(nonatomic,strong)Good* masterEditGood;
+@property(nonatomic,strong)Good* electrictGood;
+
+@property(nonatomic,strong)Renter* renter;
+@property(nonatomic,strong)Bill* curBill;
 @end
 
 @implementation AccountRoomController
 {
-    NSDictionary *roomDic;
-    UITapGestureRecognizer *tap;
-    
-    NSDictionary * billDic;
+
     BOOL currentBill;
     NSString *currentDate;
     
     NSString *houseID1;
     NSString *rentRecordID;
     
-    NSDictionary *rentDic;
-    NSDictionary *roomMoneyDic;//goodsInfo中的数据
-    NSDictionary *electrictDic;
-    NSDictionary *waterDic;
-    NSDictionary *otherDic;
-    NSDictionary *masterEditDic;
-    NSDictionary *preNotPayDic;
-    
-    NSString *renterName;
-    
-    //所有账单列表o
-    NSArray *billArr;
     
     NSString *storeKey;
-    NSString *payBillID;
-    
      UIView *bgView;
     
 }
 
-/*
+-(NSMutableArray *)billArray{
+    if (!_billArray) {
+        _billArray = [NSMutableArray array];
+    }
+    return _billArray;
+}
 
- */
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickToMonth)];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickToMonth)];
     [self.tapView addGestureRecognizer:tap];
     
     
     currentBill = true;
-    self.title = self.houseNum;
+    self.title = self.house.houseNum.stringValue;
     [self getBillList];
     currentBill = YES;
 }
@@ -84,74 +82,37 @@
 
 //根据时间排序
 -(void)arrayByDate {
-    
-    NSSortDescriptor *moneyWithSort;
-    
-    moneyWithSort  =[[NSSortDescriptor alloc]initWithKey:@"payBillTime" ascending:NO];
-    NSArray *elementarr=[NSArray arrayWithObjects:moneyWithSort, nil];
-    billArr=[NSMutableArray arrayWithArray:[billArr sortedArrayUsingDescriptors:elementarr]];
+    [self.billArray sortUsingComparator:^NSComparisonResult(Bill*  _Nonnull obj1, Bill*  _Nonnull obj2) {
+        return [obj2.payBillTime compare:obj1.payBillTime];
+    }];
 }
 
 
 //获取账单记录
 -(void)getBillList{
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.houseID,@"houseID", nil];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.house.houseID,@"houseID", nil];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WebAPI getHouseAllAvailabelBillList:dic callback:^(NSError *err, id response) {
-        if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
-            billArr = [response objectForKey:@"data"];
-            if (billArr.count <= 0) {
+        if (!err && [response intForKey:@"rcode"] == 10000) {
+            NSArray* array = [response objectForKey:@"data"];
+            [self.billArray removeAllObjects];
+            for (NSDictionary* dic  in array) {
+                Bill* bill = [Bill yy_modelWithDictionary:dic];
+                [self.billArray addObject:bill];
+            }
+
+            if (self.billArray.count <= 0) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 [MBProgressHUD showMessage:@"当前没有账单！"];
                 [self initNodataView];
                 return ;
             }
+            
             [self arrayByDate];
-            billDic =billArr[0];
-            NSDictionary *rentInfo = [billDic objectForKey:@"rentInfo"];
-            NSArray *renters = [rentInfo objectForKey:@"renterInfo"];
-            NSDictionary *renterDic ;
-            for (int i = 0; i < renters.count; i++) {
-                NSDictionary *dic = renters[i];
-                NSString *roleID = [dic objectForKey:@"renterRoleID"];
-                if (roleID.integerValue == 1) {
-                    renterDic = dic;
-                    break;
-                }
-            }
-            renterName = [renterDic objectForKey:@"renterTrueName"];
-            rentDic = rentInfo;
-            payBillID = [NSString stringWithFormat:@"%@",[billDic objectForKey:@"payBillID"]];
-            billDic = [[NSDictionary alloc] initWithObjectsAndKeys:billDic,@"billInfo", nil];
-            NSString *time = [[billDic objectForKey:@"billInfo"] objectForKey:@"payBillTime"];
-            time = [TimeDate timeToTimeSp:time];
-            NSString *year = [time substringToIndex:4];
-            NSString *month = [time substringFromIndex:4];
-            self.monthLabel.text = [NSString stringWithFormat:@"%@年%@月",year,month];
-
-            NSArray *goodsArr = [[billDic objectForKey:@"billInfo"] objectForKey:@"goodsInfo"];
-            //水电，租金，上期未缴，屋主编辑金额
-            [goodsArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSString  *goodID = [obj objectForKey:@"goodsID"];
-                if (goodID.integerValue == 1) {
-                    waterDic = obj;
-                }
-                if (goodID.integerValue == 2) {
-                    electrictDic = obj;
-                }
-                if (goodID.integerValue == 3) {
-                    roomMoneyDic = obj;
-                }
-                if (goodID.integerValue == 4) {
-                    otherDic = obj;
-                }
-                if (goodID.integerValue == 5) {
-                    preNotPayDic = obj;
-                }
-                if (goodID.integerValue == 6) {
-                    masterEditDic = obj;
-                }
-            }];
+            self.curBill = self.billArray[0];
+            
+            [self setupByBill];
+            
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self.tableView reloadData];
         }else{
@@ -161,55 +122,58 @@
 }
 
 -(void)clickToMonth{
-    //TODO
-    /*
+
     RenterBillHistoryController *vc = [[UIStoryboard storyboardWithName:@"RenterBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RenterBillHistory"];
-    vc.billArr = billArr;
+    vc.billArr = self.billArray;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
-     */
 }
--(void)passValue:(NSDictionary *)value{
-    billDic = value;
-//    NSArray *rentInfoArr = [billDic objectForKey:@"rentInfo"];
-    NSDictionary *rentInfo = [billDic objectForKey:@"rentInfo"];
-//    for (int i = 0 ; i < rentInfoArr.count; i++) {
-//        NSDictionary *dic = rentInfoArr[i];
-//        NSString *rentIsDisable = [NSString stringWithFormat:@"%@",[dic objectForKey:@"rentIsDisable"]];
-//        if (rentIsDisable.integerValue == 0) {
-//            rentInfo =dic;
-//            break;
-//        }
-//    }
-    NSArray *renters = [rentInfo objectForKey:@"renterInfo"];
-    NSDictionary *renterDic ;
-    for (int i = 0; i < renters.count; i++) {
-        NSDictionary *dic = renters[i];
-        NSString *roleID = [dic objectForKey:@"renterRoleID"];
-        if (roleID.integerValue == 1) {
-            renterDic = dic;
+-(void)passValueForBill:(Bill *)value{
+    self.curBill = value;
+
+    [self setupByBill];
+    [self.tableView reloadData];
+}
+
+-(void)setupByBill{
+    Rent *rent = self.curBill.rentInfo;
+    NSArray *renters = rent.renterInfo;
+    for (Renter* renter in renters) {
+        if ([renter.renterRoleID isEqual:@1]) {
+            self.renter = renter;
             break;
         }
     }
-
-    renterName = [renterDic objectForKey:@"renterTrueName"];
-    billDic = [[NSDictionary alloc] initWithObjectsAndKeys:billDic,@"billInfo", nil];
-    NSString *time = [[billDic objectForKey:@"billInfo"] objectForKey:@"payBillTime"];
-    time = [TimeDate timeToTimeSp:time];
+    
+    NSString* time = [TimeDate timeToTimeSp: self.curBill.payBillTime];
     NSString *year = [time substringToIndex:4];
     NSString *month = [time substringFromIndex:4];
     self.monthLabel.text = [NSString stringWithFormat:@"%@年%@月",year,month];
-    if ([time isEqualToString:currentDate]) {
-        currentBill = YES;
-    }else{
-        currentBill = false;
+    
+    NSArray *goodsArr = self.curBill.goodsInfo;
+    for (Good* obj in goodsArr) {
+        NSString  *goodID = obj.goodsID;
+        if (goodID.integerValue == 1) {
+            self.waterGood = obj;
+        }
+        if (goodID.integerValue == 2) {
+            self.electrictGood = obj;
+        }
+        if (goodID.integerValue == 3) {
+            self.roomMoneyGood = obj;
+        }
+        if (goodID.integerValue == 4) {
+            self.otherGood = obj;
+        }
+        if (goodID.integerValue == 5) {
+            self.preNotPayGood = obj;
+        }
+        if (goodID.integerValue == 6) {
+            self.masterEditGood = obj;
+        }
     }
-    [self.tableView reloadData];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (IBAction)clickToPop:(id)sender {
     [bgView removeFromSuperview];
     [self.navigationController popViewControllerAnimated:YES];
@@ -220,28 +184,35 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         [cell.icon setImage:[UIImage imageNamed:@"sign_ok_icon2"]];
         cell.cellName.text = @"公寓名";
-        cell.cellContent.text = self.communityName;
+        cell.cellContent.text = self.house.communityName;
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
     }else if (indexPath.section == 0 && indexPath.row == 1){
         [cell.icon setImage:[UIImage imageNamed:@"bill_month_icon"]];
         cell.cellName.text = @"租期";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        cell.cellContent.text = [NSString stringWithFormat:@"%@ 至 %@",[TimeDate timeWithTimeIntervalString:[self.rentInfo objectForKey:@"rentTime"]],[TimeDate timeWithTimeIntervalString:[self.rentInfo objectForKey:@"rentDueTime"]]];
+        for (Rent* rent in self.house.rentInfo) {
+            if ([rent.rentIsDisable isEqual:@0]) {
+                cell.cellContent.text = [NSString stringWithFormat:@"%@ 至 %@",[TimeDate timeWithTimeIntervalString:rent.rentTime.stringValue],[TimeDate timeWithTimeIntervalString:rent.rentDepositTime.stringValue]];
+                break;
+            }
+        }
+        
     }else if (indexPath.section == 0 && indexPath.row == 2){
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon3"]];
         cell.cellName.text = @"主租客";
       cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        cell.cellContent.text = renterName;
+        cell.cellContent.text = self.renter.memberName;
     }else if (indexPath.section == 0 && indexPath.row == 3){
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon4"]];
         cell.cellName.text = @"押金";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        cell.cellContent.text =[NSString stringWithFormat:@"%@元",[rentDic objectForKey:@"rentDeposit"]];
+        
+        cell.cellContent.text =[NSString stringWithFormat:@"%@元",self.curBill.rentInfo.rentDeposit];
         cell.cellContent.textColor = [UIColor blackColor];
     }else if(indexPath.section == 0 && indexPath.row == 4){
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon5"]];
         cell.cellName.text = @"出账日";
-        NSString *time = [[billDic objectForKey:@"billInfo"] objectForKey:@"payBillTime"];
+        NSString *time = self.curBill.payBillTime;
         time = [TimeDate timeWithTimeIntervalString:time];
         time = [NSString stringWithFormat:@"%ld",(long)[time substringFromIndex:time.length -2].integerValue];
         NSLog(@"出账日====%@",time);
@@ -254,12 +225,12 @@
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon6"]];
         cell.cellName.text = @"记账周期";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        cell.cellContent.text = [NSString stringWithFormat:@"%@ 至 %@",[[billDic objectForKey:@"billInfo"] objectForKey:@"billStartDate"],[[billDic objectForKey:@"billInfo"] objectForKey:@"billEndDate"]];
+        cell.cellContent.text = [NSString stringWithFormat:@"%@ 至 %@",self.curBill.billStartDate,self.curBill.billEndDate];
     }else if (indexPath.section == 1 && indexPath.row == 1){
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon8"]];
         cell.cellName.text = @"房租";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        NSString *rmb =[roomMoneyDic objectForKey:@"goodsPrice"];
+        NSString *rmb = self.roomMoneyGood.goodsPrice;
         if ([rmb hasSuffix:@".00"]) {
             rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
         }
@@ -268,8 +239,8 @@
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon7"]];
         cell.cellName.text = @"其他费用";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        if (billDic.count >0) {
-            NSString *rmb =[otherDic objectForKey:@"goodsPrice"];
+        if (self.curBill) {
+            NSString *rmb = self.otherGood.goodsPrice;
             if ([rmb hasSuffix:@".00"]) {
                 rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
             }
@@ -282,9 +253,9 @@
         [cell.icon setImage:[UIImage imageNamed:@"check_dian_icon"]];
         cell.cellName.text = @"电费";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        if (electrictDic.count >0) {
+        if (self.electrictGood) {
             [cell.anchorAspect setConstant:0];
-            cell.cellContent.text = [NSString stringWithFormat:@"%@元",[electrictDic objectForKey:@"goodsPrice"]];
+            cell.cellContent.text = [NSString stringWithFormat:@"%@元",self.electrictGood.goodsPrice];
         }else
         {
             
@@ -294,9 +265,9 @@
         [cell.icon setImage:[UIImage imageNamed:@"check_water_icon"]];
         cell.cellName.text = @"水费";
        cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        if (waterDic.count >0) {
+        if (self.waterGood) {
              [cell.anchorAspect setConstant:0];
-            cell.cellContent.text = [NSString stringWithFormat:@"%@元",[waterDic objectForKey:@"goodsPrice"]];
+            cell.cellContent.text = [NSString stringWithFormat:@"%@元",self.waterGood.goodsPrice];
         }else
         {
             cell.cellContent.text = @"0元";
@@ -305,8 +276,8 @@
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_nopay"]];
         cell.cellName.text = @"上期未缴";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        if (preNotPayDic.count >0) {
-            cell.cellContent.text = [NSString stringWithFormat:@"%@元",[preNotPayDic objectForKey:@"goodsPrice"]];
+        if (self.preNotPayGood) {
+            cell.cellContent.text = [NSString stringWithFormat:@"%@元",self.preNotPayGood.goodsPrice];
             textDark
         }else
         {
@@ -316,9 +287,9 @@
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon9"]];
         cell.cellName.text = @"固定费用合计";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        if (billDic.count >0) {
+        if (self.curBill) {
             cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-            NSString *rmb =[NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[roomMoneyDic objectForKey:@"goodsPrice"]].floatValue + [NSString stringWithFormat:@"%@",[otherDic objectForKey:@"goodsPrice"]].floatValue];
+            NSString *rmb =[NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",self.roomMoneyGood.goodsPrice].floatValue + [NSString stringWithFormat:@"%@",self.otherGood.goodsPrice].floatValue];
             if ([rmb hasSuffix:@".00"]) {
                 rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
             }
@@ -332,9 +303,9 @@
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon10"]];
         cell.cellName.text = @"非固定费用合计";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        if (billDic.count >0) {
-          
-            NSString *allNotFreeze = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@元",[electrictDic objectForKey:@"goodsPrice"]].floatValue + [NSString stringWithFormat:@"%@",[waterDic objectForKey:@"goodsPrice"]].floatValue ];
+        if (self.curBill) {
+         
+            NSString *allNotFreeze = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@元", self.electrictGood.goodsPrice].floatValue + [NSString stringWithFormat:@"%@",self.waterGood.goodsPrice].floatValue ];
             if ([allNotFreeze hasSuffix:@".00"]) {
                 allNotFreeze = [allNotFreeze stringByReplacingOccurrencesOfString:@".00" withString:@""];
             }
@@ -348,7 +319,7 @@
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_icon11"]];
         cell.cellName.text = @"费用总计";
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
-        NSString *rmb = [NSString stringWithFormat:@"%.2f",[NSString stringWithFormat:@"%@",[electrictDic objectForKey:@"goodsPrice"]].floatValue + [NSString stringWithFormat:@"%@",[waterDic objectForKey:@"goodsPrice"]].floatValue+[NSString stringWithFormat:@"%@",[roomMoneyDic objectForKey:@"goodsPrice"]].floatValue + [NSString stringWithFormat:@"%@",[otherDic objectForKey:@"goodsPrice"]].floatValue +[NSString stringWithFormat:@"%@",[preNotPayDic objectForKey:@"goodsPrice"]].floatValue] ;
+        NSString *rmb = [NSString stringWithFormat:@"%.2f",self.electrictGood.goodsPrice.floatValue + self.waterGood.goodsPrice.floatValue+self.roomMoneyGood.goodsPrice.floatValue + self.otherGood.goodsPrice.floatValue +self.preNotPayGood.goodsPrice.floatValue] ;
         if ([rmb hasSuffix:@".00"]) {
               rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
         }
@@ -358,15 +329,15 @@
         [cell.icon setImage:[UIImage imageNamed:@"room_bill_wait"]];
         cell.cellName.text = @"待缴费用";
 //        cell.cellName.textColor = TDRGB(229, 89, 89);
-        if (billDic.count >0) {
-            NSString *notPay = [NSString stringWithFormat:@"%@",[[billDic objectForKey:@"billInfo"] objectForKey:@"payBillStatus"]];
+        if (self.curBill) {
+            NSString *notPay = self.curBill.payBillStatus;
             
             if (notPay.integerValue == 0) {
-                NSString *rmb = [NSString stringWithFormat:@"%.2f", [NSString stringWithFormat:@"%@元",[[billDic objectForKey:@"billInfo"] objectForKey:@"payBillNotPay"]].floatValue+ [NSString stringWithFormat:@"%@元",[[billDic objectForKey:@"billInfo"] objectForKey:@"payBillFreezingPay"]].floatValue];
+                NSString *rmb =  [NSString stringWithFormat:@"%.2f元",self.curBill.payBillNotPay.floatValue+ self.curBill.payBillFreezingPay.floatValue];
                 if ([rmb hasSuffix:@".00"]) {
                     rmb = [rmb stringByReplacingOccurrencesOfString:@".00" withString:@""];
                 }
-                cell.cellContent.text =[NSString stringWithFormat:@"%@元", rmb];
+                cell.cellContent.text = rmb;
                 cell.cellContent.font = [UIFont systemFontOfSize:20 *ratio];
                 if (indexPath.section == 4 &&indexPath.row ==0) {
                 cell.cellContent.textColor = TDRGB(229, 89, 89);
@@ -386,20 +357,20 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 2 && indexPath.row == 0&&electrictDic.count>0) {
+    if (indexPath.section == 2 && indexPath.row == 0 && self.electrictGood) {
         RoomDianDetailController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomDianDetail"];
         vc.wayIn = 1;
-        vc.houseID = [NSString stringWithFormat:@"%@",self.houseID];
-        NSString *monthDate  =[billDic objectForKey:@"billEndDate"];
+        vc.houseID = self.house.houseID.stringValue;
+        NSString *monthDate  =self.curBill.billEndDate;
         monthDate = [monthDate stringByReplacingOccurrencesOfString:@"-" withString:@""];
         monthDate = [monthDate substringToIndex:monthDate.length -2];
         vc.monthDate = monthDate;
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.section == 2 && indexPath.row == 1&&waterDic.count > 0){
+    }else if (indexPath.section == 2 && indexPath.row == 1&& self.waterGood){
         RoomDianDetailController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomDianDetail"];
         vc.wayIn = 2;
-        vc.houseID = [NSString stringWithFormat:@"%@",self.houseID];
-        NSString *monthDate  =[billDic objectForKey:@"billEndDate"];
+        vc.houseID = self.house.houseID.stringValue;
+        NSString *monthDate  = self.curBill.billEndDate;
         monthDate = [monthDate stringByReplacingOccurrencesOfString:@"-" withString:@""];
         monthDate = [monthDate substringToIndex:monthDate.length -2];
         vc.monthDate = monthDate;

@@ -7,7 +7,7 @@
 //
 
 #import "Bill.h"
-#import "Good.h"
+
 
 @implementation Bill
 

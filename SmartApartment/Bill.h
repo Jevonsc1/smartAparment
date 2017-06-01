@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Rent.h"
+#import "Good.h"
 @interface Bill : NSObject
 @property(nonatomic,copy)NSString* billEndDate;
 @property(nonatomic,copy)NSString* billStartDate;

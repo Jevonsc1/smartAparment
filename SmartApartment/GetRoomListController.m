@@ -7,8 +7,8 @@
 //
 #import "MyDelegate.h"
 #import "GetRoomListController.h"
-//#import "ShowCommunityController.h"
-//#import "AccountRoomController.h"
+#import "ShowCommunityController.h"
+#import "AccountRoomController.h"
 #import "RoomStatusCell.h"
 #import "NewSignRoomController.h"
 #import "CheckSignRoomController.h"
@@ -20,11 +20,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *comTitleAutoWidth;//现在没有用到
 @property (weak, nonatomic) IBOutlet UIView *comTitleView;
 
-@property(strong,nonatomic)NSArray<Community *> *apartmentArr;
-
-@property(strong,nonatomic)NSMutableArray<NSString *> *communityNameArr;
-
-@property(strong,nonatomic)NSMutableArray<NSString *> *communityCityArr;
 
 @property(nonatomic,strong)Community *currentAparment;
 
@@ -49,19 +44,6 @@
     return _roomHighDic;
 }
 
--(NSMutableArray *)communityNameArr{
-    if(_communityNameArr == nil){
-        _communityNameArr = [NSMutableArray array];
-    }
-    return _communityNameArr;
-}
-
--(NSMutableArray *)communityCityArr{
-    if (_communityCityArr == nil) {
-        _communityCityArr = [NSMutableArray array];
-    }
-    return _communityCityArr;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,9 +52,14 @@
     self.tableView.tableFooterView = [UIView new];
     self.tableView.tableFooterView.backgroundColor = [UIColor clearColor];
     [self addTapForView];
-    [self getApartmentList];
 }
 
+-(void)setApartmentArr:(NSArray<Community *> *)apartmentArr{
+    _apartmentArr = apartmentArr;
+    self.currentAparment = apartmentArr[0];
+    [self getRoomList];
+    [self.tableView reloadData];
+}
 #pragma mark - Table view data source
 
 - (IBAction)clickToPop:(id)sender {
@@ -89,28 +76,15 @@
     NSArray* array  = [self.roomHighDic objectForKey:self.roomArr[section]];
     return array.count;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     RoomStatusCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     House* house  = [self.roomHighDic objectForKey:self.roomArr[indexPath.section]][indexPath.row];
     if ([self.wayIn isEqualToString:@"Account"]) {
-//        AccountRoomController *vc = [[UIStoryboard storyboardWithName:@"AccountBook" bundle:nil] instantiateViewControllerWithIdentifier:@"AccountRoom"];
-//    
-//        vc.houseID = [NSString stringWithFormat:@"%@",[roomData objectForKey:@"houseID"]];
-//        NSArray *rentArr = [roomData objectForKey:@"rentInfo"];
-//        for (int i= 0; i < rentArr.count; i++) {
-//            NSDictionary *dic = rentArr[i];
-//            NSString *isDisable = [NSString stringWithFormat:@"%@",[dic objectForKey:@"rentIsDisable"]];
-//            if (isDisable.integerValue == 0) {
-//                vc.rentInfo = dic;
-//                break;
-//            }
-//        }
-//        
-//        vc.delegate = self;
-//        vc.houseNum = [NSString stringWithFormat:@"%@房",[roomData objectForKey:@"houseNum"]];
-//        vc.communityName = self.apartmentName.text;
-//        vc.apartmentID = [[roomData objectForKey:@"communityRelationInfo"][0] objectForKey:@"houseCommunityID"];
-//        [self.navigationController pushViewController:vc animated:YES];
+        AccountRoomController *vc = [[UIStoryboard storyboardWithName:@"AccountBook" bundle:nil] instantiateViewControllerWithIdentifier:@"AccountRoom"];
+        vc.house = house;
+
+        [self.navigationController pushViewController:vc animated:YES];
     }else{
        
         if ([cell.roomStatus.text isEqualToString:@"空置"]) {
@@ -200,87 +174,45 @@
 -(void)passValue:(NSString *)value{
     for (int i = 0; i <self.apartmentArr.count; i++) {
         Community *community = self.apartmentArr[i];
-        NSLog(@"公寓ID--%@----传入的ID%@",community.communityID,value);
         if (community.communityID.integerValue == value.integerValue) {
-//            currentAparmentDic = apartDic;
-//相当于_currentAparment = community
+            self.currentAparment = community;
+            break;
         }
     }
-    self.apartmentName.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"New_CommunityName"];
+    self.apartmentName.text = self.currentAparment.communityName;
     [self getRoomList];
     [self.tableView reloadData];
 }
 //---点击公寓名字的view,跳转到公寓列表-----///
 -(void)addTapForView{
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickToComList)];
-    [self.comTitleView addGestureRecognizer:tap];
+    self.apartmentName.text = self.currentAparment.communityName;
+    if (self.apartmentArr.count > 1) {
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickToComList)];
+        [self.comTitleView addGestureRecognizer:tap];
+    }else{
+        self.changLabel.hidden = YES;
+    }
    
 }
 -(void)ClickToComList{
-    if (self.communityNameArr.count > 1) {
-//    ShowCommunityController *vc = [[UIStoryboard storyboardWithName:@"CheckRead" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowCommunity"];
-//    vc.communityNameArr = communityCityNameArr;
-//    vc.communityCityDic = communityCityNameDic;
-//    vc.delegate = self;
-//    
-//    [self.navigationController pushViewController:vc animated:YES];
-    }
+    
+    ShowCommunityController *vc = [[UIStoryboard storyboardWithName:@"CheckRead" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowCommunity"];
+    vc.communityArray = self.apartmentArr;
+    vc.curCommunity = self.currentAparment;
+    vc.delegate = self;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 -(void)getaparmentList:(NSNotification *)info{
-    [self getApartmentList];
+    
 }
 #pragma mark -m 获取公寓信息
--(void)getApartmentList{
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",@"9999",@"pageSize" ,nil];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [WebAPI getCommunityInfoList:dic callback:^(NSError *err, id response) {
-            if (!err && [response intForKey:@"rcode"] == 10000) {
-                NSArray *comArr = [response objectForKey:@"data"];
-                NSMutableArray* communityArray = [NSMutableArray array];
-                int index = 0;
-                for (NSDictionary* dic in comArr) {
-                    Community* community = [Community yy_modelWithDictionary:dic];
-                    [communityArray addObject:community];
-                    if (index == 0) {
-                        self.apartmentName.text = community.communityName;
-                        [[NSUserDefaults standardUserDefaults] setObject:community.communityID forKey:@"comID"];
-                        self.currentAparment = community;
-                    }
-                    
-                    [self.communityNameArr addObject:community.communityName];
-                    [self.communityCityArr addObject:community.communityCity];
-                
-                    index++;
-                }
-                 self.apartmentArr = communityArray;
-                
-                
-                if (communityArray.count >0) {
-                   
-                    [self getRoomList];
-                    
-                }else{
-                    self.apartmentName.text =@"暂无公寓";
-                }
-                
-            }else{
-                if (!err) {
-                   RequestBad
-                }else{
-                    [Alert showFail:@"网络异常，请检查网络!" View:self.navigationController.navigationBar andTime:3 complete:nil];
-                }
-
-            }
-        [self.tableView reloadData];
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
-    }];
-}
-
 
 
 -(void)getRoomList{
-    
+    [self.roomArr removeAllObjects];
+    [self.roomHighDic removeAllObjects];
     for (int i = 0; i < self.currentAparment.houseInfoList.count ; i ++) {
         House *house = self.currentAparment.houseInfoList[i];
         NSArray *roomHigh = [self.roomHighDic objectForKey:house.houseHightNum];
