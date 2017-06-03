@@ -64,6 +64,7 @@
     NSDictionary *oneDic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",@"1",@"availableRentRecord",@"2.0",@"version", nil];
     [WebAPI getRentRecordInfo:oneDic callback:^(NSError *err, id response) {
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
+            NSLog(@"%@",response);
             NSArray *rentInfoArr = [response objectForKey:@"data"];
             if (rentInfoArr.count <=0) {
                 [Alert showFail:@"您没有租赁信息！" View:self.navigationController.navigationBar andTime:1 complete:nil];
@@ -74,7 +75,7 @@
             NSArray *rentArr = [rentInfo objectForKey:@"rentInfo"];
             if (rentArr.count >0) {
                 rentRecordID = [rentArr[0] objectForKey:@"rentRecordID"];
-                NSString *renterID = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"renterID"]];
+                NSString *renterID = [NSString stringWithFormat:@"%@",[ModelTool find_UserData].renterID];
                 NSArray *renterArr = [rentArr[0] objectForKey:@"renterInfo"];
                 for (int i = 0; i < renterArr.count; i++) {
                     NSDictionary *renterDic = renterArr[i];
@@ -172,13 +173,7 @@
         }
     }];
 }
--(void)viewWillAppear:(BOOL)animated{
-     }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 2 && indexPath.row == 0) {
         RoomDianDetailController *vc = [[UIStoryboard storyboardWithName:@"ApartmentBill" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomDianDetail"];

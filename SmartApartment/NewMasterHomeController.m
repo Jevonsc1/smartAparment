@@ -34,7 +34,7 @@
 #import "AccountBookController.h"
 //#import "YKLoopView.h"
 #import "NeedRentRoomController.h"
-//#import "RenterBillController.h"
+#import "RenterBillController.h"
 #import "AccessListController.h"
 
 #import "EntryRecordController.h"
@@ -215,8 +215,10 @@
     }else if([[ModelTool find_UserData].memberType isEqualToString:@"renter"] ){
         
         
-//        RenterBillController *vc = [[UIStoryboard storyboardWithName:@"RenterBill" bundle:  nil] instantiateViewControllerWithIdentifier:@"RenterBill"];
-//        [self.navigationController pushViewController:vc animated:YES];
+        RenterBillController *vc = [[UIStoryboard storyboardWithName:@"RenterBill" bundle:  nil] instantiateViewControllerWithIdentifier:@"RenterBill"];
+        
+         vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
     

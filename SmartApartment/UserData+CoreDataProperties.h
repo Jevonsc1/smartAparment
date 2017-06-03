@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *searchList;
 @property (nullable, nonatomic, copy) NSString *searchRecord;
 @property (nullable, nonatomic, copy) NSString *trueName;
-
+@property (nullable, nonatomic, copy) NSString *renterID;
 @end
 
 NS_ASSUME_NONNULL_END

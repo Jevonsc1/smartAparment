@@ -23,13 +23,14 @@
         <attribute name="memberType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="renterAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="renterID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="renterStatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="searchList" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="searchRecord" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trueName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserData" positionX="-63" positionY="-18" width="128" height="375"/>
         <element name="UnlockData" positionX="-63" positionY="135" width="128" height="75"/>
+        <element name="UserData" positionX="-63" positionY="-18" width="128" height="390"/>
     </elements>
 </model>

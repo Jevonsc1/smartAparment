@@ -224,6 +224,7 @@
 		2E532A001EE00A3D00C5D14D /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5329F21EE00A3D00C5D14D /* RSADataSigner.m */; };
 		2E532A011EE00A3D00C5D14D /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5329F41EE00A3D00C5D14D /* RSADataVerifier.m */; };
 		2E532A091EE00DF000C5D14D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E532A081EE00DF000C5D14D /* libc++.tbd */; };
+		2E532A1A1EE2AE6000C5D14D /* charges.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A191EE2AE6000C5D14D /* charges.xib */; };
 		2EC203A91EDA51850030F23E /* TDString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203A81EDA51850030F23E /* TDString.m */; };
 		2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AC1EDA69F10030F23E /* CheckCommunityCell.m */; };
 		2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AE1EDA69F10030F23E /* CheckHouseCell.m */; };
@@ -751,6 +752,7 @@
 		2E5329F31EE00A3D00C5D14D /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		2E5329F41EE00A3D00C5D14D /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		2E532A081EE00DF000C5D14D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		2E532A191EE2AE6000C5D14D /* charges.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = charges.xib; sourceTree = "<group>"; };
 		2EC203A71EDA51850030F23E /* TDString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDString.h; sourceTree = "<group>"; };
 		2EC203A81EDA51850030F23E /* TDString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDString.m; sourceTree = "<group>"; };
 		2EC203AB1EDA69F10030F23E /* CheckCommunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckCommunityCell.h; sourceTree = "<group>"; };
@@ -1508,6 +1510,7 @@
 				2E5329181EE002A600C5D14D /* renterPayResultController.h */,
 				2E5329191EE002A600C5D14D /* renterPayResultController.m */,
 				2E53291C1EE002DD00C5D14D /* Charges.storyboard */,
+				2E532A191EE2AE6000C5D14D /* charges.xib */,
 			);
 			name = "公寓账单（租客）";
 			sourceTree = "<group>";
@@ -1846,6 +1849,7 @@
 				2E03B3751EBAF5810057A96C /* AccessXib.xib in Resources */,
 				2E3AC7B11EA9AB9100A22E66 /* Main.storyboard in Resources */,
 				2E03B31C1EB962400057A96C /* SAhouseDecripitionCell.xib in Resources */,
+				2E532A1A1EE2AE6000C5D14D /* charges.xib in Resources */,
 				2E03B3221EB962400057A96C /* SAhouseView.xib in Resources */,
 				2E2BDEB21EBD4B1C00D8FB92 /* EntrySelectXib.xib in Resources */,
 				2E5329F51EE00A3D00C5D14D /* AlipaySDK.bundle in Resources */,
