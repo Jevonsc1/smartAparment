@@ -87,4 +87,16 @@
     }];
 }
 
+/**
+ 获得门禁机列表
+ **/
+
++ (void)getAcList:(NSDictionary *)paramster callback:(void (^)(NSError * err, id response))callback {
+    HTTPRequest* request = [[HTTPRequest alloc]init];
+    NSString *urlString = [self urlString:@"/ac_card/getAcList"];
+    [request POST:urlString body:paramster response:^(NSError *error, id response) {
+        callback(error,response);
+    }];
+}
+
 @end

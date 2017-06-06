@@ -33,6 +33,7 @@
         [defaults synchronize];
     }
     else{
+        
         TDTabViewController* tabVC = [[TDTabViewController alloc]init];
         [UIApplication sharedApplication].keyWindow.rootViewController = tabVC;
     }

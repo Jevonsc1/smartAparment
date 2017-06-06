@@ -23,4 +23,6 @@
 + (void)cancelReportLossICCard:(NSDictionary *)paramster callback:(void (^)(NSError * err, id response))callback;
 
 +(void)getRenterACOptStatusInfo:(NSDictionary *)paramster callback:(void (^)(NSError * err, id response))callback;
+
++ (void)getAcList:(NSDictionary *)paramster callback:(void (^)(NSError * err, id response))callback;
 @end

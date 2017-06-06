@@ -492,8 +492,9 @@
     }
     else if(renterDic.count > 0){
         self.userData.memberType = @"renter";
-        [[NSUserDefaults standardUserDefaults] setObject:[[_userDic objectForKey:@"renter"] objectForKey:@"renterID"] forKey:@"renterID"];
-        self.userData.renterID = [[_userDic objectForKey:@"renter"] objectForKey:@"renterID"];
+        NSNumber* rentID = [[_userDic objectForKey:@"renter"] objectForKey:@"renterID"];        
+        [[NSUserDefaults standardUserDefaults] setObject:rentID.stringValue forKey:@"renterID"];
+        self.userData.renterID = rentID.stringValue;
         self.userData.trueName = [renterDic objectForKey:@"renterTrueName"];
         self.userData.renterStatus = [NSString stringWithFormat:@"%@",[renterDic objectForKey:@"renterStatus"]];
         NSDictionary *rentRecordInfo = [_userDic objectForKey:@"rentRecordInfo"];

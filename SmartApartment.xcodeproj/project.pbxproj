@@ -225,6 +225,20 @@
 		2E532A011EE00A3D00C5D14D /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5329F41EE00A3D00C5D14D /* RSADataVerifier.m */; };
 		2E532A091EE00DF000C5D14D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E532A081EE00DF000C5D14D /* libc++.tbd */; };
 		2E532A1A1EE2AE6000C5D14D /* charges.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A191EE2AE6000C5D14D /* charges.xib */; };
+		2E532A311EE631E800C5D14D /* TDMyDoorCardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A1D1EE631E800C5D14D /* TDMyDoorCardListViewController.m */; };
+		2E532A321EE631E800C5D14D /* TDMyDoorCardListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A1F1EE631E800C5D14D /* TDMyDoorCardListTableViewCell.m */; };
+		2E532A331EE631E800C5D14D /* TDMyICCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A211EE631E800C5D14D /* TDMyICCardViewController.m */; };
+		2E532A341EE631E800C5D14D /* TDBindingICCardBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A231EE631E800C5D14D /* TDBindingICCardBaseViewController.m */; };
+		2E532A351EE631E800C5D14D /* TDBindingICCardStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A251EE631E800C5D14D /* TDBindingICCardStartViewController.m */; };
+		2E532A361EE631E800C5D14D /* TDBindingICCardPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A271EE631E800C5D14D /* TDBindingICCardPromptViewController.m */; };
+		2E532A371EE631E800C5D14D /* TDDoorCarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A291EE631E800C5D14D /* TDDoorCarListController.m */; };
+		2E532A381EE631E800C5D14D /* AcModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A2B1EE631E800C5D14D /* AcModel.m */; };
+		2E532A391EE631E800C5D14D /* SelectDoorCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A2D1EE631E800C5D14D /* SelectDoorCardCell.m */; };
+		2E532A3A1EE631E800C5D14D /* SelectDoorCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A2E1EE631E800C5D14D /* SelectDoorCardCell.xib */; };
+		2E532A3B1EE631E800C5D14D /* SelectedACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A301EE631E800C5D14D /* SelectedACView.m */; };
+		2E532A541EE6592E00C5D14D /* renterRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A531EE6592E00C5D14D /* renterRoomController.m */; };
+		2E532A571EE6595C00C5D14D /* renterPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A561EE6595C00C5D14D /* renterPayController.m */; };
+		2E532A591EE65D6900C5D14D /* homeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A581EE65D6900C5D14D /* homeMessage.storyboard */; };
 		2EC203A91EDA51850030F23E /* TDString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203A81EDA51850030F23E /* TDString.m */; };
 		2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AC1EDA69F10030F23E /* CheckCommunityCell.m */; };
 		2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AE1EDA69F10030F23E /* CheckHouseCell.m */; };
@@ -753,6 +767,32 @@
 		2E5329F41EE00A3D00C5D14D /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		2E532A081EE00DF000C5D14D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		2E532A191EE2AE6000C5D14D /* charges.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = charges.xib; sourceTree = "<group>"; };
+		2E532A1C1EE631E800C5D14D /* TDMyDoorCardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMyDoorCardListViewController.h; sourceTree = "<group>"; };
+		2E532A1D1EE631E800C5D14D /* TDMyDoorCardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDMyDoorCardListViewController.m; sourceTree = "<group>"; };
+		2E532A1E1EE631E800C5D14D /* TDMyDoorCardListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMyDoorCardListTableViewCell.h; sourceTree = "<group>"; };
+		2E532A1F1EE631E800C5D14D /* TDMyDoorCardListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDMyDoorCardListTableViewCell.m; sourceTree = "<group>"; };
+		2E532A201EE631E800C5D14D /* TDMyICCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMyICCardViewController.h; sourceTree = "<group>"; };
+		2E532A211EE631E800C5D14D /* TDMyICCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDMyICCardViewController.m; sourceTree = "<group>"; };
+		2E532A221EE631E800C5D14D /* TDBindingICCardBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBindingICCardBaseViewController.h; sourceTree = "<group>"; };
+		2E532A231EE631E800C5D14D /* TDBindingICCardBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBindingICCardBaseViewController.m; sourceTree = "<group>"; };
+		2E532A241EE631E800C5D14D /* TDBindingICCardStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBindingICCardStartViewController.h; sourceTree = "<group>"; };
+		2E532A251EE631E800C5D14D /* TDBindingICCardStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBindingICCardStartViewController.m; sourceTree = "<group>"; };
+		2E532A261EE631E800C5D14D /* TDBindingICCardPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBindingICCardPromptViewController.h; sourceTree = "<group>"; };
+		2E532A271EE631E800C5D14D /* TDBindingICCardPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBindingICCardPromptViewController.m; sourceTree = "<group>"; };
+		2E532A281EE631E800C5D14D /* TDDoorCarListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDoorCarListController.h; sourceTree = "<group>"; };
+		2E532A291EE631E800C5D14D /* TDDoorCarListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDoorCarListController.m; sourceTree = "<group>"; };
+		2E532A2A1EE631E800C5D14D /* AcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcModel.h; sourceTree = "<group>"; };
+		2E532A2B1EE631E800C5D14D /* AcModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcModel.m; sourceTree = "<group>"; };
+		2E532A2C1EE631E800C5D14D /* SelectDoorCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDoorCardCell.h; sourceTree = "<group>"; };
+		2E532A2D1EE631E800C5D14D /* SelectDoorCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDoorCardCell.m; sourceTree = "<group>"; };
+		2E532A2E1EE631E800C5D14D /* SelectDoorCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDoorCardCell.xib; sourceTree = "<group>"; };
+		2E532A2F1EE631E800C5D14D /* SelectedACView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedACView.h; sourceTree = "<group>"; };
+		2E532A301EE631E800C5D14D /* SelectedACView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedACView.m; sourceTree = "<group>"; };
+		2E532A521EE6592E00C5D14D /* renterRoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renterRoomController.h; sourceTree = "<group>"; };
+		2E532A531EE6592E00C5D14D /* renterRoomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = renterRoomController.m; sourceTree = "<group>"; };
+		2E532A551EE6595C00C5D14D /* renterPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renterPayController.h; sourceTree = "<group>"; };
+		2E532A561EE6595C00C5D14D /* renterPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = renterPayController.m; sourceTree = "<group>"; };
+		2E532A581EE65D6900C5D14D /* homeMessage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = homeMessage.storyboard; sourceTree = "<group>"; };
 		2EC203A71EDA51850030F23E /* TDString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDString.h; sourceTree = "<group>"; };
 		2EC203A81EDA51850030F23E /* TDString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDString.m; sourceTree = "<group>"; };
 		2EC203AB1EDA69F10030F23E /* CheckCommunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckCommunityCell.h; sourceTree = "<group>"; };
@@ -1243,6 +1283,8 @@
 		2E3AC7A51EA9AB9100A22E66 /* SmartApartment */ = {
 			isa = PBXGroup;
 			children = (
+				2E532A3C1EE6566F00C5D14D /* 我的公寓（租客） */,
+				2E532A1B1EE631BE00C5D14D /* 我的门卡 */,
 				2E5328901EE0017000C5D14D /* 公寓账单（租客） */,
 				2EC203C81EDA9F560030F23E /* 我的账本 */,
 				2EC203AA1EDA60350030F23E /* 公寓抄表 */,
@@ -1636,6 +1678,46 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		2E532A1B1EE631BE00C5D14D /* 我的门卡 */ = {
+			isa = PBXGroup;
+			children = (
+				2E532A1C1EE631E800C5D14D /* TDMyDoorCardListViewController.h */,
+				2E532A1D1EE631E800C5D14D /* TDMyDoorCardListViewController.m */,
+				2E532A1E1EE631E800C5D14D /* TDMyDoorCardListTableViewCell.h */,
+				2E532A1F1EE631E800C5D14D /* TDMyDoorCardListTableViewCell.m */,
+				2E532A201EE631E800C5D14D /* TDMyICCardViewController.h */,
+				2E532A211EE631E800C5D14D /* TDMyICCardViewController.m */,
+				2E532A221EE631E800C5D14D /* TDBindingICCardBaseViewController.h */,
+				2E532A231EE631E800C5D14D /* TDBindingICCardBaseViewController.m */,
+				2E532A241EE631E800C5D14D /* TDBindingICCardStartViewController.h */,
+				2E532A251EE631E800C5D14D /* TDBindingICCardStartViewController.m */,
+				2E532A261EE631E800C5D14D /* TDBindingICCardPromptViewController.h */,
+				2E532A271EE631E800C5D14D /* TDBindingICCardPromptViewController.m */,
+				2E532A281EE631E800C5D14D /* TDDoorCarListController.h */,
+				2E532A291EE631E800C5D14D /* TDDoorCarListController.m */,
+				2E532A2A1EE631E800C5D14D /* AcModel.h */,
+				2E532A2B1EE631E800C5D14D /* AcModel.m */,
+				2E532A2C1EE631E800C5D14D /* SelectDoorCardCell.h */,
+				2E532A2D1EE631E800C5D14D /* SelectDoorCardCell.m */,
+				2E532A2E1EE631E800C5D14D /* SelectDoorCardCell.xib */,
+				2E532A2F1EE631E800C5D14D /* SelectedACView.h */,
+				2E532A301EE631E800C5D14D /* SelectedACView.m */,
+			);
+			name = "我的门卡";
+			sourceTree = "<group>";
+		};
+		2E532A3C1EE6566F00C5D14D /* 我的公寓（租客） */ = {
+			isa = PBXGroup;
+			children = (
+				2E532A521EE6592E00C5D14D /* renterRoomController.h */,
+				2E532A531EE6592E00C5D14D /* renterRoomController.m */,
+				2E532A551EE6595C00C5D14D /* renterPayController.h */,
+				2E532A561EE6595C00C5D14D /* renterPayController.m */,
+				2E532A581EE65D6900C5D14D /* homeMessage.storyboard */,
+			);
+			name = "我的公寓（租客）";
+			sourceTree = "<group>";
+		};
 		2EC203AA1EDA60350030F23E /* 公寓抄表 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1834,6 +1916,7 @@
 				2E53291D1EE002DD00C5D14D /* Charges.storyboard in Resources */,
 				2E09B3161EC9A74B0078E714 /* ApartmentBill.storyboard in Resources */,
 				2E3AC8501EAB2C9700A22E66 /* Login.storyboard in Resources */,
+				2E532A3A1EE631E800C5D14D /* SelectDoorCardCell.xib in Resources */,
 				2E2BDEBD1EBD538800D8FB92 /* AccessControl.storyboard in Resources */,
 				2E09B3171EC9A74B0078E714 /* BillSelectView.xib in Resources */,
 				2E09B3361ECBD5230078E714 /* SearchRoom.storyboard in Resources */,
@@ -1851,6 +1934,7 @@
 				2E03B31C1EB962400057A96C /* SAhouseDecripitionCell.xib in Resources */,
 				2E532A1A1EE2AE6000C5D14D /* charges.xib in Resources */,
 				2E03B3221EB962400057A96C /* SAhouseView.xib in Resources */,
+				2E532A591EE65D6900C5D14D /* homeMessage.storyboard in Resources */,
 				2E2BDEB21EBD4B1C00D8FB92 /* EntrySelectXib.xib in Resources */,
 				2E5329F51EE00A3D00C5D14D /* AlipaySDK.bundle in Resources */,
 				2E53289E1EE0019100C5D14D /* RenterBill.storyboard in Resources */,
@@ -1930,6 +2014,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E532A371EE631E800C5D14D /* TDDoorCarListController.m in Sources */,
 				2EE58D0B1ED9539A000CC970 /* CityNode.m in Sources */,
 				2E03B35F1EBADEE70057A96C /* RenterAccessMsgController.m in Sources */,
 				2E03B3711EBAF5730057A96C /* TipsCell.m in Sources */,
@@ -1937,10 +2022,13 @@
 				2E03B2EC1EB960AA0057A96C /* BBImagebaseVC.m in Sources */,
 				2E0217381EB30D9700C91F87 /* CheckSignRoomController.m in Sources */,
 				2E0217141EB2EDC400C91F87 /* TemRoomCell.m in Sources */,
+				2E532A321EE631E800C5D14D /* TDMyDoorCardListTableViewCell.m in Sources */,
 				2E02171C1EB2F11200C91F87 /* TimeDate.m in Sources */,
 				2E3AC9501EAF18E400A22E66 /* UserPersonController.m in Sources */,
 				2E09B2DF1EC95AC60078E714 /* EntryRecord.m in Sources */,
 				2E09B3331ECBD5230078E714 /* NeedRentRoomController.m in Sources */,
+				2E532A361EE631E800C5D14D /* TDBindingICCardPromptViewController.m in Sources */,
+				2E532A331EE631E800C5D14D /* TDMyICCardViewController.m in Sources */,
 				2E03B3071EB961DD0057A96C /* SAcreathouseFinishVC.m in Sources */,
 				2E3AC90C1EADCFC000A22E66 /* TDTabViewController.m in Sources */,
 				2E3AC9481EAEEFC200A22E66 /* ContractListController.m in Sources */,
@@ -1959,8 +2047,10 @@
 				2E09B33B1ECBD62A0078E714 /* TTRangeSlider.m in Sources */,
 				2E03B3701EBAF5730057A96C /* AccessCloseView.m in Sources */,
 				2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */,
+				2E532A3B1EE631E800C5D14D /* SelectedACView.m in Sources */,
 				2EC203D81EDAA0B40030F23E /* AccountRoomController.m in Sources */,
 				2E03B31D1EB962400057A96C /* SAshowhouseCollectionViewCell.m in Sources */,
+				2E532A311EE631E800C5D14D /* TDMyDoorCardListViewController.m in Sources */,
 				2E3AC8621EAB300900A22E66 /* ResetKeyController.m in Sources */,
 				2E02170A1EB2EDA300C91F87 /* BroadbandController.m in Sources */,
 				2E03B3191EB962400057A96C /* SAhouseCell.m in Sources */,
@@ -1980,6 +2070,7 @@
 				2E2BDEBC1EBD538800D8FB92 /* ACCheckIDCardController.m in Sources */,
 				2E03B31B1EB962400057A96C /* SAhouseDecripitionCell.m in Sources */,
 				2E03B35C1EBADEE70057A96C /* AccessListController.m in Sources */,
+				2E532A571EE6595C00C5D14D /* renterPayController.m in Sources */,
 				2EC203C61EDA69F10030F23E /* ShowCommunityController.m in Sources */,
 				2E0217131EB2EDC400C91F87 /* NetRoomListController.m in Sources */,
 				2E3AC8791EAB32D400A22E66 /* WebAPIForRenthouse.m in Sources */,
@@ -1991,6 +2082,7 @@
 				2E3AC8611EAB300900A22E66 /* ForgetPwdController.m in Sources */,
 				2E02173B1EB30D9700C91F87 /* RenterAddPhoneController.m in Sources */,
 				2E03B3051EB961DD0057A96C /* SAshowhouseCollectionVC.m in Sources */,
+				2E532A351EE631E800C5D14D /* TDBindingICCardStartViewController.m in Sources */,
 				2E09B3111EC9A74B0078E714 /* SelectMonthController.m in Sources */,
 				2E03B32B1EB9629A0057A96C /* ApertmentRejectController.m in Sources */,
 				2E03B2EB1EB960AA0057A96C /* BBEmojiCheck.m in Sources */,
@@ -2077,6 +2169,7 @@
 				2E0216E71EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m in Sources */,
 				2EC203C31EDA69F10030F23E /* CheckInputReadController.m in Sources */,
 				2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */,
+				2E532A381EE631E800C5D14D /* AcModel.m in Sources */,
 				2EC203C51EDA69F10030F23E /* ShowCheckHouseController.m in Sources */,
 				2E09B2D91EC5B1810078E714 /* SearchTypeView.m in Sources */,
 				2E0216E21EB0A04300C91F87 /* NSString+TDChangeTimestamp.m in Sources */,
@@ -2120,11 +2213,14 @@
 				2E03B2F91EB961C80057A96C /* SAapartementCell.m in Sources */,
 				2EC203C01EDA69F10030F23E /* HouseHistoryCell.m in Sources */,
 				2E09B2D61EC5B1810078E714 /* EntrySearchViewController.m in Sources */,
+				2E532A341EE631E800C5D14D /* TDBindingICCardBaseViewController.m in Sources */,
 				2E03B3811EBAF7A00057A96C /* GBTagListView.m in Sources */,
+				2E532A391EE631E800C5D14D /* SelectDoorCardCell.m in Sources */,
 				2E09B3351ECBD5230078E714 /* CheckImageController.m in Sources */,
 				2E09B30B1EC9A74B0078E714 /* CashPayCell.m in Sources */,
 				2E5329FB1EE00A3D00C5D14D /* DataSigner.m in Sources */,
 				2E09B30E1EC9A74B0078E714 /* CashPayRecordCell.m in Sources */,
+				2E532A541EE6592E00C5D14D /* renterRoomController.m in Sources */,
 				2E03B2ED1EB960AA0057A96C /* BBImageuploadTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

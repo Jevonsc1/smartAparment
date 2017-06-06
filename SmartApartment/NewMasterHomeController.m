@@ -16,7 +16,7 @@
 //#import "roomRentersController.h"
 //#import "renterPayController.h"
 //#import "MasterPayController.h"
-//#import "renterRoomController.h"
+#import "renterRoomController.h"
 //#import "ApertmantController.h"
 //#import "CheckMessageController.h"
 //#import "DoorOpenController.h"
@@ -48,7 +48,7 @@
 //#import "TDOrderInfoViewController.h"
 //#import "TDOrderFinishedViewController.h"
 //#import "TDPricingPackageListViewController.h"
-//#import "TDMyDoorCardListViewController.h"
+#import "TDMyDoorCardListViewController.h"
 
 #import "Community.h"
 #import "YYModel.h"
@@ -97,6 +97,13 @@
     [super viewDidLoad];
     
     //设置导航栏的颜色
+   //TODO
+    UIBarButtonItem *buttonItem = [UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil];
+    UIOffset offset;
+    offset.horizontal = - 500;
+    offset.vertical =  - 500;
+    [buttonItem setBackButtonTitlePositionAdjustment:offset forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0/255.0 green:98.0/255.0 blue:191.0/255.0 alpha:1];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationController setNavigationBarHidden:YES];
@@ -158,7 +165,6 @@
         }
     }
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    self.tabBarController.tabBar.hidden = NO;
     [self.scrollAutoHeight setConstant:self.view.frame.size.height+64];
     
     
@@ -170,10 +176,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:NO] ;
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 //-------------------------------二期修改-------------------------------//
@@ -225,14 +227,14 @@
 }
 //点击我的公寓
 - (IBAction)ClickToApartment:(id)sender {
-    self.tabBarController.tabBar.hidden = YES;
     if ([[ModelTool find_UserData].memberType isEqualToString:@"master"] ) {
         SAapartmentViewController *vc = [[UIStoryboard storyboardWithName:@"rentHouse" bundle:nil] instantiateViewControllerWithIdentifier:@"Apertmant1"];
          vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }else{
-//        renterRoomController *vc = [[UIStoryboard storyboardWithName:@"homeMessage" bundle:nil] instantiateViewControllerWithIdentifier:@"renterRoom"];
-//        [self.navigationController pushViewController:vc animated:YES];
+        renterRoomController *vc = [[UIStoryboard storyboardWithName:@"homeMessage" bundle:nil] instantiateViewControllerWithIdentifier:@"renterRoom"];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 //点击在线签约
@@ -368,10 +370,10 @@
             houseID = [dict stringForKey:@"houseID"];
         }
         if (![houseID isEqualToString:@""]) {
-//            TDMyDoorCardListViewController *controller = [[TDMyDoorCardListViewController alloc] init];
-//            controller.houseID = houseID;
-//            [self.navigationController pushViewController:controller animated:YES];
-//            [self.tabBarController.tabBar setHidden:YES];
+            TDMyDoorCardListViewController *controller = [[TDMyDoorCardListViewController alloc] init];
+            controller.houseID = houseID;
+            controller.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:controller animated:YES];
         }
         [self.view hideHUD];
     }];
