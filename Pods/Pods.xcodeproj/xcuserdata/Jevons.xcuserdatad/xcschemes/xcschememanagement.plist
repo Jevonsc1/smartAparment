@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HMSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,7 +57,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>48480102AD893F76FB5F0B9A70D45DD4</key>
+		<key>44C5294D9DEB9D73EB4FE54171E4C2E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C1CDECF56B96E8B3BE2F45525A58052</key>
+		<key>549444D66642F9DBBBE058CD3394D669</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>633BE02AA88569588E2242EFB6A022E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>835F67AAE3D688D208E2224580479B26</key>
+		<key>7891E2B724C54EF58FB1692B34F1455C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

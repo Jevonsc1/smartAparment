@@ -44,7 +44,7 @@
 #import "CheckHomeController.h"
 #import "ApartmentBillController.h"
 
-//#import "TDBroadbandViewController.h"
+#import "TDBroadbandViewController.h"
 //#import "TDOrderInfoViewController.h"
 //#import "TDOrderFinishedViewController.h"
 //#import "TDPricingPackageListViewController.h"
@@ -306,7 +306,7 @@
         NSString *code = [response objectForKey:@"rcode"];
         if ([code integerValue] == 10000) {
             NSDictionary *result = [response objectForKey:@"data"];
-            //NSLog(@"%@",result);
+            NSLog(@"%@",result);
             
             if ([result count] > 0) {
                 if ([result intForKey:@"orderState"] == 20) {
@@ -322,10 +322,11 @@
 //                    [self.navigationController pushViewController:controller animated:YES];
                 }
             }else {
-//                TDBroadbandViewController *controller = [[TDBroadbandViewController alloc] init];
-//                [self.navigationController pushViewController:controller animated:YES];
+                TDBroadbandViewController *controller = [[TDBroadbandViewController alloc] init];
+                controller.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:controller animated:YES];
             }
-            [self.tabBarController.tabBar setHidden:YES];
+            
         }else {
             RequestBadByNoNav
         }

@@ -35,19 +35,17 @@
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 }
 -(void)viewWillAppear:(BOOL)animated{
-    __block renterRoomController *blockSelf = self;
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key", @"2.0",@"version",nil];
     [WebAPI getRentRecordInfo:dic callback:^(NSError *err, id response) {
-        NSString  *status =[response objectForKey:@"rcode"];
-        if (!err && status.integerValue == 10000) {
+        if (!err && [response intForKey:@"rcode"] == 10000) {
             NSArray *dic = [response objectForKey:@"data"];
             if (dic.count != 0){
                 NSDictionary *dataDic = dic[0];
                 NSDictionary *houseInfo = [dataDic objectForKey:@"houseInfo"];
                 NSString *houseID = [houseInfo objectForKey:@"houseID"];
                 NSArray *renterInfo = [dataDic objectForKey:@"rentInfo"];
-                blockSelf.houseName.text = [NSString stringWithFormat:@"%@",[houseInfo objectForKey:@"houseNum"]];
-                blockSelf.renterNum.text = [NSString stringWithFormat:@"%lu人",(unsigned long)renterInfo.count];
+                self.houseName.text = [NSString stringWithFormat:@"%@",[houseInfo objectForKey:@"houseNum"]];
+                self.renterNum.text = [NSString stringWithFormat:@"%lu人",(unsigned long)renterInfo.count];
                 if (renterInfo.count <=0) {
                     [Alert showFail:@"没有租客信息！" View:self.view andTime:1.5 complete:nil];
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -60,22 +58,22 @@
                         NSDictionary *retPerson = renter[i];
                         NSString *roleID = [retPerson objectForKey:@"renterRoleID"];
                         if(roleID.integerValue == 1){
-                            blockSelf.renterMainName.text = [retPerson objectForKey:@"renterTrueName"];
-                            blockSelf.depositLabel.text = [NSString stringWithFormat:@"%@元",[dic objectForKey:@"rentDeposit"]];
-                            blockSelf.startTime.text = [self timeWithTimeIntervalString:[dic objectForKey:@"rentTime"]];
-                            blockSelf.endTime.text = [self timeWithTimeIntervalString:[dic objectForKey:@"rentDueTime"]];
-                            blockSelf.payTime.text = [NSString stringWithFormat:@"%@号",[dic objectForKey:@"payDateMonth"]];
-                            blockSelf.renterMoney.text = [NSString stringWithFormat:@"%@元",[dic objectForKey:@"monthRent"]];
+                            self.renterMainName.text = [retPerson objectForKey:@"renterTrueName"];
+                            self.depositLabel.text = [NSString stringWithFormat:@"%@元",[dic objectForKey:@"rentDeposit"]];
+                            self.startTime.text = [self timeWithTimeIntervalString:[dic objectForKey:@"rentTime"]];
+                            self.endTime.text = [self timeWithTimeIntervalString:[dic objectForKey:@"rentDueTime"]];
+                            self.payTime.text = [NSString stringWithFormat:@"%@号",[dic objectForKey:@"payDateMonth"]];
+                            self.renterMoney.text = [NSString stringWithFormat:@"%@元",[dic objectForKey:@"monthRent"]];
                             
-                            blockSelf.electric_unit_price.text = [dic objectForKey:@"electricUnitPrice"];
-                            blockSelf.water_unit_price.text = [dic objectForKey:@"waterUnitPrice"];
-                            blockSelf.other_charge_price.text= [dic objectForKey:@"otherChargePrice"];
-                            blockSelf.other_charge_price.font = [UIFont systemFontOfSize:16];
+                            self.electric_unit_price.text = [dic objectForKey:@"electricUnitPrice"];
+                            self.water_unit_price.text = [dic objectForKey:@"waterUnitPrice"];
+                            self.other_charge_price.text= [dic objectForKey:@"otherChargePrice"];
+                            self.other_charge_price.font = [UIFont systemFontOfSize:16];
                         }
                     }
                     
                 }
-                blockSelf.address.text = [houseInfo objectForKey:@"houseAddress"];
+                self.address.text = [houseInfo objectForKey:@"houseAddress"];
                 NSDate *currentDate = [NSDate date];//获取当前时间，日期
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"YYYYMM"];
@@ -141,10 +139,6 @@
     
     
 
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source

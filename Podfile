@@ -9,7 +9,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'SmartApartment' do
     pod 'IQKeyboardManager'
-    #pod 'HMSegmentedControl'
+    pod 'HMSegmentedControl'
     #pod 'FMDB'
     #pod 'MJExtension'
     pod 'JLExtension'

@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - HMSegmentedControl (1.5.3)
   - IQKeyboardManager (4.0.9)
   - JLExtension (0.1.1):
     - AFNetworking (~> 3.0)
@@ -31,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - HMSegmentedControl
   - IQKeyboardManager
   - JLExtension
   - MagicalRecord
@@ -42,6 +44,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  HMSegmentedControl: 7c6145afb50f26cec5f3243082f6f12b9f41318f
   IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
   JLExtension: 4e71951ff03eceebea8c73c56a2689a78f302ac0
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
@@ -51,6 +54,6 @@ SPEC CHECKSUMS:
   UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: e02b8da277c6edb05993b9121e1e28fe3b7cfa2c
+PODFILE CHECKSUM: 244e1a45d93baeba326ce20d43a1c1db3a857ab8
 
 COCOAPODS: 1.2.0

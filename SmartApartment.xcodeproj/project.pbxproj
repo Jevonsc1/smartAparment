@@ -239,6 +239,36 @@
 		2E532A541EE6592E00C5D14D /* renterRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A531EE6592E00C5D14D /* renterRoomController.m */; };
 		2E532A571EE6595C00C5D14D /* renterPayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A561EE6595C00C5D14D /* renterPayController.m */; };
 		2E532A591EE65D6900C5D14D /* homeMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A581EE65D6900C5D14D /* homeMessage.storyboard */; };
+		2E532A5E1EE6972300C5D14D /* TDBroadbandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A5C1EE6972300C5D14D /* TDBroadbandViewController.m */; };
+		2E532A5F1EE6972300C5D14D /* TDBroadbandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A5D1EE6972300C5D14D /* TDBroadbandViewController.xib */; };
+		2E532A631EE6975C00C5D14D /* TDPricingPackageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A611EE6975C00C5D14D /* TDPricingPackageListViewController.m */; };
+		2E532A641EE6975C00C5D14D /* TDPricingPackageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A621EE6975C00C5D14D /* TDPricingPackageListViewController.xib */; };
+		2E532A681EE697BC00C5D14D /* TDOrderHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A661EE697BC00C5D14D /* TDOrderHistoryListViewController.m */; };
+		2E532A691EE697BC00C5D14D /* TDOrderHistoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A671EE697BC00C5D14D /* TDOrderHistoryListViewController.xib */; };
+		2E532A6C1EE6980200C5D14D /* TDWebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A6B1EE6980200C5D14D /* TDWebBrowserViewController.m */; };
+		2E532A701EE6983300C5D14D /* TDPricingPackageListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A6E1EE6983300C5D14D /* TDPricingPackageListTableViewCell.m */; };
+		2E532A711EE6983300C5D14D /* TDPricingPackageListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A6F1EE6983300C5D14D /* TDPricingPackageListTableViewCell.xib */; };
+		2E532A751EE6984700C5D14D /* TDPricingPackageInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A731EE6984700C5D14D /* TDPricingPackageInfoViewController.m */; };
+		2E532A761EE6984700C5D14D /* TDPricingPackageInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A741EE6984700C5D14D /* TDPricingPackageInfoViewController.xib */; };
+		2E532A7A1EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A781EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.m */; };
+		2E532A7B1EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A791EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.xib */; };
+		2E532A7F1EE698A800C5D14D /* TDOrderHistoryInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A7D1EE698A800C5D14D /* TDOrderHistoryInfoViewController.m */; };
+		2E532A801EE698A800C5D14D /* TDOrderHistoryInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A7E1EE698A800C5D14D /* TDOrderHistoryInfoViewController.xib */; };
+		2E532A841EE698CE00C5D14D /* TDPerfectOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A821EE698CE00C5D14D /* TDPerfectOrderViewController.m */; };
+		2E532A851EE698CE00C5D14D /* TDPerfectOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A831EE698CE00C5D14D /* TDPerfectOrderViewController.xib */; };
+		2E532A891EE698FD00C5D14D /* TDConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A871EE698FD00C5D14D /* TDConfirmOrderViewController.m */; };
+		2E532A8A1EE698FD00C5D14D /* TDConfirmOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A881EE698FD00C5D14D /* TDConfirmOrderViewController.xib */; };
+		2E532A8E1EE69B3100C5D14D /* TDOperationTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A8C1EE69B3100C5D14D /* TDOperationTipsViewController.m */; };
+		2E532A8F1EE69B3100C5D14D /* TDOperationTipsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A8D1EE69B3100C5D14D /* TDOperationTipsViewController.xib */; };
+		2E532A921EE69B5600C5D14D /* AuthtionFirstController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A911EE69B5600C5D14D /* AuthtionFirstController.m */; };
+		2E532A961EE69B8B00C5D14D /* TDOrderInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A941EE69B8B00C5D14D /* TDOrderInfoViewController.m */; };
+		2E532A971EE69B8B00C5D14D /* TDOrderInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532A951EE69B8B00C5D14D /* TDOrderInfoViewController.xib */; };
+		2E532A9A1EE69BAD00C5D14D /* AuthtionResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A991EE69BAD00C5D14D /* AuthtionResultController.m */; };
+		2E532A9D1EE69C5B00C5D14D /* AuthtionSeconController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532A9C1EE69C5B00C5D14D /* AuthtionSeconController.m */; };
+		2E532AA11EE69CC000C5D14D /* hanvoncloud_sdk_v1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E532A9F1EE69CC000C5D14D /* hanvoncloud_sdk_v1.0.a */; };
+		2E532AA41EE69CE000C5D14D /* ForNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AA31EE69CE000C5D14D /* ForNavigationController.m */; };
+		2E532AA71EE69D0C00C5D14D /* AuthtionSureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AA61EE69D0C00C5D14D /* AuthtionSureController.m */; };
+		2E532AAA1EE69D4900C5D14D /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AA91EE69D4900C5D14D /* UIImage+fixOrientation.m */; };
 		2EC203A91EDA51850030F23E /* TDString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203A81EDA51850030F23E /* TDString.m */; };
 		2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AC1EDA69F10030F23E /* CheckCommunityCell.m */; };
 		2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AE1EDA69F10030F23E /* CheckHouseCell.m */; };
@@ -793,6 +823,55 @@
 		2E532A551EE6595C00C5D14D /* renterPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renterPayController.h; sourceTree = "<group>"; };
 		2E532A561EE6595C00C5D14D /* renterPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = renterPayController.m; sourceTree = "<group>"; };
 		2E532A581EE65D6900C5D14D /* homeMessage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = homeMessage.storyboard; sourceTree = "<group>"; };
+		2E532A5B1EE6972300C5D14D /* TDBroadbandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBroadbandViewController.h; sourceTree = "<group>"; };
+		2E532A5C1EE6972300C5D14D /* TDBroadbandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBroadbandViewController.m; sourceTree = "<group>"; };
+		2E532A5D1EE6972300C5D14D /* TDBroadbandViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDBroadbandViewController.xib; sourceTree = "<group>"; };
+		2E532A601EE6975C00C5D14D /* TDPricingPackageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPricingPackageListViewController.h; sourceTree = "<group>"; };
+		2E532A611EE6975C00C5D14D /* TDPricingPackageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPricingPackageListViewController.m; sourceTree = "<group>"; };
+		2E532A621EE6975C00C5D14D /* TDPricingPackageListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDPricingPackageListViewController.xib; sourceTree = "<group>"; };
+		2E532A651EE697BC00C5D14D /* TDOrderHistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDOrderHistoryListViewController.h; sourceTree = "<group>"; };
+		2E532A661EE697BC00C5D14D /* TDOrderHistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDOrderHistoryListViewController.m; sourceTree = "<group>"; };
+		2E532A671EE697BC00C5D14D /* TDOrderHistoryListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDOrderHistoryListViewController.xib; sourceTree = "<group>"; };
+		2E532A6A1EE6980200C5D14D /* TDWebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDWebBrowserViewController.h; sourceTree = "<group>"; };
+		2E532A6B1EE6980200C5D14D /* TDWebBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDWebBrowserViewController.m; sourceTree = "<group>"; };
+		2E532A6D1EE6983300C5D14D /* TDPricingPackageListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPricingPackageListTableViewCell.h; sourceTree = "<group>"; };
+		2E532A6E1EE6983300C5D14D /* TDPricingPackageListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPricingPackageListTableViewCell.m; sourceTree = "<group>"; };
+		2E532A6F1EE6983300C5D14D /* TDPricingPackageListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDPricingPackageListTableViewCell.xib; sourceTree = "<group>"; };
+		2E532A721EE6984700C5D14D /* TDPricingPackageInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPricingPackageInfoViewController.h; sourceTree = "<group>"; };
+		2E532A731EE6984700C5D14D /* TDPricingPackageInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPricingPackageInfoViewController.m; sourceTree = "<group>"; };
+		2E532A741EE6984700C5D14D /* TDPricingPackageInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDPricingPackageInfoViewController.xib; sourceTree = "<group>"; };
+		2E532A771EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDOrderHistoryListTableViewCell.h; sourceTree = "<group>"; };
+		2E532A781EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDOrderHistoryListTableViewCell.m; sourceTree = "<group>"; };
+		2E532A791EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDOrderHistoryListTableViewCell.xib; sourceTree = "<group>"; };
+		2E532A7C1EE698A800C5D14D /* TDOrderHistoryInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDOrderHistoryInfoViewController.h; sourceTree = "<group>"; };
+		2E532A7D1EE698A800C5D14D /* TDOrderHistoryInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDOrderHistoryInfoViewController.m; sourceTree = "<group>"; };
+		2E532A7E1EE698A800C5D14D /* TDOrderHistoryInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDOrderHistoryInfoViewController.xib; sourceTree = "<group>"; };
+		2E532A811EE698CE00C5D14D /* TDPerfectOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPerfectOrderViewController.h; sourceTree = "<group>"; };
+		2E532A821EE698CE00C5D14D /* TDPerfectOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPerfectOrderViewController.m; sourceTree = "<group>"; };
+		2E532A831EE698CE00C5D14D /* TDPerfectOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDPerfectOrderViewController.xib; sourceTree = "<group>"; };
+		2E532A861EE698FD00C5D14D /* TDConfirmOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDConfirmOrderViewController.h; sourceTree = "<group>"; };
+		2E532A871EE698FD00C5D14D /* TDConfirmOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDConfirmOrderViewController.m; sourceTree = "<group>"; };
+		2E532A881EE698FD00C5D14D /* TDConfirmOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDConfirmOrderViewController.xib; sourceTree = "<group>"; };
+		2E532A8B1EE69B3100C5D14D /* TDOperationTipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDOperationTipsViewController.h; sourceTree = "<group>"; };
+		2E532A8C1EE69B3100C5D14D /* TDOperationTipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDOperationTipsViewController.m; sourceTree = "<group>"; };
+		2E532A8D1EE69B3100C5D14D /* TDOperationTipsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDOperationTipsViewController.xib; sourceTree = "<group>"; };
+		2E532A901EE69B5600C5D14D /* AuthtionFirstController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthtionFirstController.h; sourceTree = "<group>"; };
+		2E532A911EE69B5600C5D14D /* AuthtionFirstController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthtionFirstController.m; sourceTree = "<group>"; };
+		2E532A931EE69B8B00C5D14D /* TDOrderInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDOrderInfoViewController.h; sourceTree = "<group>"; };
+		2E532A941EE69B8B00C5D14D /* TDOrderInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDOrderInfoViewController.m; sourceTree = "<group>"; };
+		2E532A951EE69B8B00C5D14D /* TDOrderInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDOrderInfoViewController.xib; sourceTree = "<group>"; };
+		2E532A981EE69BAD00C5D14D /* AuthtionResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthtionResultController.h; sourceTree = "<group>"; };
+		2E532A991EE69BAD00C5D14D /* AuthtionResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthtionResultController.m; sourceTree = "<group>"; };
+		2E532A9B1EE69C5B00C5D14D /* AuthtionSeconController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthtionSeconController.h; sourceTree = "<group>"; };
+		2E532A9C1EE69C5B00C5D14D /* AuthtionSeconController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthtionSeconController.m; sourceTree = "<group>"; };
+		2E532A9F1EE69CC000C5D14D /* hanvoncloud_sdk_v1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = hanvoncloud_sdk_v1.0.a; sourceTree = "<group>"; };
+		2E532AA01EE69CC000C5D14D /* HWCloudsdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCloudsdk.h; sourceTree = "<group>"; };
+		2E532AA21EE69CE000C5D14D /* ForNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForNavigationController.h; sourceTree = "<group>"; };
+		2E532AA31EE69CE000C5D14D /* ForNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForNavigationController.m; sourceTree = "<group>"; };
+		2E532AA51EE69D0C00C5D14D /* AuthtionSureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthtionSureController.h; sourceTree = "<group>"; };
+		2E532AA61EE69D0C00C5D14D /* AuthtionSureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthtionSureController.m; sourceTree = "<group>"; };
+		2E532AA81EE69D4900C5D14D /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		2E532AA91EE69D4900C5D14D /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
 		2EC203A71EDA51850030F23E /* TDString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDString.h; sourceTree = "<group>"; };
 		2EC203A81EDA51850030F23E /* TDString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDString.m; sourceTree = "<group>"; };
 		2EC203AB1EDA69F10030F23E /* CheckCommunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckCommunityCell.h; sourceTree = "<group>"; };
@@ -845,6 +924,7 @@
 				2E5329F61EE00A3D00C5D14D /* AlipaySDK.framework in Frameworks */,
 				2E5329F81EE00A3D00C5D14D /* libssl.a in Frameworks */,
 				2E5329F71EE00A3D00C5D14D /* libcrypto.a in Frameworks */,
+				2E532AA11EE69CC000C5D14D /* hanvoncloud_sdk_v1.0.a in Frameworks */,
 				6515BDFAECE20620762322A0 /* Pods_SmartApartment.framework in Frameworks */,
 				2E5328A31EE0021500C5D14D /* libWeChatSDK.a in Frameworks */,
 				2E3AC7E31EA9D51100A22E66 /* jpush-ios-2.2.0.a in Frameworks */,
@@ -1283,6 +1363,7 @@
 		2E3AC7A51EA9AB9100A22E66 /* SmartApartment */ = {
 			isa = PBXGroup;
 			children = (
+				2E532A5A1EE68C9500C5D14D /* 我的宽带 */,
 				2E532A3C1EE6566F00C5D14D /* 我的公寓（租客） */,
 				2E532A1B1EE631BE00C5D14D /* 我的门卡 */,
 				2E5328901EE0017000C5D14D /* 公寓账单（租客） */,
@@ -1410,6 +1491,8 @@
 		2E3AC7E01EA9D4C300A22E66 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2E532AA81EE69D4900C5D14D /* UIImage+fixOrientation.h */,
+				2E532AA91EE69D4900C5D14D /* UIImage+fixOrientation.m */,
 				2EC203A71EDA51850030F23E /* TDString.h */,
 				2EC203A81EDA51850030F23E /* TDString.m */,
 				2E03B32D1EB96C170057A96C /* UITextView+Placeholder.h */,
@@ -1427,6 +1510,7 @@
 		2E3AC7E11EA9D4DD00A22E66 /* 3rd_Lib */ = {
 			isa = PBXGroup;
 			children = (
+				2E532A9E1EE69CB500C5D14D /* Hanvon */,
 				2E5329901EE00A3D00C5D14D /* alipay */,
 				2E53289F1EE0021500C5D14D /* libWeChatSDK.a */,
 				2E5328A01EE0021500C5D14D /* WechatAuthSDK.h */,
@@ -1718,6 +1802,67 @@
 			name = "我的公寓（租客）";
 			sourceTree = "<group>";
 		};
+		2E532A5A1EE68C9500C5D14D /* 我的宽带 */ = {
+			isa = PBXGroup;
+			children = (
+				2E532A5B1EE6972300C5D14D /* TDBroadbandViewController.h */,
+				2E532A5C1EE6972300C5D14D /* TDBroadbandViewController.m */,
+				2E532A5D1EE6972300C5D14D /* TDBroadbandViewController.xib */,
+				2E532A601EE6975C00C5D14D /* TDPricingPackageListViewController.h */,
+				2E532A611EE6975C00C5D14D /* TDPricingPackageListViewController.m */,
+				2E532A621EE6975C00C5D14D /* TDPricingPackageListViewController.xib */,
+				2E532A6D1EE6983300C5D14D /* TDPricingPackageListTableViewCell.h */,
+				2E532A6E1EE6983300C5D14D /* TDPricingPackageListTableViewCell.m */,
+				2E532A6F1EE6983300C5D14D /* TDPricingPackageListTableViewCell.xib */,
+				2E532A721EE6984700C5D14D /* TDPricingPackageInfoViewController.h */,
+				2E532A731EE6984700C5D14D /* TDPricingPackageInfoViewController.m */,
+				2E532A741EE6984700C5D14D /* TDPricingPackageInfoViewController.xib */,
+				2E532A651EE697BC00C5D14D /* TDOrderHistoryListViewController.h */,
+				2E532A661EE697BC00C5D14D /* TDOrderHistoryListViewController.m */,
+				2E532A671EE697BC00C5D14D /* TDOrderHistoryListViewController.xib */,
+				2E532A771EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.h */,
+				2E532A781EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.m */,
+				2E532A791EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.xib */,
+				2E532A7C1EE698A800C5D14D /* TDOrderHistoryInfoViewController.h */,
+				2E532A7D1EE698A800C5D14D /* TDOrderHistoryInfoViewController.m */,
+				2E532A7E1EE698A800C5D14D /* TDOrderHistoryInfoViewController.xib */,
+				2E532A931EE69B8B00C5D14D /* TDOrderInfoViewController.h */,
+				2E532A941EE69B8B00C5D14D /* TDOrderInfoViewController.m */,
+				2E532A951EE69B8B00C5D14D /* TDOrderInfoViewController.xib */,
+				2E532A811EE698CE00C5D14D /* TDPerfectOrderViewController.h */,
+				2E532A821EE698CE00C5D14D /* TDPerfectOrderViewController.m */,
+				2E532A831EE698CE00C5D14D /* TDPerfectOrderViewController.xib */,
+				2E532A861EE698FD00C5D14D /* TDConfirmOrderViewController.h */,
+				2E532A871EE698FD00C5D14D /* TDConfirmOrderViewController.m */,
+				2E532A881EE698FD00C5D14D /* TDConfirmOrderViewController.xib */,
+				2E532A6A1EE6980200C5D14D /* TDWebBrowserViewController.h */,
+				2E532A6B1EE6980200C5D14D /* TDWebBrowserViewController.m */,
+				2E532A8B1EE69B3100C5D14D /* TDOperationTipsViewController.h */,
+				2E532A8C1EE69B3100C5D14D /* TDOperationTipsViewController.m */,
+				2E532A8D1EE69B3100C5D14D /* TDOperationTipsViewController.xib */,
+				2E532A901EE69B5600C5D14D /* AuthtionFirstController.h */,
+				2E532A911EE69B5600C5D14D /* AuthtionFirstController.m */,
+				2E532A9B1EE69C5B00C5D14D /* AuthtionSeconController.h */,
+				2E532A9C1EE69C5B00C5D14D /* AuthtionSeconController.m */,
+				2E532A981EE69BAD00C5D14D /* AuthtionResultController.h */,
+				2E532A991EE69BAD00C5D14D /* AuthtionResultController.m */,
+				2E532AA21EE69CE000C5D14D /* ForNavigationController.h */,
+				2E532AA31EE69CE000C5D14D /* ForNavigationController.m */,
+				2E532AA51EE69D0C00C5D14D /* AuthtionSureController.h */,
+				2E532AA61EE69D0C00C5D14D /* AuthtionSureController.m */,
+			);
+			name = "我的宽带";
+			sourceTree = "<group>";
+		};
+		2E532A9E1EE69CB500C5D14D /* Hanvon */ = {
+			isa = PBXGroup;
+			children = (
+				2E532A9F1EE69CC000C5D14D /* hanvoncloud_sdk_v1.0.a */,
+				2E532AA01EE69CC000C5D14D /* HWCloudsdk.h */,
+			);
+			name = Hanvon;
+			sourceTree = "<group>";
+		};
 		2EC203AA1EDA60350030F23E /* 公寓抄表 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1907,8 +2052,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E532A8A1EE698FD00C5D14D /* TDConfirmOrderViewController.xib in Resources */,
 				2E02173E1EB30DB000C91F87 /* SignRoom.storyboard in Resources */,
+				2E532A851EE698CE00C5D14D /* TDPerfectOrderViewController.xib in Resources */,
 				2E3AC9341EAEED0000A22E66 /* UserHome.storyboard in Resources */,
+				2E532A761EE6984700C5D14D /* TDPricingPackageInfoViewController.xib in Resources */,
 				2E09B2DA1EC5B1810078E714 /* EntryRecord.storyboard in Resources */,
 				2E03B34A1EB9BEBF0057A96C /* area.plist in Resources */,
 				2E0217191EB2EDD100C91F87 /* message.storyboard in Resources */,
@@ -1916,13 +2064,17 @@
 				2E53291D1EE002DD00C5D14D /* Charges.storyboard in Resources */,
 				2E09B3161EC9A74B0078E714 /* ApartmentBill.storyboard in Resources */,
 				2E3AC8501EAB2C9700A22E66 /* Login.storyboard in Resources */,
+				2E532A801EE698A800C5D14D /* TDOrderHistoryInfoViewController.xib in Resources */,
+				2E532A7B1EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.xib in Resources */,
 				2E532A3A1EE631E800C5D14D /* SelectDoorCardCell.xib in Resources */,
 				2E2BDEBD1EBD538800D8FB92 /* AccessControl.storyboard in Resources */,
 				2E09B3171EC9A74B0078E714 /* BillSelectView.xib in Resources */,
 				2E09B3361ECBD5230078E714 /* SearchRoom.storyboard in Resources */,
 				2EC203C71EDA69F10030F23E /* CheckRead.storyboard in Resources */,
+				2E532A5F1EE6972300C5D14D /* TDBroadbandViewController.xib in Resources */,
 				2E3AC7B61EA9AB9100A22E66 /* Assets.xcassets in Resources */,
 				2EC203DB1EDAA0B40030F23E /* AccountView.xib in Resources */,
+				2E532A641EE6975C00C5D14D /* TDPricingPackageListViewController.xib in Resources */,
 				2E03B31A1EB962400057A96C /* SAhouseCell.xib in Resources */,
 				2E09B3371ECBD5230078E714 /* CellXib.xib in Resources */,
 				2E03B2FA1EB961C80057A96C /* SAapartementCell.xib in Resources */,
@@ -1931,6 +2083,9 @@
 				2E03B3201EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib in Resources */,
 				2E03B3751EBAF5810057A96C /* AccessXib.xib in Resources */,
 				2E3AC7B11EA9AB9100A22E66 /* Main.storyboard in Resources */,
+				2E532A971EE69B8B00C5D14D /* TDOrderInfoViewController.xib in Resources */,
+				2E532A8F1EE69B3100C5D14D /* TDOperationTipsViewController.xib in Resources */,
+				2E532A711EE6983300C5D14D /* TDPricingPackageListTableViewCell.xib in Resources */,
 				2E03B31C1EB962400057A96C /* SAhouseDecripitionCell.xib in Resources */,
 				2E532A1A1EE2AE6000C5D14D /* charges.xib in Resources */,
 				2E03B3221EB962400057A96C /* SAhouseView.xib in Resources */,
@@ -1941,6 +2096,7 @@
 				2E0217181EB2EDD100C91F87 /* Agency.storyboard in Resources */,
 				2EC203DA1EDAA0B40030F23E /* AccountBook.storyboard in Resources */,
 				2E03B2F81EB961C80057A96C /* SAapartementAddCell.xib in Resources */,
+				2E532A691EE697BC00C5D14D /* TDOrderHistoryListViewController.xib in Resources */,
 				2E03B31E1EB962400057A96C /* SAshowhouseCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2028,12 +2184,14 @@
 				2E09B2DF1EC95AC60078E714 /* EntryRecord.m in Sources */,
 				2E09B3331ECBD5230078E714 /* NeedRentRoomController.m in Sources */,
 				2E532A361EE631E800C5D14D /* TDBindingICCardPromptViewController.m in Sources */,
+				2E532A7F1EE698A800C5D14D /* TDOrderHistoryInfoViewController.m in Sources */,
 				2E532A331EE631E800C5D14D /* TDMyICCardViewController.m in Sources */,
 				2E03B3071EB961DD0057A96C /* SAcreathouseFinishVC.m in Sources */,
 				2E3AC90C1EADCFC000A22E66 /* TDTabViewController.m in Sources */,
 				2E3AC9481EAEEFC200A22E66 /* ContractListController.m in Sources */,
 				2E03B34B1EB9BEBF0057A96C /* STPickerArea.m in Sources */,
 				2EC203A91EDA51850030F23E /* TDString.m in Sources */,
+				2E532AA71EE69D0C00C5D14D /* AuthtionSureController.m in Sources */,
 				2E09B3081EC9A74B0078E714 /* BillSelectView.m in Sources */,
 				2E09B30F1EC9A74B0078E714 /* ApartmentBillController.m in Sources */,
 				2E53289A1EE0019100C5D14D /* RenterBillCell.m in Sources */,
@@ -2045,6 +2203,7 @@
 				2E3AC7FC1EAA012F00A22E66 /* NewFeatureViewController.m in Sources */,
 				2E09B3091EC9A74B0078E714 /* MonthCell.m in Sources */,
 				2E09B33B1ECBD62A0078E714 /* TTRangeSlider.m in Sources */,
+				2E532A961EE69B8B00C5D14D /* TDOrderInfoViewController.m in Sources */,
 				2E03B3701EBAF5730057A96C /* AccessCloseView.m in Sources */,
 				2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */,
 				2E532A3B1EE631E800C5D14D /* SelectedACView.m in Sources */,
@@ -2068,6 +2227,7 @@
 				2E53291B1EE002A600C5D14D /* renterPayResultController.m in Sources */,
 				2E3AC87E1EAB33EA00A22E66 /* Alert.m in Sources */,
 				2E2BDEBC1EBD538800D8FB92 /* ACCheckIDCardController.m in Sources */,
+				2E532A841EE698CE00C5D14D /* TDPerfectOrderViewController.m in Sources */,
 				2E03B31B1EB962400057A96C /* SAhouseDecripitionCell.m in Sources */,
 				2E03B35C1EBADEE70057A96C /* AccessListController.m in Sources */,
 				2E532A571EE6595C00C5D14D /* renterPayController.m in Sources */,
@@ -2118,13 +2278,16 @@
 				2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */,
 				2EC203C41EDA69F10030F23E /* HouseHistoryController.m in Sources */,
 				2E3AC95C1EAF35D000A22E66 /* User.m in Sources */,
+				2E532A6C1EE6980200C5D14D /* TDWebBrowserViewController.m in Sources */,
 				2E03B2F01EB960AA0057A96C /* SAeditApartmentTableViewController.m in Sources */,
+				2E532AAA1EE69D4900C5D14D /* UIImage+fixOrientation.m in Sources */,
 				2E02170B1EB2EDA300C91F87 /* apartmentCell.m in Sources */,
 				2E0217371EB30D9700C91F87 /* SignRoomOKController.m in Sources */,
 				2E09B3321ECBD5230078E714 /* RentRoomModel.m in Sources */,
 				2E03B3061EB961DD0057A96C /* SAcreatemoreHouseVC.m in Sources */,
 				2E03B36E1EBAF5730057A96C /* RecordCell.m in Sources */,
 				2E02173C1EB30D9700C91F87 /* CheckIDCardController.m in Sources */,
+				2E532A9D1EE69C5B00C5D14D /* AuthtionSeconController.m in Sources */,
 				2E3AC94D1EAEF22300A22E66 /* BBImagebaseTableVC.m in Sources */,
 				2E09B3151EC9A74B0078E714 /* RoomDianDetailController.m in Sources */,
 				2E03B3391EB9B1B40057A96C /* NoPayOrder.m in Sources */,
@@ -2142,6 +2305,7 @@
 				2E09B3141EC9A74B0078E714 /* RoomWaitEditController.m in Sources */,
 				2E532A001EE00A3D00C5D14D /* RSADataSigner.m in Sources */,
 				2E2BDEBB1EBD538800D8FB92 /* AccessBtn.m in Sources */,
+				2E532A631EE6975C00C5D14D /* TDPricingPackageListViewController.m in Sources */,
 				2E0217061EB2EDA300C91F87 /* AgencyTabbarController.m in Sources */,
 				2E02176E1EB3347400C91F87 /* CommunityRelation.m in Sources */,
 				2E3AC86B1EAB30C800A22E66 /* UserData+CoreDataProperties.m in Sources */,
@@ -2151,6 +2315,7 @@
 				2E2BDEBA1EBD538800D8FB92 /* AccessManagerController.m in Sources */,
 				2E03B3331EB9733A0057A96C /* Geography.m in Sources */,
 				2E03B3361EB9ADAC0057A96C /* BillOrder.m in Sources */,
+				2E532AA41EE69CE000C5D14D /* ForNavigationController.m in Sources */,
 				2E3AC9591EAF33DF00A22E66 /* MasterInfo.m in Sources */,
 				2E3AC9491EAEEFC200A22E66 /* MasterMyBankController.m in Sources */,
 				2E09B33E1ECBDC2A0078E714 /* CommunityTag.m in Sources */,
@@ -2159,6 +2324,7 @@
 				2E03B2EF1EB960AA0057A96C /* SAapartmentViewController.m in Sources */,
 				2E02176B1EB3313500C91F87 /* Community.m in Sources */,
 				2E03B3251EB962570057A96C /* SAcreditCardCheckVC.m in Sources */,
+				2E532A5E1EE6972300C5D14D /* TDBroadbandViewController.m in Sources */,
 				2E2BDEB01EBD4B1C00D8FB92 /* EntrySelectRoomView.m in Sources */,
 				2E0217091EB2EDA300C91F87 /* AgencyHomeController.m in Sources */,
 				2E09B2D51EC5B1810078E714 /* EntryRecordController.m in Sources */,
@@ -2174,9 +2340,12 @@
 				2E09B2D91EC5B1810078E714 /* SearchTypeView.m in Sources */,
 				2E0216E21EB0A04300C91F87 /* NSString+TDChangeTimestamp.m in Sources */,
 				2E3AC85F1EAB300900A22E66 /* GetKeyCodeController.m in Sources */,
+				2E532A8E1EE69B3100C5D14D /* TDOperationTipsViewController.m in Sources */,
 				2E0217411EB30DEA00C91F87 /* RoomStatusCell.m in Sources */,
 				2E0216E81EB0AA8E00C91F87 /* UnlockData+CoreDataProperties.m in Sources */,
+				2E532A921EE69B5600C5D14D /* AuthtionFirstController.m in Sources */,
 				2E3AC94A1EAEEFC200A22E66 /* WebBookController.m in Sources */,
+				2E532A701EE6983300C5D14D /* TDPricingPackageListTableViewCell.m in Sources */,
 				2E3AC96E1EAF415A00A22E66 /* FBTimeData.m in Sources */,
 				2E03B2EE1EB960AA0057A96C /* SAaddApartmentTableviewController.m in Sources */,
 				2E3AC9711EAF415A00A22E66 /* FBBLETransfer.m in Sources */,
@@ -2186,6 +2355,7 @@
 				2E0217081EB2EDA300C91F87 /* AgencyPersonController.m in Sources */,
 				2E03B3821EBAF7A00057A96C /* GBTagListView2.m in Sources */,
 				2EC203D91EDAA0B40030F23E /* AllAccountController.m in Sources */,
+				2E532A891EE698FD00C5D14D /* TDConfirmOrderViewController.m in Sources */,
 				2E09B30D1EC9A74B0078E714 /* SurplusMoneyCell.m in Sources */,
 				2E3AC9731EAF415A00A22E66 /* TDBLEUnlockDataMode.m in Sources */,
 				2E03B2F71EB961C80057A96C /* SAapartementAddCell.m in Sources */,
@@ -2203,12 +2373,15 @@
 				2E5329FA1EE00A3D00C5D14D /* base64.m in Sources */,
 				2E0217561EB30DF700C91F87 /* IDCardCell.m in Sources */,
 				2E09B3121EC9A74B0078E714 /* RoomBillController.m in Sources */,
+				2E532A7A1EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.m in Sources */,
+				2E532A681EE697BC00C5D14D /* TDOrderHistoryListViewController.m in Sources */,
 				2E3AC86A1EAB30C800A22E66 /* UserData+CoreDataClass.m in Sources */,
 				2E5329F91EE00A3D00C5D14D /* Order.m in Sources */,
 				2E0217711EB334EE00C91F87 /* Rent.m in Sources */,
 				2E3AC9721EAF415A00A22E66 /* TDBLENodeTool.m in Sources */,
 				2E09B30C1EC9A74B0078E714 /* EditMoneyCell.m in Sources */,
 				2E3AC85E1EAB300900A22E66 /* FindKeyOneController.m in Sources */,
+				2E532A751EE6984700C5D14D /* TDPricingPackageInfoViewController.m in Sources */,
 				2E03B36D1EBAF5730057A96C /* AccessCell.m in Sources */,
 				2E03B2F91EB961C80057A96C /* SAapartementCell.m in Sources */,
 				2EC203C01EDA69F10030F23E /* HouseHistoryCell.m in Sources */,
@@ -2217,6 +2390,7 @@
 				2E03B3811EBAF7A00057A96C /* GBTagListView.m in Sources */,
 				2E532A391EE631E800C5D14D /* SelectDoorCardCell.m in Sources */,
 				2E09B3351ECBD5230078E714 /* CheckImageController.m in Sources */,
+				2E532A9A1EE69BAD00C5D14D /* AuthtionResultController.m in Sources */,
 				2E09B30B1EC9A74B0078E714 /* CashPayCell.m in Sources */,
 				2E5329FB1EE00A3D00C5D14D /* DataSigner.m in Sources */,
 				2E09B30E1EC9A74B0078E714 /* CashPayRecordCell.m in Sources */,
