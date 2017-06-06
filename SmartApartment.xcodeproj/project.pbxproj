@@ -269,6 +269,10 @@
 		2E532AA41EE69CE000C5D14D /* ForNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AA31EE69CE000C5D14D /* ForNavigationController.m */; };
 		2E532AA71EE69D0C00C5D14D /* AuthtionSureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AA61EE69D0C00C5D14D /* AuthtionSureController.m */; };
 		2E532AAA1EE69D4900C5D14D /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AA91EE69D4900C5D14D /* UIImage+fixOrientation.m */; };
+		2E532AAE1EE6A7EC00C5D14D /* TDOrderFinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AAC1EE6A7EC00C5D14D /* TDOrderFinishedViewController.m */; };
+		2E532AAF1EE6A7EC00C5D14D /* TDOrderFinishedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532AAD1EE6A7EC00C5D14D /* TDOrderFinishedViewController.xib */; };
+		2E532AB31EE6A81400C5D14D /* TDSavePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AB11EE6A81400C5D14D /* TDSavePasswordViewController.m */; };
+		2E532AB41EE6A81400C5D14D /* TDSavePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532AB21EE6A81400C5D14D /* TDSavePasswordViewController.xib */; };
 		2EC203A91EDA51850030F23E /* TDString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203A81EDA51850030F23E /* TDString.m */; };
 		2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AC1EDA69F10030F23E /* CheckCommunityCell.m */; };
 		2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AE1EDA69F10030F23E /* CheckHouseCell.m */; };
@@ -872,6 +876,12 @@
 		2E532AA61EE69D0C00C5D14D /* AuthtionSureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthtionSureController.m; sourceTree = "<group>"; };
 		2E532AA81EE69D4900C5D14D /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
 		2E532AA91EE69D4900C5D14D /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
+		2E532AAB1EE6A7EC00C5D14D /* TDOrderFinishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDOrderFinishedViewController.h; sourceTree = "<group>"; };
+		2E532AAC1EE6A7EC00C5D14D /* TDOrderFinishedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDOrderFinishedViewController.m; sourceTree = "<group>"; };
+		2E532AAD1EE6A7EC00C5D14D /* TDOrderFinishedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDOrderFinishedViewController.xib; sourceTree = "<group>"; };
+		2E532AB01EE6A81400C5D14D /* TDSavePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSavePasswordViewController.h; sourceTree = "<group>"; };
+		2E532AB11EE6A81400C5D14D /* TDSavePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSavePasswordViewController.m; sourceTree = "<group>"; };
+		2E532AB21EE6A81400C5D14D /* TDSavePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDSavePasswordViewController.xib; sourceTree = "<group>"; };
 		2EC203A71EDA51850030F23E /* TDString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDString.h; sourceTree = "<group>"; };
 		2EC203A81EDA51850030F23E /* TDString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDString.m; sourceTree = "<group>"; };
 		2EC203AB1EDA69F10030F23E /* CheckCommunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckCommunityCell.h; sourceTree = "<group>"; };
@@ -1829,6 +1839,12 @@
 				2E532A931EE69B8B00C5D14D /* TDOrderInfoViewController.h */,
 				2E532A941EE69B8B00C5D14D /* TDOrderInfoViewController.m */,
 				2E532A951EE69B8B00C5D14D /* TDOrderInfoViewController.xib */,
+				2E532AAB1EE6A7EC00C5D14D /* TDOrderFinishedViewController.h */,
+				2E532AAC1EE6A7EC00C5D14D /* TDOrderFinishedViewController.m */,
+				2E532AAD1EE6A7EC00C5D14D /* TDOrderFinishedViewController.xib */,
+				2E532AB01EE6A81400C5D14D /* TDSavePasswordViewController.h */,
+				2E532AB11EE6A81400C5D14D /* TDSavePasswordViewController.m */,
+				2E532AB21EE6A81400C5D14D /* TDSavePasswordViewController.xib */,
 				2E532A811EE698CE00C5D14D /* TDPerfectOrderViewController.h */,
 				2E532A821EE698CE00C5D14D /* TDPerfectOrderViewController.m */,
 				2E532A831EE698CE00C5D14D /* TDPerfectOrderViewController.xib */,
@@ -2072,6 +2088,7 @@
 				2E09B3361ECBD5230078E714 /* SearchRoom.storyboard in Resources */,
 				2EC203C71EDA69F10030F23E /* CheckRead.storyboard in Resources */,
 				2E532A5F1EE6972300C5D14D /* TDBroadbandViewController.xib in Resources */,
+				2E532AB41EE6A81400C5D14D /* TDSavePasswordViewController.xib in Resources */,
 				2E3AC7B61EA9AB9100A22E66 /* Assets.xcassets in Resources */,
 				2EC203DB1EDAA0B40030F23E /* AccountView.xib in Resources */,
 				2E532A641EE6975C00C5D14D /* TDPricingPackageListViewController.xib in Resources */,
@@ -2083,6 +2100,7 @@
 				2E03B3201EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib in Resources */,
 				2E03B3751EBAF5810057A96C /* AccessXib.xib in Resources */,
 				2E3AC7B11EA9AB9100A22E66 /* Main.storyboard in Resources */,
+				2E532AAF1EE6A7EC00C5D14D /* TDOrderFinishedViewController.xib in Resources */,
 				2E532A971EE69B8B00C5D14D /* TDOrderInfoViewController.xib in Resources */,
 				2E532A8F1EE69B3100C5D14D /* TDOperationTipsViewController.xib in Resources */,
 				2E532A711EE6983300C5D14D /* TDPricingPackageListTableViewCell.xib in Resources */,
@@ -2180,6 +2198,7 @@
 				2E0217141EB2EDC400C91F87 /* TemRoomCell.m in Sources */,
 				2E532A321EE631E800C5D14D /* TDMyDoorCardListTableViewCell.m in Sources */,
 				2E02171C1EB2F11200C91F87 /* TimeDate.m in Sources */,
+				2E532AAE1EE6A7EC00C5D14D /* TDOrderFinishedViewController.m in Sources */,
 				2E3AC9501EAF18E400A22E66 /* UserPersonController.m in Sources */,
 				2E09B2DF1EC95AC60078E714 /* EntryRecord.m in Sources */,
 				2E09B3331ECBD5230078E714 /* NeedRentRoomController.m in Sources */,
@@ -2315,6 +2334,7 @@
 				2E2BDEBA1EBD538800D8FB92 /* AccessManagerController.m in Sources */,
 				2E03B3331EB9733A0057A96C /* Geography.m in Sources */,
 				2E03B3361EB9ADAC0057A96C /* BillOrder.m in Sources */,
+				2E532AB31EE6A81400C5D14D /* TDSavePasswordViewController.m in Sources */,
 				2E532AA41EE69CE000C5D14D /* ForNavigationController.m in Sources */,
 				2E3AC9591EAF33DF00A22E66 /* MasterInfo.m in Sources */,
 				2E3AC9491EAEEFC200A22E66 /* MasterMyBankController.m in Sources */,

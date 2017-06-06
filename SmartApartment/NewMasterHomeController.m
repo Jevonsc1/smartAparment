@@ -45,9 +45,9 @@
 #import "ApartmentBillController.h"
 
 #import "TDBroadbandViewController.h"
-//#import "TDOrderInfoViewController.h"
-//#import "TDOrderFinishedViewController.h"
-//#import "TDPricingPackageListViewController.h"
+#import "TDOrderInfoViewController.h"
+#import "TDOrderFinishedViewController.h"
+#import "TDPricingPackageListViewController.h"
 #import "TDMyDoorCardListViewController.h"
 
 #import "Community.h"
@@ -310,16 +310,19 @@
             
             if ([result count] > 0) {
                 if ([result intForKey:@"orderState"] == 20) {
-//                    TDOrderFinishedViewController *controller = [[TDOrderFinishedViewController alloc] init];
-//                    controller.dictionary = result;
-//                    [self.navigationController pushViewController:controller animated:YES];
+                    TDOrderFinishedViewController *controller = [[TDOrderFinishedViewController alloc] init];
+                    controller.dictionary = result;
+                    controller.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:controller animated:YES];
                 }else if ([result intForKey:@"orderState"] == 0 || [result intForKey:@"orderState"] == 10) {
-//                    TDOrderInfoViewController *controller = [[TDOrderInfoViewController alloc] init];
-//                    controller.dictionary = result;
-//                    [self.navigationController pushViewController:controller animated:YES];
+                    TDOrderInfoViewController *controller = [[TDOrderInfoViewController alloc] init];
+                    controller.dictionary = result;
+                    controller.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:controller animated:YES];
                 }else {
-//                    TDPricingPackageListViewController *controller = [[TDPricingPackageListViewController alloc] init];
-//                    [self.navigationController pushViewController:controller animated:YES];
+                    TDPricingPackageListViewController *controller = [[TDPricingPackageListViewController alloc] init];
+                    controller.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:controller animated:YES];
                 }
             }else {
                 TDBroadbandViewController *controller = [[TDBroadbandViewController alloc] init];
