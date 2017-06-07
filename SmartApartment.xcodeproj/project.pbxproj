@@ -273,6 +273,14 @@
 		2E532AAF1EE6A7EC00C5D14D /* TDOrderFinishedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532AAD1EE6A7EC00C5D14D /* TDOrderFinishedViewController.xib */; };
 		2E532AB31EE6A81400C5D14D /* TDSavePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AB11EE6A81400C5D14D /* TDSavePasswordViewController.m */; };
 		2E532AB41EE6A81400C5D14D /* TDSavePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E532AB21EE6A81400C5D14D /* TDSavePasswordViewController.xib */; };
+		2E532AB81EE78FD800C5D14D /* SettingListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AB71EE78FD800C5D14D /* SettingListController.m */; };
+		2E532ABA1EE7974900C5D14D /* PsCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E532AB91EE7974900C5D14D /* PsCenter.storyboard */; };
+		2E532AC31EE79B2F00C5D14D /* ChangeKeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532ABC1EE79B2F00C5D14D /* ChangeKeyController.m */; };
+		2E532AC41EE79B2F00C5D14D /* UserContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532ABE1EE79B2F00C5D14D /* UserContentController.m */; };
+		2E532AC51EE79B2F00C5D14D /* VersionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AC01EE79B2F00C5D14D /* VersionController.m */; };
+		2E532AC61EE79B2F00C5D14D /* HelpCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AC21EE79B2F00C5D14D /* HelpCenterController.m */; };
+		2E532AC91EE7A22400C5D14D /* SelectIDMsgController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AC81EE7A22400C5D14D /* SelectIDMsgController.m */; };
+		2E532ACB1EE7A27B00C5D14D /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E532ACA1EE7A27B00C5D14D /* Authentication.storyboard */; };
 		2EC203A91EDA51850030F23E /* TDString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203A81EDA51850030F23E /* TDString.m */; };
 		2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AC1EDA69F10030F23E /* CheckCommunityCell.m */; };
 		2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AE1EDA69F10030F23E /* CheckHouseCell.m */; };
@@ -882,6 +890,20 @@
 		2E532AB01EE6A81400C5D14D /* TDSavePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSavePasswordViewController.h; sourceTree = "<group>"; };
 		2E532AB11EE6A81400C5D14D /* TDSavePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSavePasswordViewController.m; sourceTree = "<group>"; };
 		2E532AB21EE6A81400C5D14D /* TDSavePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDSavePasswordViewController.xib; sourceTree = "<group>"; };
+		2E532AB61EE78FD800C5D14D /* SettingListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingListController.h; sourceTree = "<group>"; };
+		2E532AB71EE78FD800C5D14D /* SettingListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingListController.m; sourceTree = "<group>"; };
+		2E532AB91EE7974900C5D14D /* PsCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PsCenter.storyboard; sourceTree = "<group>"; };
+		2E532ABB1EE79B2F00C5D14D /* ChangeKeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeKeyController.h; sourceTree = "<group>"; };
+		2E532ABC1EE79B2F00C5D14D /* ChangeKeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeKeyController.m; sourceTree = "<group>"; };
+		2E532ABD1EE79B2F00C5D14D /* UserContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserContentController.h; sourceTree = "<group>"; };
+		2E532ABE1EE79B2F00C5D14D /* UserContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserContentController.m; sourceTree = "<group>"; };
+		2E532ABF1EE79B2F00C5D14D /* VersionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionController.h; sourceTree = "<group>"; };
+		2E532AC01EE79B2F00C5D14D /* VersionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionController.m; sourceTree = "<group>"; };
+		2E532AC11EE79B2F00C5D14D /* HelpCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCenterController.h; sourceTree = "<group>"; };
+		2E532AC21EE79B2F00C5D14D /* HelpCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpCenterController.m; sourceTree = "<group>"; };
+		2E532AC71EE7A22400C5D14D /* SelectIDMsgController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectIDMsgController.h; sourceTree = "<group>"; };
+		2E532AC81EE7A22400C5D14D /* SelectIDMsgController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectIDMsgController.m; sourceTree = "<group>"; };
+		2E532ACA1EE7A27B00C5D14D /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		2EC203A71EDA51850030F23E /* TDString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDString.h; sourceTree = "<group>"; };
 		2EC203A81EDA51850030F23E /* TDString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDString.m; sourceTree = "<group>"; };
 		2EC203AB1EDA69F10030F23E /* CheckCommunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckCommunityCell.h; sourceTree = "<group>"; };
@@ -1373,6 +1395,7 @@
 		2E3AC7A51EA9AB9100A22E66 /* SmartApartment */ = {
 			isa = PBXGroup;
 			children = (
+				2E532AB51EE78FC000C5D14D /* 更多设置 */,
 				2E532A5A1EE68C9500C5D14D /* 我的宽带 */,
 				2E532A3C1EE6566F00C5D14D /* 我的公寓（租客） */,
 				2E532A1B1EE631BE00C5D14D /* 我的门卡 */,
@@ -1575,6 +1598,9 @@
 				2E3AC85B1EAB300900A22E66 /* ForgetPwdController.m */,
 				2E3AC85C1EAB300900A22E66 /* ResetKeyController.h */,
 				2E3AC85D1EAB300900A22E66 /* ResetKeyController.m */,
+				2E532AC71EE7A22400C5D14D /* SelectIDMsgController.h */,
+				2E532AC81EE7A22400C5D14D /* SelectIDMsgController.m */,
+				2E532ACA1EE7A27B00C5D14D /* Authentication.storyboard */,
 			);
 			name = "Login&Regist";
 			sourceTree = "<group>";
@@ -1609,12 +1635,12 @@
 		2E3AC9381EAEEF9700A22E66 /* Person */ = {
 			isa = PBXGroup;
 			children = (
+				2E3AC93B1EAEEFC200A22E66 /* SelectPersonController.h */,
+				2E3AC93C1EAEEFC200A22E66 /* SelectPersonController.m */,
 				2E3AC94B1EAEF22300A22E66 /* BBImagebaseTableVC.h */,
 				2E3AC94C1EAEF22300A22E66 /* BBImagebaseTableVC.m */,
 				2E3AC9391EAEEFC200A22E66 /* MasterPersonController.h */,
 				2E3AC93A1EAEEFC200A22E66 /* MasterPersonController.m */,
-				2E3AC93B1EAEEFC200A22E66 /* SelectPersonController.h */,
-				2E3AC93C1EAEEFC200A22E66 /* SelectPersonController.m */,
 				2E3AC94E1EAF18E400A22E66 /* UserPersonController.h */,
 				2E3AC94F1EAF18E400A22E66 /* UserPersonController.m */,
 				2E3AC93D1EAEEFC200A22E66 /* MasterContractController.h */,
@@ -1879,6 +1905,24 @@
 			name = Hanvon;
 			sourceTree = "<group>";
 		};
+		2E532AB51EE78FC000C5D14D /* 更多设置 */ = {
+			isa = PBXGroup;
+			children = (
+				2E532AB61EE78FD800C5D14D /* SettingListController.h */,
+				2E532AB71EE78FD800C5D14D /* SettingListController.m */,
+				2E532ABB1EE79B2F00C5D14D /* ChangeKeyController.h */,
+				2E532ABC1EE79B2F00C5D14D /* ChangeKeyController.m */,
+				2E532ABD1EE79B2F00C5D14D /* UserContentController.h */,
+				2E532ABE1EE79B2F00C5D14D /* UserContentController.m */,
+				2E532ABF1EE79B2F00C5D14D /* VersionController.h */,
+				2E532AC01EE79B2F00C5D14D /* VersionController.m */,
+				2E532AC11EE79B2F00C5D14D /* HelpCenterController.h */,
+				2E532AC21EE79B2F00C5D14D /* HelpCenterController.m */,
+				2E532AB91EE7974900C5D14D /* PsCenter.storyboard */,
+			);
+			name = "更多设置";
+			sourceTree = "<group>";
+		};
 		2EC203AA1EDA60350030F23E /* 公寓抄表 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2096,11 +2140,13 @@
 				2E09B3371ECBD5230078E714 /* CellXib.xib in Resources */,
 				2E03B2FA1EB961C80057A96C /* SAapartementCell.xib in Resources */,
 				2E03B32C1EB9629A0057A96C /* rentHouse.storyboard in Resources */,
+				2E532ABA1EE7974900C5D14D /* PsCenter.storyboard in Resources */,
 				2E09B2DB1EC5B1810078E714 /* SearchTypeView.xib in Resources */,
 				2E03B3201EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib in Resources */,
 				2E03B3751EBAF5810057A96C /* AccessXib.xib in Resources */,
 				2E3AC7B11EA9AB9100A22E66 /* Main.storyboard in Resources */,
 				2E532AAF1EE6A7EC00C5D14D /* TDOrderFinishedViewController.xib in Resources */,
+				2E532ACB1EE7A27B00C5D14D /* Authentication.storyboard in Resources */,
 				2E532A971EE69B8B00C5D14D /* TDOrderInfoViewController.xib in Resources */,
 				2E532A8F1EE69B3100C5D14D /* TDOperationTipsViewController.xib in Resources */,
 				2E532A711EE6983300C5D14D /* TDPricingPackageListTableViewCell.xib in Resources */,
@@ -2226,6 +2272,7 @@
 				2E03B3701EBAF5730057A96C /* AccessCloseView.m in Sources */,
 				2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */,
 				2E532A3B1EE631E800C5D14D /* SelectedACView.m in Sources */,
+				2E532AC91EE7A22400C5D14D /* SelectIDMsgController.m in Sources */,
 				2EC203D81EDAA0B40030F23E /* AccountRoomController.m in Sources */,
 				2E03B31D1EB962400057A96C /* SAshowhouseCollectionViewCell.m in Sources */,
 				2E532A311EE631E800C5D14D /* TDMyDoorCardListViewController.m in Sources */,
@@ -2255,6 +2302,7 @@
 				2E3AC8791EAB32D400A22E66 /* WebAPIForRenthouse.m in Sources */,
 				2E03B3081EB961DD0057A96C /* SAcreateOneHouseVC.m in Sources */,
 				2E03B3091EB961DD0057A96C /* SAcreathouseFinishEditViewController.m in Sources */,
+				2E532AB81EE78FD800C5D14D /* SettingListController.m in Sources */,
 				2EC203D71EDAA0B40030F23E /* AccountBookController.m in Sources */,
 				2E03B36F1EBAF5730057A96C /* OutInSelectTimeView.m in Sources */,
 				2E03B34C1EB9BEBF0057A96C /* STPickerViewConst.m in Sources */,
@@ -2292,6 +2340,7 @@
 				2E0217611EB31C8A00C91F87 /* HooDatePicker.m in Sources */,
 				2E3AC9461EAEEFC200A22E66 /* SelectPersonController.m in Sources */,
 				2E02173A1EB30D9700C91F87 /* AddRenterResultController.m in Sources */,
+				2E532AC61EE79B2F00C5D14D /* HelpCenterController.m in Sources */,
 				2E0217681EB32A7C00C91F87 /* House.m in Sources */,
 				2E53291A1EE002A600C5D14D /* payView.m in Sources */,
 				2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */,
@@ -2310,6 +2359,7 @@
 				2E3AC94D1EAEF22300A22E66 /* BBImagebaseTableVC.m in Sources */,
 				2E09B3151EC9A74B0078E714 /* RoomDianDetailController.m in Sources */,
 				2E03B3391EB9B1B40057A96C /* NoPayOrder.m in Sources */,
+				2E532AC31EE79B2F00C5D14D /* ChangeKeyController.m in Sources */,
 				2E09B3201ECACBBB0078E714 /* GlobalPass.m in Sources */,
 				2E02175B1EB31C3500C91F87 /* PopHome.m in Sources */,
 				2E03B36C1EBAF5730057A96C /* SearchAccessView.m in Sources */,
@@ -2402,6 +2452,7 @@
 				2E09B30C1EC9A74B0078E714 /* EditMoneyCell.m in Sources */,
 				2E3AC85E1EAB300900A22E66 /* FindKeyOneController.m in Sources */,
 				2E532A751EE6984700C5D14D /* TDPricingPackageInfoViewController.m in Sources */,
+				2E532AC51EE79B2F00C5D14D /* VersionController.m in Sources */,
 				2E03B36D1EBAF5730057A96C /* AccessCell.m in Sources */,
 				2E03B2F91EB961C80057A96C /* SAapartementCell.m in Sources */,
 				2EC203C01EDA69F10030F23E /* HouseHistoryCell.m in Sources */,
@@ -2413,6 +2464,7 @@
 				2E532A9A1EE69BAD00C5D14D /* AuthtionResultController.m in Sources */,
 				2E09B30B1EC9A74B0078E714 /* CashPayCell.m in Sources */,
 				2E5329FB1EE00A3D00C5D14D /* DataSigner.m in Sources */,
+				2E532AC41EE79B2F00C5D14D /* UserContentController.m in Sources */,
 				2E09B30E1EC9A74B0078E714 /* CashPayRecordCell.m in Sources */,
 				2E532A541EE6592E00C5D14D /* renterRoomController.m in Sources */,
 				2E03B2ED1EB960AA0057A96C /* BBImageuploadTool.m in Sources */,

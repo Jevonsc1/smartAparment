@@ -41,7 +41,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.userdata = [ModelTool find_UserData];
-    if ([self.userdata.key isEqualToString:@""] || !self.userdata.key) {
+    if ([self.userdata.key isEqualToString:@""] || !self.userdata.key || [self.userdata.memberType isEqualToString:@"notype"]) {
         UINavigationController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginNav"];
         [self presentViewController:vc animated:YES completion:nil];
     }

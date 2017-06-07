@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-
+#import "SelectIDMsgController.h"
 
 #import "RegFirstController.h"
 
@@ -405,11 +405,12 @@
     //没有选择屋主或者选择租客---第一次登录
     NSDictionary *boDic = [dic objectForKey:@"bo"];
     NSDictionary *renterDic = [dic objectForKey:@"renter"];
+    NSLog(@"33::33::%@---%@",boDic,renterDic);
     if (boDic==nil && renterDic==nil) {
-        //                    self.navigationController.navigationBar.hidden = YES;
-        //                    SelectIDMsgController *vc = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateViewControllerWithIdentifier:@"SelectIDMsg"];
-        //                    [self.navigationController pushViewController:vc animated:YES];
-        //                    return;
+        
+        SelectIDMsgController *vc = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateViewControllerWithIdentifier:@"SelectIDMsg"];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
     }
     
     //bb保存门口机ID

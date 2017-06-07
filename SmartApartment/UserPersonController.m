@@ -7,7 +7,7 @@
 //
 
 #import "UserPersonController.h"
-//#import "SettingListController.h"
+#import "SettingListController.h"
 //#import "MasterSelfController.h"
 //#import "SelectIDMsgController.h"
 //#import "MyRentRoomController.h"
@@ -16,10 +16,10 @@
 #import "JPUSHService.h"
 #import "AFNetworking.h"
 //#import "IDMsgUploadController.h"
-//#import "AuthtionFirstController.h"
+#import "AuthtionFirstController.h"
 //#import "MJExtension.h"
 //#import "TDOrderFinishedViewController.h"
-//#import "AuthtionResultController.h"
+#import "AuthtionResultController.h"
 #import "UIButton+WebCache.h"
 
 @interface UserPersonController ()
@@ -38,17 +38,13 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.tableFooterView = [UIView new];
-    self.tableView.tableFooterView.backgroundColor = [UIColor clearColor];
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickToTDOrder) name:@"gotoNetWork" object:nil];
     self.tableView.scrollEnabled = NO;
     
 }
 
--(void)viewDidDisappear:(BOOL)animated{
-  
-}
 //-(void)clickToTDOrder{
 //    TDOrderFinishedViewController *controller = [[TDOrderFinishedViewController alloc] init];
 //    controller.wayIn = @"network_noti";
@@ -169,49 +165,47 @@
 //        MyRentRoomController *myrentRoom = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"MyRentRoom"];
 //        [self.navigationController pushViewController:myrentRoom animated:YES];
 //    }
-   if(indexPath.row == 2 && (([userdata.memberType isEqualToString:@"renter"] && userdata.renterStatus.integerValue == 30)||([userdata.memberType isEqualToString:@"master"] && userdata.boStatus == 30))){
+   if(indexPath.row == 2 && userdata.renterStatus.integerValue == 30){
        self.tabBarController.tabBar.hidden = YES;
 //       MasterSelfController *vc = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterSelf"];
 //       vc.personType = @"renter";
 //       [self.navigationController pushViewController:vc animated:YES];
      
-    }else if (indexPath.row == 2 &&  (([userdata.memberType isEqualToString:@"renter"] && userdata.renterStatus.integerValue == 20)||([userdata.memberType isEqualToString:@"master"] && userdata.boStatus == 20))){
+    }else if (indexPath.row == 2 &&  userdata.renterStatus.integerValue == 20){
            self.tabBarController.tabBar.hidden = YES;
-//        AuthtionResultController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionResultController"];
-//         [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
-//        vc.resultType = 1;
-//        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row ==2 &&(([userdata.memberType isEqualToString:@"renter"] && userdata.renterStatus.integerValue == 10)||([userdata.memberType isEqualToString:@"master"] && userdata.boStatus == 10))){
-//           self.tabBarController.tabBar.hidden = YES;
-//        AuthtionResultController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionResultController"];
-//         [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
-//        vc.resultType = 3;
-//        [self.navigationController pushViewController:vc animated:YES];
+        AuthtionResultController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionResultController"];
+         [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
+        vc.resultType = 1;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row ==2 && userdata.renterStatus.integerValue == 10){
+        AuthtionResultController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionResultController"];
+         [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.resultType = 3;
+        [self.navigationController pushViewController:vc animated:YES];
     }else if(indexPath.row ==2 &&[userdata.memberType isEqualToString:@"notype"]){
-//          self.tabBarController.tabBar.hidden = YES;
 //        SelectIDMsgController *vc = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateViewControllerWithIdentifier:@"SelectIDMsg"];
 //        [self.navigationController pushViewController:vc animated:YES];
 
     }
-    else if(indexPath.row == 2 && [userdata.memberType isEqualToString:@"renter"]&&userdata.renterStatus.integerValue == 0)
+    else if(indexPath.row == 2 && userdata.renterStatus.integerValue == 0)
     {
-        
-//        self.tabBarController.tabBar.hidden = YES;
-//        AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
-//        vc.renterType = @"renter";
-//        [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
-//        [self.navigationController pushViewController:vc animated:YES];
+        AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
+        vc.renterType = @"renter";
+        vc.hidesBottomBarWhenPushed = YES;
+        [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     if (indexPath.row == 3) {
-//        self.tabBarController.tabBar.hidden = YES;
-//     
-//        SettingListController *vc = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"SettingList"];
-//        
-//        [self.navigationController pushViewController:vc animated:YES];
+     
+        SettingListController *vc = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"SettingList"];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (indexPath.row ==4){
        
-        UINavigationController *login = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginNav"];
+        UINavigationController *login = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginNav"];
 
         NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:userdata.key,@"key", nil];
      
@@ -227,7 +221,6 @@
                 [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
             }
             
-            self.tabBarController.tabBar.hidden = YES;
             [WebAPI loginOut:dic callback:^(NSError *err, id response) {
             }];
             [JPUSHService setAlias:@"" callbackSelector:nil object:self];

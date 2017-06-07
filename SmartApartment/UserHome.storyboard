@@ -2224,6 +2224,10 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="个人中心" id="oCQ-qC-SvD"/>
+                    <connections>
+                        <outlet property="master" destination="iwl-2M-438" id="wx5-Zh-yH0"/>
+                        <outlet property="renter" destination="KY6-ka-Oqc" id="AQB-6l-iB5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIN-gX-7n2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

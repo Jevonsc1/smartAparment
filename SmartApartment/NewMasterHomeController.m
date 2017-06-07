@@ -21,7 +21,6 @@
 //#import "CheckMessageController.h"
 //#import "DoorOpenController.h"
 //#import "SelectIDMsgController.h"
-
 //#import "MasterSelfController.h"
 //#import "MasterIDPassController.h"
 //#import "RenterIDPassController.h"
