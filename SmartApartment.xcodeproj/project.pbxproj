@@ -155,7 +155,6 @@
 		2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AD1EA9AB9100A22E66 /* ViewController.m */; };
 		2E3AC7B11EA9AB9100A22E66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E3AC7AF1EA9AB9100A22E66 /* Main.storyboard */; };
 		2E3AC7B61EA9AB9100A22E66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E3AC7B51EA9AB9100A22E66 /* Assets.xcassets */; };
-		2E3AC7B91EA9AB9100A22E66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E3AC7B71EA9AB9100A22E66 /* LaunchScreen.storyboard */; };
 		2E3AC7C41EA9AB9100A22E66 /* SmartApartmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7C31EA9AB9100A22E66 /* SmartApartmentTests.m */; };
 		2E3AC7CF1EA9AB9200A22E66 /* SmartApartmentUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3AC7CE1EA9AB9200A22E66 /* SmartApartmentUITests.m */; };
 		2E3AC7E31EA9D51100A22E66 /* jpush-ios-2.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3AC7E21EA9D51100A22E66 /* jpush-ios-2.2.0.a */; };
@@ -281,6 +280,7 @@
 		2E532AC61EE79B2F00C5D14D /* HelpCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AC21EE79B2F00C5D14D /* HelpCenterController.m */; };
 		2E532AC91EE7A22400C5D14D /* SelectIDMsgController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E532AC81EE7A22400C5D14D /* SelectIDMsgController.m */; };
 		2E532ACB1EE7A27B00C5D14D /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E532ACA1EE7A27B00C5D14D /* Authentication.storyboard */; };
+		2E9C0EE41EE93D9700E3A5E6 /* MasterSelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C0EE31EE93D9700E3A5E6 /* MasterSelfController.m */; };
 		2EC203A91EDA51850030F23E /* TDString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203A81EDA51850030F23E /* TDString.m */; };
 		2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AC1EDA69F10030F23E /* CheckCommunityCell.m */; };
 		2EC203BF1EDA69F10030F23E /* CheckHouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC203AE1EDA69F10030F23E /* CheckHouseCell.m */; };
@@ -301,6 +301,26 @@
 		2EC203DB1EDAA0B40030F23E /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EC203D41EDAA0B40030F23E /* AccountView.xib */; };
 		2EE58D081ED952AB000CC970 /* RentRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE58D071ED952AB000CC970 /* RentRoom.m */; };
 		2EE58D0B1ED9539A000CC970 /* CityNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE58D0A1ED9539A000CC970 /* CityNode.m */; };
+		2EEA8A041EEA86E900E4B242 /* IDAuthtion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEA8A031EEA86E900E4B242 /* IDAuthtion.storyboard */; };
+		2EEA8A081EEE67D200E4B242 /* MasterBankController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A071EEE67D200E4B242 /* MasterBankController.m */; };
+		2EEA8A0A1EEE67E300E4B242 /* moneyget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEA8A091EEE67E300E4B242 /* moneyget.storyboard */; };
+		2EEA8A0D1EEE67F600E4B242 /* MoneyRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A0C1EEE67F600E4B242 /* MoneyRecordCell.m */; };
+		2EEA8A121EEE681C00E4B242 /* SATakeoutMoneyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A0F1EEE681C00E4B242 /* SATakeoutMoneyVC.m */; };
+		2EEA8A131EEE681C00E4B242 /* SATakeoutFinish.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A111EEE681C00E4B242 /* SATakeoutFinish.m */; };
+		2EEA8A1E1EEE682C00E4B242 /* SAMastermoeny.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A151EEE682C00E4B242 /* SAMastermoeny.m */; };
+		2EEA8A1F1EEE682C00E4B242 /* SAUserdataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A171EEE682C00E4B242 /* SAUserdataModel.m */; };
+		2EEA8A201EEE682C00E4B242 /* SAUserboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A191EEE682C00E4B242 /* SAUserboModel.m */; };
+		2EEA8A211EEE682C00E4B242 /* SAUserbobankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A1B1EEE682C00E4B242 /* SAUserbobankModel.m */; };
+		2EEA8A221EEE682C00E4B242 /* SAMastermoneyNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A1D1EEE682C00E4B242 /* SAMastermoneyNew.m */; };
+		2EEA8A261EEE688A00E4B242 /* SAMastermoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A241EEE688A00E4B242 /* SAMastermoneyCell.m */; };
+		2EEA8A271EEE688A00E4B242 /* SAMastermoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEA8A251EEE688A00E4B242 /* SAMastermoneyCell.xib */; };
+		2EEA8A2B1EEE689B00E4B242 /* SAEmptyresultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A291EEE689B00E4B242 /* SAEmptyresultView.m */; };
+		2EEA8A2C1EEE689B00E4B242 /* SAEmptyresultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEA8A2A1EEE689B00E4B242 /* SAEmptyresultView.xib */; };
+		2EEA8A2E1EEE757200E4B242 /* HomeMaster.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEA8A2D1EEE757200E4B242 /* HomeMaster.storyboard */; };
+		2EEA8A341EEE794900E4B242 /* BankListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A311EEE794900E4B242 /* BankListController.m */; };
+		2EEA8A351EEE794900E4B242 /* BankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A331EEE794900E4B242 /* BankCell.m */; };
+		2EEA8A381EEE7D3A00E4B242 /* IDSureResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA8A371EEE7D3A00E4B242 /* IDSureResultController.m */; };
+		2EEA8A3D1EEE84F700E4B242 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEA8A3C1EEE84F700E4B242 /* LaunchScreen.storyboard */; };
 		6515BDFAECE20620762322A0 /* Pods_SmartApartment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9721C1F9F3F837E7C8AF0A /* Pods_SmartApartment.framework */; };
 /* End PBXBuildFile section */
 
@@ -599,7 +619,6 @@
 		2E3AC7AD1EA9AB9100A22E66 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2E3AC7B01EA9AB9100A22E66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E3AC7B51EA9AB9100A22E66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2E3AC7B81EA9AB9100A22E66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E3AC7BA1EA9AB9100A22E66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3AC7BF1EA9AB9100A22E66 /* SmartApartmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartApartmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3AC7C31EA9AB9100A22E66 /* SmartApartmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartApartmentTests.m; sourceTree = "<group>"; };
@@ -904,6 +923,8 @@
 		2E532AC71EE7A22400C5D14D /* SelectIDMsgController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectIDMsgController.h; sourceTree = "<group>"; };
 		2E532AC81EE7A22400C5D14D /* SelectIDMsgController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectIDMsgController.m; sourceTree = "<group>"; };
 		2E532ACA1EE7A27B00C5D14D /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		2E9C0EE21EE93D9700E3A5E6 /* MasterSelfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterSelfController.h; sourceTree = "<group>"; };
+		2E9C0EE31EE93D9700E3A5E6 /* MasterSelfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterSelfController.m; sourceTree = "<group>"; };
 		2EC203A71EDA51850030F23E /* TDString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDString.h; sourceTree = "<group>"; };
 		2EC203A81EDA51850030F23E /* TDString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDString.m; sourceTree = "<group>"; };
 		2EC203AB1EDA69F10030F23E /* CheckCommunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckCommunityCell.h; sourceTree = "<group>"; };
@@ -941,6 +962,40 @@
 		2EE58D071ED952AB000CC970 /* RentRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentRoom.m; sourceTree = "<group>"; };
 		2EE58D091ED9539A000CC970 /* CityNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityNode.h; sourceTree = "<group>"; };
 		2EE58D0A1ED9539A000CC970 /* CityNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityNode.m; sourceTree = "<group>"; };
+		2EEA8A031EEA86E900E4B242 /* IDAuthtion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IDAuthtion.storyboard; sourceTree = "<group>"; };
+		2EEA8A061EEE67D200E4B242 /* MasterBankController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterBankController.h; sourceTree = "<group>"; };
+		2EEA8A071EEE67D200E4B242 /* MasterBankController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterBankController.m; sourceTree = "<group>"; };
+		2EEA8A091EEE67E300E4B242 /* moneyget.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = moneyget.storyboard; sourceTree = "<group>"; };
+		2EEA8A0B1EEE67F600E4B242 /* MoneyRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyRecordCell.h; sourceTree = "<group>"; };
+		2EEA8A0C1EEE67F600E4B242 /* MoneyRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyRecordCell.m; sourceTree = "<group>"; };
+		2EEA8A0E1EEE681C00E4B242 /* SATakeoutMoneyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATakeoutMoneyVC.h; sourceTree = "<group>"; };
+		2EEA8A0F1EEE681C00E4B242 /* SATakeoutMoneyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATakeoutMoneyVC.m; sourceTree = "<group>"; };
+		2EEA8A101EEE681C00E4B242 /* SATakeoutFinish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATakeoutFinish.h; sourceTree = "<group>"; };
+		2EEA8A111EEE681C00E4B242 /* SATakeoutFinish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATakeoutFinish.m; sourceTree = "<group>"; };
+		2EEA8A141EEE682C00E4B242 /* SAMastermoeny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMastermoeny.h; sourceTree = "<group>"; };
+		2EEA8A151EEE682C00E4B242 /* SAMastermoeny.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMastermoeny.m; sourceTree = "<group>"; };
+		2EEA8A161EEE682C00E4B242 /* SAUserdataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAUserdataModel.h; sourceTree = "<group>"; };
+		2EEA8A171EEE682C00E4B242 /* SAUserdataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUserdataModel.m; sourceTree = "<group>"; };
+		2EEA8A181EEE682C00E4B242 /* SAUserboModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAUserboModel.h; sourceTree = "<group>"; };
+		2EEA8A191EEE682C00E4B242 /* SAUserboModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUserboModel.m; sourceTree = "<group>"; };
+		2EEA8A1A1EEE682C00E4B242 /* SAUserbobankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAUserbobankModel.h; sourceTree = "<group>"; };
+		2EEA8A1B1EEE682C00E4B242 /* SAUserbobankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUserbobankModel.m; sourceTree = "<group>"; };
+		2EEA8A1C1EEE682C00E4B242 /* SAMastermoneyNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMastermoneyNew.h; sourceTree = "<group>"; };
+		2EEA8A1D1EEE682C00E4B242 /* SAMastermoneyNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMastermoneyNew.m; sourceTree = "<group>"; };
+		2EEA8A231EEE688A00E4B242 /* SAMastermoneyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMastermoneyCell.h; sourceTree = "<group>"; };
+		2EEA8A241EEE688A00E4B242 /* SAMastermoneyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMastermoneyCell.m; sourceTree = "<group>"; };
+		2EEA8A251EEE688A00E4B242 /* SAMastermoneyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAMastermoneyCell.xib; sourceTree = "<group>"; };
+		2EEA8A281EEE689B00E4B242 /* SAEmptyresultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAEmptyresultView.h; sourceTree = "<group>"; };
+		2EEA8A291EEE689B00E4B242 /* SAEmptyresultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAEmptyresultView.m; sourceTree = "<group>"; };
+		2EEA8A2A1EEE689B00E4B242 /* SAEmptyresultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAEmptyresultView.xib; sourceTree = "<group>"; };
+		2EEA8A2D1EEE757200E4B242 /* HomeMaster.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeMaster.storyboard; sourceTree = "<group>"; };
+		2EEA8A301EEE794900E4B242 /* BankListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankListController.h; sourceTree = "<group>"; };
+		2EEA8A311EEE794900E4B242 /* BankListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankListController.m; sourceTree = "<group>"; };
+		2EEA8A321EEE794900E4B242 /* BankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCell.h; sourceTree = "<group>"; };
+		2EEA8A331EEE794900E4B242 /* BankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCell.m; sourceTree = "<group>"; };
+		2EEA8A361EEE7D3A00E4B242 /* IDSureResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDSureResultController.h; sourceTree = "<group>"; };
+		2EEA8A371EEE7D3A00E4B242 /* IDSureResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDSureResultController.m; sourceTree = "<group>"; };
+		2EEA8A3C1EEE84F700E4B242 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A9721C1F9F3F837E7C8AF0A /* Pods_SmartApartment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartApartment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		577DBB8A969DD61B4BEF2C32 /* Pods-SmartApartment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartApartment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartApartment/Pods-SmartApartment.debug.xcconfig"; sourceTree = "<group>"; };
 		FAB92A025DC5042ED2A207AE /* Pods-SmartApartment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartApartment.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartApartment/Pods-SmartApartment.release.xcconfig"; sourceTree = "<group>"; };
@@ -1395,6 +1450,9 @@
 		2E3AC7A51EA9AB9100A22E66 /* SmartApartment */ = {
 			isa = PBXGroup;
 			children = (
+				2EEA8A2F1EEE757A00E4B242 /* 个人中心银行卡 */,
+				2EEA8A051EEE67B500E4B242 /* 个人中心待结算 */,
+				2E9C0EE11EE93D8500E3A5E6 /* 身份验证 */,
 				2E532AB51EE78FC000C5D14D /* 更多设置 */,
 				2E532A5A1EE68C9500C5D14D /* 我的宽带 */,
 				2E532A3C1EE6566F00C5D14D /* 我的公寓（租客） */,
@@ -1422,8 +1480,8 @@
 				2E3AC7AC1EA9AB9100A22E66 /* ViewController.h */,
 				2E3AC7AD1EA9AB9100A22E66 /* ViewController.m */,
 				2E3AC7AF1EA9AB9100A22E66 /* Main.storyboard */,
+				2EEA8A3C1EEE84F700E4B242 /* LaunchScreen.storyboard */,
 				2E3AC7B51EA9AB9100A22E66 /* Assets.xcassets */,
-				2E3AC7B71EA9AB9100A22E66 /* LaunchScreen.storyboard */,
 				2E3AC7BA1EA9AB9100A22E66 /* Info.plist */,
 				2E3AC7A61EA9AB9100A22E66 /* Supporting Files */,
 				2E3AC7DE1EA9BB4F00A22E66 /* PrefixHeader.pch */,
@@ -1647,8 +1705,6 @@
 				2E3AC93E1EAEEFC200A22E66 /* MasterContractController.m */,
 				2E3AC93F1EAEEFC200A22E66 /* ContractListController.h */,
 				2E3AC9401EAEEFC200A22E66 /* ContractListController.m */,
-				2E3AC9411EAEEFC200A22E66 /* MasterMyBankController.h */,
-				2E3AC9421EAEEFC200A22E66 /* MasterMyBankController.m */,
 				2E3AC9431EAEEFC200A22E66 /* WebBookController.h */,
 				2E3AC9441EAEEFC200A22E66 /* WebBookController.m */,
 			);
@@ -1882,16 +1938,6 @@
 				2E532A8B1EE69B3100C5D14D /* TDOperationTipsViewController.h */,
 				2E532A8C1EE69B3100C5D14D /* TDOperationTipsViewController.m */,
 				2E532A8D1EE69B3100C5D14D /* TDOperationTipsViewController.xib */,
-				2E532A901EE69B5600C5D14D /* AuthtionFirstController.h */,
-				2E532A911EE69B5600C5D14D /* AuthtionFirstController.m */,
-				2E532A9B1EE69C5B00C5D14D /* AuthtionSeconController.h */,
-				2E532A9C1EE69C5B00C5D14D /* AuthtionSeconController.m */,
-				2E532A981EE69BAD00C5D14D /* AuthtionResultController.h */,
-				2E532A991EE69BAD00C5D14D /* AuthtionResultController.m */,
-				2E532AA21EE69CE000C5D14D /* ForNavigationController.h */,
-				2E532AA31EE69CE000C5D14D /* ForNavigationController.m */,
-				2E532AA51EE69D0C00C5D14D /* AuthtionSureController.h */,
-				2E532AA61EE69D0C00C5D14D /* AuthtionSureController.m */,
 			);
 			name = "我的宽带";
 			sourceTree = "<group>";
@@ -1921,6 +1967,26 @@
 				2E532AB91EE7974900C5D14D /* PsCenter.storyboard */,
 			);
 			name = "更多设置";
+			sourceTree = "<group>";
+		};
+		2E9C0EE11EE93D8500E3A5E6 /* 身份验证 */ = {
+			isa = PBXGroup;
+			children = (
+				2E9C0EE21EE93D9700E3A5E6 /* MasterSelfController.h */,
+				2E9C0EE31EE93D9700E3A5E6 /* MasterSelfController.m */,
+				2E532A901EE69B5600C5D14D /* AuthtionFirstController.h */,
+				2E532A911EE69B5600C5D14D /* AuthtionFirstController.m */,
+				2E532A9B1EE69C5B00C5D14D /* AuthtionSeconController.h */,
+				2E532A9C1EE69C5B00C5D14D /* AuthtionSeconController.m */,
+				2E532A981EE69BAD00C5D14D /* AuthtionResultController.h */,
+				2E532A991EE69BAD00C5D14D /* AuthtionResultController.m */,
+				2E532AA21EE69CE000C5D14D /* ForNavigationController.h */,
+				2E532AA31EE69CE000C5D14D /* ForNavigationController.m */,
+				2E532AA51EE69D0C00C5D14D /* AuthtionSureController.h */,
+				2E532AA61EE69D0C00C5D14D /* AuthtionSureController.m */,
+				2EEA8A031EEA86E900E4B242 /* IDAuthtion.storyboard */,
+			);
+			name = "身份验证";
 			sourceTree = "<group>";
 		};
 		2EC203AA1EDA60350030F23E /* 公寓抄表 */ = {
@@ -1979,6 +2045,54 @@
 				2EE58D0A1ED9539A000CC970 /* CityNode.m */,
 			);
 			name = "我要租房";
+			sourceTree = "<group>";
+		};
+		2EEA8A051EEE67B500E4B242 /* 个人中心待结算 */ = {
+			isa = PBXGroup;
+			children = (
+				2EEA8A091EEE67E300E4B242 /* moneyget.storyboard */,
+				2EEA8A061EEE67D200E4B242 /* MasterBankController.h */,
+				2EEA8A071EEE67D200E4B242 /* MasterBankController.m */,
+				2EEA8A0B1EEE67F600E4B242 /* MoneyRecordCell.h */,
+				2EEA8A0C1EEE67F600E4B242 /* MoneyRecordCell.m */,
+				2EEA8A0E1EEE681C00E4B242 /* SATakeoutMoneyVC.h */,
+				2EEA8A0F1EEE681C00E4B242 /* SATakeoutMoneyVC.m */,
+				2EEA8A101EEE681C00E4B242 /* SATakeoutFinish.h */,
+				2EEA8A111EEE681C00E4B242 /* SATakeoutFinish.m */,
+				2EEA8A141EEE682C00E4B242 /* SAMastermoeny.h */,
+				2EEA8A151EEE682C00E4B242 /* SAMastermoeny.m */,
+				2EEA8A161EEE682C00E4B242 /* SAUserdataModel.h */,
+				2EEA8A171EEE682C00E4B242 /* SAUserdataModel.m */,
+				2EEA8A181EEE682C00E4B242 /* SAUserboModel.h */,
+				2EEA8A191EEE682C00E4B242 /* SAUserboModel.m */,
+				2EEA8A1A1EEE682C00E4B242 /* SAUserbobankModel.h */,
+				2EEA8A1B1EEE682C00E4B242 /* SAUserbobankModel.m */,
+				2EEA8A1C1EEE682C00E4B242 /* SAMastermoneyNew.h */,
+				2EEA8A1D1EEE682C00E4B242 /* SAMastermoneyNew.m */,
+				2EEA8A231EEE688A00E4B242 /* SAMastermoneyCell.h */,
+				2EEA8A241EEE688A00E4B242 /* SAMastermoneyCell.m */,
+				2EEA8A251EEE688A00E4B242 /* SAMastermoneyCell.xib */,
+				2EEA8A281EEE689B00E4B242 /* SAEmptyresultView.h */,
+				2EEA8A291EEE689B00E4B242 /* SAEmptyresultView.m */,
+				2EEA8A2A1EEE689B00E4B242 /* SAEmptyresultView.xib */,
+			);
+			name = "个人中心待结算";
+			sourceTree = "<group>";
+		};
+		2EEA8A2F1EEE757A00E4B242 /* 个人中心银行卡 */ = {
+			isa = PBXGroup;
+			children = (
+				2E3AC9411EAEEFC200A22E66 /* MasterMyBankController.h */,
+				2E3AC9421EAEEFC200A22E66 /* MasterMyBankController.m */,
+				2EEA8A301EEE794900E4B242 /* BankListController.h */,
+				2EEA8A311EEE794900E4B242 /* BankListController.m */,
+				2EEA8A321EEE794900E4B242 /* BankCell.h */,
+				2EEA8A331EEE794900E4B242 /* BankCell.m */,
+				2EEA8A2D1EEE757200E4B242 /* HomeMaster.storyboard */,
+				2EEA8A361EEE7D3A00E4B242 /* IDSureResultController.h */,
+				2EEA8A371EEE7D3A00E4B242 /* IDSureResultController.m */,
+			);
+			name = "个人中心银行卡";
 			sourceTree = "<group>";
 		};
 		99DD7E7C30D4CD4A8E942425 /* Frameworks */ = {
@@ -2120,7 +2234,6 @@
 				2E09B2DA1EC5B1810078E714 /* EntryRecord.storyboard in Resources */,
 				2E03B34A1EB9BEBF0057A96C /* area.plist in Resources */,
 				2E0217191EB2EDD100C91F87 /* message.storyboard in Resources */,
-				2E3AC7B91EA9AB9100A22E66 /* LaunchScreen.storyboard in Resources */,
 				2E53291D1EE002DD00C5D14D /* Charges.storyboard in Resources */,
 				2E09B3161EC9A74B0078E714 /* ApartmentBill.storyboard in Resources */,
 				2E3AC8501EAB2C9700A22E66 /* Login.storyboard in Resources */,
@@ -2128,6 +2241,7 @@
 				2E532A7B1EE6987D00C5D14D /* TDOrderHistoryListTableViewCell.xib in Resources */,
 				2E532A3A1EE631E800C5D14D /* SelectDoorCardCell.xib in Resources */,
 				2E2BDEBD1EBD538800D8FB92 /* AccessControl.storyboard in Resources */,
+				2EEA8A271EEE688A00E4B242 /* SAMastermoneyCell.xib in Resources */,
 				2E09B3171EC9A74B0078E714 /* BillSelectView.xib in Resources */,
 				2E09B3361ECBD5230078E714 /* SearchRoom.storyboard in Resources */,
 				2EC203C71EDA69F10030F23E /* CheckRead.storyboard in Resources */,
@@ -2143,16 +2257,20 @@
 				2E532ABA1EE7974900C5D14D /* PsCenter.storyboard in Resources */,
 				2E09B2DB1EC5B1810078E714 /* SearchTypeView.xib in Resources */,
 				2E03B3201EB962400057A96C /* SAshowhouseAddCollectionViewCell.xib in Resources */,
+				2EEA8A041EEA86E900E4B242 /* IDAuthtion.storyboard in Resources */,
 				2E03B3751EBAF5810057A96C /* AccessXib.xib in Resources */,
 				2E3AC7B11EA9AB9100A22E66 /* Main.storyboard in Resources */,
 				2E532AAF1EE6A7EC00C5D14D /* TDOrderFinishedViewController.xib in Resources */,
 				2E532ACB1EE7A27B00C5D14D /* Authentication.storyboard in Resources */,
+				2EEA8A2E1EEE757200E4B242 /* HomeMaster.storyboard in Resources */,
+				2EEA8A2C1EEE689B00E4B242 /* SAEmptyresultView.xib in Resources */,
 				2E532A971EE69B8B00C5D14D /* TDOrderInfoViewController.xib in Resources */,
 				2E532A8F1EE69B3100C5D14D /* TDOperationTipsViewController.xib in Resources */,
 				2E532A711EE6983300C5D14D /* TDPricingPackageListTableViewCell.xib in Resources */,
 				2E03B31C1EB962400057A96C /* SAhouseDecripitionCell.xib in Resources */,
 				2E532A1A1EE2AE6000C5D14D /* charges.xib in Resources */,
 				2E03B3221EB962400057A96C /* SAhouseView.xib in Resources */,
+				2EEA8A0A1EEE67E300E4B242 /* moneyget.storyboard in Resources */,
 				2E532A591EE65D6900C5D14D /* homeMessage.storyboard in Resources */,
 				2E2BDEB21EBD4B1C00D8FB92 /* EntrySelectXib.xib in Resources */,
 				2E5329F51EE00A3D00C5D14D /* AlipaySDK.bundle in Resources */,
@@ -2161,6 +2279,7 @@
 				2EC203DA1EDAA0B40030F23E /* AccountBook.storyboard in Resources */,
 				2E03B2F81EB961C80057A96C /* SAapartementAddCell.xib in Resources */,
 				2E532A691EE697BC00C5D14D /* TDOrderHistoryListViewController.xib in Resources */,
+				2EEA8A3D1EEE84F700E4B242 /* LaunchScreen.storyboard in Resources */,
 				2E03B31E1EB962400057A96C /* SAshowhouseCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2268,6 +2387,7 @@
 				2E3AC7FC1EAA012F00A22E66 /* NewFeatureViewController.m in Sources */,
 				2E09B3091EC9A74B0078E714 /* MonthCell.m in Sources */,
 				2E09B33B1ECBD62A0078E714 /* TTRangeSlider.m in Sources */,
+				2EEA8A1E1EEE682C00E4B242 /* SAMastermoeny.m in Sources */,
 				2E532A961EE69B8B00C5D14D /* TDOrderInfoViewController.m in Sources */,
 				2E03B3701EBAF5730057A96C /* AccessCloseView.m in Sources */,
 				2EC203BE1EDA69F10030F23E /* CheckCommunityCell.m in Sources */,
@@ -2280,9 +2400,11 @@
 				2E02170A1EB2EDA300C91F87 /* BroadbandController.m in Sources */,
 				2E03B3191EB962400057A96C /* SAhouseCell.m in Sources */,
 				2E3AC7F61EAA00B100A22E66 /* AppTool.m in Sources */,
+				2EEA8A261EEE688A00E4B242 /* SAMastermoneyCell.m in Sources */,
 				2E3AC9561EAF32DE00A22E66 /* BankCard.m in Sources */,
 				2E09B3101EC9A74B0078E714 /* SearchBillController.m in Sources */,
 				2E09B30A1EC9A74B0078E714 /* WaitPayCell.m in Sources */,
+				2EEA8A341EEE794900E4B242 /* BankListController.m in Sources */,
 				2E3AC8781EAB32D400A22E66 /* WebAPI.m in Sources */,
 				2E3AC87A1EAB32D400A22E66 /* WebAPIForBroadband.m in Sources */,
 				2E0217071EB2EDA300C91F87 /* AgencyNavigationController.m in Sources */,
@@ -2306,6 +2428,7 @@
 				2EC203D71EDAA0B40030F23E /* AccountBookController.m in Sources */,
 				2E03B36F1EBAF5730057A96C /* OutInSelectTimeView.m in Sources */,
 				2E03B34C1EB9BEBF0057A96C /* STPickerViewConst.m in Sources */,
+				2EEA8A381EEE7D3A00E4B242 /* IDSureResultController.m in Sources */,
 				2E3AC8611EAB300900A22E66 /* ForgetPwdController.m in Sources */,
 				2E02173B1EB30D9700C91F87 /* RenterAddPhoneController.m in Sources */,
 				2E03B3051EB961DD0057A96C /* SAshowhouseCollectionVC.m in Sources */,
@@ -2320,6 +2443,7 @@
 				2E0216F81EB2E22B00C91F87 /* ModelTool.m in Sources */,
 				2E0217331EB30D9700C91F87 /* GetRoomListController.m in Sources */,
 				2E0217541EB30DF700C91F87 /* RenterIDCell.m in Sources */,
+				2EEA8A221EEE682C00E4B242 /* SAMastermoneyNew.m in Sources */,
 				2E09B3051EC9A74B0078E714 /* searchBarView.m in Sources */,
 				2E09B3311ECBD5230078E714 /* RentRoomCell.m in Sources */,
 				2E53289D1EE0019100C5D14D /* RenterBillHistoryController.m in Sources */,
@@ -2340,6 +2464,7 @@
 				2E0217611EB31C8A00C91F87 /* HooDatePicker.m in Sources */,
 				2E3AC9461EAEEFC200A22E66 /* SelectPersonController.m in Sources */,
 				2E02173A1EB30D9700C91F87 /* AddRenterResultController.m in Sources */,
+				2EEA8A1F1EEE682C00E4B242 /* SAUserdataModel.m in Sources */,
 				2E532AC61EE79B2F00C5D14D /* HelpCenterController.m in Sources */,
 				2E0217681EB32A7C00C91F87 /* House.m in Sources */,
 				2E53291A1EE002A600C5D14D /* payView.m in Sources */,
@@ -2352,11 +2477,13 @@
 				2E02170B1EB2EDA300C91F87 /* apartmentCell.m in Sources */,
 				2E0217371EB30D9700C91F87 /* SignRoomOKController.m in Sources */,
 				2E09B3321ECBD5230078E714 /* RentRoomModel.m in Sources */,
+				2EEA8A211EEE682C00E4B242 /* SAUserbobankModel.m in Sources */,
 				2E03B3061EB961DD0057A96C /* SAcreatemoreHouseVC.m in Sources */,
 				2E03B36E1EBAF5730057A96C /* RecordCell.m in Sources */,
 				2E02173C1EB30D9700C91F87 /* CheckIDCardController.m in Sources */,
 				2E532A9D1EE69C5B00C5D14D /* AuthtionSeconController.m in Sources */,
 				2E3AC94D1EAEF22300A22E66 /* BBImagebaseTableVC.m in Sources */,
+				2EEA8A351EEE794900E4B242 /* BankCell.m in Sources */,
 				2E09B3151EC9A74B0078E714 /* RoomDianDetailController.m in Sources */,
 				2E03B3391EB9B1B40057A96C /* NoPayOrder.m in Sources */,
 				2E532AC31EE79B2F00C5D14D /* ChangeKeyController.m in Sources */,
@@ -2367,12 +2494,14 @@
 				2EC203C11EDA69F10030F23E /* HouseInputCell.m in Sources */,
 				2E0217351EB30D9700C91F87 /* SelectRentDateController.m in Sources */,
 				2E3AC87B1EAB32D400A22E66 /* WebAPIForMyDoorCard.m in Sources */,
+				2EEA8A121EEE681C00E4B242 /* SATakeoutMoneyVC.m in Sources */,
 				2E3AC9451EAEEFC200A22E66 /* MasterPersonController.m in Sources */,
 				2E2BDEAE1EBD4B1C00D8FB92 /* SelectXibView.m in Sources */,
 				2E5329FE1EE00A3D00C5D14D /* NSDataEx.m in Sources */,
 				2E03B34E1EB9BEBF0057A96C /* UIView+STFrame.m in Sources */,
 				2E09B3141EC9A74B0078E714 /* RoomWaitEditController.m in Sources */,
 				2E532A001EE00A3D00C5D14D /* RSADataSigner.m in Sources */,
+				2E9C0EE41EE93D9700E3A5E6 /* MasterSelfController.m in Sources */,
 				2E2BDEBB1EBD538800D8FB92 /* AccessBtn.m in Sources */,
 				2E532A631EE6975C00C5D14D /* TDPricingPackageListViewController.m in Sources */,
 				2E0217061EB2EDA300C91F87 /* AgencyTabbarController.m in Sources */,
@@ -2387,12 +2516,14 @@
 				2E532AB31EE6A81400C5D14D /* TDSavePasswordViewController.m in Sources */,
 				2E532AA41EE69CE000C5D14D /* ForNavigationController.m in Sources */,
 				2E3AC9591EAF33DF00A22E66 /* MasterInfo.m in Sources */,
+				2EEA8A131EEE681C00E4B242 /* SATakeoutFinish.m in Sources */,
 				2E3AC9491EAEEFC200A22E66 /* MasterMyBankController.m in Sources */,
 				2E09B33E1ECBDC2A0078E714 /* CommunityTag.m in Sources */,
 				2E5329FC1EE00A3D00C5D14D /* DataVerifier.m in Sources */,
 				2E0217741EB3375800C91F87 /* Renter.m in Sources */,
 				2E03B2EF1EB960AA0057A96C /* SAapartmentViewController.m in Sources */,
 				2E02176B1EB3313500C91F87 /* Community.m in Sources */,
+				2EEA8A2B1EEE689B00E4B242 /* SAEmptyresultView.m in Sources */,
 				2E03B3251EB962570057A96C /* SAcreditCardCheckVC.m in Sources */,
 				2E532A5E1EE6972300C5D14D /* TDBroadbandViewController.m in Sources */,
 				2E2BDEB01EBD4B1C00D8FB92 /* EntrySelectRoomView.m in Sources */,
@@ -2405,6 +2536,7 @@
 				2E0216E71EB0AA8E00C91F87 /* UnlockData+CoreDataClass.m in Sources */,
 				2EC203C31EDA69F10030F23E /* CheckInputReadController.m in Sources */,
 				2E3AC7AE1EA9AB9100A22E66 /* ViewController.m in Sources */,
+				2EEA8A0D1EEE67F600E4B242 /* MoneyRecordCell.m in Sources */,
 				2E532A381EE631E800C5D14D /* AcModel.m in Sources */,
 				2EC203C51EDA69F10030F23E /* ShowCheckHouseController.m in Sources */,
 				2E09B2D91EC5B1810078E714 /* SearchTypeView.m in Sources */,
@@ -2430,6 +2562,7 @@
 				2E3AC9731EAF415A00A22E66 /* TDBLEUnlockDataMode.m in Sources */,
 				2E03B2F71EB961C80057A96C /* SAapartementAddCell.m in Sources */,
 				2E03B35E1EBADEE70057A96C /* OutInRecordController.m in Sources */,
+				2EEA8A081EEE67D200E4B242 /* MasterBankController.m in Sources */,
 				2E0217361EB30D9700C91F87 /* SelectRentMonthController.m in Sources */,
 				2E0217151EB2EDC400C91F87 /* RenterTemController.m in Sources */,
 				2E0217391EB30D9700C91F87 /* NewAddRenterController.m in Sources */,
@@ -2460,6 +2593,7 @@
 				2E532A341EE631E800C5D14D /* TDBindingICCardBaseViewController.m in Sources */,
 				2E03B3811EBAF7A00057A96C /* GBTagListView.m in Sources */,
 				2E532A391EE631E800C5D14D /* SelectDoorCardCell.m in Sources */,
+				2EEA8A201EEE682C00E4B242 /* SAUserboModel.m in Sources */,
 				2E09B3351ECBD5230078E714 /* CheckImageController.m in Sources */,
 				2E532A9A1EE69BAD00C5D14D /* AuthtionResultController.m in Sources */,
 				2E09B30B1EC9A74B0078E714 /* CashPayCell.m in Sources */,
@@ -2509,14 +2643,6 @@
 				2E3AC7B01EA9AB9100A22E66 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2E3AC7B71EA9AB9100A22E66 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E3AC7B81EA9AB9100A22E66 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

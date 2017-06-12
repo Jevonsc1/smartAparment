@@ -56,7 +56,7 @@
             [self.oneLabel setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"IDMsg"]];
             self.twoLabel.hidden = YES;
             self.threeLabel.hidden = YES;
-            [self.clickBtn setTitle:@"返回" forState:UIControlStateNormal];
+            [self.clickBtn setTitle:@"随便逛逛" forState:UIControlStateNormal];
         default:
             break;
     }
@@ -80,6 +80,7 @@
                 
             {
                 [self.navigationController popToViewController:temVC animated:YES];
+                break;
                 
             }
             //跳转到宽带支付界面
@@ -87,29 +88,17 @@
                 TDOrderInfoViewController *controller = [[TDOrderInfoViewController alloc] init];
                 controller.dictionary = self.mutDictionary;
                 [self.navigationController pushViewController:controller animated:YES];
+                break;
             }
         }
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
 
     }
   
 }
-- (IBAction)clickToPop:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

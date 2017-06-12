@@ -61,13 +61,13 @@
 }
 
 -(void)tabbarWithMiddleButtonClick:(MyTabBar *)tabBar{
-    NSLog(@"Click--Middle");
     [FBBLECentralManager shareInsatance].delegate = self;
+    tabBar.middleButton.selected = YES;
     [[FBBLECentralManager shareInsatance] startScanWithButton:tabBar.middleButton];
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    NSLog(@"Click--tabItem");
+    
 }
 -(void)setup{
 
@@ -75,12 +75,12 @@
     
     UINavigationController *vc = [[UIStoryboard storyboardWithName:@"UserHome" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeNv"];
   
-    [self setupController:vc title:@"首页" image:[UIImage imageNamed:@"tab1"] selectedImage:[UIImage imageNamed:@"tab1_select"]];
+    [self setupController:vc title:nil image:[UIImage imageNamed:@"tab1"] selectedImage:[UIImage imageNamed:@"tab1_select"]];
 
     UINavigationController *vc2 = [[UIStoryboard storyboardWithName:@"UserHome" bundle:nil] instantiateViewControllerWithIdentifier:@"PersonNv"];
    
     
-    [self setupController:vc2 title:@"个人中心" image:[UIImage imageNamed:@"tab2"] selectedImage:[UIImage imageNamed:@"tab2_select"]];
+    [self setupController:vc2 title:nil image:[UIImage imageNamed:@"tab2"] selectedImage:[UIImage imageNamed:@"tab2_select"]];
 
 }
 
@@ -90,6 +90,7 @@
     [self addChildViewController:viewController];
     
     UITabBarItem* item = [[UITabBarItem alloc]initWithTitle:title image:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    item.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     viewController.tabBarItem = item;
     
 }

@@ -7,7 +7,7 @@
 //
 
 #import "MasterMyBankController.h"
-//#import "BankListController.h"
+#import "BankListController.h"
 @interface MasterMyBankController ()
 @property (weak, nonatomic) IBOutlet UILabel *masterName;
 @property (weak, nonatomic) IBOutlet UILabel *bankName;
@@ -31,7 +31,7 @@
     
     userData = [ModelTool find_UserData];
     [self.masterName setText:userData.trueName];
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key", nil];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key", nil];
     canSelect  =YES;
     [WebAPI getBankCardInfo:dic callback:^(NSError *err, id response) {
         NSString *rcode = [response objectForKey:@"rcode"];
@@ -68,7 +68,7 @@
     }];
 }
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:NO];
+    self.navigationController.navigationBar.hidden = NO;
     NSString *bankName = [[NSUserDefaults standardUserDefaults] objectForKey:@"bankName"];
     if(bankName.length >0){
         self.bankName.text = bankName;
@@ -78,10 +78,7 @@
     
     
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (IBAction)clickToPop:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -103,8 +100,9 @@
     [WebAPI certificateMasterBankCard:dic callback:^(NSError *err, id response) {
         NSString  *status =[response objectForKey:@"rcode"];
         if (!err && status.integerValue == 10000) {
+            
             [Alert showSucces:@"提交资料成功!" View:self.navigationController.navigationBar andTime:2.0f complete:^(BOOL isComplete) {
-//                [PopHome popToController:@"SelectPersonController" andVC:self];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }];
            
         }
@@ -128,9 +126,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 2 &&canSelect) {
-//        BankListController *vc = [[UIStoryboard storyboardWithName:@"HomeMaster" bundle:nil] instantiateViewControllerWithIdentifier:@"BankList"];
-//        
-//        [self.navigationController pushViewController:vc animated:YES];
+        BankListController *vc = [[UIStoryboard storyboardWithName:@"HomeMaster" bundle:nil] instantiateViewControllerWithIdentifier:@"BankList"];
+        
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 @end

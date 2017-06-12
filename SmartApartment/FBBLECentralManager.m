@@ -63,10 +63,8 @@
 
 # pragma mark - Private Menthos
 - (void)startScanWithButton:(UIButton *)scanButton {
-    if (!scanButton.selected) {
-        NSLog(@"并不是点击按钮进来的");
-        return;
-    }
+    NSArray *localIDs = [NSArray arrayWithContentsOfFile:USEFUL_DOOR_NODE_PATH];
+    NSLog(@"%@",localIDs);
     
     if ([_scanTimeoutTimer isValid]) {
         return;

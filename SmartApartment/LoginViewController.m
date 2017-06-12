@@ -405,7 +405,6 @@
     //没有选择屋主或者选择租客---第一次登录
     NSDictionary *boDic = [dic objectForKey:@"bo"];
     NSDictionary *renterDic = [dic objectForKey:@"renter"];
-    NSLog(@"33::33::%@---%@",boDic,renterDic);
     if (boDic==nil && renterDic==nil) {
         
         SelectIDMsgController *vc = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateViewControllerWithIdentifier:@"SelectIDMsg"];
@@ -415,6 +414,7 @@
     
     //bb保存门口机ID
     NSArray *localIDs = [dic arrayForKey:@"acInfo"];
+    NSLog(@"acInfo,,%@",localIDs);
     if ([localIDs count] > 0) {
         NSMutableArray *localIDArray = [[NSMutableArray alloc] init];
         for (NSDictionary *dict in localIDs) {

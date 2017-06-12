@@ -65,7 +65,7 @@
     NSDictionary *oneDic = [[NSDictionary alloc] initWithObjectsAndKeys:imageName,@"fileName",imageType,@"fileType",oneData,@"imgData",[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key", nil];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WebAPI uploadIDCardImage:oneDic callback:^(NSError *err, id response) {
-        if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
+        if (!err && [response intForKey:@"rcode"] == 10000) {
             NSDictionary *dic = [response objectForKey:@"data"];
             [imageArr addObject:self.handIDImg.image];
             [imageIDArr addObject:[dic objectForKey:@"affix_id"]];
@@ -147,6 +147,9 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)pop:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

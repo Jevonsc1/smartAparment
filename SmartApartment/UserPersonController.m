@@ -8,7 +8,7 @@
 
 #import "UserPersonController.h"
 #import "SettingListController.h"
-//#import "MasterSelfController.h"
+#import "MasterSelfController.h"
 //#import "SelectIDMsgController.h"
 //#import "MyRentRoomController.h"
 //#import "IDSureResultController.h"
@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *cerLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *cerIcon;
 @property (weak, nonatomic) IBOutlet UIButton *bbRenterPicture;
+
+
 
 @end
 
@@ -161,18 +163,14 @@
     return 5;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.row == 2) {
-//        MyRentRoomController *myrentRoom = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"MyRentRoom"];
-//        [self.navigationController pushViewController:myrentRoom animated:YES];
-//    }
+
    if(indexPath.row == 2 && userdata.renterStatus.integerValue == 30){
-       self.tabBarController.tabBar.hidden = YES;
-//       MasterSelfController *vc = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterSelf"];
-//       vc.personType = @"renter";
-//       [self.navigationController pushViewController:vc animated:YES];
+       MasterSelfController *vc = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterSelf"];
+       vc.hidesBottomBarWhenPushed = YES;
+       vc.personType = @"renter";
+       [self.navigationController pushViewController:vc animated:YES];
      
     }else if (indexPath.row == 2 &&  userdata.renterStatus.integerValue == 20){
-           self.tabBarController.tabBar.hidden = YES;
         AuthtionResultController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionResultController"];
          [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
         vc.resultType = 1;

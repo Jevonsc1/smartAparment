@@ -23,10 +23,7 @@
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (IBAction)clickToPop:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

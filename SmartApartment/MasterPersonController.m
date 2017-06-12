@@ -7,18 +7,18 @@
 //
 
 #import "MasterPersonController.h"
-//#import "MasterBankController.h"
+#import "MasterBankController.h"
 #import "MasterContractController.h"
 #import "ContractListController.h"
-//#import "MasterSelfController.h"
+#import "MasterSelfController.h"
 #import "MasterMyBankController.h"
-//#import "SettingListController.h"
+#import "SettingListController.h"
 //#import "SelectIDMsgController.h"
 #import "LoginViewController.h"
-//#import "IDSureResultController.h"
-//#import "AuthtionFirstController.h"
+#import "IDSureResultController.h"
+#import "AuthtionFirstController.h"
 //#import "FBBLECentralManager.h"//蓝牙
-//#import "AuthtionResultController.h"
+#import "AuthtionResultController.h"
 //#import "MJExtension.h"
 
 #import "AFNetworking.h"
@@ -50,6 +50,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *twoIconHeight;
 
 @property (nonatomic,strong)NSNumber* boBankStatus;
+
+@property(nonatomic,strong)User* masterUser;
 @end
 
 @implementation MasterPersonController
@@ -119,10 +121,7 @@
     }
  
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         return SCREEN_WIDTH/375*195;
@@ -135,11 +134,13 @@
   
     if (indexPath.row == 1) {
         //跳转结算页
-//        self.navigationController.navigationBar.hidden = YES;
-//          self.tabBarController.tabBar.hidden = YES;
-//        MasterBankController *vc = [[UIStoryboard storyboardWithName:@"moneyget" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterBank"];
-//        vc.resumeMoney = self.rusumeMoney.text;
-//        [self.navigationController pushViewController:vc animated:YES];
+        MasterBankController *vc = [[UIStoryboard storyboardWithName:@"moneyget" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterBank"];
+        vc.resumeMoney = self.rusumeMoney.text;
+        vc.hidesBottomBarWhenPushed = YES;
+        if (self.masterUser) {
+            vc.masterUser = self.masterUser;
+        }
+        [self.navigationController pushViewController:vc animated:YES];
     }
    
 //     if (indexPath.row == 3 )
@@ -158,10 +159,9 @@
     }
     
      if(indexPath.row ==5){
-//          self.navigationController.navigationBar.hidden = NO;
-//          self.tabBarController.tabBar.hidden = YES;
-//        SettingListController *vc = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"SettingList"];
-//        [self.navigationController pushViewController:vc animated:YES];
+        SettingListController *vc = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"SettingList"];
+         vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (indexPath.row == 6){
         [self logout];
@@ -179,35 +179,32 @@
         //银行卡
         if( [userData.memberType isEqualToString:@"master"]){
             if ([self.boBankStatus isEqual:@(0)]) {
-                //                self.navigationController.navigationBar.hidden = NO;
-                //                self.tabBarController.tabBar.hidden = YES;
-                //                IDSureResultController *vc = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateViewControllerWithIdentifier:@"IDSureResult"];
-                //                vc.resultType = @"fail";
-                //                vc.bankType = @"fail";
-                //                vc.boAuditSuggestion = boAuditSuggestion;
-                //                [self.navigationController pushViewController:vc animated:YES];
-            }else if(!self.boBankStatus){
-                self.navigationController.navigationBar.hidden = NO;
-                self.tabBarController.tabBar.hidden = YES;
-                MasterMyBankController *vc = [[UIStoryboard storyboardWithName:@"HomeMaster" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterMyBank"];
                 
+                IDSureResultController *vc = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateViewControllerWithIdentifier:@"IDSureResult"];
+                vc.resultType = @"fail";
+                vc.bankType = @"fail";
+                vc.boAuditSuggestion = boAuditSuggestion;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if(!self.boBankStatus){
+                MasterMyBankController *vc = [[UIStoryboard storyboardWithName:@"HomeMaster" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterMyBank"];
+                vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
                 
             }
             else{
-                self.navigationController.navigationBar.hidden = NO;
                 if ([self.boBankStatus isEqual:@(1)]) {
-                    self.tabBarController.tabBar.hidden = YES;
                     MasterMyBankController *vc = [[UIStoryboard storyboardWithName:@"HomeMaster" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterMyBank"];
                     vc.changeBank = @"yes";
+                    vc.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:vc animated:YES];
                 }
                 else{
-                    //                    self.tabBarController.tabBar.hidden = YES;
-                    //                    IDSureResultController *vc = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateViewControllerWithIdentifier:@"IDSureResult"];
-                    //                    vc.resultType = @"wait";
-                    //                    vc.bankType = @"wait";
-                    //                    [self.navigationController pushViewController:vc animated:YES];
+                    IDSureResultController *vc = [[UIStoryboard storyboardWithName:@"Authentication" bundle:nil] instantiateViewControllerWithIdentifier:@"IDSureResult"];
+                    vc.resultType = @"wait";
+                    vc.bankType = @"wait";
+                    vc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
                 }
             }
         }
@@ -216,35 +213,33 @@
 #pragma mark -m 实名认证
 -(void)clickTrueName{
     if([userData.memberType isEqualToString:@"master"]&& userData.boStatus == 30){
-        //          self.navigationController.navigationBar.hidden = NO;
-        //        self.tabBarController.tabBar.hidden = YES;
-        //        MasterSelfController *vc = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterSelf"];
-        //        vc.personType = @"master";
-        //        [self.navigationController pushViewController:vc animated:YES];
+        MasterSelfController *vc = [[UIStoryboard storyboardWithName:@"PsCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"MasterSelf"];
+        vc.personType = @"master";
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }  else if([userData.memberType isEqualToString:@"master"]&& userData.boStatus == 10){
-        //          self.navigationController.navigationBar.hidden = NO;
-        //          self.tabBarController.tabBar.hidden = YES;
-        //        AuthtionResultController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionResultController"];
-        //         [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
-        //        vc.resultType = 3;
-        //        [self.navigationController pushViewController:vc animated:YES];
+
+        AuthtionResultController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionResultController"];
+                 [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
+        vc.resultType = 3;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }else if ( [userData.memberType isEqualToString:@"master"]&& userData.boStatus == 20)
     {
-        self.navigationController.navigationBar.hidden = NO;
-        self.tabBarController.tabBar.hidden = YES;
-        //        AuthtionResultController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionResultController"];
-        //         [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
-        //        vc.resultType = 1;
-        //        [self.navigationController pushViewController:vc animated:YES];
+        AuthtionResultController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionResultController"];
+                 [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
+        vc.resultType = 1;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if([userData.memberType isEqualToString:@"master"]&&userData.boStatus == 0)
     {
-        
-        self.tabBarController.tabBar.hidden = YES;
-        //        AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
-        //         [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
-        //        vc.renterType = @"master";
-        //        [self.navigationController pushViewController:vc animated:YES];
+    
+        AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"您已成功提交资料，请等待审核…" forKey:@"IDMsg"];
+        vc.renterType = @"master";
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -311,11 +306,9 @@
 -(void)getUserBank{
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key", nil];
     [WebAPI getBankCardInfo:dic callback:^(NSError *err, id response) {
-
-        NSString *rcode = [response objectForKey:@"rcode"];
-        if (!err && rcode.integerValue == 10000) {
+        if (!err && [response intForKey:@"rcode"] == 10000) {
             User* user = [User yy_modelWithJSON:[response objectForKey:@"data"]];
-            
+            self.masterUser = user;
              self.rusumeMoney.text = [NSString stringWithFormat:@"¥%@",user.memberAvailablePD];
             boAuditSuggestion = user.bo.boAuditSuggestion;
             NSArray *bankArr = user.bo.boBank;
@@ -516,6 +509,11 @@
     params[@"key"]=userData.key;
     params[@"memberAvatarAffixs"]=string;
     [WebAPIForRenthouse editMemberInfo:params callback:^(NSError *err, id response) {
+        if (!err && [response intForKey:@"rcode"] == 10000) {
+            [MBProgressHUD showMessage:@"上传头像成功!"];
+        }else{
+            [MBProgressHUD showMessage:@"上传头像失败"];
+        }
 //        SAResponse *responseModel =[SAResponse mj_objectWithKeyValues:response];
 //        if (!err && responseModel.rcode==10000) {
 //            //TODO:

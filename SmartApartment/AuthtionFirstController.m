@@ -58,8 +58,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setTitle:@"实名认证"];
-    dispatch_queue_t mainQueue = dispatch_get_main_queue();
-    dispatch_async(mainQueue,^{
+    UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, self.view.frame.size.width, 20)];
+    [navView setBackgroundColor: [UIColor blackColor]];
+    [self.navigationController.navigationBar addSubview:navView];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    dispatch_async(dispatch_get_main_queue(),^{
         //异步初始化照相机
           [self initImagePicker];
     });
@@ -85,7 +88,6 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.navigationController.navigationBar.hidden = YES;
     if ([self.wayIn isEqualToString:@"SignRoom"]) {
         self.title = @"身份证拍照";
         [self.nextBtn setTitle:@"确认" forState:UIControlStateNormal];
@@ -95,9 +97,7 @@
         [self.nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
     }
 }
--(void)viewDidDisappear:(BOOL)animated{
-    self.navigationController.navigationBar.hidden = NO;
-}
+
 /**
  创建两个单击手机，点击弹出照相机
  */
@@ -263,7 +263,8 @@
             //第二张图片上传
             NSDictionary *oneDic = [[NSDictionary alloc] initWithObjectsAndKeys:twoImageName,@"fileName",imageType,@"fileType",twoData,@"imgData",[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key", nil];
             [WebAPI uploadIDCardImage:oneDic callback:^(NSError *err, id response) {
-                if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
+                NSLog(@"---??---%@",response);
+                if (!err && [response intForKey:@"rcode"] == 10000) {
                     
                     
                     
@@ -352,7 +353,7 @@
  实名认证背面照
  */
 -(void)authtionIDCardBackImage{
-//    NSString *apiKey = @"4d79c1f0-3059-4769-8079-72a71fb1d514";4d79c1f0-3059-4769-8079-72a71fb1d514
+
     NSString *apiKey = @"01170ffa-f0e4-4ac8-936c-b3e3de68f090";
     NSData *data =UIImageJPEGRepresentation(self.backIDImg.image, 0.2);
     UIImage *img = [UIImage imageWithData:data];
