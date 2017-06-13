@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MyDelegate.h"
+#import "Community.h"
 @interface CheckSignRoomController : UITableViewController
-@property(nonatomic)NSString *houseID;
+
 @property(nonatomic)NSObject<MyDelegate> *delegate;
-@property(nonatomic)NSString *apartmentID;
-@property(nonatomic)NSString *communityName;
+
+
+@property(nonatomic,strong)House* house;
+@property(nonatomic,strong)Community* community;
 @end

@@ -14,7 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "AddRenterResultController.h"
 #import "IDCardCell.h"
-//#import "AuthtionFirstController.h"
+#import "AuthtionFirstController.h"
 #import "CheckIDCardController.h"
 #import "MyDelegateDic.h"
 @interface NewAddRenterController ()<UITextFieldDelegate,MyDelegateDic>
@@ -251,18 +251,18 @@
     if (oneSectionRows == 5) {
         if (indexPath.row == 4&&indexPath.section == 0) {
 //            self.navigationController.navigationBar.hidden = YES;
-//            AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
-//            vc.delegate = self;
-//            vc.wayIn = @"SignRoom";
-//            [self.navigationController pushViewController:vc animated:YES];
+            AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
+            vc.delegate = self;
+            vc.wayIn = @"SignRoom";
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }else if (oneSectionRows == 4){
         if (indexPath.row == 3 && indexPath.section == 0 ) {
 //            self.navigationController.navigationBar.hidden = YES;
-//            AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
-//            vc.delegate = self;
-//            vc.wayIn = @"SignRoom";
-//            [self.navigationController pushViewController:vc animated:YES];
+            AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
+            vc.delegate = self;
+            vc.wayIn = @"SignRoom";
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }else if (oneSectionRows == 6){
         if(indexPath.section == 0 && indexPath.row == 5){

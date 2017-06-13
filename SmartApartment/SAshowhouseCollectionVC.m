@@ -280,14 +280,13 @@
         
         if ([model.houseStatus.stringValue isEqualToString:LOGINHOUSE]) {
             CheckSignRoomController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"CheckSignRoom"];
-            vc.houseID = model.houseID.stringValue;
-            vc.apartmentID = self.community.communityID;
-            vc.communityName = self.community.communityName;
+            vc.house = model;
+            vc.community = self.community;
             [self.navigationController pushViewController:vc animated:YES];
         }else if([model.houseStatus.stringValue isEqualToString:EMPTYHOUSE]){
             NewSignRoomController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"NewSignRoom"];
             vc.house =model;
-            vc.communityName = self.community.communityName;
+            vc.community = self.community;
             [self.navigationController pushViewController: vc animated:YES];
             //没签约
 //            RoomPayMsgController *vc = [[UIStoryboard storyboardWithName:@"ApartmentManager" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomPayMsg"];

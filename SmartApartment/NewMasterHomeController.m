@@ -241,6 +241,7 @@
     if ([[ModelTool find_UserData].memberType isEqualToString:@"master"]) {
         GetRoomListController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"GetRoomList"];
         vc.hidesBottomBarWhenPushed = YES;
+        vc.apartmentArr = self.communityArr;
         [self.navigationController pushViewController:vc animated:YES];
     }else{
         

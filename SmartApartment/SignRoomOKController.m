@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.roomAddress.text = [NSString stringWithFormat:@"%@ %@房",self.communityName,self.house.houseNum];
+    self.roomAddress.text = [NSString stringWithFormat:@"%@ %@房",self.community.communityName,self.house.houseNum];
     self.renterName.text = self.mainRenter;
     self.rentTimeLabel.text = self.rentTime;
 }
@@ -35,8 +35,8 @@
 }
 - (IBAction)checkDetail:(id)sender {
     CheckSignRoomController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"CheckSignRoom"];
-    vc.houseID = self.house.houseID.stringValue;
-    vc.communityName = self.communityName;
+    vc.house = self.house;
+    vc.community = self.community;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

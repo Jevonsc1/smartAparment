@@ -10,7 +10,7 @@
 #import "AccessCloseView.h"
 #import "AccessBtn.h"
 #import "ACCheckIDCardController.h"
-//#import "TDBindingICCardStartViewController.h"
+#import "TDBindingICCardStartViewController.h"
 @interface AccessManagerController ()<UITextFieldDelegate,UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *PhoneContentAutoTop;
@@ -357,12 +357,12 @@
 - (IBAction)ClickReOpen:(AccessBtn *)sender {
     
     if (acICCardStatus.intValue == 4) {
-//todo
-//        TDBindingICCardStartViewController* vc = [[TDBindingICCardStartViewController alloc]init];
-//        vc.navigationController.navigationBar.hidden = YES;
-//        vc.houseID = self.houseID;
-//        vc.memberID = self.memberID;
-//        [self.navigationController pushViewController:vc animated:YES];
+
+        TDBindingICCardStartViewController* vc = [[TDBindingICCardStartViewController alloc]init];
+        vc.navigationController.navigationBar.hidden = YES;
+        vc.houseID = _renter.houseID.stringValue;
+        vc.memberID = self.memberID;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }
@@ -440,6 +440,7 @@
 
 //1--IC卡，2--手机，3--身份证
 -(void)oneDayClick:(UIButton *)sender{
+    
     [self setTimeBtnStatus:sender];
     if (sender.tag == 1) {
         ICCardDayTime = @"1";
@@ -481,6 +482,7 @@
         PhoneDayTime = @"5";
         accessPhoneView.recoveryLabel.text = [NSString stringWithFormat:@"预计%@自动恢复该权限",time];
     }else{
+        
         IDCardDayTime = @"5";
         accessIDCardView.recoveryLabel.text = [NSString stringWithFormat:@"预计%@自动恢复该权限",time];
     }
@@ -1028,14 +1030,19 @@
         [Alert showFail:@"原因不能为空" View:self.navigationController.navigationBar andTime:1.5 complete:nil];
         return;
     }
-    
-    NSDictionary *dic = @{@"key":[ModelTool find_UserData].key,
-                          @"houseID":_renter.houseID,
-                          @"targetMemberID":_renter.renterMemberID,
-                          @"version":@"2.0",
-                          @"closeDayTime":IDCardDayTime,
-                          @"closeReason":idCardCloseReason};
-    [WebAPI closeRenterICCardAccess:dic callback:^(NSError *err, id response) {
+    if(!ICCardDayTime){
+        [MBProgressHUD showMessage:@"时间不能为空"];
+        return;
+    }
+    NSMutableDictionary* param = [NSMutableDictionary dictionary];
+    param[@"key"] = [ModelTool find_UserData].key;
+    param[@"houseID"] = _renter.houseID;
+    param[@"targetMemberID"] = _renter.renterMemberID;
+    param[@"version"] = @"2.0";
+    param[@"closeDayTime"] = ICCardDayTime;
+    param[@"closeReason"] = icCardCloseReason;
+
+    [WebAPI closeRenterICCardAccess:param callback:^(NSError *err, id response) {
 
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
             
@@ -1140,11 +1147,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
         if (acICCardStatus.intValue == 2) {
-//todo
-//            TDBindingICCardStartViewController* vc = [[TDBindingICCardStartViewController alloc]init];
-//            vc.houseID = self.houseID;
-//            vc.memberID = self.memberID;
-//            [self.navigationController pushViewController:vc animated:YES];
+            TDBindingICCardStartViewController* vc = [[TDBindingICCardStartViewController alloc]init];
+            vc.houseID = _renter.houseID.stringValue;
+            vc.memberID = self.memberID;
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
 }

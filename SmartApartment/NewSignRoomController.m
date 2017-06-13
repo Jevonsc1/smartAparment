@@ -17,7 +17,7 @@
 #import "SignRoomOKController.h"
 #import "IDCardCell.h"
 #import "CheckIDCardController.h"
-//#import "AuthtionFirstController.h"
+#import "AuthtionFirstController.h"
 #import "MyDelegateDic.h"
 @interface NewSignRoomController ()<MyDelegate,UITextFieldDelegate,MyDelegateDic>
 
@@ -161,18 +161,17 @@
         }
     }else if (oneSectionRows == 4){
         if (indexPath.row == 3 && indexPath.section == 0 ) {
-            self.navigationController.navigationBar.hidden = YES;
             
            
-//            AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
-//            vc.delegate = self;
-//            IDCardCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//            if (!cell.backImage.hidden &&!cell.frontImage.hidden) {
-//                vc.frontImage = cell.frontImage.image;
-//                vc.backImage = cell.backImage.image;
-//            }
-//            vc.wayIn = @"SignRoom";
-//            [self.navigationController pushViewController:vc animated:YES];
+            AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
+            vc.delegate = self;
+            IDCardCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell.backImage.hidden &&!cell.frontImage.hidden) {
+                vc.frontImage = cell.frontImage.image;
+                vc.backImage = cell.backImage.image;
+            }
+            vc.wayIn = @"SignRoom";
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }else if (oneSectionRows == 5){
          if(indexPath.section == 0 && indexPath.row == 4){
@@ -186,15 +185,15 @@
 //                //审核失败或未审核----跳转到重新上传
 //                self.navigationController.navigationBar.hidden = YES;
 //                
-//                AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
-//                IDCardCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//                if (!cell.backImage.hidden &&!cell.frontImage.hidden) {
-//                    vc.frontImage = cell.frontImage.image;
-//                    vc.backImage = cell.backImage.image;
-//                }
-//                vc.delegate = self;
-//                vc.wayIn = @"SignRoom";
-//                [self.navigationController pushViewController:vc animated:YES];
+                AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
+                IDCardCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                if (!cell.backImage.hidden &&!cell.frontImage.hidden) {
+                    vc.frontImage = cell.frontImage.image;
+                    vc.backImage = cell.backImage.image;
+                }
+                vc.delegate = self;
+                vc.wayIn = @"SignRoom";
+                [self.navigationController pushViewController:vc animated:YES];
                 
             }
         }
@@ -855,7 +854,7 @@
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
             SignRoomOKController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"SignRoomOK"];
             vc.house = self.house;
-            vc.communityName = self.communityName;
+            vc.community = self.community;
             vc.renterDic = renterMsg;
             vc.rentTime = rentTime;
             vc.renterStatus = renterStatus;

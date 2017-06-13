@@ -10,5 +10,5 @@
 #import "House.h"
 @interface NewSignRoomController : UITableViewController
 @property(nonatomic,strong)House *house;
-@property(nonatomic)NSString *communityName;
+@property(nonatomic,strong)Community *community;
 @end

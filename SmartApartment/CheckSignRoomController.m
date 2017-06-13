@@ -15,7 +15,7 @@
 #import "RenterAddPhoneController.h"
 #import "UIView+Extension.h"
 #import "IDCardCell.h"
-//#import "AuthtionFirstController.h"
+#import "AuthtionFirstController.h"
 #import "NewAddRenterController.h"
 #import "SelectRentDateController.h"
 #import "CheckIDCardController.h"
@@ -27,7 +27,6 @@
 
 @property(nonatomic,strong)Renter* mainRenter;
 
-@property(nonatomic,strong)House* house;
 
 @property(nonatomic,strong)Rent* rent;
 @end
@@ -102,7 +101,7 @@
 }
 
 -(void)loadRentData{
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",self.houseID,@"houseID",@"1",@"availableRentRecord", nil];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[ModelTool find_UserData].key,@"key",self.house.houseID,@"houseID",@"1",@"availableRentRecord", nil];
     [WebAPI getHouseInfo:dic callback:^(NSError *err, id response) {
         if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
             House* house =[House yy_modelWithDictionary:[response objectForKey:@"data"]];
@@ -272,7 +271,8 @@
         [cell.icon setImage:[UIImage imageNamed:@"sign_ok_icon2"]];
         cell.cellName.text = @"签约房间";
         if(self.rent){
-            cell.cellContent.text = [NSString stringWithFormat:@"%@ %@房",self.communityName,self.house.houseNum];
+            
+            cell.cellContent.text = [NSString stringWithFormat:@"%@ %@房",self.community.communityName,self.house.houseNum];
         }
         [cell.iconWidth setConstant:0];
         cell.cellContent.font = [UIFont systemFontOfSize:16*ratio];
@@ -643,6 +643,7 @@
              [self SaveEditRent];
         
     }else{
+        
         NewAddRenterController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"NewAddRenter"];
         vc.house = self.house;
         [self.navigationController pushViewController:vc animated:YES];
@@ -664,8 +665,6 @@
     NSString *rentStart = [NSString stringWithFormat:@"%@",[self timeStringTotimeData:rentArr[0]]];
     NSString *rentEnd = [NSString stringWithFormat:@"%@",[self timeStringTotimeData:rentArr[1]]];
     
-    NSLog(@"%@",payBillDay);
-    NSLog(@"%@",self.houseID);
     //
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"userKey"],@"key",rentStart,@"rentTime",rentEnd,@"rentDueTime",payBillDay,@"payDateMonth",rentMoney,@"monthRent",rentDeposit,@"rentDeposit",startWater,@"initWater",startDian,@"initElectric",unitWater,@"waterUnitPrice",unitDina,@"electricUnitPrice",otherMoney,@"otherChargePrice",outPayDay,@"rentGraceDay",nil];
     NSString *rentRecordData = [self dictionaryToJson:dic];
@@ -705,9 +704,8 @@
         [WebAPI finishRentRecord:dic callback:^(NSError *err, id response) {
             if (!err && [NSString stringWithFormat:@"%@",[response objectForKey:@"rcode"]].integerValue == 10000) {
                 [Alert showFail:@"终止合同成功！" View:self.navigationController.navigationBar andTime:2 complete:^(BOOL isComplete) {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"getApartmentList" object:self.apartmentID];
-                    
-//                    [PopHome popToController:@"GetRoomListController" andVC:self];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"getApartmentList" object:self.community.communityID];
+                    [self.navigationController popViewControllerAnimated:YES];
                 }];
             }else{
                 RequestBad
@@ -729,7 +727,6 @@
         vc.delegate = self;
         RoomOtherCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         vc.rentTime = cell.cellContent.text;
-        NSLog(@"%@",vc.rentTime);
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (indexPath.section == 0 &&indexPath.row == 1) {
@@ -743,15 +740,15 @@
         }else{
 //            //审核失败或未审核----跳转到重新上传
 ////            self.navigationController.navigationBar.hidden = YES;
-//            AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
-//            vc.delegate = self;
-//            IDCardCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//            if (!cell.backImage.hidden &&!cell.frontImage.hidden) {
-//                vc.frontImage = cell.frontImage.image;
-//                vc.backImage = cell.backImage.image;
-//            }
-//            vc.wayIn = @"SignRoom";
-//            [self.navigationController pushViewController:vc animated:YES];
+            AuthtionFirstController *vc = [[UIStoryboard storyboardWithName:@"IDAuthtion" bundle:nil] instantiateViewControllerWithIdentifier:@"AuthtionFirstController"];
+            vc.delegate = self;
+            IDCardCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell.backImage.hidden &&!cell.frontImage.hidden) {
+                vc.frontImage = cell.frontImage.image;
+                vc.backImage = cell.backImage.image;
+            }
+            vc.wayIn = @"SignRoom";
+            [self.navigationController pushViewController:vc animated:YES];
             
         }
     }

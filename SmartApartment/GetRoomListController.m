@@ -90,15 +90,13 @@
         if ([cell.roomStatus.text isEqualToString:@"空置"]) {
             NewSignRoomController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"NewSignRoom"];
             vc.house =house;
-            vc.communityName = self.apartmentName.text;
+            vc.community = self.currentAparment;
             [self.navigationController pushViewController: vc animated:YES];
         }else{
             CheckSignRoomController *vc = [[UIStoryboard storyboardWithName:@"SignRoom" bundle:nil] instantiateViewControllerWithIdentifier:@"CheckSignRoom"];
-            vc.houseID = house.houseID.stringValue;
+            vc.house = house;
             vc.delegate = self;
-            vc.communityName = self.apartmentName.text;
-            CommunityRelation* communityRelation = house.communityRelationInfo[0];
-            vc.apartmentID = communityRelation.houseCommunityID.stringValue;
+            vc.community = self.currentAparment;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
